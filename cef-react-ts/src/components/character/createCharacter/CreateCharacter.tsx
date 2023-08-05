@@ -15,6 +15,7 @@ import Hair from "./Steps/Hair";
 import SkinFeatures from "./Steps/SkinFeatures";
 import Clothes from "./Steps/Clothes";
 import Finish from "./Steps/Finish";
+import CreateCharacterContextProvider from "./context/CreateCharacterContextProvider";
 
 
 
@@ -59,19 +60,21 @@ const CreateCharacter: React.FC = () => {
 
 
     return (
-        <Space direction={"vertical"} style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height}}>
-            <Card>
-                <Space style={{justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-                    <Steps style={{width: Config.screenResolution.width - 400}} items={steps} current={current}/>
-                    <Space>
-                        {current === steps.length - 1 && <Button type="primary" size={"large"} onClick={handleClickFinish}>Создать</Button>}
-                        {current < steps.length - 1 && <Button type="primary" onClick={()=>setCurrent(prev=>prev+1)} size={"large"}>Дальше</Button>}
-                        {current > 0 && <Button onClick={()=>setCurrent(prev=>prev-1)} size={"large"}>Назад</Button>}
+        <CreateCharacterContextProvider>
+            <Space direction={"vertical"} style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height}}>
+                <Card>
+                    <Space style={{justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
+                        <Steps style={{width: Config.screenResolution.width - 400}} items={steps} current={current}/>
+                        <Space>
+                            {current === steps.length - 1 && <Button type="primary" size={"large"} onClick={handleClickFinish}>Создать</Button>}
+                            {current < steps.length - 1 && <Button type="primary" onClick={()=>setCurrent(prev=>prev+1)} size={"large"}>Дальше</Button>}
+                            {current > 0 && <Button onClick={()=>setCurrent(prev=>prev-1)} size={"large"}>Назад</Button>}
+                        </Space>
                     </Space>
-                </Space>
-            </Card>
-            {steps[current].content}
-        </Space>
+                </Card>
+                {steps[current].content}
+            </Space>
+        </CreateCharacterContextProvider>
     );
 };
 
