@@ -1,36 +1,44 @@
-import React, {useEffect, useState} from 'react';
+import React, {ReactEventHandler, useEffect, useState} from 'react';
 import {Card, Segmented, Space} from "antd";
 import {Config} from "../../../../conf";
 
 
 
 
-type Gen = {
+type GenType = {
     id: number,
-    pathToFace: string
+    pathToFace: string,
+    active: boolean
 }
 
 
 const Genetics: React.FC = () => {
     const [currentGen,setCurrentGen] = useState<string | number>('Ген 1');
-    const [gens1List,setGens1List] = useState<Gen[]>([]);
-    const [gens2List,setGens2List] = useState<Gen[]>([]);
+    const [gens1List,setGens1List] = useState<GenType[]>([]);
+    const [gens2List,setGens2List] = useState<GenType[]>([]);
 
-    const [currentSelectedGen1,setCurrentSelectedGen1] = useState<Gen>()
-    const [currentSelectedGen2,setCurrentSelectedGen2] = useState<Gen>()
+    const [currentSelectedGen1,setCurrentSelectedGen1] = useState<GenType>()
+    const [currentSelectedGen2,setCurrentSelectedGen2] = useState<GenType>()
 
     useEffect(()=>{
-        let gens1: Gen[] = [];
-        let gens2: Gen[] = [];
+        let gens1: GenType[] = [];
+        let gens2: GenType[] = [];
         for(let i: number = 1; i <= 24; i++){
-            gens1 = [...gens1,{id: i, pathToFace: `${i}.png`}];
+            gens1 = [...gens1,{id: i, pathToFace: `${i}.png`, active: false}];
         }
         for(let i: number = 1; i <= 22; i++){
-            gens2 = [...gens2,{id: i, pathToFace: `${i}.png`}];
+            gens2 = [...gens2,{id: i, pathToFace: `${i}.png`, active: false}];
         }
         setGens1List(gens1);
         setGens2List(gens2);
     },[])
+
+    const handleChangeFirstGen = (gen: GenType) =>{
+        setCurrentSelectedGen1(gen);
+    }
+    const handleChangeSecondGen = (gen: GenType) =>{
+        setCurrentSelectedGen2(gen);
+    }
 
     return (
         <Space align={"start"} direction={"horizontal"} style={{justifyContent: 'space-between', width: Config.screenResolution.width}}>
@@ -41,14 +49,28 @@ const Genetics: React.FC = () => {
                         {currentGen === 'Ген 1' &&
                             <Space wrap style={{width: 300, height: 'auto'}}>
                                 {gens1List.map(gen=>
-                                    <img src={require('../../../../assets/images/faces/male/' + gen.pathToFace)} width={69} height={70} alt={gen.id.toString()} key={gen.id}></img>
+                                    <img src={require('../../../../assets/images/faces/male/' + gen.pathToFace)}
+                                         width={67}
+                                         height={70}
+                                         alt={gen.id.toString()}
+                                         key={gen.id}
+                                         style={{border: gen === currentSelectedGen1 ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
+                                         onClick={()=>handleChangeFirstGen(gen)}
+                                    />
                                 )}
                             </Space>
                         }
                         {currentGen === 'Ген 2' &&
                             <Space wrap style={{width: 300, height: 'auto'}}>
                                 {gens2List.map(gen=>
-                                    <img src={require('../../../../assets/images/faces/female/' + gen.pathToFace)}  width={69} height={70} alt={gen.id.toString()}></img>
+                                    <img src={require('../../../../assets/images/faces/female/' + gen.pathToFace)}
+                                         width={67}
+                                         height={70}
+                                         alt={gen.id.toString()}
+                                         key={gen.id}
+                                         style={{border: gen === currentSelectedGen2 ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
+                                         onClick={()=>handleChangeSecondGen(gen)}
+                                    />
                                 )}
                             </Space>
                         }
