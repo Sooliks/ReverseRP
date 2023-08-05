@@ -1,0 +1,158 @@
+Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 04.08.2023 21:11:14
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.Login..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.Registration..
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 2 server events(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 2 remote event(s)
+Server started!
+-> Error starting 'ReverseRP'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   at Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)+(Exception ex) => { }
+   at void AggregateException.Handle(Func<Exception, bool> predicate)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void MySql.Data.MInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 05.08.2023 0:16:33
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.Login..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.Registration..
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 2 server events(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 2 remote event(s)
+Server started!
+info: 05.08.2023 00:16:34.282 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+              FROM information_schema.tables
+              WHERE table_type = 'BASE TABLE' AND table_schema = 'reverserp'
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+info: 05.08.2023 00:18:35.659 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+              FROM information_schema.tables
+              WHERE table_type = 'BASE TABLE' AND table_schema = 'reverserp'
+info: 05.08.2023 00:18:35.914 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__socialClubId_0='196994913'], CommandType='Text', CommandTimeout='30']
+      SELECT `a`.`Id`, `a`.`Email`, `a`.`Ip`, `a`.`IsBanned`, `a`.`Login`, `a`.`Password`, `a`.`SocialClubId`
+      FROM `Account` AS `a`
+      WHERE `a`.`SocialClubId` = @__socialClubId_0
+      LIMIT 1
+info: 05.08.2023 00:18:36.013 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+              FROM information_schema.tables
+              WHERE table_type = 'BASE TABLE' AND table_schema = 'reverserp'
+info: 05.08.2023 00:18:36.028 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__login_0='hffhfh' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+      SELECT `a`.`Id`, `a`.`Email`, `a`.`Ip`, `a`.`IsBanned`, `a`.`Login`, `a`.`Password`, `a`.`SocialClubId`
+      FROM `Account` AS `a`
+      WHERE `a`.`Login` = @__login_0
+      LIMIT 2
+info: 05.08.2023 00:19:28.495 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+              FROM information_schema.tables
+              WHERE table_type = 'BASE TABLE' AND table_schema = 'reverserp'
+info: 05.08.2023 00:19:28.503 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@__socialClubId_0='196994913'], CommandType='Text', CommandTimeout='30']
+      SELECT `a`.`Id`, `a`.`Email`, `a`.`Ip`, `a`.`IsBanned`, `a`.`Login`, `a`.`Password`, `a`.`SocialClubId`
+      FROM `Account` AS `a`
+      WHERE `a`.`SocialClubId` = @__socialClubId_0
+      LIMIT 1
+info: 05.08.2023 00:19:28.508 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+              FROM information_schema.tables
+              WHERE table_type = 'BASE TABLE' AND table_schema = 'reverserp'
+info: 05.08.2023 00:19:28.511 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__login_0='hffhfh' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+      SELECT `a`.`Id`, `a`.`Email`, `a`.`Ip`, `a`.`IsBanned`, `a`.`Login`, `a`.`Password`, `a`.`SocialClubId`
+      FROM `Account` AS `a`
+      WHERE `a`.`Login` = @__login_0
+      LIMIT 2
+info: 05.08.2023 00:19:29.153 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+              FROM information_schema.tables
+              WHERE table_type = 'BASE TABLE' AND table_schema = 'reverserp'
+info: 05.08.2023 00:19:29.163 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@__socialClubId_0='196994913'], CommandType='Text', CommandTimeout='30']
+      SELECT `a`.`Id`, `a`.`Email`, `a`.`Ip`, `a`.`IsBanned`, `a`.`Login`, `a`.`Password`, `a`.`SocialClubId`
+      FROM `Account` AS `a`
+      WHERE `a`.`SocialClubId` = @__socialClubId_0
+      LIMIT 1
+info: 05.08.2023 00:19:29.167 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+              FROM information_schema.tables
+              WHERE table_type = 'BASE TABLE' AND table_schema = 'reverserp'
+info: 05.08.2023 00:19:29.169 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@__login_0='hffhfh' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+      SELECT `a`.`Id`, `a`.`Email`, `a`.`Ip`, `a`.`IsBanned`, `a`.`Login`, `a`.`Password`, `a`.`SocialClubId`
+      FROM `Account` AS `a`
+      WHERE `a`.`Login` = @__login_0
+      LIMIT 2
+info: 05.08.2023 00:19:34.623 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+              FROM information_schema.tables
+              WHERE table_type = 'BASE TABLE' AND table_schema = 'reverserp'
+info: 05.08.2023 00:19:34.628 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@__socialClubId_0='196994913'], CommandType='Text', CommandTimeout='30']
+      SELECT `a`.`Id`, `a`.`Email`, `a`.`Ip`, `a`.`IsBanned`, `a`.`Login`, `a`.`Password`, `a`.`SocialClubId`
+      FROM `Account` AS `a`
+      WHERE `a`.`SocialClubId` = @__socialClubId_0
+      LIMIT 1
+info: 05.08.2023 00:19:34.632 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+              FROM information_schema.tables
+              WHERE table_type = 'BASE TABLE' AND table_schema = 'reverserp'
+info: 05.08.2023 00:19:34.635 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@__login_0='jfjjf' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+      SELECT `a`.`Id`, `a`.`Email`, `a`.`Ip`, `a`.`IsBanned`, `a`.`Login`, `a`.`Password`, `a`.`SocialClubId`
+      FROM `Account` AS `a`
+      WHERE `a`.`Login` = @__login_0
+      LIMIT 2
+info: 05.08.2023 00:22:38.310 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0

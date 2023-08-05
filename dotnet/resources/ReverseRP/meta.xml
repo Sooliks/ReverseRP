@@ -1,0 +1,4 @@
+<meta>
+    <info name="ReverseRP" description="New GTA 5 RP project" />
+    <script src="ServerSide\bin\x64\Debug\netcoreapp3.1\ServerSide.dll"/>
+</meta>
