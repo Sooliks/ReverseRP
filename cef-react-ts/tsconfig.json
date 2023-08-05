@@ -19,11 +19,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["./node_modules/@ragempcommunity/types-cef", "node"],
-    "typeRoots": ["node_modules/@types", "src/modules.d.ts"]
+    "types": ["./node_modules/@ragempcommunity/types-cef", "node", "./src/types"],
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": [
     "src",
-    "modules.d.ts"
+    "src/types/modules.d.ts"
   ]
 }

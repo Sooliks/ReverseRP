@@ -4,7 +4,8 @@ import {Config} from "../../../../conf";
 
 
 
-type GenList = {
+
+type Gen = {
     id: number,
     pathToFace: string
 }
@@ -12,17 +13,20 @@ type GenList = {
 
 const Genetics: React.FC = () => {
     const [currentGen,setCurrentGen] = useState<string | number>('Ген 1');
-    const [gens1List,setGens1List] = useState<GenList[]>([]);
-    const [gens2List,setGens2List] = useState<GenList[]>([]);
+    const [gens1List,setGens1List] = useState<Gen[]>([]);
+    const [gens2List,setGens2List] = useState<Gen[]>([]);
+
+    const [currentSelectedGen1,setCurrentSelectedGen1] = useState<Gen>()
+    const [currentSelectedGen2,setCurrentSelectedGen2] = useState<Gen>()
 
     useEffect(()=>{
-        let gens1: GenList[] = [];
-        let gens2: GenList[] = [];
+        let gens1: Gen[] = [];
+        let gens2: Gen[] = [];
         for(let i: number = 1; i <= 24; i++){
-            gens1 = [...gens1,{id: i, pathToFace: `../../../../assets/images/faces/male/${i}.png`}];
+            gens1 = [...gens1,{id: i, pathToFace: `${i}.png`}];
         }
         for(let i: number = 1; i <= 22; i++){
-            gens2 = [...gens2,{id: i, pathToFace: `../../../../assets/images/faces/female/${i}.png`}];
+            gens2 = [...gens2,{id: i, pathToFace: `${i}.png`}];
         }
         setGens1List(gens1);
         setGens2List(gens2);
@@ -32,19 +36,19 @@ const Genetics: React.FC = () => {
         <Space align={"start"} direction={"horizontal"} style={{justifyContent: 'space-between', width: Config.screenResolution.width}}>
             <Space>
                 <Card>
-                    <Space style={{width: 320, flexDirection: 'column', alignItems: 'center'}}>
+                    <Space direction={"vertical"} align={"center"}>
                         <Segmented options={['Ген 1', 'Ген 2']} onChange={(v)=>setCurrentGen(v)}/>
                         {currentGen === 'Ген 1' &&
-                            <Space wrap style={{width: 330, height: 'auto'}}>
+                            <Space wrap style={{width: 300, height: 'auto'}}>
                                 {gens1List.map(gen=>
-                                    <img src={gen.pathToFace} alt={gen.id.toString()} key={gen.id} style={{width: 30, height: 30}}></img>
+                                    <img src={require('../../../../assets/images/faces/male/' + gen.pathToFace)} width={69} height={70} alt={gen.id.toString()} key={gen.id}></img>
                                 )}
                             </Space>
                         }
                         {currentGen === 'Ген 2' &&
-                            <Space wrap style={{width: 330, height: 'auto'}}>
+                            <Space wrap style={{width: 300, height: 'auto'}}>
                                 {gens2List.map(gen=>
-                                    <img src={gen.pathToFace} alt={gen.id.toString()} key={gen.id} style={{width: 30, height: 30}}></img>
+                                    <img src={require('../../../../assets/images/faces/female/' + gen.pathToFace)}  width={69} height={70} alt={gen.id.toString()}></img>
                                 )}
                             </Space>
                         }
