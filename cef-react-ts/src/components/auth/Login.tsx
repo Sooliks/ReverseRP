@@ -2,8 +2,7 @@ import React from 'react';
 import {Button, Checkbox, Form, Input, notification, Typography} from "antd";
 import {LockOutlined, UserOutlined} from "@ant-design/icons";
 import {Client} from "../../requests/Client";
-import {useNavigationContext} from "../../context/NavigationContextProvider";
-import hud from "../hud/Hud";
+
 
 const { Link } = Typography;
 
@@ -13,11 +12,11 @@ const Login : React.FC = () => {
         Client.triggerServer("CEF::SERVER::ON_FINISH_LOGIN",values.login,values.password, values.remember)
     };
     try {
-        mp.events.add("SERVER::CEF::ERROR_LOGIN", (text) => {
-            console.log(text+" LOOOOOOOOOOOG");
+        mp.events.add("SERVER::CEF::ERROR_LOGIN", (args) => {
+            args = JSON.parse(args);
             notification.error({
                 message: "Уведомление",
-                description: text,
+                description: args[0],
                 placement: "top"
             })
         })

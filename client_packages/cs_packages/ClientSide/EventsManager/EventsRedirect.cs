@@ -23,7 +23,7 @@ namespace ClientSide.EventsManager
         {
             string nameCefEvent = (string)args[0];
             args = args.Where(e => e != nameCefEvent).ToArray();
-            CEF.Main.MainCefWindow.Call(nameCefEvent, args[0]);
+            CEF.Main.MainCefWindow.Call(nameCefEvent, args);
         }
     }
 }

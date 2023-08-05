@@ -14,11 +14,9 @@ const root = ReactDOM.createRoot(
 
 
 root.render(
-  <React.StrictMode>
-      <ConfigProvider componentSize={"large"}>
-        <App />
-      </ConfigProvider>
-  </React.StrictMode>
+  <ConfigProvider componentSize={"middle"}>
+    <App />
+  </ConfigProvider>
 );
 
 

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button, Card, message, Space, Steps, theme} from "antd";
 import {Config} from "../../../conf";
 import {
+    CheckOutlined,
     DeploymentUnitOutlined,
     HighlightOutlined,
     ScissorOutlined,
@@ -13,10 +14,11 @@ import Face from "./Steps/Face";
 import Hair from "./Steps/Hair";
 import SkinFeatures from "./Steps/SkinFeatures";
 import Clothes from "./Steps/Clothes";
+import Finish from "./Steps/Finish";
 
 
 
-const CreateCharacter : React.FC = () => {
+const CreateCharacter: React.FC = () => {
     const steps = [
         {
             title: 'Генетика',
@@ -43,25 +45,32 @@ const CreateCharacter : React.FC = () => {
             content: <Clothes/>,
             icon: <SkinOutlined />
         },
+        {
+            title: '',
+            content: <Finish/>,
+            icon: <CheckOutlined />
+        },
     ];
     const [current,setCurrent] = useState<number>(0)
+
+    const handleClickFinish = () => {
+
+    }
 
 
     return (
         <Space direction={"vertical"} style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height}}>
             <Card>
-                <Space style={{justifyContent: 'space-between', width: '100%', alignItems: 'center'}}>
-                    <Steps style={{width: 1550}} items={steps} current={current}/>
+                <Space style={{justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
+                    <Steps style={{width: Config.screenResolution.width - 400}} items={steps} current={current}/>
                     <Space>
-                        {current < steps.length - 1 && <Button type="primary" onClick={()=>setCurrent(prev=>prev+1)}>Дальше</Button>}
-                        {current > 0 && <Button onClick={()=>setCurrent(prev=>prev-1)}>Назад</Button>}
+                        {current === steps.length - 1 && <Button type="primary" size={"large"} onClick={handleClickFinish}>Создать</Button>}
+                        {current < steps.length - 1 && <Button type="primary" onClick={()=>setCurrent(prev=>prev+1)} size={"large"}>Дальше</Button>}
+                        {current > 0 && <Button onClick={()=>setCurrent(prev=>prev-1)} size={"large"}>Назад</Button>}
                     </Space>
                 </Space>
             </Card>
-
-            <Card style={{width:330}}>
-                {steps[current].content}
-            </Card>
+            {steps[current].content}
         </Space>
     );
 };
