@@ -17,8 +17,12 @@ const Genetics: React.FC = () => {
     const [gens1List,setGens1List] = useState<GenType[]>([]);
     const [gens2List,setGens2List] = useState<GenType[]>([]);
 
-    const [currentSelectedGen1,setCurrentSelectedGen1] = useState<GenType>()
-    const [currentSelectedGen2,setCurrentSelectedGen2] = useState<GenType>()
+    const [currentSelectedGen1,setCurrentSelectedGen1] = useState<GenType>({
+        id: 1, active: false, pathToFace: '1.png'
+    })
+    const [currentSelectedGen2,setCurrentSelectedGen2] = useState<GenType>({
+        id: 1, active: false, pathToFace: '1.png'
+    })
 
     useEffect(()=>{
         let gens1: GenType[] = [];
@@ -78,8 +82,23 @@ const Genetics: React.FC = () => {
                 </Card>
             </Space>
             <Space>
-                <Card style={{width: 350}}>
-
+                <Card>
+                    <Space direction={"vertical"} style={{width: 300}}>
+                        <Space direction={"horizontal"} style={{justifyContent: 'center', width: 300}}>
+                            <img
+                                width={100}
+                                height={100}
+                                src={require('../../../../assets/images/faces/male/' + currentSelectedGen1.pathToFace)}
+                                alt={currentSelectedGen1.id.toString()}
+                            />
+                            <img
+                                width={100}
+                                height={100}
+                                src={require('../../../../assets/images/faces/female/' + currentSelectedGen2.pathToFace)}
+                                alt={currentSelectedGen2.id.toString()}
+                            />
+                        </Space>
+                    </Space>
                 </Card>
             </Space>
         </Space>
