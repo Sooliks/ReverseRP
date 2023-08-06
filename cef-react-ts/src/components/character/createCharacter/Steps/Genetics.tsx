@@ -1,10 +1,11 @@
-import React, {ReactEventHandler, useEffect, useState} from 'react';
-import {Card, Segmented, Slider, Space, Typography} from "antd";
+import React, {useEffect, useState} from 'react';
+import {Button, Card, Segmented, Space, Typography} from "antd";
 import {Config} from "../../../../conf";
 import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
 import CustomSlider from "../ui/CustomSlider";
+import {ManOutlined, WomanOutlined} from "@ant-design/icons";
 
-const {Text} = Typography;
+const {Title } = Typography;
 
 
 type GenType = {
@@ -27,10 +28,10 @@ const Genetics: React.FC = () => {
     useEffect(()=>{
         let gens1: GenType[] = [];
         let gens2: GenType[] = [];
-        for(let i: number = 1; i <= 24; i++){
+        for(let i: number = 1; i <= 22; i++){
             gens1 = [...gens1,{id: i, pathToFace: `${i}.png`, active: false}];
         }
-        for(let i: number = 1; i <= 22; i++){
+        for(let i: number = 1; i <= 24; i++){
             gens2 = [...gens2,{id: i, pathToFace: `${i}.png`, active: false}];
         }
         setGens1List(gens1);
@@ -68,7 +69,7 @@ const Genetics: React.FC = () => {
                         {currentGen === 'Ген 1' &&
                             <Space wrap style={{width: 300, height: 'auto'}}>
                                 {gens1List.map(gen=>
-                                    <img src={require('../../../../assets/images/faces/male/' + gen.pathToFace)}
+                                    <img src={require('../../../../assets/images/faces/female/' + gen.pathToFace)}
                                          width={67}
                                          height={70}
                                          alt={gen.id.toString()}
@@ -82,7 +83,7 @@ const Genetics: React.FC = () => {
                         {currentGen === 'Ген 2' &&
                             <Space wrap style={{width: 300, height: 'auto'}}>
                                 {gens2List.map(gen=>
-                                    <img src={require('../../../../assets/images/faces/female/' + gen.pathToFace)}
+                                    <img src={require('../../../../assets/images/faces/male/' + gen.pathToFace)}
                                          width={67}
                                          height={70}
                                          alt={gen.id.toString()}
@@ -93,6 +94,13 @@ const Genetics: React.FC = () => {
                                 )}
                             </Space>
                         }
+                        <Space direction={"vertical"} align={"center"}>
+                            <Title level={4}>Выберите пол</Title>
+                            <Space>
+                                <Button onClick={()=>characterContext.setCharacter({...characterContext.character, gender: 'мужской'})} icon={<ManOutlined size={200}/>} type={characterContext.character.gender === 'мужской' ? 'primary' : undefined}/>
+                                <Button onClick={()=>characterContext.setCharacter({...characterContext.character, gender: 'женский'})} icon={<WomanOutlined size={200}/>} type={characterContext.character.gender === 'женский' ? 'primary' : undefined}/>
+                            </Space>
+                        </Space>
                     </Space>
                 </Card>
             </Space>
@@ -103,13 +111,13 @@ const Genetics: React.FC = () => {
                             <img
                                 width={100}
                                 height={100}
-                                src={require('../../../../assets/images/faces/male/' + currentSelectedGen1.pathToFace)}
+                                src={require('../../../../assets/images/faces/female/' + currentSelectedGen1.pathToFace)}
                                 alt={currentSelectedGen1.id.toString()}
                             />
                             <img
                                 width={100}
                                 height={100}
-                                src={require('../../../../assets/images/faces/female/' + currentSelectedGen2.pathToFace)}
+                                src={require('../../../../assets/images/faces/male/' + currentSelectedGen2.pathToFace)}
                                 alt={currentSelectedGen2.id.toString()}
                             />
                         </Space>

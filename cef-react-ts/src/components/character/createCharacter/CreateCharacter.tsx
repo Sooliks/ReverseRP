@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {Button, Card, message, Space, Steps, theme} from "antd";
+import React, {useState} from 'react';
+import {Button, Card, Space, Steps} from "antd";
 import {Config} from "../../../conf";
 import {
-    CheckOutlined,
     DeploymentUnitOutlined,
     HighlightOutlined,
     ScissorOutlined,
@@ -14,7 +13,6 @@ import Face from "./Steps/Face";
 import Hair from "./Steps/Hair";
 import SkinFeatures from "./Steps/SkinFeatures";
 import Clothes from "./Steps/Clothes";
-import Finish from "./Steps/Finish";
 import CreateCharacterContextProvider from "./context/CreateCharacterContextProvider";
 
 
@@ -45,11 +43,6 @@ const CreateCharacter: React.FC = () => {
             title: 'Одежда',
             content: <Clothes/>,
             icon: <SkinOutlined />
-        },
-        {
-            title: '',
-            content: <Finish/>,
-            icon: <CheckOutlined />
         },
     ];
     const [current,setCurrent] = useState<number>(0)
