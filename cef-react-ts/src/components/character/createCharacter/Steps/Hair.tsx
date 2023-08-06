@@ -1,9 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Config} from "../../../../conf";
-import {Card, Segmented, Space} from "antd";
+import {Button, Card, Segmented, Space, Typography} from "antd";
+import {useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
+
+
+const {Title } = Typography;
+
+
 
 const Hair : React.FC = () => {
-
+    const characterContext = useCreateCharacterContext()
     const hairStyleColors: string[] = [
         '#1c1f21', '#272a2c', '#312e2c', '#35261c',
         '#4b321f', '#5c3b24', '#6d4c35', '#6b503b',
@@ -22,24 +28,76 @@ const Hair : React.FC = () => {
         '#291f19', '#2e221b', '#37291e', '#2e2218',
         '#231b15', '#020202', '#706c66', '#9d7a50',
     ]
-    const [currentHair,setCurrentHair] = useState<string | number>('Прическа')
+    const [current,setCurrent] = useState<string | number>('Прическа')
+
+    const[hairsMan,setHairsMan] = useState<Array<number>>([])
+    const[hairsWomen,setHairsWomen] = useState<Array<number>>([])
+
+    useEffect(()=>{
+        let newHairsMan: any[] = [];
+        let newHairsWomen: any[] = [];
+        for(let i: number = 1; i <= 36; i++){
+            if(i===23)continue;
+            newHairsMan = [...newHairsMan,i];
+        }
+        for(let i: number = 1; i <= 38; i++){
+            if(i===24)continue;
+            newHairsWomen = [...newHairsWomen,i];
+        }
+        setHairsMan(newHairsMan);
+        setHairsWomen(newHairsWomen);
+    },[])
+
+
 
     return (
         <Space align={"start"} direction={"horizontal"} style={{justifyContent: 'space-between', width: Config.screenResolution.width}}>
             <Space>
                 <Card>
-                    <Space direction={"vertical"} style={{width: 300, height: 600, overflowY: 'auto'}} align={"center"}>
-                        <Segmented options={['Прическа', 'Борода', 'Брови']} onChange={(v)=>setCurrentHair(v)}/>
-
+                    <Space direction={"vertical"} style={{width: 300, overflowY: 'auto'}} align={"center"}>
+                        <Segmented options={characterContext.character.gender === 'мужской' ? ['Прическа', 'Борода', 'Брови'] : ['Прическа', 'Макияж', 'Брови']} onChange={(v)=>setCurrent(v)}/>
+                        {current === 'Прическа' &&
+                            <Space wrap style={{width: 300, height: 'auto'}}>
+                                {characterContext.character.gender === 'мужской' &&
+                                    hairsMan.map((hair)=>
+                                        <img src={require('../../../../assets/images/hairs/male/' + 'Clothing_M_2_' + hair + '.jpg')}
+                                             width={67}
+                                             height={70}
+                                             alt={hair.toString()}
+                                             key={hair}
+                                             //style={{border: gen.id === currentSelectedGen1.id ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
+                                             //onClick={()=>handleChangeFirstGen(gen)}
+                                        />
+                                    )
+                                }
+                                {characterContext.character.gender === 'женский' &&
+                                    hairsWomen.map((hair)=>
+                                        <img src={require('../../../../assets/images/hairs/female/' + 'Clothing_F_2_' + hair + '.jpg')}
+                                             width={67}
+                                             height={70}
+                                             alt={hair.toString()}
+                                             key={hair}
+                                            //style={{border: gen.id === currentSelectedGen1.id ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
+                                            //onClick={()=>handleChangeFirstGen(gen)}
+                                        />
+                                    )
+                                }
+                            </Space>
+                        }
                     </Space>
                 </Card>
             </Space>
             <Space>
                 <Card>
-                    <Space wrap direction={"horizontal"} style={{width: 300, height: 600}}>
-                        {hairStyleColors.map(color=>
-                            <div style={{width: 30, height: 30, backgroundColor: color}}></div>
-                        )}
+                    <Space direction={"vertical"} align={"center"}>
+                        <Title style={{textAlign: 'center'}} level={4}>Выберите цвет</Title>
+                        <Space direction={"horizontal"} style={{width: 300}} align={"center"}>
+                            <Space wrap style={{margin:10}}>
+                                {hairStyleColors.map(color=>
+                                    <Button style={{width: 40, height: 40, backgroundColor: color}}/>
+                                )}
+                            </Space>
+                        </Space>
                     </Space>
                 </Card>
             </Space>
