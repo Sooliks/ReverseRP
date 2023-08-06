@@ -56,10 +56,11 @@ const Face: React.FC = () => {
                                     newCharacter.faceFeatures[face.id] = value;
                                     characterContext.setCharacter(newCharacter);
                                 }}
-                                min={-10}
-                                max={10}
-                                defaultValue={0}
+                                min={-1}
+                                max={1}
+                                defaultValue={characterContext.character.faceFeatures[face.id]}
                                 style={{width:260}}
+                                step={0.1}
                             />
                         )}
                     </Space>
