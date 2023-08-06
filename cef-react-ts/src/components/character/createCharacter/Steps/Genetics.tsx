@@ -2,6 +2,7 @@ import React, {ReactEventHandler, useEffect, useState} from 'react';
 import {Card, Segmented, Slider, Space, Typography} from "antd";
 import {Config} from "../../../../conf";
 import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
+import CustomSlider from "../ui/CustomSlider";
 
 const {Text} = Typography;
 
@@ -113,8 +114,8 @@ const Genetics: React.FC = () => {
                             />
                         </Space>
                         <Space direction={"vertical"} style={{justifyContent: 'center', width: 300}}>
-                            <Text style={{textAlign: 'center'}}>Схожесть</Text>
-                            <Slider
+                            <CustomSlider
+                                text={"Схожесть"}
                                 defaultValue={characterContext.character.blendData[2]}
                                 max={1}
                                 min={0}
@@ -125,9 +126,10 @@ const Genetics: React.FC = () => {
                                     newCharacter.blendData[2] = value;
                                     characterContext.setCharacter(newCharacter);
                                 }}
+                                style={{width: 300}}
                             />
-                            <Text>Цвет кожи</Text>
-                            <Slider
+                            <CustomSlider
+                                text={"Цвет кожи"}
                                 defaultValue={characterContext.character.blendData[3]}
                                 max={1}
                                 min={0}
@@ -138,6 +140,7 @@ const Genetics: React.FC = () => {
                                     newCharacter.blendData[3] = value;
                                     characterContext.setCharacter(newCharacter);
                                 }}
+                                style={{width: 300}}
                             />
                         </Space>
                     </Space>

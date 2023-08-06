@@ -47,7 +47,7 @@ const NavigationContextProvider = ({children}: CreateCharacterContextProviderPro
         torso: 0,
         clothing: [0, 0, 0, 0],
         headOverlays: [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
-        headOverlaysColors: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        headOverlaysColors: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         eyeColor: 0,
         eyeBrowColor: 0,
     });

@@ -15,7 +15,7 @@ type CustomSliderType = {
 }
 
 
-const CustomSlider: React.FC<CustomSliderType> = ({text,onChange, min, max, style, step, tooltipVisible, defaultValue}) => {
+const CustomSlider: React.FC<CustomSliderType> = ({text,onChange, min, max, style, step, tooltipVisible , defaultValue}) => {
     return (
         <Space direction={"vertical"} style={{...style, margin: 10}}>
             <Text>{text}</Text>
@@ -24,7 +24,7 @@ const CustomSlider: React.FC<CustomSliderType> = ({text,onChange, min, max, styl
                 min={min}
                 max={max}
                 step={step}
-                tooltipVisible={tooltipVisible}
+                tooltip={{open: tooltipVisible}}
                 defaultValue={defaultValue}
             />
         </Space>
