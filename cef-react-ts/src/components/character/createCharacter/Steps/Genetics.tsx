@@ -20,12 +20,8 @@ const Genetics: React.FC = () => {
     const [gens1List,setGens1List] = useState<GenType[]>([]);
     const [gens2List,setGens2List] = useState<GenType[]>([]);
 
-    const [currentSelectedGen1,setCurrentSelectedGen1] = useState<GenType>({
-        id: 1, active: false, pathToFace: '1.png'
-    })
-    const [currentSelectedGen2,setCurrentSelectedGen2] = useState<GenType>({
-        id: 1, active: false, pathToFace: '1.png'
-    })
+    const [currentSelectedGen1,setCurrentSelectedGen1] = useState<GenType>({id: 1, active: false, pathToFace: '1.png'})
+    const [currentSelectedGen2,setCurrentSelectedGen2] = useState<GenType>({id: 1, active: false, pathToFace: '1.png'})
 
     useEffect(()=>{
         let gens1: GenType[] = [];
@@ -54,6 +50,12 @@ const Genetics: React.FC = () => {
     }
     useEffect(()=>{
         console.log(characterContext.character)
+        setCurrentSelectedGen1({id: characterContext.character.blendData[0], active: true,
+            pathToFace: `${characterContext.character.blendData[0]}.png`
+        })
+        setCurrentSelectedGen2({id: characterContext.character.blendData[1], active: true,
+            pathToFace: `${characterContext.character.blendData[1]}.png`
+        })
     },[])
 
     return (
@@ -70,7 +72,7 @@ const Genetics: React.FC = () => {
                                          height={70}
                                          alt={gen.id.toString()}
                                          key={gen.id}
-                                         style={{border: gen === currentSelectedGen1 ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
+                                         style={{border: gen.id === currentSelectedGen1.id ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
                                          onClick={()=>handleChangeFirstGen(gen)}
                                     />
                                 )}
@@ -84,7 +86,7 @@ const Genetics: React.FC = () => {
                                          height={70}
                                          alt={gen.id.toString()}
                                          key={gen.id}
-                                         style={{border: gen === currentSelectedGen2 ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
+                                         style={{border: gen.id === currentSelectedGen2.id ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
                                          onClick={()=>handleChangeSecondGen(gen)}
                                     />
                                 )}
