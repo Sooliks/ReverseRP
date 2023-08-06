@@ -1,31 +1,31 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 
 
 export type CreateCharacterType = {
-    gender?: string,
-    firstName?: string,
-    lastName?: string,
-    birth?: number,
-    promo?: string,
-    origin?: string,
-    hair?: number[],
-    beard?: number[],
-    blendData?: number[],
-    faceFeatures?: number[],
-    torso?: number,
-    clothing?: number[],
-    headOverlays?: number[],
-    headOverlaysColors?: number[]
-    eyeColor?: number,
-    eyeBrowColor?: number,
+    gender: string,
+    firstName: string,
+    lastName: string,
+    birth: number,
+    promo: string,
+    origin: string,
+    hair: number[],
+    beard: number[],
+    blendData: number[],
+    faceFeatures: number[],
+    torso: number,
+    clothing: number[],
+    headOverlays: number[],
+    headOverlaysColors: number[]
+    eyeColor: number,
+    eyeBrowColor: number,
 }
 type CreateCharacterContextProviderProps = {
     children: React.ReactNode
 }
 
 type CreateCharacterContextType = {
-    character: CreateCharacterType | null;
-    setCharacter: React.Dispatch<React.SetStateAction<CreateCharacterType | null>>
+    character: CreateCharacterType;
+    setCharacter: React.Dispatch<React.SetStateAction<CreateCharacterType>>
 }
 const CreateCharacterContext = createContext({} as CreateCharacterContextType)
 
@@ -33,7 +33,7 @@ export const useCreateCharacterContext = () =>  useContext(CreateCharacterContex
 
 const NavigationContextProvider = ({children}: CreateCharacterContextProviderProps) => {
 
-    const [character,setCharacter] = useState<CreateCharacterType | null>({
+    const [character,setCharacter] = useState<CreateCharacterType>({
         gender: 'мужской',
         firstName: '',
         lastName: '',
@@ -42,7 +42,7 @@ const NavigationContextProvider = ({children}: CreateCharacterContextProviderPro
         origin: 'Los-Santos',
         hair: [0, 0, 0],
         beard: [0, 0],
-        blendData: [0, 0, 0, 0, 0, 0],
+        blendData: [0, 0, 0.5, 0.5],
         faceFeatures: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         torso: 0,
         clothing: [0, 0, 0, 0],
@@ -51,6 +51,7 @@ const NavigationContextProvider = ({children}: CreateCharacterContextProviderPro
         eyeColor: 0,
         eyeBrowColor: 0,
     });
+
 
     return (
         <CreateCharacterContext.Provider value={{character,setCharacter}}>{children}</CreateCharacterContext.Provider>

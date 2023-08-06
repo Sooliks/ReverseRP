@@ -1,8 +1,9 @@
 import React, {ReactEventHandler, useEffect, useState} from 'react';
-import {Card, Segmented, Space} from "antd";
+import {Card, Segmented, Slider, Space, Typography} from "antd";
 import {Config} from "../../../../conf";
+import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
 
-
+const {Text} = Typography;
 
 
 type GenType = {
@@ -13,6 +14,8 @@ type GenType = {
 
 
 const Genetics: React.FC = () => {
+    const characterContext = useCreateCharacterContext()
+
     const [currentGen,setCurrentGen] = useState<string | number>('Ген 1');
     const [gens1List,setGens1List] = useState<GenType[]>([]);
     const [gens2List,setGens2List] = useState<GenType[]>([]);
@@ -37,12 +40,21 @@ const Genetics: React.FC = () => {
         setGens2List(gens2);
     },[])
 
-    const handleChangeFirstGen = (gen: GenType) =>{
+    const handleChangeFirstGen = (gen: GenType) => {
         setCurrentSelectedGen1(gen);
+        const newCharacter: CreateCharacterType = characterContext.character;
+        newCharacter.blendData[0] = gen.id;
+        characterContext.setCharacter(newCharacter);
     }
-    const handleChangeSecondGen = (gen: GenType) =>{
+    const handleChangeSecondGen = (gen: GenType) => {
         setCurrentSelectedGen2(gen);
+        const newCharacter: CreateCharacterType = characterContext.character;
+        newCharacter.blendData[1] = gen.id;
+        characterContext.setCharacter(newCharacter);
     }
+    useEffect(()=>{
+        console.log(characterContext.character)
+    },[])
 
     return (
         <Space align={"start"} direction={"horizontal"} style={{justifyContent: 'space-between', width: Config.screenResolution.width}}>
@@ -96,6 +108,34 @@ const Genetics: React.FC = () => {
                                 height={100}
                                 src={require('../../../../assets/images/faces/female/' + currentSelectedGen2.pathToFace)}
                                 alt={currentSelectedGen2.id.toString()}
+                            />
+                        </Space>
+                        <Space direction={"vertical"} style={{justifyContent: 'center', width: 300}}>
+                            <Text style={{textAlign: 'center'}}>Схожесть</Text>
+                            <Slider
+                                defaultValue={characterContext.character.blendData[2]}
+                                max={1}
+                                min={0}
+                                step={0.1}
+                                tooltipVisible={false}
+                                onChange={(value: number)=>{
+                                    const newCharacter: CreateCharacterType = characterContext.character;
+                                    newCharacter.blendData[2] = value;
+                                    characterContext.setCharacter(newCharacter);
+                                }}
+                            />
+                            <Text>Цвет кожи</Text>
+                            <Slider
+                                defaultValue={characterContext.character.blendData[3]}
+                                max={1}
+                                min={0}
+                                step={0.1}
+                                tooltipVisible={false}
+                                onChange={(value: number)=>{
+                                    const newCharacter: CreateCharacterType = characterContext.character;
+                                    newCharacter.blendData[3] = value;
+                                    characterContext.setCharacter(newCharacter);
+                                }}
                             />
                         </Space>
                     </Space>
