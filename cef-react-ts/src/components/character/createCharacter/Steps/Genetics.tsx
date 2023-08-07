@@ -43,23 +43,30 @@ const Genetics: React.FC = () => {
         const newCharacter: CreateCharacterType = characterContext.character;
         newCharacter.blendData[0] = gen.id;
         characterContext.setCharacter(newCharacter);
-        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA",JSON.stringify(characterContext.character))
+        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
     }
     const handleChangeSecondGen = (gen: GenType) => {
         setCurrentSelectedGen2(gen);
         const newCharacter: CreateCharacterType = characterContext.character;
         newCharacter.blendData[1] = gen.id;
         characterContext.setCharacter(newCharacter);
-        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA",JSON.stringify(characterContext.character))
+        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
     }
     useEffect(()=>{
         console.log(characterContext.character)
-        setCurrentSelectedGen1({id: characterContext.character.blendData[0], active: true,
-            pathToFace: `${characterContext.character.blendData[0]}.png`
-        })
-        setCurrentSelectedGen2({id: characterContext.character.blendData[1], active: true,
-            pathToFace: `${characterContext.character.blendData[1]}.png`
-        })
+
+        if(characterContext.character.blendData[0]!==0) {
+            setCurrentSelectedGen1({
+                id: characterContext.character.blendData[0], active: true,
+                pathToFace: `${characterContext.character.blendData[0]}.png`
+            })
+        }
+        if(characterContext.character.blendData[1]!==0) {
+            setCurrentSelectedGen2({
+                id: characterContext.character.blendData[1], active: true,
+                pathToFace: `${characterContext.character.blendData[1]}.png`
+            })
+        }
     },[])
 
     return (
@@ -135,7 +142,7 @@ const Genetics: React.FC = () => {
                                     const newCharacter: CreateCharacterType = characterContext.character;
                                     newCharacter.blendData[2] = value;
                                     characterContext.setCharacter(newCharacter);
-                                    mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA",JSON.stringify(characterContext.character))
+                                    mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
                                 }}
                                 style={{width: 300}}
                             />
@@ -150,7 +157,7 @@ const Genetics: React.FC = () => {
                                     const newCharacter: CreateCharacterType = characterContext.character;
                                     newCharacter.blendData[3] = value;
                                     characterContext.setCharacter(newCharacter);
-                                    mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA",JSON.stringify(characterContext.character))
+                                    mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
                                 }}
                                 style={{width: 300}}
                             />

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Config} from "../../../../conf";
 import {Button, Card, Segmented, Space, Typography} from "antd";
-import {useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
+import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
 
 
 const {Title } = Typography;
@@ -66,7 +66,12 @@ const Hair : React.FC = () => {
                                              alt={hair.toString()}
                                              key={hair}
                                              //style={{border: gen.id === currentSelectedGen1.id ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
-                                             //onClick={()=>handleChangeFirstGen(gen)}
+                                             onClick={()=>{
+                                                 const newCharacter: CreateCharacterType = characterContext.character;
+                                                 newCharacter.hair[0] = hair;
+                                                 characterContext.setCharacter(newCharacter);
+                                                 mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
+                                             }}
                                         />
                                     )
                                 }
@@ -77,8 +82,12 @@ const Hair : React.FC = () => {
                                              height={70}
                                              alt={hair.toString()}
                                              key={hair}
-                                            //style={{border: gen.id === currentSelectedGen1.id ? '1px solid rgba(22, 119, 255,400)' : '1px solid transparent'}}
-                                            //onClick={()=>handleChangeFirstGen(gen)}
+                                             onClick={()=>{
+                                                 const newCharacter: CreateCharacterType = characterContext.character;
+                                                 newCharacter.hair[0] = hair;
+                                                 characterContext.setCharacter(newCharacter);
+                                                 mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
+                                             }}
                                         />
                                     )
                                 }
@@ -93,8 +102,18 @@ const Hair : React.FC = () => {
                         <Title style={{textAlign: 'center'}} level={4}>Выберите цвет</Title>
                         <Space direction={"horizontal"} style={{width: 300}} align={"center"}>
                             <Space wrap style={{margin:10}}>
-                                {hairStyleColors.map(color=>
-                                    <Button style={{width: 40, height: 40, backgroundColor: color}}/>
+                                {hairStyleColors.map((color, index)=>
+                                    <Button
+                                        style={{width: 40, height: 40, backgroundColor: color}}
+                                        onClick={()=>{
+                                            if(current === 'Прическа'){
+                                                const newCharacter: CreateCharacterType = characterContext.character;
+                                                newCharacter.hair[1] = index;
+                                                characterContext.setCharacter(newCharacter);
+                                                mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
+                                            }
+                                        }}
+                                    />
                                 )}
                             </Space>
                         </Space>
