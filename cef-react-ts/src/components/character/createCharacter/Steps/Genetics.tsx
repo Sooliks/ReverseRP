@@ -11,7 +11,8 @@ const {Title } = Typography;
 type GenType = {
     id: number,
     pathToFace: string,
-    active: boolean
+    active: boolean,
+    skinId: number
 }
 
 
@@ -22,17 +23,25 @@ const Genetics: React.FC = () => {
     const [gens1List,setGens1List] = useState<GenType[]>([]);
     const [gens2List,setGens2List] = useState<GenType[]>([]);
 
-    const [currentSelectedGen1,setCurrentSelectedGen1] = useState<GenType>({id: 1, active: false, pathToFace: '1.png'})
-    const [currentSelectedGen2,setCurrentSelectedGen2] = useState<GenType>({id: 1, active: false, pathToFace: '1.png'})
+    const [currentSelectedGen1,setCurrentSelectedGen1] = useState<GenType>({id: 1, active: false, pathToFace: '1.png', skinId: 0})
+    const [currentSelectedGen2,setCurrentSelectedGen2] = useState<GenType>({id: 1, active: false, pathToFace: '1.png', skinId: 0})
 
     useEffect(()=>{
         let gens1: GenType[] = [];
         let gens2: GenType[] = [];
         for(let i: number = 1; i <= 22; i++){
-            gens1 = [...gens1,{id: i, pathToFace: `${i}.png`, active: false}];
+            if(i === 3 || i === 4 || i ===16){
+                gens1 = [...gens1,{id: i, pathToFace: `${i}.png`, active: false, skinId: 10}];
+                continue
+            }
+            gens1 = [...gens1,{id: i, pathToFace: `${i}.png`, active: false, skinId: 0}];
         }
         for(let i: number = 1; i <= 24; i++){
-            gens2 = [...gens2,{id: i, pathToFace: `${i}.png`, active: false}];
+            if(i===2 || i=== 3 || i ===14 || i === 15){
+                gens2 = [...gens2,{id: i, pathToFace: `${i}.png`, active: false, skinId: 10}];
+                continue
+            }
+            gens2 = [...gens2,{id: i, pathToFace: `${i}.png`, active: false, skinId: 0}];
         }
         setGens1List(gens1);
         setGens2List(gens2);
@@ -42,6 +51,7 @@ const Genetics: React.FC = () => {
         setCurrentSelectedGen1(gen);
         const newCharacter: CreateCharacterType = characterContext.character;
         newCharacter.blendData[0] = gen.id;
+        newCharacter.blendData[4] = gen.skinId;
         characterContext.setCharacter(newCharacter);
         mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
     }
@@ -49,6 +59,7 @@ const Genetics: React.FC = () => {
         setCurrentSelectedGen2(gen);
         const newCharacter: CreateCharacterType = characterContext.character;
         newCharacter.blendData[1] = gen.id;
+        newCharacter.blendData[5] = gen.skinId;
         characterContext.setCharacter(newCharacter);
         mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
     }
@@ -57,14 +68,18 @@ const Genetics: React.FC = () => {
 
         if(characterContext.character.blendData[0]!==0) {
             setCurrentSelectedGen1({
-                id: characterContext.character.blendData[0], active: true,
-                pathToFace: `${characterContext.character.blendData[0]}.png`
+                id: characterContext.character.blendData[0],
+                active: true,
+                pathToFace: `${characterContext.character.blendData[0]}.png`,
+                skinId: 0
             })
         }
         if(characterContext.character.blendData[1]!==0) {
             setCurrentSelectedGen2({
-                id: characterContext.character.blendData[1], active: true,
-                pathToFace: `${characterContext.character.blendData[1]}.png`
+                id: characterContext.character.blendData[1],
+                active: true,
+                pathToFace: `${characterContext.character.blendData[1]}.png`,
+                skinId: 0
             })
         }
     },[])
@@ -106,8 +121,22 @@ const Genetics: React.FC = () => {
                         <Space direction={"vertical"} align={"center"}>
                             <Title level={4}>Выберите пол</Title>
                             <Space>
-                                <Button onClick={()=>characterContext.setCharacter({...characterContext.character, gender: 'мужской'})} icon={<ManOutlined size={200}/>} type={characterContext.character.gender === 'мужской' ? 'primary' : undefined}/>
-                                <Button onClick={()=>characterContext.setCharacter({...characterContext.character, gender: 'женский'})} icon={<WomanOutlined size={200}/>} type={characterContext.character.gender === 'женский' ? 'primary' : undefined}/>
+                                <Button
+                                    onClick={()=>{
+                                        characterContext.setCharacter({...characterContext.character, gender: 'мужской'})
+                                        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify({...characterContext.character, gender: 'мужской'}))
+                                    }}
+                                    icon={<ManOutlined size={200}/>}
+                                    type={characterContext.character.gender === 'мужской' ? 'primary' : undefined}
+                                />
+                                <Button
+                                    onClick={()=>{
+                                        characterContext.setCharacter({...characterContext.character, gender: 'женский'})
+                                        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify({...characterContext.character, gender: 'женский'}))
+                                    }}
+                                    icon={<WomanOutlined size={200}/>}
+                                    type={characterContext.character.gender === 'женский' ? 'primary' : undefined}
+                                />
                             </Space>
                         </Space>
                     </Space>

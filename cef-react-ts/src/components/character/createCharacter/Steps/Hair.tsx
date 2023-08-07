@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Config} from "../../../../conf";
 import {Button, Card, Segmented, Space, Typography} from "antd";
 import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
+import CustomSlider from "../ui/CustomSlider";
 
 
 const {Title } = Typography;
@@ -93,6 +94,40 @@ const Hair : React.FC = () => {
                                 }
                             </Space>
                         }
+                        {current === 'Борода' &&
+                            <Space style={{width: 300, height: 'auto'}}>
+                                <CustomSlider
+                                    onChange={(v)=>{
+                                        const newCharacter: CreateCharacterType = characterContext.character;
+                                        newCharacter.beard[0] = v;
+                                        characterContext.setCharacter(newCharacter);
+                                        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
+                                    }}
+                                    min={0}
+                                    max={29}
+                                    style={{width:260}}
+                                    step={1}
+                                    text={"Тип бороды"}
+                                />
+                            </Space>
+                        }
+                        {current === 'Брови' &&
+                            <Space style={{width: 300, height: 'auto'}}>
+                                <CustomSlider
+                                    onChange={(v)=>{
+                                        const newCharacter: CreateCharacterType = characterContext.character;
+                                        newCharacter.headOverlays[2] = v;
+                                        characterContext.setCharacter(newCharacter);
+                                        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
+                                    }}
+                                    min={0}
+                                    max={34}
+                                    style={{width:260}}
+                                    step={1}
+                                    text={"Тип бровей"}
+                                />
+                            </Space>
+                        }
                     </Space>
                 </Card>
             </Space>
@@ -109,6 +144,18 @@ const Hair : React.FC = () => {
                                             if(current === 'Прическа'){
                                                 const newCharacter: CreateCharacterType = characterContext.character;
                                                 newCharacter.hair[1] = index;
+                                                characterContext.setCharacter(newCharacter);
+                                                mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
+                                            }
+                                            if(current === 'Борода'){
+                                                const newCharacter: CreateCharacterType = characterContext.character;
+                                                newCharacter.beard[1] = index;
+                                                characterContext.setCharacter(newCharacter);
+                                                mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
+                                            }
+                                            if(current === 'Брови'){
+                                                const newCharacter: CreateCharacterType = characterContext.character;
+                                                newCharacter.eyeBrowColor = index;
                                                 characterContext.setCharacter(newCharacter);
                                                 mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
                                             }
