@@ -35,7 +35,7 @@ public class Registration : Script
                 }
             }
             AccountsHandler.Register(login, email, password, player.Address,player.SocialClubId);
-            player.ChangeCefWindow(CefWindowsPaths.Default);
+            player.ChangeCefWindow(CefWindowsPaths.CreateCharacter);
         }
         catch (Exception e)
         {

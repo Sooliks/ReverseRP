@@ -22,12 +22,11 @@ public class Login : Script
         }
         if (AccountsHandler.IsLoginExist(login) && AccountsHandler.IsPasswordValid(login, password))
         {
-            player.ChangeCefWindow(CefWindowsPaths.Default);
+            player.ChangeCefWindow(CefWindowsPaths.CreateCharacter);
         }
         else
         {
             player.TriggerCefEvent("SERVER::CEF::ERROR_LOGIN","Неверный логин или пароль");
-            NAPI.Util.ConsoleOutput("logingovno");
         }
     }
 }
