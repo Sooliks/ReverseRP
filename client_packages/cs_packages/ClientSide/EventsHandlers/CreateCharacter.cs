@@ -14,16 +14,30 @@ namespace ClientSide.EventsHandlers
         private void OnChangeCharacterHeadBlendData(object[] args)
         {
             var character = JObject.Parse((string)args[0]);
-            RAGE.Elements.Player.LocalPlayer.SetHeadBlendData((int)character["blendData"][0],(int)character["blendData"][1],0,0,5,0,(int)character["blendData"][2],(int)character["blendData"][3],0, false);
+            
+            if((string)character["gender"] == "мужской")RAGE.Elements.Player.LocalPlayer.Model = RAGE.Game.Misc.GetHashKey("mp_m_freemode_01");
+            if((string)character["gender"] == "женский")RAGE.Elements.Player.LocalPlayer.Model = RAGE.Game.Misc.GetHashKey("mp_f_freemode_01");
+            
+            //гены
+            RAGE.Elements.Player.LocalPlayer.SetHeadBlendData((int)character["blendData"][0],(int)character["blendData"][1],0,(int)character["blendData"][4],(int)character["blendData"][5],0,(int)character["blendData"][2],(int)character["blendData"][3],0, false);
+            
+            //лицо
             for (int i = 0; i < 19; i++)
             {
                 RAGE.Elements.Player.LocalPlayer.SetFaceFeature(i,(float)character["faceFeatures"][i]);
             }
-            RAGE.Elements.Player.LocalPlayer.SetEyeColor(4);
-            RAGE.Elements.Player.LocalPlayer.SetIsDrunk(true);
+            
             //прическа
             RAGE.Elements.Player.LocalPlayer.SetComponentVariation(2,(int)character["hair"][0],0,0);
             RAGE.Elements.Player.LocalPlayer.SetHairColor((int)character["hair"][1],0);
+            
+            //борода
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(1,(int)character["beard"][0],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(1,1,(int)character["beard"][1],0);
+            
+            //брови
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(2,(int)character["headOverlays"][2],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(2,1,(int)character["eyeBrowColor"],0);
         }
     }
     /*public class CreateCharacterData
