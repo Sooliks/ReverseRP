@@ -21,8 +21,9 @@ namespace ClientSide.EventsHandlers
             //гены
             RAGE.Elements.Player.LocalPlayer.SetHeadBlendData((int)character["blendData"][0],(int)character["blendData"][1],0,(int)character["blendData"][4],(int)character["blendData"][5],0,(int)character["blendData"][2],(int)character["blendData"][3],0, false);
             
+            
             //лицо
-            for (int i = 0; i < 19; i++)
+            for (int i = 0; i < 20; i++)
             {
                 RAGE.Elements.Player.LocalPlayer.SetFaceFeature(i,(float)character["faceFeatures"][i]);
             }
@@ -38,6 +39,30 @@ namespace ClientSide.EventsHandlers
             //брови
             RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(2,(int)character["headOverlays"][2],100);
             RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(2,1,(int)character["eyeBrowColor"],0);
+            
+            //особенности кожи
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(0,(int)character["headOverlays"][0],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(3,(int)character["headOverlays"][3],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(5,(int)character["headOverlays"][5],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(7,(int)character["headOverlays"][7],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(9,(int)character["headOverlays"][9],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(10,(int)character["headOverlays"][10],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(11,(int)character["headOverlays"][11],100);
+            
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(0,1,20,0);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(3,1,63,0);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(5,1,20,0);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(7,1,21,0);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(9,1,20,0);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(10,1,0,0);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(11,1,10,0);
+            
+            //макияж
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(4,(int)character["headOverlays"][4],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(8,(int)character["headOverlays"][8],100);
+            
+            //RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(4,1,0,0);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(8,1,(int)character["headOverlaysColors"][8],0);
         }
     }
     /*public class CreateCharacterData

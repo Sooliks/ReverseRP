@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, Space} from "antd";
 import {Config} from "../../../../conf";
-import CustomSlider from "../ui/CustomSlider";
+import CustomSlider from "../../../../ui/CustomSlider";
 import {useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
 
 type FacePropertiesType = {

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Card, Segmented, Space, Typography} from "antd";
 import {Config} from "../../../../conf";
 import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
-import CustomSlider from "../ui/CustomSlider";
+import CustomSlider from "../../../../ui/CustomSlider";
 import {ManOutlined, WomanOutlined} from "@ant-design/icons";
 
 const {Title } = Typography;
@@ -123,15 +123,19 @@ const Genetics: React.FC = () => {
                             <Space>
                                 <Button
                                     onClick={()=>{
-                                        characterContext.setCharacter({...characterContext.character, gender: 'мужской'})
-                                        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify({...characterContext.character, gender: 'мужской'}))
+                                        const newCharacter = characterContext.character;
+                                        newCharacter.headOverlays[4] = 255;
+                                        newCharacter.headOverlays[8] = 255;
+                                        newCharacter.gender = "мужской";
+                                        characterContext.setCharacter(newCharacter)
+                                        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(newCharacter))
                                     }}
                                     icon={<ManOutlined size={200}/>}
                                     type={characterContext.character.gender === 'мужской' ? 'primary' : undefined}
                                 />
                                 <Button
                                     onClick={()=>{
-                                        characterContext.setCharacter({...characterContext.character, gender: 'женский'})
+                                        characterContext.setCharacter({...characterContext.character, gender: 'женский', beard: [255,0]})
                                         mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify({...characterContext.character, gender: 'женский'}))
                                     }}
                                     icon={<WomanOutlined size={200}/>}
@@ -164,7 +168,7 @@ const Genetics: React.FC = () => {
                                 text={"Схожесть"}
                                 defaultValue={characterContext.character.blendData[2]}
                                 max={1}
-                                min={-1}
+                                min={0}
                                 step={0.1}
                                 tooltipVisible={false}
                                 onChange={(value: number)=>{

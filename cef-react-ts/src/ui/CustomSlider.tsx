@@ -1,5 +1,6 @@
 import React from 'react';
 import {Slider, Space, Typography} from "antd";
+import {SliderBaseProps} from "antd/es/slider";
 
 const {Text} = Typography;
 
@@ -10,12 +11,23 @@ type CustomSliderType = {
     max: number
     style?: React.CSSProperties
     step?: number
+    defaultValue?: number,
     tooltipVisible?: boolean
-    defaultValue?: number
+    formatterWork?: boolean
 }
 
 
-const CustomSlider: React.FC<CustomSliderType> = ({text,onChange, min, max, style, step, tooltipVisible , defaultValue}) => {
+const CustomSlider: React.FC<CustomSliderType> = ({formatterWork,text,onChange, min, max, style, step, tooltipVisible , defaultValue}) => {
+    const formatter = (value: number | undefined) => {
+        if(!formatterWork)return value;
+        if(value === max){
+            return 'Нету'
+        }
+        else{
+            return value
+        }
+    };
+
     return (
         <Space direction={"vertical"} style={{...style, margin: 10}}>
             <Text>{text}</Text>
@@ -24,7 +36,7 @@ const CustomSlider: React.FC<CustomSliderType> = ({text,onChange, min, max, styl
                 min={min}
                 max={max}
                 step={step}
-                tooltip={{open: tooltipVisible}}
+                tooltip={{formatter, open: tooltipVisible}}
                 defaultValue={defaultValue}
             />
         </Space>
