@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using RAGE;
-
+using System;
 
 
 namespace ClientSide.EventsHandlers
@@ -10,6 +10,7 @@ namespace ClientSide.EventsHandlers
         public CreateCharacter()
         {
             Events.Add("CEF::CLIENT::ON_CHANGE_CHARACTER", OnChangeCharacterHeadBlendData);
+            RAGE.Elements.Player.LocalPlayer.Model = RAGE.Game.Misc.GetHashKey("mp_m_freemode_01");
         }
         private void OnChangeCharacterHeadBlendData(object[] args)
         {
@@ -19,14 +20,8 @@ namespace ClientSide.EventsHandlers
             if((string)character["gender"] == "женский")RAGE.Elements.Player.LocalPlayer.Model = RAGE.Game.Misc.GetHashKey("mp_f_freemode_01");
             
             //гены
-            RAGE.Elements.Player.LocalPlayer.SetHeadBlendData((int)character["blendData"][0],(int)character["blendData"][1],0,(int)character["blendData"][4],(int)character["blendData"][5],0,(int)character["blendData"][2],(int)character["blendData"][3],0, false);
+            RAGE.Elements.Player.LocalPlayer.SetHeadBlendData(Convert.ToInt32(character["blendData"][0]),Convert.ToInt32(character["blendData"][1]),0,Convert.ToInt32(character["blendData"][4]),Convert.ToInt32(character["blendData"][5]),0,(float)character["blendData"][2],(float)character["blendData"][3],0, true);
             
-            
-            //лицо
-            for (int i = 0; i < 20; i++)
-            {
-                RAGE.Elements.Player.LocalPlayer.SetFaceFeature(i,(float)character["faceFeatures"][i]);
-            }
             
             //прическа
             RAGE.Elements.Player.LocalPlayer.SetComponentVariation(2,(int)character["hair"][0],0,0);
@@ -63,6 +58,12 @@ namespace ClientSide.EventsHandlers
             
             //RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(4,1,0,0);
             RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(8,1,(int)character["headOverlaysColors"][8],0);
+            
+            //лицо
+            for (int i = 0; i < 20; i++)
+            {
+                RAGE.Elements.Player.LocalPlayer.SetFaceFeature(i,(float)character["faceFeatures"][i]);
+            }
         }
     }
     /*public class CreateCharacterData

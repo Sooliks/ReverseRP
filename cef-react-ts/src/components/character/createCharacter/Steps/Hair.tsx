@@ -101,6 +101,7 @@ const Hair : React.FC = () => {
                                     style={{width:260}}
                                     step={1}
                                     text={"Тип бороды"}
+                                    formatterWork={true}
                                 />
                             </Space>
                         }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Card, Space, Steps} from "antd";
 import {Config} from "../../../conf";
 import {
@@ -13,11 +13,12 @@ import Face from "./Steps/Face";
 import Hair from "./Steps/Hair";
 import SkinFeatures from "./Steps/SkinFeatures";
 import Clothes from "./Steps/Clothes";
-import CreateCharacterContextProvider from "./context/CreateCharacterContextProvider";
+import CreateCharacterContextProvider, {useCreateCharacterContext} from "./context/CreateCharacterContextProvider";
 
 
 
 const CreateCharacter: React.FC = () => {
+    const characterContext = useCreateCharacterContext();
     const steps = [
         {
             title: 'Генетика',
@@ -30,7 +31,7 @@ const CreateCharacter: React.FC = () => {
             icon: <SmileOutlined />
         },
         {
-            title: 'Волосы',
+            title: 'Внешность',
             content: <Hair/>,
             icon: <ScissorOutlined />
         },

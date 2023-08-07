@@ -64,7 +64,7 @@ const Genetics: React.FC = () => {
         mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
     }
     useEffect(()=>{
-        console.log(characterContext.character)
+        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
 
         if(characterContext.character.blendData[0]!==0) {
             setCurrentSelectedGen1({
@@ -135,8 +135,11 @@ const Genetics: React.FC = () => {
                                 />
                                 <Button
                                     onClick={()=>{
-                                        characterContext.setCharacter({...characterContext.character, gender: 'женский', beard: [255,0]})
-                                        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify({...characterContext.character, gender: 'женский'}))
+                                        const newCharacter = characterContext.character;
+                                        newCharacter.gender = "женский"
+                                        newCharacter.beard = [255,0]
+                                        characterContext.setCharacter(newCharacter)
+                                        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(newCharacter))
                                     }}
                                     icon={<WomanOutlined size={200}/>}
                                     type={characterContext.character.gender === 'женский' ? 'primary' : undefined}
