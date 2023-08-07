@@ -55,6 +55,7 @@ const Face: React.FC = () => {
                                     const newCharacter = characterContext.character;
                                     newCharacter.faceFeatures[face.id] = value;
                                     characterContext.setCharacter(newCharacter);
+                                    mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA",JSON.stringify(newCharacter))
                                 }}
                                 min={-1}
                                 max={1}

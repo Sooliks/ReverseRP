@@ -43,12 +43,14 @@ const Genetics: React.FC = () => {
         const newCharacter: CreateCharacterType = characterContext.character;
         newCharacter.blendData[0] = gen.id;
         characterContext.setCharacter(newCharacter);
+        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA",JSON.stringify(characterContext.character))
     }
     const handleChangeSecondGen = (gen: GenType) => {
         setCurrentSelectedGen2(gen);
         const newCharacter: CreateCharacterType = characterContext.character;
         newCharacter.blendData[1] = gen.id;
         characterContext.setCharacter(newCharacter);
+        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA",JSON.stringify(characterContext.character))
     }
     useEffect(()=>{
         console.log(characterContext.character)
@@ -126,13 +128,14 @@ const Genetics: React.FC = () => {
                                 text={"Схожесть"}
                                 defaultValue={characterContext.character.blendData[2]}
                                 max={1}
-                                min={0}
+                                min={-1}
                                 step={0.1}
                                 tooltipVisible={false}
                                 onChange={(value: number)=>{
                                     const newCharacter: CreateCharacterType = characterContext.character;
                                     newCharacter.blendData[2] = value;
                                     characterContext.setCharacter(newCharacter);
+                                    mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA",JSON.stringify(characterContext.character))
                                 }}
                                 style={{width: 300}}
                             />
@@ -147,6 +150,7 @@ const Genetics: React.FC = () => {
                                     const newCharacter: CreateCharacterType = characterContext.character;
                                     newCharacter.blendData[3] = value;
                                     characterContext.setCharacter(newCharacter);
+                                    mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA",JSON.stringify(characterContext.character))
                                 }}
                                 style={{width: 300}}
                             />

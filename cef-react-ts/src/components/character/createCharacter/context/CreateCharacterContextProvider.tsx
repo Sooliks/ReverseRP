@@ -42,7 +42,7 @@ const NavigationContextProvider = ({children}: CreateCharacterContextProviderPro
         origin: 'Los-Santos',
         hair: [0, 0, 0],
         beard: [0, 0],
-        blendData: [1, 1, 0.5, 0.5],
+        blendData: [0, 0, 0, 0],
         faceFeatures: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         torso: 0,
         clothing: [0, 0, 0, 0],
