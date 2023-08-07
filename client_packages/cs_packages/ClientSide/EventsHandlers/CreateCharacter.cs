@@ -9,17 +9,21 @@ namespace ClientSide.EventsHandlers
     {
         public CreateCharacter()
         {
-            Events.Add("CEF::CLIENT::ON_CHANGE_CHARACTER_HEAD_BLEND_DATA", OnChangeCharacterHeadBlendData);
+            Events.Add("CEF::CLIENT::ON_CHANGE_CHARACTER", OnChangeCharacterHeadBlendData);
         }
         private void OnChangeCharacterHeadBlendData(object[] args)
         {
             var character = JObject.Parse((string)args[0]);
-            RAGE.Elements.Player.LocalPlayer.SetHeadBlendData((int)character["blendData"][0],(int)character["blendData"][1],0,0,4,0,(int)character["blendData"][2],(int)character["blendData"][3],0, false);
+            RAGE.Elements.Player.LocalPlayer.SetHeadBlendData((int)character["blendData"][0],(int)character["blendData"][1],0,0,5,0,(int)character["blendData"][2],(int)character["blendData"][3],0, false);
             for (int i = 0; i < 19; i++)
             {
                 RAGE.Elements.Player.LocalPlayer.SetFaceFeature(i,(float)character["faceFeatures"][i]);
             }
             RAGE.Elements.Player.LocalPlayer.SetEyeColor(4);
+            RAGE.Elements.Player.LocalPlayer.SetIsDrunk(true);
+            //прическа
+            RAGE.Elements.Player.LocalPlayer.SetComponentVariation(2,(int)character["hair"][0],0,0);
+            RAGE.Elements.Player.LocalPlayer.SetHairColor((int)character["hair"][1],0);
         }
     }
     /*public class CreateCharacterData
