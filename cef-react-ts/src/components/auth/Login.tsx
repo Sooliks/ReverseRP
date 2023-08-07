@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Checkbox, Form, Input, notification, Typography} from "antd";
 import {LockOutlined, UserOutlined} from "@ant-design/icons";
 import {Client} from "../../requests/Client";
@@ -9,8 +9,10 @@ const { Link } = Typography;
 
 const Login : React.FC = () => {
     const onFinish = (values: any) => {
+        setLoading(true);
         Client.triggerServer("CEF::SERVER::ON_FINISH_LOGIN",values.login,values.password, values.remember)
     };
+    const [loading,setLoading] = useState<boolean>(false)
     try {
         mp.events.add("SERVER::CEF::ERROR_LOGIN", (args) => {
             args = JSON.parse(args);
@@ -19,6 +21,7 @@ const Login : React.FC = () => {
                 description: args[0],
                 placement: "top"
             })
+            setLoading(false);
         })
     }catch (e) {
         

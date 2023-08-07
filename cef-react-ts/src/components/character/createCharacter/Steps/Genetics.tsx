@@ -4,6 +4,7 @@ import {Config} from "../../../../conf";
 import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
 import CustomSlider from "../../../../ui/CustomSlider";
 import {ManOutlined, WomanOutlined} from "@ant-design/icons";
+import isDevelopment = Config.isDevelopment;
 
 const {Title } = Typography;
 
@@ -64,7 +65,7 @@ const Genetics: React.FC = () => {
         mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
     }
     useEffect(()=>{
-        mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
+        !isDevelopment && mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
 
         if(characterContext.character.blendData[0]!==0) {
             setCurrentSelectedGen1({

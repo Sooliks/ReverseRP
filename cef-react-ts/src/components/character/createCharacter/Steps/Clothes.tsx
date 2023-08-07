@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Config} from "../../../../conf";
-import {Card, Segmented, Space} from "antd";
+import {Card, Space} from "antd";
 import {useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
+import Switcher, {DataTypeSwitcher} from "../../../../ui/Switcher";
+
 
 
 
@@ -9,7 +11,11 @@ import {useCreateCharacterContext} from "../context/CreateCharacterContextProvid
 
 const Clothes: React.FC = () => {
     const characterContext = useCreateCharacterContext()
-    const [current,setCurrent] = useState<string | number>('Верх')
+    const topMaleList: DataTypeSwitcher[] = [
+        {value: 0, placeHolder: "Помятая футболка"},
+        {value: 1, placeHolder: "Футболка"},
+        {value: 7, placeHolder: "Толстовка"}
+    ]
 
     return (
         <Space align={"start"} direction={"horizontal"} style={{justifyContent: 'space-between', width: Config.screenResolution.width}}>
@@ -24,7 +30,9 @@ const Clothes: React.FC = () => {
                         }}
                         align={"center"}
                     >
-                        <Segmented value={current} options={['Очки','Верх', 'Низ', 'Обувь']} onChange={(v)=>setCurrent(v)}/>
+                        <Space direction={"vertical"} style={{width: 300, height: 'auto'}}>
+                            <Switcher text={"Верх"} data={topMaleList} onChange={(v)=>console.log(v)}/>
+                        </Space>
                     </Space>
                 </Card>
             </Space>

@@ -64,6 +64,8 @@ namespace ClientSide.EventsHandlers
             {
                 RAGE.Elements.Player.LocalPlayer.SetFaceFeature(i,(float)character["faceFeatures"][i]);
             }
+
+            RAGE.Input.TakeScreenshot("dgdggd",1,100,0);
         }
     }
     /*public class CreateCharacterData
