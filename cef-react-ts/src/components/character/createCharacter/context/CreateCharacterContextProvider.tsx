@@ -31,26 +31,28 @@ const CreateCharacterContext = createContext({} as CreateCharacterContextType)
 
 export const useCreateCharacterContext = () =>  useContext(CreateCharacterContext);
 
+export const defaultCharacter: CreateCharacterType = {
+    gender: 'мужской',
+    firstName: '',
+    lastName: '',
+    birth: 23,
+    promo:'',
+    origin: 'Los-Santos',
+    hair: [3,0],
+    beard: [255, 0],
+    blendData: [0, 0, 0.5, 0.5,  0,  0],
+    faceFeatures: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    torso: 0,
+    clothing: [0, 1, 5],
+    headOverlays: [255, 255, 12, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
+    headOverlaysColors: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    eyeColor: 0,
+    eyeBrowColor: 0,
+}
+
 const NavigationContextProvider = ({children}: CreateCharacterContextProviderProps) => {
 
-    const [character,setCharacter] = useState<CreateCharacterType>({
-        gender: 'мужской',
-        firstName: '',
-        lastName: '',
-        birth: 23,
-        promo:'',
-        origin: 'Los-Santos',
-        hair: [2,0],
-        beard: [255, 0],
-        blendData: [0, 0, 0.5, 0.5,  0,  0],
-        faceFeatures: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        torso: 0,
-        clothing: [0, 0, 0, 0],
-        headOverlays: [255, 255, 12, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
-        headOverlaysColors: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        eyeColor: 0,
-        eyeBrowColor: 0,
-    });
+    const [character,setCharacter] = useState<CreateCharacterType>(defaultCharacter);
 
 
     return (

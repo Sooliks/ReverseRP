@@ -128,6 +128,7 @@ const Genetics: React.FC = () => {
                                         newCharacter.headOverlays[4] = 255;
                                         newCharacter.headOverlays[8] = 255;
                                         newCharacter.gender = "мужской";
+                                        newCharacter.clothing = [0,1,5]
                                         characterContext.setCharacter(newCharacter)
                                         mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(newCharacter))
                                     }}
@@ -139,6 +140,9 @@ const Genetics: React.FC = () => {
                                         const newCharacter = characterContext.character;
                                         newCharacter.gender = "женский"
                                         newCharacter.beard = [255,0]
+                                        newCharacter.clothing = [0,1,5]
+                                        newCharacter.headOverlays[8] = 2;
+                                        newCharacter.headOverlays[4] = 12;
                                         characterContext.setCharacter(newCharacter)
                                         mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(newCharacter))
                                     }}

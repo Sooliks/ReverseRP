@@ -65,7 +65,10 @@ namespace ClientSide.EventsHandlers
                 RAGE.Elements.Player.LocalPlayer.SetFaceFeature(i,(float)character["faceFeatures"][i]);
             }
 
-            RAGE.Input.TakeScreenshot("dgdggd",1,100,0);
+            //одежда
+            RAGE.Elements.Player.LocalPlayer.SetComponentVariation(11,(int)character["clothing"][0],0,0);
+            RAGE.Elements.Player.LocalPlayer.SetComponentVariation(4,(int)character["clothing"][1],0,0);
+            RAGE.Elements.Player.LocalPlayer.SetComponentVariation(6,(int)character["clothing"][2],0,0);
         }
     }
     /*public class CreateCharacterData
