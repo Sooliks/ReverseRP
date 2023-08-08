@@ -19,11 +19,12 @@ namespace ClientSide.CEF
             ChangePath(path);
             if (path == "")
             {
-                RAGE.Ui.Cursor.Visible = false;
+                RAGE.Ui.Cursor.ShowCursor(false,false);
+                RAGE.Chat.Activate(true);
             }
             else
             {
-                RAGE.Ui.Cursor.Visible = true;
+                RAGE.Ui.Cursor.ShowCursor(true,true);
             }
         }
     }

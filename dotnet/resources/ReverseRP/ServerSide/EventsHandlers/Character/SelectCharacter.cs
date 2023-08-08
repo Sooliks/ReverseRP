@@ -24,6 +24,7 @@ public class SelectCharacter : Script
         if (CharacterHandler.IsAccountOwnerCharacter(player.GetAccount(), id))
         {
             player.ChangeCefWindow(CefWindowsPaths.Default);
+            player.FreezePlayer(false);
             return;
         }
         return;

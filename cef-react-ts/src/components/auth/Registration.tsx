@@ -7,10 +7,11 @@ const Registration : React.FC = () => {
         Client.triggerServer("CEF::SERVER::ON_FINISH_REGISTRATION",values.login, values.email, values.password);
     };
     try {
-        mp.events.add("SERVER::CEF::ERROR_REGISTRATION", (textError: string) => {
+        mp.events.add("SERVER::CEF::ERROR_REGISTRATION", (args) => {
+            args = JSON.parse(args);
             notification.error({
                 message: "Уведомление",
-                description: textError,
+                description: args[0],
                 placement: "top"
             })
         })

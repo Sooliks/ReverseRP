@@ -30,5 +30,6 @@ public class Main : Script
     public void OnPlayerConnected(Player player)
     {
         player.ChangeCefWindow(CefWindowsPaths.Authorization);
+        player.FreezePlayer(true);
     }
 }

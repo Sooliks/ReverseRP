@@ -38,5 +38,6 @@ public class CreateCharacter : Script
         string faceFeatures = JsonConvert.SerializeObject(character["faceFeatures"]);
         CharacterHandler.AddNewCharacter(player.GetAccount(), firstName, lastName,birth,origin,headOverlays,headOverlaysColors,headBlendData,faceFeatures,gender);
         player.ChangeCefWindow(CefWindowsPaths.Default);
+        player.FreezePlayer(false);
     }
 }

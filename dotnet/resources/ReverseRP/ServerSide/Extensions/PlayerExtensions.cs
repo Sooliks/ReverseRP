@@ -26,4 +26,9 @@ public static class PlayerExtensions
         }
         return null;
     }
+
+    public static void FreezePlayer(this Player player,bool toggle)
+    {
+        player.TriggerEvent("SERVER::CLIENT::FREEZE_PLAYER",toggle);
+    }
 }
