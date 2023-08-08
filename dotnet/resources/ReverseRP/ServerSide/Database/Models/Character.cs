@@ -12,6 +12,9 @@ public class Character
     public string HeadOverlaysColorsJson { get; set; }
     public string HeadBlendDataJson { get; set; }
     public string FaceFeaturesJson { get; set; }
+    public byte EyeColor { get; set; }
+    public byte HairColor { get; set; }
+    public int HairType { get; set; }
     public bool Gender { get; set; }
     public long Money { get; set; }
     public long MoneyBank { get; set; }
@@ -22,7 +25,9 @@ public class Character
         
     }
 
-    public Character(int accountId,string firstName, string lastName, byte birth, string origin, string headOverlaysJson, string headOverlaysColorsJson, string headBlendDataJson, string faceFeaturesJson, bool gender)
+    public Character(int accountId,string firstName, string lastName, byte birth, string origin,
+        string headOverlaysJson, string headOverlaysColorsJson, string headBlendDataJson,
+        string faceFeaturesJson, byte eyeColor, byte hairColor, int hairType, bool gender)
     {
         AccountId = accountId;
         FirstName = firstName;
@@ -37,6 +42,9 @@ public class Character
         Money = 1000;
         MoneyBank = 0;
         Lvl = 0;
+        HairColor = hairColor;
+        EyeColor = eyeColor;
+        HairType = hairType;
     }
     
 }

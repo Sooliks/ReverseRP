@@ -14,6 +14,7 @@ export type CreateCharacterType = {
     clothing: number[],
     headOverlays: number[],
     headOverlaysColors: number[]
+    eyeColor: number
 }
 type CreateCharacterContextProviderProps = {
     children: React.ReactNode
@@ -40,6 +41,7 @@ export const defaultCharacter: CreateCharacterType = {
     clothing: [0, 1, 5],
     headOverlays: [255, 255, 12, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
     headOverlaysColors: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    eyeColor: 0
 }
 
 const NavigationContextProvider = ({children}: CreateCharacterContextProviderProps) => {

@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using GTANetworkAPI;
 using ServerSide.Database.Models;
 
 namespace ServerSide.Database.Handlers;
@@ -13,13 +15,31 @@ public class CharacterHandler
         return characters;
     }
 
-    public static void AddNewCharacter(Account account, string firstName, string lastName, byte birth, string origin, string headOverlaysJson, string headOverlaysColorsJson, string headBlendDataJson, string faceFeaturesJson, bool gender)
+    public static void AddNewCharacter(Account account,string firstName, string lastName,
+        byte birth, string origin, string headOverlaysJson, string headOverlaysColorsJson,
+        string headBlendDataJson, string faceFeaturesJson, byte eyeColor, byte hairColor,
+        int hairType, bool gender)
     {
         using Context db = new Context();
         var character = new Character(account.Id, firstName, lastName, birth, origin, headOverlaysJson,
-            headOverlaysColorsJson, headBlendDataJson, faceFeaturesJson, gender);
+            headOverlaysColorsJson, headBlendDataJson, faceFeaturesJson, eyeColor, hairColor, hairType, gender);
         db.Character.Add(character);
         db.SaveChanges();
+    }
+
+    public static Character GetLastCharacterByAccount(Account account)
+    {
+        using Context db = new Context();
+        var characters = db.Character.Where(c => c.AccountId == account.Id).ToList();
+        int maxId = -1;
+        for (int i = 0; i < characters.Count; i++)
+        {
+            if (characters[i].Id > maxId)
+            {
+                maxId = characters[i].Id;
+            }
+        }
+        return characters.SingleOrDefault(c=>c.Id == maxId);
     }
 
     public static bool IsAccountOwnerCharacter(Account account, int idCharacter)

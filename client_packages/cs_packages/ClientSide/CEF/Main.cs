@@ -25,6 +25,7 @@ namespace ClientSide.CEF
             else
             {
                 RAGE.Ui.Cursor.ShowCursor(true,true);
+                RAGE.Chat.Activate(false);
             }
         }
     }

@@ -9,14 +9,15 @@ namespace ServerSide.Services.PlayerService;
 public class PlayerCustomization
 {
     public static void PlayerSetBaseCustomization(Player player,string headOverlaysJson, string headOverlaysColorsJson,
-        string headBlendDataJson, string faceFeaturesJson, bool gender, string firstName, string lastName)
+        string headBlendDataJson, string faceFeaturesJson, bool gender, string firstName, string lastName,
+        byte hairColor, int hairType, byte eyeColor)
     {
         float[] headBlendObj = JsonConvert.DeserializeObject<float[]>(headBlendDataJson);
         float[] faceFeaturesObj = JsonConvert.DeserializeObject<float[]>(faceFeaturesJson);
         int[] headOverlaysObj = JsonConvert.DeserializeObject<int[]>(headOverlaysJson);
         byte[] headOverlaysColorsObj = JsonConvert.DeserializeObject<byte[]>(headOverlaysColorsJson);
         player.Name = firstName + " " + lastName;
-        player.Nametag = firstName + " " + lastName;
+        //player.Nametag = firstName + " " + lastName;
         HeadBlend headBlend = new HeadBlend()
         {
             ShapeFirst = Convert.ToByte(headBlendObj[0]),
@@ -38,7 +39,7 @@ public class PlayerCustomization
         {
             headOverlays.Add(i,new HeadOverlay(){Index = (byte)headOverlaysObj[i], Color = headOverlaysColorsObj[i], Opacity = 1});
         }
-        player.SetCustomization(gender, headBlend, 0,0,0,faceFeatures,headOverlays,new Decoration[]{});
-        //player.SetClothes();
+        player.SetCustomization(gender, headBlend, eyeColor,hairColor,0,faceFeatures,headOverlays,new Decoration[]{});
+        player.SetClothes(2,hairType,0);
     }
 }

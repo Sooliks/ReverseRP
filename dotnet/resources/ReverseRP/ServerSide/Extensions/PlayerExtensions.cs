@@ -31,4 +31,9 @@ public static class PlayerExtensions
     {
         player.TriggerEvent("SERVER::CLIENT::FREEZE_PLAYER",toggle);
     }
+
+    public static void SetCamera(this Player player, Vector3 positionCamera, Vector3 pointCamAtCoord, bool active)
+    {
+        player.TriggerEvent("SERVER|CEF::CLIENT::SET_GENERAL_CAMERA", positionCamera, pointCamAtCoord, active);
+    }
 }

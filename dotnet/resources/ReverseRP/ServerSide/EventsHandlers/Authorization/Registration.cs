@@ -37,7 +37,7 @@ public class Registration : Script
             var regAccount = AccountsHandler.Register(login, email, password, player.Address,player.SocialClubId);
             player.SetData("account", regAccount);
             player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
-            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",CharacterHandler.GetCharactersByAccount(account));
+            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",CharacterHandler.GetCharactersByAccount(regAccount));
         }
         catch (Exception e)
         {

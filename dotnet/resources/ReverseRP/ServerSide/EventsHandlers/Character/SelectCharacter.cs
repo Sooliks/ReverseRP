@@ -14,10 +14,11 @@ public class SelectCharacter : Script
         var account = player.GetAccount();
         if (CharacterHandler.GetCharactersByAccount(account).Count == 3)
         {
-            NAPI.Util.ConsoleOutput("1");
             return;
         }
         player.ChangeCefWindow(CefWindowsPaths.CreateCharacter);
+        player.SetCamera(player.Position,player.Position,true);
+        
     }
     [RemoteEvent("CEF::SERVER::ON_SELECT_CHARACTER")]
     public async void OnClickSelectCharacter(Player player, int id)
@@ -28,7 +29,8 @@ public class SelectCharacter : Script
             player.SetData("character", character);
             PlayerCustomization.PlayerSetBaseCustomization(player,character.HeadOverlaysJson,
                 character.HeadOverlaysColorsJson, character.HeadBlendDataJson,
-                character.FaceFeaturesJson, character.Gender, character.FirstName, character.LastName);
+                character.FaceFeaturesJson, character.Gender, character.FirstName, character.LastName,
+                character.HairColor, character.HairType, character.EyeColor);
             player.ChangeCefWindow(CefWindowsPaths.Default);
             player.FreezePlayer(false);
             return;

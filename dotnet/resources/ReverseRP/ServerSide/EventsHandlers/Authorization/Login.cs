@@ -22,9 +22,10 @@ public class Login : Script
         }
         if (AccountsHandler.IsLoginExist(login) && AccountsHandler.IsPasswordValid(login, password))
         {
-            player.SetData("account", account);
+            var _account = AccountsHandler.GetAccountByLogin(login);
+            player.SetData("account", _account);
             player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
-            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",CharacterHandler.GetCharactersByAccount(account));
+            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",CharacterHandler.GetCharactersByAccount(_account));
         }
         else
         {
