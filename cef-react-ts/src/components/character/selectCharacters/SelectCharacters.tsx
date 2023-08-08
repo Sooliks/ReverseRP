@@ -3,6 +3,7 @@ import {Config} from "../../../conf";
 import {Button, Card, Descriptions, DescriptionsProps, Space, Tooltip} from "antd";
 import {PlusOutlined} from "@ant-design/icons";
 import {useNavigate} from "react-router-dom";
+import {Client} from "../../../requests/Client";
 
 const SelectCharacters : React.FC = () => {
     const navigate = useNavigate();
@@ -51,7 +52,7 @@ const SelectCharacters : React.FC = () => {
                                     {character?.length === 0 ?
                                         <Tooltip title={"Создать"}>
                                             <Button size={"large"} icon={<PlusOutlined />} style={{alignSelf: 'center'}} onClick={()=>{
-                                                navigate('/createcharacter')
+                                                Client.triggerServer("CEF::SERVER::ON_CLICK_CREATE_CHARACTER");
                                             }}/>
                                         </Tooltip>
                                         :

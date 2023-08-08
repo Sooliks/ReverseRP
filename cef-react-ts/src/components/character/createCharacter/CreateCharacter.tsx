@@ -14,6 +14,7 @@ import Hair from "./Steps/Hair";
 import SkinFeatures from "./Steps/SkinFeatures";
 import Clothes from "./Steps/Clothes";
 import CreateCharacterContextProvider, {useCreateCharacterContext} from "./context/CreateCharacterContextProvider";
+import Finish from "./Steps/Finish";
 
 
 
@@ -48,10 +49,7 @@ const CreateCharacter: React.FC = () => {
     ];
     const [current,setCurrent] = useState<number>(0)
 
-    const handleClickFinish = () => {
-
-    }
-
+    const [isVisibleFinish,setIsVisibleFinish] = useState(false)
 
     return (
         <CreateCharacterContextProvider>
@@ -60,7 +58,7 @@ const CreateCharacter: React.FC = () => {
                     <Space style={{justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
                         <Steps style={{width: Config.screenResolution.width - 400}} items={steps} current={current}/>
                         <Space>
-                            {current === steps.length - 1 && <Button type="primary" size={"large"} onClick={handleClickFinish}>Создать</Button>}
+                            {current === steps.length - 1 && <Button type="primary" size={"large"} onClick={()=>setIsVisibleFinish(true)}>Продолжить</Button>}
                             {current < steps.length - 1 && <Button type="primary" onClick={()=>setCurrent(prev=>prev+1)} size={"large"}>Дальше</Button>}
                             {current > 0 && <Button onClick={()=>setCurrent(prev=>prev-1)} size={"large"}>Назад</Button>}
                         </Space>
@@ -68,6 +66,7 @@ const CreateCharacter: React.FC = () => {
                 </Card>
                 {steps[current].content}
             </Space>
+            {isVisibleFinish && <Finish onHide={()=>setIsVisibleFinish(false)}/>}
         </CreateCharacterContextProvider>
     );
 };
