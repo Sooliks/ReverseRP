@@ -5,11 +5,7 @@ using ServerSide.Extensions;
 
 namespace ServerSide.Entities;
 
-public class ReversePlayer : Player
+public class ReversePlayer
 {
-    public ReversePlayer(NetHandle handle)
-        : base(handle)
-    {
-        
-    }
+     
 }

@@ -22,7 +22,8 @@ public class Login : Script
         }
         if (AccountsHandler.IsLoginExist(login) && AccountsHandler.IsPasswordValid(login, password))
         {
-            player.ChangeCefWindow(CefWindowsPaths.CreateCharacter);
+            player.SetData("account", account);
+            player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
         }
         else
         {

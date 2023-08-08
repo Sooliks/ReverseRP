@@ -34,11 +34,13 @@ public class Registration : Script
                     return;
                 }
             }
-            AccountsHandler.Register(login, email, password, player.Address,player.SocialClubId);
-            player.ChangeCefWindow(CefWindowsPaths.CreateCharacter);
+            var regAccount = AccountsHandler.Register(login, email, password, player.Address,player.SocialClubId);
+            player.SetData("account", regAccount);
+            player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
         }
         catch (Exception e)
         {
+            player.TriggerCefEvent("SERVER::CEF::ERROR_REGISTRATION","Неизвестная ошибка");
             return;
         }
     }

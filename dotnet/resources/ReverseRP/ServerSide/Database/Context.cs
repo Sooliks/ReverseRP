@@ -11,6 +11,7 @@ namespace ServerSide.Database;
 public class Context : DbContext
 {
     public DbSet<Account> Account { get; set; }
+    public DbSet<Character> Character { get; set; }
 
     public Context()
     {
@@ -34,5 +35,6 @@ public class Context : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new AccountConfiguration());
+        modelBuilder.ApplyConfiguration(new CharacterConfiguration());
     }
 }

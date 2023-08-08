@@ -36,12 +36,19 @@ public static class AccountsHandler
         }
         return null;
     }
-    public static void Register(string login, string email, string password, string ip, ulong socialClubId)
+    public static Account Register(string login, string email, string password, string ip, ulong socialClubId)
     {
         using Context db = new Context();
         string saltePassword = Bcrypt.BCrypt.HashPassword(password, Bcrypt.BCrypt.GenerateSalt());
         var account = new Account(login,email, saltePassword, ip, socialClubId);
         db.Account.Add(account);
         db.SaveChanges();
+        return account;
+    }
+    public static Account GetAccountByLogin(string login)
+    {
+        using Context db = new Context();
+        var account = db.Account.SingleOrDefault(a => a.Login == login);
+        return account;
     }
 }
