@@ -18,13 +18,11 @@ const Hud : React.FC = () => {
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute'}}>
-            {navigationContext.navigation?.hud &&
-                <Space>
-                    <Space align={"center"} style={{marginLeft:20}}>
-                        <Keys/>
-                    </Space>
+            <Space>
+                <Space align={"center"} style={{marginLeft:20}}>
+                    <Keys/>
                 </Space>
-            }
+            </Space>
         </Space>
     );
 };

@@ -2,6 +2,7 @@
 using ServerSide.Database.Handlers;
 using ServerSide.Extensions;
 using ServerSide.Services;
+using ServerSide.Services.PlayerService;
 
 namespace ServerSide.EventsHandlers;
 
@@ -23,6 +24,11 @@ public class SelectCharacter : Script
     {
         if (CharacterHandler.IsAccountOwnerCharacter(player.GetAccount(), id))
         {
+            var character = CharacterHandler.GetCharacterById(id);
+            player.SetData("character", character);
+            PlayerCustomization.PlayerSetBaseCustomization(player,character.HeadOverlaysJson,
+                character.HeadOverlaysColorsJson, character.HeadBlendDataJson,
+                character.FaceFeaturesJson, character.Gender, character.FirstName, character.LastName);
             player.ChangeCefWindow(CefWindowsPaths.Default);
             player.FreezePlayer(false);
             return;

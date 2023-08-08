@@ -33,4 +33,10 @@ public class CharacterHandler
 
         return false;
     }
+
+    public static Character GetCharacterById(int id)
+    {
+        using Context db = new Context();
+        return db.Character.SingleOrDefault(c => c.Id == id);
+    }
 }
