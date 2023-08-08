@@ -139,7 +139,7 @@ const Genetics: React.FC = () => {
                                     onClick={()=>{
                                         const newCharacter = characterContext.character;
                                         newCharacter.gender = "женский"
-                                        newCharacter.beard = [255,0]
+                                        newCharacter.headOverlays[1] = 255
                                         newCharacter.clothing = [0,1,5]
                                         newCharacter.headOverlays[8] = 2;
                                         newCharacter.headOverlays[4] = 12;

@@ -28,8 +28,8 @@ namespace ClientSide.EventsHandlers
             RAGE.Elements.Player.LocalPlayer.SetHairColor((int)character["hair"][1],0);
             
             //борода
-            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(1,(int)character["beard"][0],100);
-            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(1,1,(int)character["beard"][1],0);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(1,(int)character["headOverlays"][1],100);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(1,1,(int)character["headOverlaysColors"][1],0);
             
             //брови
             RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(2,(int)character["headOverlays"][2],100);
@@ -71,23 +71,4 @@ namespace ClientSide.EventsHandlers
             RAGE.Elements.Player.LocalPlayer.SetComponentVariation(6,(int)character["clothing"][2],0,0);
         }
     }
-    /*public class CreateCharacterData
-    {
-        public string Gender { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public int birth { get; set; }
-        public string promo { get; set; }
-        public string origin { get; set; }
-        public int[] hair { get; set; }
-        public int[] beard { get; set; }
-        public int[] blendData { get; set; }
-        public int[] faceFeatures { get; set; }
-        public int torso { get; set; }
-        public int[] clothing { get; set; }
-        public int[] headOverlays { get; set; }
-        public int[] headOverlaysColors { get; set; }
-        public int eyeColor { get; set; }
-        public int eyeBrowColor { get; set; }
-    }*/
 }

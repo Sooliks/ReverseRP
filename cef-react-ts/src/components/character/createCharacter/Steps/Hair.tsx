@@ -92,7 +92,7 @@ const Hair : React.FC = () => {
                                 <CustomSlider
                                     onChange={(v)=>{
                                         const newCharacter: CreateCharacterType = characterContext.character;
-                                        newCharacter.beard[0] = v;
+                                        newCharacter.headOverlays[1] = v;
                                         characterContext.setCharacter(newCharacter);
                                         mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
                                     }}
@@ -172,13 +172,13 @@ const Hair : React.FC = () => {
                                 }
                                 if(current === 'Борода'){
                                     const newCharacter: CreateCharacterType = characterContext.character;
-                                    newCharacter.beard[1] = index;
+                                    newCharacter.headOverlaysColors[1] = index;
                                     characterContext.setCharacter(newCharacter);
                                     mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
                                 }
                                 if(current === 'Брови'){
                                     const newCharacter: CreateCharacterType = characterContext.character;
-                                    newCharacter.eyeBrowColor = index;
+                                    newCharacter.headOverlaysColors[2] = index;
                                     characterContext.setCharacter(newCharacter);
                                     mp.trigger("CEF::CLIENT::ON_CHANGE_CHARACTER",JSON.stringify(characterContext.character))
                                 }

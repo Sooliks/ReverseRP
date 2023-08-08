@@ -9,15 +9,11 @@ export type CreateCharacterType = {
     promo: string,
     origin: string,
     hair: number[],
-    beard: number[],
     blendData: number[],
     faceFeatures: number[],
-    torso: number,
     clothing: number[],
     headOverlays: number[],
     headOverlaysColors: number[]
-    eyeColor: number,
-    eyeBrowColor: number,
 }
 type CreateCharacterContextProviderProps = {
     children: React.ReactNode
@@ -39,15 +35,11 @@ export const defaultCharacter: CreateCharacterType = {
     promo:'',
     origin: 'Los-Santos',
     hair: [3,0],
-    beard: [255, 0],
     blendData: [0, 0, 0.5, 0.5,  0,  0],
     faceFeatures: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    torso: 0,
     clothing: [0, 1, 5],
     headOverlays: [255, 255, 12, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
     headOverlaysColors: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    eyeColor: 0,
-    eyeBrowColor: 0,
 }
 
 const NavigationContextProvider = ({children}: CreateCharacterContextProviderProps) => {
