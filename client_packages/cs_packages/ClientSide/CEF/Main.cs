@@ -15,8 +15,16 @@ namespace ClientSide.CEF
         public static void ChangePath(string path) => MainCefWindow.Url = "http://localhost:3000" + path;
         private void OnChangeWindow(object[] args)
         {
-            ChangePath((string)args[0]);
-            RAGE.Ui.Cursor.Visible = true;
+            string path = (string)args[0];
+            ChangePath(path);
+            if (path == "")
+            {
+                RAGE.Ui.Cursor.Visible = false;
+            }
+            else
+            {
+                RAGE.Ui.Cursor.Visible = true;
+            }
         }
     }
 }

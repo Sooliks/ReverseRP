@@ -66,7 +66,7 @@ const Finish: React.FC<FinishType> = ({onHide}) => {
                         rules={[
                             {
                                 required: true,
-                                message: 'Пожалуйста введите возраст!',
+                                message: 'Пожалуйста введите фамилию!',
                             },
                         ]}
                     >
@@ -78,7 +78,7 @@ const Finish: React.FC<FinishType> = ({onHide}) => {
                         rules={[
                             {
                                 required: true,
-                                message: 'Пожалуйста выберите город!',
+                                message: 'Пожалуйста введите фамилию!',
                             },
                         ]}
                     >

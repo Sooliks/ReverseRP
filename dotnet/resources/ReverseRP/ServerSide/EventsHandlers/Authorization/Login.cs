@@ -24,6 +24,7 @@ public class Login : Script
         {
             player.SetData("account", account);
             player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
+            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",CharacterHandler.GetCharactersByAccount(account));
         }
         else
         {

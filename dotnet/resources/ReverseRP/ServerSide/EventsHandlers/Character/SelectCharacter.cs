@@ -13,8 +13,20 @@ public class SelectCharacter : Script
         var account = player.GetAccount();
         if (CharacterHandler.GetCharactersByAccount(account).Count == 3)
         {
+            NAPI.Util.ConsoleOutput("1");
             return;
         }
         player.ChangeCefWindow(CefWindowsPaths.CreateCharacter);
     }
+    [RemoteEvent("CEF::SERVER::ON_SELECT_CHARACTER")]
+    public async void OnClickSelectCharacter(Player player, int id)
+    {
+        if (CharacterHandler.IsAccountOwnerCharacter(player.GetAccount(), id))
+        {
+            player.ChangeCefWindow(CefWindowsPaths.Default);
+            return;
+        }
+        return;
+    }
+    
 }

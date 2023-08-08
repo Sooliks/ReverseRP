@@ -43,7 +43,7 @@ public static class AccountsHandler
         var account = new Account(login,email, saltePassword, ip, socialClubId);
         db.Account.Add(account);
         db.SaveChanges();
-        return account;
+        return db.Account.SingleOrDefault(a => a == account);
     }
     public static Account GetAccountByLogin(string login)
     {

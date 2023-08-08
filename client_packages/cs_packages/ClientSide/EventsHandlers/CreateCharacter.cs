@@ -33,7 +33,7 @@ namespace ClientSide.EventsHandlers
             
             //брови
             RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(2,(int)character["headOverlays"][2],100);
-            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(2,1,(int)character["eyeBrowColor"],0);
+            RAGE.Elements.Player.LocalPlayer.SetHeadOverlayColor(2,1,(int)character["headOverlaysColors"][2],0);
             
             //особенности кожи
             RAGE.Elements.Player.LocalPlayer.SetHeadOverlay(0,(int)character["headOverlays"][0],100);

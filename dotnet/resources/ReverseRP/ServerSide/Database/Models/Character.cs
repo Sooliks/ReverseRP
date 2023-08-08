@@ -13,6 +13,9 @@ public class Character
     public string HeadBlendDataJson { get; set; }
     public string FaceFeaturesJson { get; set; }
     public bool Gender { get; set; }
+    public long Money { get; set; }
+    public long MoneyBank { get; set; }
+    public int Lvl { get; set; }
 
     public Character()
     {
@@ -31,6 +34,9 @@ public class Character
         HeadBlendDataJson = headBlendDataJson;
         FaceFeaturesJson = faceFeaturesJson;
         Gender = gender;
+        Money = 1000;
+        MoneyBank = 0;
+        Lvl = 0;
     }
     
 }

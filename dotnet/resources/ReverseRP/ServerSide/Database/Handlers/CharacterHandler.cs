@@ -21,4 +21,16 @@ public class CharacterHandler
         db.Character.Add(character);
         db.SaveChanges();
     }
+
+    public static bool IsAccountOwnerCharacter(Account account, int idCharacter)
+    {
+        using Context db = new Context();
+        var character = db.Character.FirstOrDefault(c => c.Id == idCharacter);
+        if (character.AccountId == account.Id)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

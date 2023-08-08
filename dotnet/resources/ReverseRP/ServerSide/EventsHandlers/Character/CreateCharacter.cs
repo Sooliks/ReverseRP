@@ -1,7 +1,9 @@
 ﻿using GTANetworkAPI;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ServerSide.Database.Handlers;
 using ServerSide.Extensions;
+using ServerSide.Services;
 
 namespace ServerSide.EventsHandlers;
 
@@ -30,10 +32,11 @@ public class CreateCharacter : Script
                 origin = "Paleto Bay";
                 break;
         }
-        string headOverlays = (string)character["headOverlays"];
-        string headOverlaysColors = (string)character["headOverlaysColors"];
-        string headBlendData = (string)character["blendData"];
-        string faceFeatures = (string)character["faceFeatures"];
+        string headOverlays = JsonConvert.SerializeObject(character["headOverlays"]);
+        string headOverlaysColors = JsonConvert.SerializeObject(character["headOverlaysColors"]);
+        string headBlendData = JsonConvert.SerializeObject(character["blendData"]);
+        string faceFeatures = JsonConvert.SerializeObject(character["faceFeatures"]);
         CharacterHandler.AddNewCharacter(player.GetAccount(), firstName, lastName,birth,origin,headOverlays,headOverlaysColors,headBlendData,faceFeatures,gender);
+        player.ChangeCefWindow(CefWindowsPaths.Default);
     }
 }
