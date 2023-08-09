@@ -2,29 +2,27 @@ import React from 'react';
 import {Space} from "antd";
 import {ItemType} from "./Item";
 
-enum BoardTypeEnum {
+export enum BoardTypeEnum {
     Other,
     Player,
+    ClothesPlayer
 }
 
 
-type BoardType = {
+export type BoardType = {
     type: BoardTypeEnum
-    item: React.ComponentType
-    isExistItem: boolean
+    children?: React.ReactNode
 }
 
 
 
 
-const Board: React.FC<BoardType> = ({type,item: Item,isExistItem}) => {
+const Board: React.FC<BoardType> = ({type,children}) => {
 
     return (
-        <Space>
-            {isExistItem &&
-                <Item/>
-            }
-        </Space>
+        <div style={{border: '1px solid #f0f0f0', borderRadius: '5px', width: 84, height: 84}}>
+            {children}
+        </div>
     );
 };
 

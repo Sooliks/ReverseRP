@@ -3,7 +3,7 @@ import {Button, Space, Typography} from "antd";
 import {LeftOutlined, RightOutlined} from "@ant-design/icons";
 
 
-const {Title, Text} = Typography;
+const {Text} = Typography;
 
 export type DataTypeSwitcher = {
     value: number
