@@ -1,42 +1,41 @@
 import React, {createContext, useContext, useState} from 'react';
+import {ItemType} from "../Item";
+import {BoardType} from "../Board";
 
 
-
-
-type InventoryOther = {
-
-}
-type InventoryPlayer = {
-
-}
 
 
 export type InventoryType = {
-
+    currentItem?: ItemType
+    boardsPlayer: BoardType[]
+    boardsClothes: BoardType[]
+    boardsOther: BoardType[]
 }
 type InventoryContextProviderProps = {
     children: React.ReactNode
 }
 
 type InventoryContextType = {
-    character: InventoryType;
-    setCharacter: React.Dispatch<React.SetStateAction<InventoryType>>
+    inventory: InventoryType;
+    setInventory: React.Dispatch<React.SetStateAction<InventoryType>>
 }
 const InventoryContext = createContext({} as InventoryContextType)
 
 export const useInventoryContext = () =>  useContext(InventoryContext);
 
 export const defaultInventory: InventoryType = {
-
+    boardsPlayer: [],
+    boardsClothes: [],
+    boardsOther: []
 }
 
 const InventoryContextProvider = ({children}: InventoryContextProviderProps) => {
 
-    const [character,setCharacter] = useState<InventoryType>(defaultInventory);
+    const [inventory,setInventory] = useState<InventoryType>(defaultInventory);
 
 
     return (
-        <InventoryContext.Provider value={{character,setCharacter}}>{children}</InventoryContext.Provider>
+        <InventoryContext.Provider value={{inventory,setInventory}}>{children}</InventoryContext.Provider>
     );
 };
 

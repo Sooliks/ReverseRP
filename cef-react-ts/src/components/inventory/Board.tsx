@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Space} from "antd";
 import Item, {ItemType} from "./Item";
+import {InventoryType, useInventoryContext} from "./context/InventoryContextProvider";
 
 export enum BoardTypeEnum {
     Other,
@@ -24,15 +25,16 @@ type BoardProps = {
 
 
 const Board: React.FC<BoardProps> = ({board,onChangeItem}) => {
-    const [currentItem,setCurrentItem] = useState<ItemType>()
-
+    const inventoryContext = useInventoryContext()
     const dragStartHandler = (e: any, board: BoardType) => {
         if(board.item === undefined){
             e.preventDefault();
             return
         }
-        setCurrentItem(board.item);
-        console.log('start', board.item)
+        console.log(board.item)
+        const newInventory: InventoryType = inventoryContext.inventory;
+        newInventory.currentItem = board.item;
+        inventoryContext.setInventory(newInventory)
     }
     const dragLeaveHandler = (e: any) => {
         e.target.style.background = 'white'
@@ -47,8 +49,7 @@ const Board: React.FC<BoardProps> = ({board,onChangeItem}) => {
     const dropHandler = (e: any, board: BoardType) => {
         e.preventDefault();
         e.target.style.background = 'white'
-        onChangeItem(board,currentItem);
-        console.log('drop', board)
+        onChangeItem(board,inventoryContext.inventory.currentItem);
     }
 
     return (

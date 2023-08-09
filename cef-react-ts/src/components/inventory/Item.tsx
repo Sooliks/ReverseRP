@@ -13,6 +13,7 @@ export type ItemType = {
 
 
 const Item: React.FC<ItemType> = ({id, name, description, count}) => {
+
     const [image,setImage] = useState()
     useEffect(()=>{
         try {
@@ -21,8 +22,6 @@ const Item: React.FC<ItemType> = ({id, name, description, count}) => {
             
         }
     })
-
-
 
     return (
         <Space
