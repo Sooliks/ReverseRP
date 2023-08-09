@@ -17,20 +17,21 @@ const Inventory : React.FC = () => {
     const [inventoryOther,setInventoryOther] = useState<ItemType[]>([])
 
 
+
     useEffect(()=>{
         let newBoards: BoardType[] = []
         //делаем клетки для айтемов
         for(let i = 0; i < 56; i++){
-            newBoards = [...newBoards,{type: BoardTypeEnum.Player}]
+            newBoards = [...newBoards,{type: BoardTypeEnum.Player, idBoard: i}]
         }
         //делаем клетки одежды для айтемов
         let newBoardsClothes: BoardType[] = []
         for(let i = 0; i < 7; i++){
-            newBoardsClothes = [...newBoardsClothes,{type: BoardTypeEnum.ClothesPlayer}]
+            newBoardsClothes = [...newBoardsClothes,{type: BoardTypeEnum.ClothesPlayer, idBoard: i}]
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////
         for (let i = 0; i<inventoryPlayer.length;i++){
-            newBoards[i].children = <Item id={inventoryPlayer[i].id} name={inventoryPlayer[i].name} description={inventoryPlayer[i].description} count={inventoryPlayer[i].count}/>
+            newBoards[i].item = inventoryPlayer[i];
         }
 
         setBoards(newBoards)
@@ -45,18 +46,18 @@ const Inventory : React.FC = () => {
                         <Card style={{width: 800, height: 700}}>
                             <Space wrap>
                                 {boards.map((board)=>
-                                    <Board type={board.type}>
-                                        {board.children}
-                                    </Board>
+                                    <Board board={board} onChangeItem={(b, currentItem)=>{
+
+                                    }}/>
                                 )}
                             </Space>
                         </Card>
                         <Card style={{height: 700}}>
                             <Space direction={"vertical"} style={{justifyContent: 'space-around'}} align={"center"}>
                                 {boardsClothes.map((board)=>
-                                    <Board type={board.type}>
-                                        {board.children}
-                                    </Board>
+                                    <Board board={board} onChangeItem={(b)=>{
+
+                                    }}/>
                                 )}
                             </Space>
                         </Card>

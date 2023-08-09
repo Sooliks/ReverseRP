@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {DragEventHandler, useEffect, useState} from 'react';
 import {Space, Tooltip, Typography} from "antd";
 
 
@@ -13,13 +13,7 @@ export type ItemType = {
 
 
 const Item: React.FC<ItemType> = ({id, name, description, count}) => {
-    
     const [image,setImage] = useState()
-    /*try {
-        image = require('../../assets/images/inventory' + 'item_' + id + '.png');
-    }catch (e) {
-
-    }*/
     useEffect(()=>{
         try {
             setImage(require('../../assets/images/inventory/' + 'item_' + id + '.png'))
@@ -29,12 +23,18 @@ const Item: React.FC<ItemType> = ({id, name, description, count}) => {
     })
 
 
+
     return (
-        <Space direction={"vertical"} style={{width:84,height:84}} align={"center"}>
-            <Space style={{border: '1px gray'}} direction={"vertical"}>
-                <img width={84} height={80} src={image} alt={name}/>
-            </Space>
-            <Text type={"secondary"}>{count}</Text>
+        <Space
+            direction={"vertical"}
+            style={{width:84,height:84, cursor: 'grab'}}
+            align={"center"}
+        >
+            <Tooltip title={`${name} ${count} шт.`}>
+                <Space style={{border: '1px gray', margin: 0}} direction={"vertical"}>
+                    <img width={84} height={80} src={image} alt={name}/>
+                </Space>
+            </Tooltip>
         </Space>
     );
 };
