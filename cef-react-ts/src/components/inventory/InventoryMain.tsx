@@ -5,7 +5,9 @@ import InventoryContextProvider from "./context/InventoryContextProvider";
 const InventoryMain: React.FC = () => {
     return (
         <InventoryContextProvider>
-            <Inventory/>
+            <div>
+                <Inventory/>
+            </div>
         </InventoryContextProvider>
     );
 };

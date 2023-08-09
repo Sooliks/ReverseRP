@@ -1,5 +1,6 @@
 import React, {DragEventHandler, useEffect, useState} from 'react';
 import {Space, Tooltip, Typography} from "antd";
+import {BoardType} from "./Board";
 
 
 const {Text} = Typography;
@@ -9,6 +10,7 @@ export type ItemType = {
     name: string
     description: string
     count: number
+    currentBoard?: BoardType
 }
 
 

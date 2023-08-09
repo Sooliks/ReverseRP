@@ -4,7 +4,6 @@ import {BoardType} from "../Board";
 
 
 
-
 export type InventoryType = {
     currentItem?: ItemType
     boardsPlayer: BoardType[]
@@ -29,9 +28,10 @@ export const defaultInventory: InventoryType = {
     boardsOther: []
 }
 
-const InventoryContextProvider = ({children}: InventoryContextProviderProps) => {
 
+const InventoryContextProvider = ({children}: InventoryContextProviderProps) => {
     const [inventory,setInventory] = useState<InventoryType>(defaultInventory);
+
 
 
     return (

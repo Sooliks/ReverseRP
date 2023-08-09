@@ -45,7 +45,6 @@ export const defaultCharacter: CreateCharacterType = {
 }
 
 const NavigationContextProvider = ({children}: CreateCharacterContextProviderProps) => {
-
     const [character,setCharacter] = useState<CreateCharacterType>(defaultCharacter);
 
 

@@ -31,7 +31,6 @@ const Board: React.FC<BoardProps> = ({board,onChangeItem}) => {
             e.preventDefault();
             return
         }
-        console.log(board.item)
         const newInventory: InventoryType = inventoryContext.inventory;
         newInventory.currentItem = board.item;
         inventoryContext.setInventory(newInventory)

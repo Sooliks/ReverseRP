@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Card, Space} from "antd";
 import {Config} from "../../conf";
 import Board, {BoardType, BoardTypeEnum} from "./Board";
-import Item, {ItemType} from "./Item";
+import {ItemType} from "./Item";
 import {InventoryType, useInventoryContext} from "./context/InventoryContextProvider";
+
 
 
 const Inventory : React.FC = () => {
@@ -14,11 +15,11 @@ const Inventory : React.FC = () => {
     const [boardsClothes,setBoardsClothes] = useState<BoardType[]>([])*/
 
     const [inventoryPlayer,setInventoryPlayer] = useState<ItemType[]>([
-        {id: 0, count: 5, description: 'abobs', name: "burger"}
+        {id: 0, count: 5, description: 'Восполняет 40 еды', name: "burger"}
     ])
     const [inventoryOther,setInventoryOther] = useState<ItemType[]>([])
 
-
+    const [state,setState] = useState(0)
 
     useEffect(()=>{
         let newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;
@@ -35,12 +36,11 @@ const Inventory : React.FC = () => {
         //добавляем айтемы игрока в борды
         for (let i = 0; i< inventoryPlayer.length;i++){
             newBoards[i].item = inventoryPlayer[i];
+            newBoards[i].item.currentBoard = newBoards[i];
         }
-        const newInventory: InventoryType = inventoryContext.inventory;
-        newInventory.boardsPlayer = newBoards;
-        newInventory.boardsClothes = newBoardsClothes;
-        inventoryContext.setInventory(newInventory)
+        inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards, boardsClothes: newBoardsClothes})
     },[])
+
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'center', alignItems: 'center'}}>
@@ -52,12 +52,12 @@ const Inventory : React.FC = () => {
                                 {inventoryContext.inventory.boardsPlayer.map((board)=>
                                     <Board board={board} onChangeItem={(b, currentItem)=>{
                                         const newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;
-                                        let index = inventoryContext.inventory.boardsPlayer.indexOf(b);
+                                        const index = inventoryContext.inventory.boardsPlayer.indexOf(b);
+                                        const lastBoardIndex = inventoryContext.inventory.boardsPlayer.indexOf(currentItem.currentBoard)
+                                        newBoards[lastBoardIndex].item = undefined;
                                         newBoards[index].item = currentItem;
-
-                                        const newInventory: InventoryType = inventoryContext.inventory;
-                                        newInventory.boardsPlayer = newBoards;
-                                        inventoryContext.setInventory(newInventory)
+                                        currentItem.currentBoard = newBoards[index];
+                                        inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards})
                                     }}/>
                                 )}
                             </Space>
