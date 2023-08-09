@@ -17,7 +17,6 @@ public class PlayerCustomization
         int[] headOverlaysObj = JsonConvert.DeserializeObject<int[]>(headOverlaysJson);
         byte[] headOverlaysColorsObj = JsonConvert.DeserializeObject<byte[]>(headOverlaysColorsJson);
         player.Name = firstName + " " + lastName;
-        //player.Nametag = firstName + " " + lastName;
         HeadBlend headBlend = new HeadBlend()
         {
             ShapeFirst = Convert.ToByte(headBlendObj[0]),
