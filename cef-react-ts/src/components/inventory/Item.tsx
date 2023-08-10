@@ -22,7 +22,7 @@ const Item: React.FC<ItemType> = ({id, name, description, count}) => {
         try {
             setImage(require('../../assets/images/inventory/' + 'item_' + id + '.png'))
         }catch (e) {
-            
+            setImage(require('../../assets/images/not_found_image.jpg'));
         }
     })
 
@@ -34,7 +34,7 @@ const Item: React.FC<ItemType> = ({id, name, description, count}) => {
         >
             <Tooltip title={`${name} ${count} шт.`}>
                 <Space style={{border: '1px gray', margin: 0}} direction={"vertical"}>
-                    <img width={84} height={80} src={image} alt={name}/>
+                    <img width={84} height={84} src={image} alt={name}/>
                 </Space>
             </Tooltip>
         </Space>

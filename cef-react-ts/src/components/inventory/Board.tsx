@@ -20,38 +20,13 @@ export type BoardType = {
 
 type BoardProps = {
     board: BoardType
-    onChangeItem: (board: BoardType,currentItem?: ItemType) => void
 }
 
 
 
 
-const Board: React.FC<BoardProps> = ({board,onChangeItem}) => {
-    const inventoryContext = useInventoryContext()
-    const dragStartHandler = (e: any, board: BoardType) => {
-        if(board.item === undefined){
-            e.preventDefault();
-            return
-        }
-        const newInventory: InventoryType = inventoryContext.inventory;
-        newInventory.currentItem = board.item;
-        inventoryContext.setInventory(newInventory)
-    }
-    const dragLeaveHandler = (e: any) => {
-        e.target.style.background = 'white'
-    }
-    const dragEndHandler = (e: any) => {
-        e.target.style.background = 'white'
-    }
-    const dragOverHandler = (e: any) => {
-        e.preventDefault();
-        e.target.style.background = 'lightgray'
-    }
-    const dropHandler = (e: any, board: BoardType) => {
-        e.preventDefault();
-        e.target.style.background = 'white'
-        onChangeItem(board,inventoryContext.inventory.currentItem);
-    }
+const Board: React.FC<BoardProps> = ({board}) => {
+
 
     return (
         <Droppable droppableId={board.idBoard.toString()} key={board.idBoard}>
@@ -63,9 +38,9 @@ const Board: React.FC<BoardProps> = ({board,onChangeItem}) => {
                 >
                     {provided.placeholder}
                     {board.item !== undefined &&
-                        <Draggable draggableId={board.item.id.toString()} key={board.item.id} index={board.item.id}>
+                        <Draggable draggableId={board.item.index.toString()} key={board.item.index} index={board.item.index}>
                             {(provided: any) => (
-                                <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} onMouseDown={(e)=>e.preventDefault()}>
                                     {provided.placeholder}
                                     {board.item !== undefined &&
                                         <Item index={board.item.index} id={board.item.id} name={board.item.name} count={board.item.count}
