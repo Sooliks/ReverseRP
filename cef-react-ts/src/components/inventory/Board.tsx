@@ -3,6 +3,8 @@ import {Space} from "antd";
 import Item, {ItemType} from "./Item";
 import {InventoryType, useInventoryContext} from "./context/InventoryContextProvider";
 
+import {Droppable, Draggable} from "react-beautiful-dnd"
+
 export enum BoardTypeEnum {
     Other,
     Player,
@@ -52,19 +54,31 @@ const Board: React.FC<BoardProps> = ({board,onChangeItem}) => {
     }
 
     return (
-        <div
-            style={{border: '1px solid #f0f0f0', borderRadius: '5px', width: 84, height: 84}}
-            draggable
-            onDragStart={(e)=>dragStartHandler(e,board)}
-            onDragLeave={(e)=>dragLeaveHandler(e)}
-            onDragEnd={(e)=>dragEndHandler(e)}
-            onDragOver={(e)=>dragOverHandler(e)}
-            onDrop={(e)=>dropHandler(e,board)}
-        >
-            {board.item !== undefined &&
-                <Item id={board.item.id} name={board.item.name} count={board.item.count} description={board.item.description}/>
-            }
-        </div>
+        <Droppable droppableId={board.idBoard.toString()} key={board.idBoard}>
+            {(provided: any) =>(
+                <div
+                    style={{border: '1px solid #f0f0f0', borderRadius: '5px', width: 84, height: 84}}
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                >
+                    {provided.placeholder}
+                    {board.item !== undefined &&
+                        <Draggable draggableId={board.item.id.toString()} key={board.item.id} index={board.item.id}>
+                            {(provided: any) => (
+                                <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                    {provided.placeholder}
+                                    {board.item !== undefined &&
+                                        <Item index={board.item.index} id={board.item.id} name={board.item.name} count={board.item.count}
+                                              description={board.item.description}/>
+
+                                    }
+                                </div>
+                            )}
+                        </Draggable>
+                    }
+                </div>
+            )}
+        </Droppable>
     );
 };
 

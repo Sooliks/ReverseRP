@@ -5,6 +5,8 @@ import Board, {BoardType, BoardTypeEnum} from "./Board";
 import {ItemType} from "./Item";
 import {InventoryType, useInventoryContext} from "./context/InventoryContextProvider";
 
+//@ts-ignore
+import {DragDropContext, DropResult} from "react-beautiful-dnd"
 
 
 const Inventory : React.FC = () => {
@@ -15,7 +17,7 @@ const Inventory : React.FC = () => {
     const [boardsClothes,setBoardsClothes] = useState<BoardType[]>([])*/
 
     const [inventoryPlayer,setInventoryPlayer] = useState<ItemType[]>([
-        {id: 0, count: 5, description: 'Восполняет 40 еды', name: "burger"}
+        {id: 0, count: 5, description: 'Восполняет 40 еды', name: "burger", currentBoard: inventoryContext.inventory.boardsPlayer[0], index: 0}
     ])
     const [inventoryOther,setInventoryOther] = useState<ItemType[]>([])
 
@@ -36,11 +38,31 @@ const Inventory : React.FC = () => {
         //добавляем айтемы игрока в борды
         for (let i = 0; i< inventoryPlayer.length;i++){
             newBoards[i].item = inventoryPlayer[i];
-            newBoards[i].item.currentBoard = newBoards[i];
+            if(newBoards[i].item!==undefined){
+                // @ts-ignore
+                newBoards[i].item.currentBoard = newBoards[i];
+            }
         }
         inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards, boardsClothes: newBoardsClothes})
     },[])
 
+
+
+    const handleDragEnd = (result: DropResult) =>{
+        if(!result.destination)return;
+        let newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;
+        const itemDraggable = inventoryPlayer[parseInt(result.draggableId)];//айтем который двигаем
+        let lastBoardIndex: number; //прошлый борд
+        if(itemDraggable.currentBoard!==undefined){
+            lastBoardIndex = inventoryContext.inventory.boardsPlayer.indexOf(itemDraggable.currentBoard)
+            newBoards[lastBoardIndex].item = undefined; //удаляем из прошлого борда айтем
+        }
+        const newBoardId: number = parseInt(result.destination?.droppableId); // новый борд его id
+        newBoards[newBoardId].item = itemDraggable; //устанавливаем в новый борд перемещенный айтем
+        // @ts-ignore
+        newBoards[newBoardId].item.currentBoard = newBoards[newBoardId]; // устанавливаем этому айтему новый борд
+        inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards}) //перерисовываем инвентарь
+    }
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'center', alignItems: 'center'}}>
@@ -48,28 +70,26 @@ const Inventory : React.FC = () => {
                 <Card title={"Персонаж"}>
                     <Space style={{width: 1000, height: 700, justifyContent: 'space-around'}}>
                         <Card style={{width: 800, height: 700}}>
-                            <Space wrap>
-                                {inventoryContext.inventory.boardsPlayer.map((board)=>
-                                    <Board board={board} onChangeItem={(b, currentItem)=>{
-                                        const newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;
-                                        const index = inventoryContext.inventory.boardsPlayer.indexOf(b);
-                                        const lastBoardIndex = inventoryContext.inventory.boardsPlayer.indexOf(currentItem.currentBoard)
-                                        newBoards[lastBoardIndex].item = undefined;
-                                        newBoards[index].item = currentItem;
-                                        currentItem.currentBoard = newBoards[index];
-                                        inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards})
-                                    }}/>
-                                )}
-                            </Space>
+                            <DragDropContext onDragEnd={handleDragEnd}>
+                                <Space wrap>
+                                    {inventoryContext.inventory.boardsPlayer.map((board)=>
+                                        <Board board={board} onChangeItem={(b, currentItem)=>{
+
+                                        }}/>
+                                    )}
+                                </Space>
+                            </DragDropContext>
                         </Card>
                         <Card style={{height: 700}}>
-                            <Space direction={"vertical"} style={{justifyContent: 'space-around'}} align={"center"}>
-                                {inventoryContext.inventory.boardsClothes.map((board)=>
-                                    <Board board={board} onChangeItem={(b, currentItem)=>{
+                            <DragDropContext onDragEnd={handleDragEnd}>
+                                <Space direction={"vertical"} style={{justifyContent: 'space-around'}} align={"center"}>
+                                    {inventoryContext.inventory.boardsClothes.map((board)=>
+                                        <Board board={board} onChangeItem={(b, currentItem)=>{
 
-                                    }}/>
-                                )}
-                            </Space>
+                                        }}/>
+                                    )}
+                                </Space>
+                            </DragDropContext>
                         </Card>
                     </Space>
                 </Card>

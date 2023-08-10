@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -19,11 +19,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["./node_modules/@ragempcommunity/types-cef", "node", "src/types"],
+    "types": ["./node_modules/@ragempcommunity/types-cef", "node", "src/types", "react-beautiful-dnd"],
     "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": [
     "src",
-    "src/types/modules.d.ts"
+    "src/types/modules.d.ts",
+    "node_modules/react-beautiful-dnd"
   ]
 }

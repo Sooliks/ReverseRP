@@ -1,6 +1,6 @@
 ﻿using RAGE;
 using System.Linq;
-
+using ClientSide.CEF;
 
 
 namespace ClientSide.EventsManager
@@ -23,7 +23,7 @@ namespace ClientSide.EventsManager
         {
             string nameCefEvent = (string)args[0];
             args = args.Where(e => e != nameCefEvent).ToArray();
-            CEF.Main.MainCefWindow.Call(nameCefEvent, args);
+            CefService.MainCefWindow.Call(nameCefEvent, args);
         }
     }
 }

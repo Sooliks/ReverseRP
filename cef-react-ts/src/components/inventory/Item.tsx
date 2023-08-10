@@ -7,6 +7,7 @@ const {Text} = Typography;
 
 export type ItemType = {
     id: number
+    index: number
     name: string
     description: string
     count: number

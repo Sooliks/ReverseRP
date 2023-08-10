@@ -1,4 +1,5 @@
-﻿using RAGE;
+﻿using ClientSide.CEF;
+using RAGE;
 using RAGE.Ui;
 
 namespace ClientSide.Keys
@@ -10,6 +11,10 @@ namespace ClientSide.Keys
             Input.Bind(VirtualKeys.F2, true, () =>
             {
                 Cursor.ShowCursor(!Cursor.Visible,!Cursor.Visible);
+            });
+            Input.Bind(VirtualKeys.I, true, () =>
+            {
+                CefService.ChangePath("/inventory");
             });
         }
     }
