@@ -14,7 +14,7 @@ export enum BoardTypeEnum {
 
 export type BoardType = {
     type: BoardTypeEnum
-    item?: ItemType
+    item?:  ItemType
     idBoard: number
 }
 
@@ -45,7 +45,6 @@ const Board: React.FC<BoardProps> = ({board}) => {
                                     {board.item !== undefined &&
                                         <Item index={board.item.index} id={board.item.id} name={board.item.name} count={board.item.count}
                                               description={board.item.description}/>
-
                                     }
                                 </div>
                             )}

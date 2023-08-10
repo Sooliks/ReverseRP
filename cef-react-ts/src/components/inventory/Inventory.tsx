@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {Card, Space} from "antd";
 import {Config} from "../../conf";
 import Board, {BoardType, BoardTypeEnum} from "./Board";
-import item, {ItemType} from "./Item";
-import {InventoryType, useInventoryContext} from "./context/InventoryContextProvider";
+import {ItemType} from "./Item";
+import {useInventoryContext} from "./context/InventoryContextProvider";
 
 //@ts-ignore
 import {DragDropContext, DropResult} from "react-beautiful-dnd"
@@ -11,18 +11,16 @@ import {DragDropContext, DropResult} from "react-beautiful-dnd"
 
 const Inventory : React.FC = () => {
     const [otherInventoryIsVisible,setOtherInventoryIsVisible] = useState<boolean>(false)
-
     const inventoryContext = useInventoryContext()
-    /*const [boards,setBoards] = useState<BoardType[]>([]);
-    const [boardsClothes,setBoardsClothes] = useState<BoardType[]>([])*/
 
     const [inventoryPlayer,setInventoryPlayer] = useState<ItemType[]>([
         {id: 0, count: 5, description: 'Восполняет 40 еды', name: "burger", currentBoard: inventoryContext.inventory.boardsPlayer[0], index: 0},
         {id: 0, count: 5, description: 'Восполняет 40 еды', name: "бигтейсти", currentBoard: inventoryContext.inventory.boardsPlayer[1], index: 1}
     ])
+    const [inventoryClothes,setInventoryClothes] = useState<ItemType[]>([])
     const [inventoryOther,setInventoryOther] = useState<ItemType[]>([])
 
-    const [state,setState] = useState(0)
+
 
     useEffect(()=>{
         let newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;
@@ -32,11 +30,12 @@ const Inventory : React.FC = () => {
         }
         //делаем клетки одежды для айтемов
         let newBoardsClothes: BoardType[] = inventoryContext.inventory.boardsClothes;
-        for(let i = 0; i < 7; i++){
+        for(let i = 56; i < 63; i++){
             newBoardsClothes = [...newBoardsClothes,{type: BoardTypeEnum.ClothesPlayer, idBoard: i}]
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////
         //добавляем айтемы игрока в борды
+        //заполняем борды игрока айтемами
         for (let i = 0; i< inventoryPlayer.length;i++){
             newBoards[inventoryPlayer[i].index].item = inventoryPlayer[i];
             if(newBoards[i].item!==undefined){
@@ -44,61 +43,107 @@ const Inventory : React.FC = () => {
                 newBoards[i].item.currentBoard = newBoards[inventoryPlayer[i].index];
             }
         }
+        //заполняем борды одежды игрока айтемами
+        for (let i = 0; i< inventoryClothes.length;i++){
+            newBoardsClothes[inventoryClothes[i].index].item = inventoryClothes[i];
+            if(newBoardsClothes[i].item!==undefined){
+                // @ts-ignore
+                newBoardsClothes[i].item.currentBoard = newBoardsClothes[inventoryClothes[i].index];
+            }
+        }
         inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards, boardsClothes: newBoardsClothes})
     },[])
 
+    const getTypeBoardById = (idBoard?: number): BoardTypeEnum =>{
+        if(idBoard===undefined)return BoardTypeEnum.Player;
+
+        if(idBoard<56){
+            return BoardTypeEnum.Player;
+        }
+        if(idBoard>=56 && idBoard<63){
+            return BoardTypeEnum.ClothesPlayer;
+        }
+        if(idBoard>62){
+            return BoardTypeEnum.Other;
+        }
+        return BoardTypeEnum.Player;
+    }
 
 
     const handleDragEnd = (result: DropResult) =>{
         if(!result.destination)return;
-
-        let newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;
-        const itemDraggable = inventoryPlayer[parseInt(result.draggableId)];//айтем который двигаем
-        let lastBoardIndex: number; //прошлый борд
-        const newBoardId: number = parseInt(result.destination?.droppableId); // новый борд его id
-        if(newBoards[newBoardId].item!==undefined){
-            let lastItem = newBoards[newBoardId].item;
-            newBoards[newBoardId].item = itemDraggable;
-            // @ts-ignore
-            newBoards[newBoards.indexOf(lastItem.currentBoard)].item = lastItem;
-            return;
-        }
-
+        const newBoardId: number = parseInt(result.destination.droppableId); // новый борд его id
+        const itemDraggable = inventoryPlayer[parseInt(result.draggableId)]; // айтем который двигаем
         if(itemDraggable.currentBoard!==undefined){
-            lastBoardIndex = inventoryContext.inventory.boardsPlayer.indexOf(itemDraggable.currentBoard)
-            newBoards[lastBoardIndex].item = undefined; //удаляем из прошлого борда айтем
+            console.log(result)
+            changeItem(newBoardId, itemDraggable)
         }
-
-        newBoards[newBoardId].item = itemDraggable; //устанавливаем в новый борд перемещенный айтем
-        // @ts-ignore
-        newBoards[newBoardId].item.currentBoard = newBoards[newBoardId]; // устанавливаем этому айтему новый борд
-        inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards}) //перерисовываем инвентарь
     }
+    const changeItem = (newBoardId: number, itemDraggable: ItemType) => {
+        let newBoards: BoardType[] = [];
+
+        if(getTypeBoardById(newBoardId)===BoardTypeEnum.Player)newBoards = inventoryContext.inventory.boardsPlayer;
+        if(getTypeBoardById(newBoardId)===BoardTypeEnum.ClothesPlayer)newBoards = inventoryContext.inventory.boardsClothes;
+        if(getTypeBoardById(newBoardId)===BoardTypeEnum.Other)newBoards = inventoryContext.inventory.boardsOther;
+        const indexNewBoard = newBoards.indexOf(newBoards.filter(b=>b.idBoard === newBoardId)[0])
+
+        // @ts-ignore
+        switch (itemDraggable.currentBoard.type){
+            case BoardTypeEnum.Player:
+                const clearingBoardsPlayer: BoardType[] = inventoryContext.inventory.boardsPlayer;
+                console.log(clearingBoardsPlayer[clearingBoardsPlayer.indexOf(itemDraggable.currentBoard!)].item )
+                // @ts-ignore
+                clearingBoardsPlayer[clearingBoardsPlayer.indexOf(itemDraggable.currentBoard)].item = undefined;
+                inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: clearingBoardsPlayer})
+                //newBoards = clearingBoardsPlayer;
+                break
+            case BoardTypeEnum.ClothesPlayer:
+                const clearingBoardsClothesPlayer: BoardType[] = inventoryContext.inventory.boardsClothes;
+                // @ts-ignore
+                clearingBoardsClothesPlayer[clearingBoardsClothesPlayer.indexOf(itemDraggable.currentBoard)].item = undefined;
+                inventoryContext.setInventory({...inventoryContext.inventory,boardsClothes: clearingBoardsClothesPlayer})
+                //newBoards = clearingBoardsClothesPlayer;
+                break
+            case BoardTypeEnum.Other:
+                const clearingBoardsOther: BoardType[] = inventoryContext.inventory.boardsOther;
+                // @ts-ignore
+                clearingBoardsOther[clearingBoardsOther.indexOf(itemDraggable.currentBoard)].item = undefined;
+                inventoryContext.setInventory({...inventoryContext.inventory,boardsOther: clearingBoardsOther})
+                //newBoards = clearingBoardsOther;
+                break
+        }
+        newBoards[indexNewBoard].item = {id: 0, count: 5, description: 'dg', name: 'dgdg', index: 0}
+        newBoards[indexNewBoard].item = itemDraggable;
+        newBoards[indexNewBoard].item!.currentBoard = newBoards[indexNewBoard];
+
+        if(getTypeBoardById(newBoardId)===BoardTypeEnum.Player)inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards}) //перерисовываем инвентарь
+        if(getTypeBoardById(newBoardId)===BoardTypeEnum.ClothesPlayer)inventoryContext.setInventory({...inventoryContext.inventory,boardsClothes: newBoards}) //перерисовываем инвентарь
+        if(getTypeBoardById(newBoardId)===BoardTypeEnum.Other)inventoryContext.setInventory({...inventoryContext.inventory,boardsOther: newBoards})
+    }
+
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'center', alignItems: 'center'}}>
             <Space>
                 <Card title={"Персонаж"}>
-                    <Space style={{width: 1000, height: 700, justifyContent: 'space-around'}}>
-                        <Card style={{width: 800, height: 700}}>
-                            <DragDropContext onDragEnd={handleDragEnd} >
+                    <DragDropContext onDragEnd={handleDragEnd}>
+                        <Space style={{width: 1000, height: 700, justifyContent: 'space-around'}}>
+                            <Card style={{width: 800, height: 700}}>
                                 <Space wrap>
                                     {inventoryContext.inventory.boardsPlayer.map((board)=>
                                         <Board board={board}/>
                                     )}
                                 </Space>
-                            </DragDropContext>
-                        </Card>
-                        <Card style={{height: 700}}>
-                            <DragDropContext onDragEnd={handleDragEnd}>
+                            </Card>
+                            <Card style={{height: 700}}>
                                 <Space direction={"vertical"} style={{justifyContent: 'space-around'}} align={"center"}>
                                     {inventoryContext.inventory.boardsClothes.map((board)=>
                                         <Board board={board}/>
                                     )}
                                 </Space>
-                            </DragDropContext>
-                        </Card>
-                    </Space>
+                            </Card>
+                        </Space>
+                    </DragDropContext>
                 </Card>
             </Space>
             {otherInventoryIsVisible &&
