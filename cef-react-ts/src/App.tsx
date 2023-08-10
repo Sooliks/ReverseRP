@@ -8,7 +8,6 @@ import {Config} from "./conf";
 
 
 const App = () => {
-
     useEffect(()=>{
         /*notification.error({
             message: "Уведомление",
