@@ -3714,3 +3714,201 @@ MySql.Data.MySqlClient.MySqlException (0x80004005): Table 'reverserp.character' 
    at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
    at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
    at async Task<MySqlDataReader> MySql.Data
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList<IUpdateEntry> entries)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList<IUpdateEntry> entriesToSave)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, bool acceptAllChangesOnSuccess)
+=========================================================
+
+==================[11.08.2023 22:41:56]==================
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'IdItem' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient

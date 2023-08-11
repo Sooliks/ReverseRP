@@ -1,7 +1,13 @@
-﻿namespace ServerSide.Inventory.Items;
+﻿using ServerSide.Database.Models;
+
+namespace ServerSide.Inventory.Items;
 
 public class Gun : ItemBase
 {
+    public Gun(int count, string name,string description,int idItem): base(count, name, description, idItem)
+    {
+        
+    }
     public void Use()
     {
         //достаем ган

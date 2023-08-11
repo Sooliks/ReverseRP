@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GTANetworkAPI;
 using ServerSide.Database;
+using ServerSide.Database.Models;
 using ServerSide.Extensions;
 using ServerSide.Inventory;
 using ServerSide.Inventory.Items;
@@ -21,6 +23,11 @@ public class Main : Script
             {
                 bool isAvalaible = db.Database.CanConnect();
                 NAPI.Util.ConsoleOutput(isAvalaible ? "Database success connected!" : "Database is unavailable!");
+                var character = db.Character.SingleOrDefault(c => c.AccountId == 5);
+                List<ItemBase> list = new List<ItemBase>();
+                list.Add(new Food(1,"df","dgdg",5));
+                character.Inventory = list;
+                db.SaveChanges();
             }
             catch (Exception e)
             {
@@ -34,6 +41,5 @@ public class Main : Script
     {
         player.ChangeCefWindow(CefWindowsPaths.Authorization);
         player.FreezePlayer(true);
-        
     }
 }

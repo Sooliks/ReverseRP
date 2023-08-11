@@ -1,4 +1,6 @@
-﻿namespace ServerSide.Database.Models;
+﻿using System.Collections.Generic;
+
+namespace ServerSide.Database.Models;
 
 public class Character
 {
@@ -19,6 +21,7 @@ public class Character
     public long Money { get; set; }
     public long MoneyBank { get; set; }
     public int Lvl { get; set; }
+    public List<ItemBase> Inventory { get; set; }
 
     public Character()
     {
@@ -45,6 +48,7 @@ public class Character
         HairColor = hairColor;
         EyeColor = eyeColor;
         HairType = hairType;
+        Inventory = new List<ItemBase>();
     }
     
 }

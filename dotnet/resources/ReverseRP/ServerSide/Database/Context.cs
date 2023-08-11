@@ -12,6 +12,7 @@ public class Context : DbContext
 {
     public DbSet<Account> Account { get; set; }
     public DbSet<Character> Character { get; set; }
+    public DbSet<ItemBase> ItemBase { get; set; }
 
     public Context()
     {
@@ -36,5 +37,6 @@ public class Context : DbContext
     {
         modelBuilder.ApplyConfiguration(new AccountConfiguration());
         modelBuilder.ApplyConfiguration(new CharacterConfiguration());
+        modelBuilder.ApplyConfiguration(new ItemBaseConfiguration());
     }
 }
