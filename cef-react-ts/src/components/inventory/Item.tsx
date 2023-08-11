@@ -1,6 +1,7 @@
 import React, {DragEventHandler, useEffect, useState} from 'react';
-import {Space, Tooltip, Typography} from "antd";
+import {Popover, Space, Tooltip, Typography} from "antd";
 import {BoardType} from "./Board";
+import ItemManager from "./ItemManager";
 
 
 const {Text} = Typography;
@@ -33,9 +34,11 @@ const Item: React.FC<ItemType> = ({id, name, description, count}) => {
             align={"center"}
         >
             <Tooltip title={`${name} ${count} шт.`}>
-                <Space style={{border: '1px gray', margin: 0}} direction={"vertical"}>
-                    <img width={84} height={84} src={image} alt={name}/>
-                </Space>
+                <Popover placement="topLeft" title={name} content={<ItemManager count={count}/>} trigger="click">
+                    <Space style={{border: '1px gray', margin: 0}} direction={"vertical"}>
+                        <img width={84} height={84} src={image} alt={name}/>
+                    </Space>
+                </Popover>
             </Tooltip>
         </Space>
     );

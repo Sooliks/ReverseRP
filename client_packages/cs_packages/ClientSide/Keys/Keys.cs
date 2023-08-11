@@ -14,7 +14,7 @@ namespace ClientSide.Keys
             });
             Input.Bind(VirtualKeys.I, true, () =>
             {
-                CefService.ChangePath("/inventory");
+                CefService.SwapPath("/inventory");
             });
         }
     }

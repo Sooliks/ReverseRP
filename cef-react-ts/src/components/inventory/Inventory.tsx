@@ -10,7 +10,9 @@ import {DragDropContext, DropResult} from "react-beautiful-dnd"
 
 
 const Inventory : React.FC = () => {
-    const [otherInventoryIsVisible,setOtherInventoryIsVisible] = useState<boolean>(false)
+    const [otherInventoryIsVisible,setOtherInventoryIsVisible] = useState<boolean>(true)
+    const [titleOtherInventory,setTitleOtherInventory] = useState<string>('Багажник')
+
     const inventoryContext = useInventoryContext()
 
     const [inventoryPlayer,setInventoryPlayer] = useState<ItemType[]>([
@@ -34,7 +36,7 @@ const Inventory : React.FC = () => {
             newBoardsClothes = [...newBoardsClothes,{type: BoardTypeEnum.ClothesPlayer, idBoard: i}]
         }
         let newBoardsOther: BoardType[] = inventoryContext.inventory.boardsOther;
-        for(let i = 63; i < 90; i++){
+        for(let i = 63; i < 63+21; i++){
             newBoardsOther = [...newBoardsOther,{type: BoardTypeEnum.Other, idBoard: i}]
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,6 +99,10 @@ const Inventory : React.FC = () => {
         if(getTypeBoardById(newBoardId)===BoardTypeEnum.Other)newBoards = inventoryContext.inventory.boardsOther;
         const indexNewBoard = newBoards.indexOf(newBoards.filter(b=>b.idBoard === newBoardId)[0])
 
+        if(newBoards[indexNewBoard].item!==undefined){
+            return
+        }
+
         switch (itemDraggable.currentBoard!.type){
             case BoardTypeEnum.Player:
                 const clearingBoardsPlayer: BoardType[] = inventoryContext.inventory.boardsPlayer;
@@ -121,14 +127,15 @@ const Inventory : React.FC = () => {
         if(getTypeBoardById(newBoardId)===BoardTypeEnum.Player)inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards}) //перерисовываем инвентарь
         if(getTypeBoardById(newBoardId)===BoardTypeEnum.ClothesPlayer)inventoryContext.setInventory({...inventoryContext.inventory,boardsClothes: newBoards}) //перерисовываем инвентарь
         if(getTypeBoardById(newBoardId)===BoardTypeEnum.Other)inventoryContext.setInventory({...inventoryContext.inventory,boardsOther: newBoards})
+
     }
 
 
     return (
-        <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'center', alignItems: 'center'}}>
-            <Space>
-                <Card title={"Персонаж"}>
-                    <DragDropContext onDragEnd={handleDragEnd}>
+        <DragDropContext onDragEnd={handleDragEnd}>
+            <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'center', alignItems: 'center'}}>
+                <Space>
+                    <Card title={"Персонаж"}>
                         <Space style={{width: 1000, height: 700, justifyContent: 'space-around'}}>
                             <Card style={{width: 800, height: 700}}>
                                 <Space wrap>
@@ -145,15 +152,21 @@ const Inventory : React.FC = () => {
                                 </Space>
                             </Card>
                         </Space>
-                    </DragDropContext>
-                </Card>
-            </Space>
-            {otherInventoryIsVisible &&
-                <Space>
-
+                    </Card>
                 </Space>
-            }
-        </Space>
+                {otherInventoryIsVisible &&
+                    <Space>
+                        <Card style={{width: 350, height: 805}} title={titleOtherInventory}>
+                            <Space wrap align={"center"} style={{width: '100%', height: '100%', justifyContent: 'center'}}>
+                                {inventoryContext.inventory.boardsOther.map((board)=>
+                                    <Board board={board}/>
+                                )}
+                            </Space>
+                        </Card>
+                    </Space>
+                }
+            </Space>
+        </DragDropContext>
     );
 };
 
