@@ -6,6 +6,7 @@ using ServerSide.Database;
 using ServerSide.Database.Models;
 using ServerSide.Extensions;
 using ServerSide.Inventory;
+using ServerSide.Inventory.Enums;
 using ServerSide.Inventory.Items;
 using ServerSide.Services;
 
@@ -25,8 +26,13 @@ public class Main : Script
                 NAPI.Util.ConsoleOutput(isAvalaible ? "Database success connected!" : "Database is unavailable!");
                 var character = db.Character.SingleOrDefault(c => c.AccountId == 5);
                 List<ItemBase> list = new List<ItemBase>();
-                list.Add(new Food(1,"df","dgdg",5));
+                list.Add(new Gun(1,"df","dgdg",5));
                 character.Inventory = list;
+                if (character.Inventory[0] is Gun gun)
+                {
+                    gun.Use();
+                }
+                
                 db.SaveChanges();
             }
             catch (Exception e)

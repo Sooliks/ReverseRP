@@ -4,7 +4,7 @@ namespace ServerSide.Inventory.Items;
 
 public class Gun : ItemBase
 {
-    public Gun(int count, string name,string description,int idItem): base(count, name, description, idItem)
+    public Gun(int count, string name,string description,int idItem, int hash): base(count, name, description, idItem, hash)
     {
         
     }
