@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using GTANetworkAPI;
 using ServerSide.Database;
 using ServerSide.Extensions;
+using ServerSide.Inventory;
+using ServerSide.Inventory.Items;
 using ServerSide.Services;
 
 namespace ServerSide;
@@ -31,5 +34,6 @@ public class Main : Script
     {
         player.ChangeCefWindow(CefWindowsPaths.Authorization);
         player.FreezePlayer(true);
+        
     }
 }

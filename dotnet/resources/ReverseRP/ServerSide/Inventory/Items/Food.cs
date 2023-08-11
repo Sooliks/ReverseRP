@@ -4,6 +4,6 @@ public class Food : ItemBase
 {
     public void Use()
     {
-        
+        //хаваем
     }
 }
