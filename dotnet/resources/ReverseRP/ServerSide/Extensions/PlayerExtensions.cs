@@ -26,6 +26,14 @@ public static class PlayerExtensions
         }
         return null;
     }
+    public static Character GetCharacter(this Player player)
+    {
+        if (player.HasData("character"))
+        {
+            return player.GetData<Character>("character");
+        }
+        return null;
+    }
 
     public static void FreezePlayer(this Player player,bool toggle)
     {

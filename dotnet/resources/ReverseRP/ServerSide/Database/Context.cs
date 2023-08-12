@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using MySql.Data.MySqlClient;
 using ServerSide.Database.Models;
 using ServerSide.Database.ModelsConfiguration;
+using ServerSide.Inventory.Items;
 
 namespace ServerSide.Database;
 
@@ -13,6 +14,9 @@ public class Context : DbContext
     public DbSet<Account> Account { get; set; }
     public DbSet<Character> Character { get; set; }
     public DbSet<ItemBase> ItemBase { get; set; }
+    public DbSet<Ammo> Ammo { get; set; }
+    public DbSet<Ammo> Food { get; set; }
+    public DbSet<Ammo> Gun { get; set; }
 
     public Context()
     {
@@ -38,5 +42,9 @@ public class Context : DbContext
         modelBuilder.ApplyConfiguration(new AccountConfiguration());
         modelBuilder.ApplyConfiguration(new CharacterConfiguration());
         modelBuilder.ApplyConfiguration(new ItemBaseConfiguration());
+        
+        modelBuilder.Entity<Ammo>().HasBaseType<ItemBase>();
+        modelBuilder.Entity<Food>().HasBaseType<ItemBase>();
+        modelBuilder.Entity<Gun>().HasBaseType<ItemBase>();
     }
 }
