@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Linq;
 using GTANetworkAPI;
 using ServerSide.Database;
-using ServerSide.Database.Handlers;
 using ServerSide.Extensions;
-using ServerSide.Inventory.Enums;
-using ServerSide.Inventory.Items;
 using ServerSide.Services;
 
 namespace ServerSide;

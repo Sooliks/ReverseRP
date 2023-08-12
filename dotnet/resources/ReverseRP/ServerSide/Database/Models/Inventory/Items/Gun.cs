@@ -1,4 +1,5 @@
-﻿using ServerSide.Database.Models;
+﻿using GTANetworkAPI;
+using ServerSide.Database.Models;
 
 namespace ServerSide.Inventory.Items;
 
@@ -12,9 +13,9 @@ public class Gun : ItemBase
     {
         //достаем ган
     }
-    public override void DropItem()
+    public override void DropItem(Player player)
     {
         //дропаем ган если умираем с ним в руках
-        base.DropItem();
+        base.DropItem(player);
     }
 }

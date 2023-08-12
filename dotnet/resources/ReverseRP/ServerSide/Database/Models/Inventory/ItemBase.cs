@@ -1,4 +1,6 @@
-﻿namespace ServerSide.Database.Models;
+﻿using GTANetworkAPI;
+
+namespace ServerSide.Database.Models;
 
 public class ItemBase
 {
@@ -10,9 +12,9 @@ public class ItemBase
     public int Hash { get; set; }
     public Character Character { get; set; } = null!;
 
-    public virtual void DropItem()
+    public virtual void DropItem(Player player)
     {
-        
+        NAPI.Object.CreateObject(Hash, player.Position, new Vector3());
     }
 
     public ItemBase(int count, string name, string description, int idItem, int hash = 0)

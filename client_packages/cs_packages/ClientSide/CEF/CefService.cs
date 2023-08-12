@@ -1,5 +1,6 @@
 ﻿using RAGE;
 using RAGE.Ui;
+using System.Collections.Generic;
 
 namespace ClientSide.CEF
 {
@@ -39,11 +40,11 @@ namespace ClientSide.CEF
             }
             else
             {
-                if (path == "")
+                if (MainCefWindow.Url == "http://localhost:3000")
                 {
                     ChangePath(path);
-                    RAGE.Ui.Cursor.ShowCursor(false, false);
-                    RAGE.Chat.Activate(true);
+                    RAGE.Ui.Cursor.ShowCursor(true, true);
+                    RAGE.Chat.Activate(false);
                     return;
                 }
             }
@@ -70,11 +71,11 @@ namespace ClientSide.CEF
             }
             else
             {
-                if (path == "")
+                if (MainCefWindow.Url == "http://localhost:3000")
                 {
                     ChangePath(path);
-                    RAGE.Ui.Cursor.ShowCursor(false, false);
-                    RAGE.Chat.Activate(true);
+                    RAGE.Ui.Cursor.ShowCursor(true, true);
+                    RAGE.Chat.Activate(false);
                     return;
                 }
             }
