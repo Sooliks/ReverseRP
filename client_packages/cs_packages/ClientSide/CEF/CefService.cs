@@ -6,7 +6,8 @@ namespace ClientSide.CEF
 {
     public class CefService : Events.Script
     {
-        public static HtmlWindow MainCefWindow = new HtmlWindow("http://localhost:3000");
+        public static readonly string DefaultUrl = "http://localhost:3000";
+        public static HtmlWindow MainCefWindow = new HtmlWindow(DefaultUrl);
         public static List<string> PathToWindowsOpenByKey = new List<string>()
         {
             "/inventory",
@@ -40,7 +41,7 @@ namespace ClientSide.CEF
             }
             else
             {
-                if (MainCefWindow.Url == "http://localhost:3000")
+                if (MainCefWindow.Url == DefaultUrl)
                 {
                     ChangePath(path);
                     RAGE.Ui.Cursor.ShowCursor(true, true);
@@ -71,7 +72,7 @@ namespace ClientSide.CEF
             }
             else
             {
-                if (MainCefWindow.Url == "http://localhost:3000")
+                if (MainCefWindow.Url == DefaultUrl)
                 {
                     ChangePath(path);
                     RAGE.Ui.Cursor.ShowCursor(true, true);

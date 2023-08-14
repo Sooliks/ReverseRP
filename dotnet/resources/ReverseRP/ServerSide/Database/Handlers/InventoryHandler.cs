@@ -11,6 +11,16 @@ public class InventoryHandler
         using Context db = new Context();
         character = db.Character.SingleOrDefault(c => c == character);
         db.Entry(character).Collection(c=>c.Inventory).Load();
+        var searchedItem = character.Inventory.FirstOrDefault(i => i.IdItem == item.IdItem);
+        if (searchedItem!=null)
+        {
+            int index = character.Inventory.FindIndex(i=>i==searchedItem);
+            searchedItem.Count += 1;
+            character.Inventory[index] = searchedItem;
+            db.Character.Update(character);
+            db.SaveChanges();
+            return;
+        }
         character.Inventory.Add(item);
         db.Character.Update(character);
         db.SaveChanges();
@@ -31,4 +41,5 @@ public class InventoryHandler
         db.Character.Update(character);
         db.SaveChanges();
     }
+    
 }

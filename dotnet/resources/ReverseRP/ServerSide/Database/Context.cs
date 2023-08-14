@@ -14,9 +14,10 @@ public class Context : DbContext
     public DbSet<Account> Account { get; set; }
     public DbSet<Character> Character { get; set; }
     public DbSet<ItemBase> ItemBase { get; set; }
+    /*
     public DbSet<Ammo> Ammo { get; set; }
     public DbSet<Ammo> Food { get; set; }
-    public DbSet<Ammo> Gun { get; set; }
+    public DbSet<Ammo> Gun { get; set; }*/
 
     public Context()
     {

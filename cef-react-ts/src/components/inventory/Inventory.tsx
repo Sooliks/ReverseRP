@@ -7,6 +7,7 @@ import {useInventoryContext} from "./context/InventoryContextProvider";
 
 //@ts-ignore
 import {DragDropContext, DropResult} from "react-beautiful-dnd"
+import {Client} from "../../requests/Client";
 
 
 const Inventory : React.FC = () => {
@@ -26,6 +27,7 @@ const Inventory : React.FC = () => {
 
 
     useEffect(()=>{
+        console.log(Client.callProcServer("RPC::CEF:SERVER:GetInventory"));
         //делаем клетки для айтемов
         let newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;
         for(let i = 0; i < 56; i++){
