@@ -1,6 +1,7 @@
 ﻿using System;
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
+using ServerSide.Entities;
 using ServerSide.Extensions;
 using ServerSide.Services;
 
@@ -23,7 +24,7 @@ public class Login : Script
         if (AccountsHandler.IsLoginExist(login) && AccountsHandler.IsPasswordValid(login, password))
         {
             var _account = AccountsHandler.GetAccountByLogin(login);
-            player.SetData("account", _account);
+            player.SetAccount(account);
             player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
             player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",CharacterHandler.GetCharactersByAccount(_account));
         }

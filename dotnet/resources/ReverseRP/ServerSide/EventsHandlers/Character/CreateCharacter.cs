@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ServerSide.Database.Handlers;
+using ServerSide.Entities;
 using ServerSide.Extensions;
 using ServerSide.Services;
 using ServerSide.Services.PlayerService;
@@ -46,8 +47,7 @@ public class CreateCharacter : Script
             faceFeatures, eyeColor, hairColor, hairType, gender);
         PlayerCustomization.PlayerSetBaseCustomization(player, headOverlays,headOverlaysColors,headBlendData,
             faceFeatures,gender, firstName, lastName, hairColor,hairType, eyeColor);
-        
-        player.SetData("character", CharacterHandler.GetLastCharacterByAccount(player.GetAccount()));
+        player.SetCharacter(CharacterHandler.GetLastCharacterByAccount(player.GetAccount()));
         player.ChangeCefWindow(CefWindowsPaths.Default);
         player.FreezePlayer(false);
     }

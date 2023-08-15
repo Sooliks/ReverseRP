@@ -155,4 +155,44 @@ info: 05.08.2023 00:19:34.635 RelationalEventId.CommandExecuted[20101] (Microsof
       LIMIT 2
 info: 05.08.2023 00:22:38.310 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
       Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT CASE WHEN COUNT(*) = 0
+      SELECT CASE WHEN COUNT(*) = 0Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 15.08.2023 1:16:23
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.EventsHandlers.CreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.SelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.Inventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.Login..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.Registration..
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 2 server events(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 5 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 1 remote procedure(s)
+Server started!
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+FHFH
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> Newtonsoft.Json.JsonSerializationException: Self referencing loop detected with type 'ServerSide.Inventory.Items.Ammo'. Path '[0].Character.Inventory'.
+   at bool Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, object value, Type objectType)
+   at void Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, object value, Type objectType)
+   at void Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, object v

@@ -1,5 +1,6 @@
 ﻿using GTANetworkAPI;
 using ServerSide.Database.Handlers;
+using ServerSide.Entities;
 using ServerSide.Extensions;
 using ServerSide.Services;
 using ServerSide.Services.PlayerService;
@@ -26,7 +27,8 @@ public class SelectCharacter : Script
         if (CharacterHandler.IsAccountOwnerCharacter(player.GetAccount(), id))
         {
             var character = CharacterHandler.GetCharacterById(id);
-            player.SetData("character", character);
+            player.SetCharacter(character);
+            NAPI.Util.ConsoleOutput(character.Inventory[0].Description);
             PlayerCustomization.PlayerSetBaseCustomization(player,character.HeadOverlaysJson,
                 character.HeadOverlaysColorsJson, character.HeadBlendDataJson,
                 character.FaceFeaturesJson, character.Gender, character.FirstName, character.LastName,

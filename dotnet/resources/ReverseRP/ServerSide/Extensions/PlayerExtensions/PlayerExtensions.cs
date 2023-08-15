@@ -1,6 +1,5 @@
 ﻿using GTANetworkAPI;
 using Newtonsoft.Json;
-using ServerSide.Database.Models;
 using ServerSide.Enums;
 using ServerSide.Services;
 
@@ -17,29 +16,10 @@ public static class PlayerExtensions
     {
         player.TriggerCefEvent("SERVER::CEF::NOTIFY",(int)notifyType,message);
     }
-
-    public static Account GetAccount(this Player player)
-    {
-        if (player.HasData("account"))
-        {
-            return player.GetData<Account>("account");
-        }
-        return null;
-    }
-    public static Character GetCharacter(this Player player)
-    {
-        if (player.HasData("character"))
-        {
-            return player.GetData<Character>("character");
-        }
-        return null;
-    }
-
     public static void FreezePlayer(this Player player,bool toggle)
     {
         player.TriggerEvent("SERVER::CLIENT::FREEZE_PLAYER",toggle);
     }
-
     public static void SetCamera(this Player player, Vector3 positionCamera, Vector3 pointCamAtCoord, bool active)
     {
         player.TriggerEvent("SERVER|CEF::CLIENT::SET_GENERAL_CAMERA", positionCamera, pointCamAtCoord, active);

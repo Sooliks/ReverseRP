@@ -7,11 +7,16 @@ namespace ClientSide.ProcedureManager
     {
         public ProcedureRedirect()
         {
-            Events.AddProc("RPC::REDIRECT::CEF_TO_SERVER", args =>
+            Events.AddProc("RPC::REDIRECT::CEF_TO_SERVER",(args) =>
             {
                 string nameServerProc = (string)args[0];
                 args = args.Where(e => e != nameServerProc).ToArray();
-                return Events.CallRemoteProc(nameServerProc, args);
+                var res = Events.CallRemoteProc(nameServerProc);
+                if (res.IsCompleted)
+                {
+                    return res;
+                }
+                return null;
             });
         }
     }

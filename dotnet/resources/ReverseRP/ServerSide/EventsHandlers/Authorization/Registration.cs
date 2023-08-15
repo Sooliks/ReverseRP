@@ -1,6 +1,7 @@
 ﻿using System;
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
+using ServerSide.Entities;
 using ServerSide.Extensions;
 using ServerSide.Services;
 
@@ -35,7 +36,7 @@ public class Registration : Script
                 }
             }
             var regAccount = AccountsHandler.Register(login, email, password, player.Address,player.SocialClubId);
-            player.SetData("account", regAccount);
+            player.SetAccount(account);
             player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
             player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",CharacterHandler.GetCharactersByAccount(regAccount));
         }

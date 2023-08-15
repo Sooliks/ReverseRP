@@ -39,7 +39,9 @@ public class CharacterHandler
                 maxId = characters[i].Id;
             }
         }
-        return characters.SingleOrDefault(c=>c.Id == maxId);
+        var character = characters.SingleOrDefault(c=>c.Id == maxId);
+        db.Entry(character).Collection(c=>c.Inventory).Load();
+        return character;
     }
 
     public static bool IsAccountOwnerCharacter(Account account, int idCharacter)
@@ -57,6 +59,8 @@ public class CharacterHandler
     public static Character GetCharacterById(int id)
     {
         using Context db = new Context();
-        return db.Character.SingleOrDefault(c => c.Id == id);
+        var character = db.Character.SingleOrDefault(c => c.Id == id);
+        db.Entry(character).Collection(c=>c.Inventory).Load();
+        return character;
     }
 }

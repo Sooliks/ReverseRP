@@ -10,7 +10,6 @@ public class ItemBase
     public string Description { get; set; }
     public int IdItem { get; set; }
     public int Hash { get; set; }
-    public Character Character { get; set; } = null!;
 
     public virtual void DropItem(Player player)
     {
