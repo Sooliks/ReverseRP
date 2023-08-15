@@ -3,6 +3,7 @@ import React, {createContext, useContext, useState} from 'react';
 
 export type NavigationType = {
     speedometer?: boolean;
+    phone?: boolean
 }
 type NavigationContextProviderProps = {
     children: React.ReactNode
@@ -18,7 +19,10 @@ export const useNavigationContext = () =>  useContext(NavigationContext);
 
 const NavigationContextProvider = ({children}:NavigationContextProviderProps) => {
 
-    const [navigation,setNavigation] = useState<NavigationType | null>({speedometer: false});
+    const [navigation,setNavigation] = useState<NavigationType | null>({
+        speedometer: false,
+        phone: true
+    });
 
     return (
         <NavigationContext.Provider value={{navigation,setNavigation}}>{children}</NavigationContext.Provider>

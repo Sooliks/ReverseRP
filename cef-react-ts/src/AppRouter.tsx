@@ -6,9 +6,13 @@ import SelectCharacters from "./components/character/selectCharacters/SelectChar
 import Hud from "./components/hud/Hud";
 import InventoryMain from "./components/inventory/InventoryMain";
 import { App } from 'antd';
+import {useNavigationContext} from "./context/NavigationContextProvider";
+import Phone from "./components/phone/Phone";
+import DefaultRouter from "./DefaultRouter";
 
 const AppRouter: React.FC = () => {
     const { message, notification, modal } = App.useApp();
+    const navigationContext = useNavigationContext();
 
     return (
         <App>
@@ -16,8 +20,8 @@ const AppRouter: React.FC = () => {
                 <Route path={"/auth"} element={<Auth/>}/>
                 <Route path={"/createcharacter"} element={<CreateCharacter/>}/>
                 <Route path={"/selectcharacters"} element={<SelectCharacters/>}/>
-                <Route path={"/"} element={<Hud/>}/>
                 <Route path={"/inventory"} element={<InventoryMain/>}/>
+                <Route path={"/*"} element={<DefaultRouter/>}/>
             </Routes>
         </App>
     );

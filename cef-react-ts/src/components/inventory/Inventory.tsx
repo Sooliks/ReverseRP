@@ -5,7 +5,7 @@ import Board, {BoardType, BoardTypeEnum} from "./Board";
 import {ItemType} from "./Item";
 import {useInventoryContext} from "./context/InventoryContextProvider";
 
-//@ts-ignore
+
 import {DragDropContext, DropResult} from "react-beautiful-dnd"
 import {Client} from "../../requests/Client";
 

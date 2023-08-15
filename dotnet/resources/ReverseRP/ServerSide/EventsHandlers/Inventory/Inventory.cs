@@ -15,11 +15,6 @@ public class Inventory : Script
     public string GetInventory(Player player)
     {
         var list = NAPI.Util.ToJson(player.GetCharacter().Inventory);
-        /*return JsonConvert.SerializeObject(list, Formatting.Indented,
-            new JsonSerializerSettings() {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            }
-        );*/
         NAPI.Util.ConsoleOutput(list);
         return list;
     }
