@@ -6,7 +6,7 @@ import SelectCharacters from "./components/character/selectCharacters/SelectChar
 import InventoryMain from "./components/inventory/InventoryMain";
 import { App } from 'antd';
 import DefaultRouter from "./DefaultRouter";
-import Menu from "./components/menu/Menu";
+import ReverseMenu from "./components/menu/ReverseMenu";
 
 const AppRouter: React.FC = () => {
     const { message, notification, modal } = App.useApp();
@@ -19,7 +19,7 @@ const AppRouter: React.FC = () => {
                 <Route path={"/createcharacter"} element={<CreateCharacter/>}/>
                 <Route path={"/selectcharacters"} element={<SelectCharacters/>}/>
                 <Route path={"/inventory"} element={<InventoryMain/>}/>
-                <Route path={"/menu"} element={<Menu/>}/>
+                <Route path={"/menu"} element={<ReverseMenu/>}/>
                 <Route path={"/*"} element={<DefaultRouter/>}/>
             </Routes>
         </App>
