@@ -18,10 +18,10 @@ const MyAuto: React.FC = () => {
     ])
 
     const handleClickGps = (id: number) =>{
-
+        //TODO отметить машину на gps trigger client
     }
     const handleClickParking = (id: number) =>{
-
+        //TODO припарковать машину на его её место за прайс
     }
 
     return (

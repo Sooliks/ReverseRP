@@ -24,6 +24,10 @@ const Phone: React.FC = () => {
                     {currentApp === 'MyAuto' && <MyAuto/>}
                     {currentApp === 'MyHome' && <MyHome/>}
                 </div>
+                <div
+                    style={{borderRadius: '50%', width: 44, height: 44, backgroundColor: 'white', position: 'absolute', marginTop: 435, border: '1px solid black'}}
+                    onClick={()=>setCurrentApp(undefined)}
+                />
             </div>
         </Space>
     );
