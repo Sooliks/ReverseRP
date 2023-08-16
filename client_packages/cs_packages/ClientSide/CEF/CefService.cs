@@ -7,8 +7,8 @@ namespace ClientSide.CEF
     public class CefService : Events.Script
     {
         public static readonly string DefaultUrl = "http://localhost:3000";
-        public static HtmlWindow MainCefWindow = new HtmlWindow(DefaultUrl);
-        public static List<string> PathToWindowsOpenByKey = new List<string>()
+        public static readonly HtmlWindow MainCefWindow = new HtmlWindow(DefaultUrl);
+        public static readonly List<string> PathToWindowsOpenByKey = new List<string>()
         {
             "/inventory",
             "/phone"

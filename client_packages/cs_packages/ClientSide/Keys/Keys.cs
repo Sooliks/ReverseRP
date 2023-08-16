@@ -16,6 +16,10 @@ namespace ClientSide.Keys
             {
                 CefService.SwapPath("/inventory");
             });
+            Input.Bind(VirtualKeys.P, true, () =>
+            {
+                CefService.SwapPath("/phone");
+            });
         }
     }
 }

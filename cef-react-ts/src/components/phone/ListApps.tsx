@@ -1,6 +1,6 @@
 import React from 'react';
 import {Space, Typography} from "antd";
-import {CarOutlined, HeartOutlined, HomeOutlined} from "@ant-design/icons";
+import {CarOutlined, HomeOutlined} from "@ant-design/icons";
 
 const {Text} = Typography;
 

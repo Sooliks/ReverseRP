@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Divider, Popover, Row, Space, Typography} from "antd";
+import {Button, Divider, Popover, Space, Typography} from "antd";
 import {SettingOutlined} from "@ant-design/icons";
 import Settings from "./Settings";
 
