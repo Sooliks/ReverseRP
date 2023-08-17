@@ -18,7 +18,6 @@ const CarDealership: React.FC = () => {
 
     useEffect(()=>{
         setCars([{id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4}])
-        setCurrentCar({id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4});
     },[])
 
 
@@ -29,7 +28,7 @@ const CarDealership: React.FC = () => {
             </Card>
             {currentCar &&
                 <Space direction={"vertical"}>
-                    <ReverseColorPicker onPickColor={()=>{}}/>
+                    <ReverseColorPicker width={300} onPickColor={()=>{}}/>
                     <Card>
                         <Space direction={"vertical"}>
 

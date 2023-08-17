@@ -10,14 +10,14 @@ export type DataTypeSwitcher = {
     placeHolder: string,
 }
 
-type SwitcherType = {
+type SwitcherProps = {
     data: DataTypeSwitcher[]
     onChange: (currentValue: number) => void
     width?: number
     text?: string
 }
 
-const Switcher: React.FC<SwitcherType> = ({data,onChange,width,text}) => {
+const Switcher: React.FC<SwitcherProps> = ({data,onChange,width,text}) => {
     const [currentValue,setCurrentValue] = useState<number>(0)
     const handleClickLeft = () =>{
         if(currentValue!==0){
