@@ -24,27 +24,12 @@ const CarDealership: React.FC = () => {
     useEffect(()=>{
         setCars([
             {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-
+            {id: 1, name: 'BMW M5 Competition', capacityTrunk: 20, price: 1200000, countPassengers: 2, value: 'bmw m5'},
         ])
     },[])
 
     const handleClickSetCurrentCar = (name: string, value: string) => {
-        const index = cars.findIndex(c=>c.name === name);
+        const index: number = cars.findIndex(c=>c.name === name);
         setCurrentCar(cars[index]);
     }
 
