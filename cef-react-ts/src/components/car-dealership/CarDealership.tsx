@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Card, Space} from "antd";
+import {Button, Card, Descriptions, Divider, Drawer, Space, Typography} from "antd";
 import {Config} from "../../conf";
 import DefaultColorPalette from "../../ui/DefaultColorPalette";
 import ReverseColorPicker from "../../ui/ReverseColorPicker";
 import ReverseList from "../../ui/ReverseList";
+
+const {Title, Text} = Typography;
+
 
 const CarDealership: React.FC = () => {
     type CarType = {
@@ -22,18 +25,56 @@ const CarDealership: React.FC = () => {
         setCars([
             {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
             {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+
         ])
     },[])
 
+    const handleClickSetCurrentCar = (name: string, value: string) => {
+        const index = cars.findIndex(c=>c.name === name);
+        setCurrentCar(cars[index]);
+    }
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'space-between'}}>
-            <ReverseList data={cars}/>
+            <ReverseList onClick={handleClickSetCurrentCar} data={cars}/>
             {currentCar &&
                 <Space direction={"vertical"}>
-                    <ReverseColorPicker width={250} onPickColor={()=>{}}/>
-                    <Card>
-
+                    <ReverseColorPicker width={300} onPickColor={()=>{}}/>
+                    <Card style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+                        <Space direction={"vertical"} style={{width: 300}}>
+                            <Title level={4}>Характеристики</Title>
+                            <Space>
+                                <Text type={"secondary"}>Цена:</Text>
+                                <Text>{currentCar.price + '$'}</Text>
+                            </Space>
+                            <Space>
+                                <Text type={"secondary"}>Кол-во посадочных мест:</Text>
+                                <Text>{currentCar.countPassengers}</Text>
+                            </Space>
+                            <Space>
+                                <Text type={"secondary"}>Вместимость багажника:</Text>
+                                <Text>{currentCar.capacityTrunk + ' кг'}</Text>
+                            </Space>
+                        </Space>
+                        <Divider/>
+                        <Space style={{justifyContent: 'space-between', width: '100%'}}>
+                            <Button type={"primary"}>Купить</Button>
+                            <Button>Тест драйв</Button>
+                        </Space>
                     </Card>
                 </Space>
             }
