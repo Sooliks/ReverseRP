@@ -3,6 +3,7 @@ import {Card, Space} from "antd";
 import {Config} from "../../conf";
 import DefaultColorPalette from "../../ui/DefaultColorPalette";
 import ReverseColorPicker from "../../ui/ReverseColorPicker";
+import ReverseList from "../../ui/ReverseList";
 
 const CarDealership: React.FC = () => {
     type CarType = {
@@ -11,28 +12,28 @@ const CarDealership: React.FC = () => {
         capacityTrunk: number
         price: number
         countPassengers: number
+        value: string
     }
 
     const [currentCar,setCurrentCar] = useState<CarType>();
     const [cars,setCars] = useState<CarType[]>([])
 
     useEffect(()=>{
-        setCars([{id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4}])
+        setCars([
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
+        ])
     },[])
 
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'space-between'}}>
-            <Card style={{height: 900, width: 290}}>
-                <h1>dg</h1>
-            </Card>
+            <ReverseList data={cars}/>
             {currentCar &&
                 <Space direction={"vertical"}>
-                    <ReverseColorPicker width={300} onPickColor={()=>{}}/>
+                    <ReverseColorPicker width={250} onPickColor={()=>{}}/>
                     <Card>
-                        <Space direction={"vertical"}>
 
-                        </Space>
                     </Card>
                 </Space>
             }
