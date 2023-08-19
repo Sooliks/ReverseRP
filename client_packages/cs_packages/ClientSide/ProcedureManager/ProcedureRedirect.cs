@@ -12,12 +12,8 @@ namespace ClientSide.ProcedureManager
                 string nameServerProc = (string)args[0];
                 args = args.Where(e => e != nameServerProc).ToArray();
                 var res = Events.CallRemoteProc(nameServerProc,args);
-                res.RunSynchronously();
-                if (res.IsCompleted)
-                {
-                    return res;
-                }
-                return null;
+                
+                return res.Result;
             });
         }
     }

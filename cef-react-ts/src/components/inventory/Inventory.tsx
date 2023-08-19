@@ -27,7 +27,7 @@ const Inventory : React.FC = () => {
 
 
     useEffect(()=>{
-        //console.log(Client.callProcServer("RPC::CEF:SERVER:GetInventory"));
+        //@ts-ignore
         Client.callProcServer("RPC::CEF:SERVER:GetInventory").then(data=>{
             console.log(data)
         })

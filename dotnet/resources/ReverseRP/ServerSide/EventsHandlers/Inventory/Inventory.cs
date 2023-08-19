@@ -15,7 +15,6 @@ public class Inventory : Script
     public string GetInventory(Player player)
     {
         var list = NAPI.Util.ToJson(player.GetCharacter().Inventory);
-        NAPI.Util.ConsoleOutput(list);
         return list;
     }
 }
