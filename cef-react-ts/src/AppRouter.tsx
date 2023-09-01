@@ -8,6 +8,7 @@ import { App } from 'antd';
 import DefaultRouter from "./DefaultRouter";
 import ReverseMenu from "./components/menu/ReverseMenu";
 import CarDealership from "./components/car-dealership/CarDealership";
+import Market from "./components/shop24/Market";
 
 const AppRouter: React.FC = () => {
     const { message, notification, modal } = App.useApp();
@@ -22,6 +23,7 @@ const AppRouter: React.FC = () => {
                 <Route path={"/inventory"} element={<InventoryMain/>}/>
                 <Route path={"/menu"} element={<ReverseMenu/>}/>
                 <Route path={"/cardealership"} element={<CarDealership/>}/>
+                <Route path={"/market"} element={<Market/>}/>
                 <Route path={"/*"} element={<DefaultRouter/>}/>
             </Routes>
         </App>

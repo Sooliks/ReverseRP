@@ -1,13 +1,17 @@
 ﻿using System;
 using GTANetworkAPI;
+using NLog;
 using ServerSide.Database;
 using ServerSide.Extensions;
 using ServerSide.Services;
+
 
 namespace ServerSide;
 
 public class Main : Script
 {
+    public static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+    
     [ServerEvent(Event.ResourceStart)]
     public void OnResourceStart()
     {
