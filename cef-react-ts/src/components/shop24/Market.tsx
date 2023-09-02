@@ -4,6 +4,19 @@ import background from "../../assets/images/background_auth.png";
 import {Card, Menu, MenuProps, Space} from "antd";
 import {ShoppingCartOutlined, ToolOutlined} from "@ant-design/icons";
 
+export type ItemType = {
+    id: number
+    label: string
+    description: string
+    type: ItemTypeEnum
+}
+
+export enum ItemTypeEnum {
+    Tools,
+    Products
+}
+
+
 const Market: React.FC = () => {
     const [current,setCurrent] = useState<string>('products');
 
