@@ -12,7 +12,7 @@ public static class PlayerExtensions
     {
         player.TriggerEvent("REDIRECT::SERVER_TO_CEF",eventName,JsonConvert.SerializeObject(args));
     }
-    public static void Notify(this Player player,NotifyType notifyType, string message)
+    public static void SendNotify(this Player player,NotifyType notifyType, string message)
     {
         player.TriggerCefEvent("SERVER::CEF::NOTIFY",(int)notifyType,message);
     }

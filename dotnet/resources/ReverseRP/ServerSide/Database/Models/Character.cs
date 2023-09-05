@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ServerSide.Database.Handlers;
 
 namespace ServerSide.Database.Models;
 
@@ -50,5 +51,9 @@ public class Character
         HairType = hairType;
         Inventory = new List<ItemBase>();
     }
+    
+    public static List<ItemBase> GetInventory(Character character) => InventoryHandler.GetInventory(character);
+    public static void AddItem(Character character, ItemBase item) => InventoryHandler.AddItem(character, item);
+    public static void RemoveItem(Character character, ItemBase item) => InventoryHandler.RemoveItem(character, item);
     
 }
