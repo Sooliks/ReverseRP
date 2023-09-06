@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Card, Space} from "antd";
+import {Card, notification, Space} from "antd";
 import {Config} from "../../conf";
 import Board, {BoardType, BoardTypeEnum} from "./Board";
 import {ItemType} from "./Item";
@@ -30,6 +30,8 @@ const Inventory : React.FC = () => {
         Client.callProcServer<string>("RPC::CEF:SERVER:GetInventory").then(data=> {
             console.log(data + "  :gddgdgdAAAAAAAAAAAAAAAAAAAA")
         })
+
+        //console.log(Client.callProcServer<string>("RPC::CEF:SERVER:GetInventory"))
         
         //делаем клетки для айтемов
         let newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;

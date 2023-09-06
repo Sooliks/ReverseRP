@@ -10,7 +10,6 @@ namespace ClientSide.ProcedureManager
         {
             Events.AddProc("RPC::REDIRECT::CEF_TO_SERVER",OnRedirect);
         }
-
         private async Task<object> OnRedirect(object[] args)
         {
             string nameServerProc = (string)args[0];

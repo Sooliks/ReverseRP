@@ -4,7 +4,7 @@ import {BoardType} from "./Board";
 import ItemManager from "./ItemManager";
 
 
-const {Text} = Typography;
+
 
 export type ItemType = {
     id: number
@@ -18,7 +18,7 @@ export type ItemType = {
 
 const Item: React.FC<ItemType> = ({id, name, description, count}) => {
 
-    const [image,setImage] = useState('../../assets/images/inventory/' + 'item_' + id + '.png')
+    const [image,setImage] = useState<string>('../../assets/images/inventory/' + 'item_' + id + '.png')
     useEffect(()=>{
         try {
             setImage(require('../../assets/images/inventory/' + 'item_' + id + '.png'))
