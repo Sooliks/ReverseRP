@@ -12,7 +12,7 @@ const ChatInput: React.FC<ChatInputProps> = ({onSubmit, width}) => {
 
 
     return (
-        <Space style={{width:width}}>
+        <Space style={{width:width, margin: 10}}>
             <Form
                 layout={"inline"}
                 name="basic"

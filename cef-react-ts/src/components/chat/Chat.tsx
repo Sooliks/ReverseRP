@@ -11,7 +11,7 @@ type ChatProps = {
 const Chat: React.FC<ChatProps> = ({type}) => {
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', alignItems: 'flex-start', justifyContent: 'flex-start'}}>
-            <Space style={{backgroundColor: 'rgba(206,201,203,0.2)', width: 560, height: 300, justifyContent: 'space-between'}} direction={"vertical"}>
+            <Space style={{backgroundColor: 'rgba(206,201,203,0.2)', width: 560, height: 300, justifyContent: 'space-between', borderRadius: '5px'}} direction={"vertical"}>
                 <div/>
                 {type === "active" && <ChatInput onSubmit={()=>{}} width={560}/>}
             </Space>
