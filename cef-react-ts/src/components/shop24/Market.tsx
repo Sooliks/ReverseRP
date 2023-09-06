@@ -47,7 +47,7 @@ const Market: React.FC = () => {
             <Card>
                 <Space style={{width: 1100, height: 700}} align={"start"} direction={"vertical"}>
                     <Menu style={{width: 1100}} onClick={onClickMenu} selectedKeys={[current]} mode="horizontal" items={items} />
-                    <Space wrap>
+                    <Space wrap style={{overflowY: 'auto'}}>
                         {current === "products" && listItems.filter(i=>i.type === ItemTypeEnum.Products).map(i=>
                             <Item item={i}/>
                         )}
