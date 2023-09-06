@@ -3,7 +3,6 @@ import {Config} from "../../conf";
 import background from "../../assets/images/background_auth.png";
 import {Card, Menu, MenuProps, Space} from "antd";
 import {ShoppingCartOutlined, ToolOutlined} from "@ant-design/icons";
-import {listItems} from "./listItems";
 import Item from "./Item";
 
 export type ItemType = {
@@ -18,6 +17,9 @@ export enum ItemTypeEnum {
     Tools,
     Products
 }
+const listItems: ItemType[] = [
+    {id: 0, type: ItemTypeEnum.Products, price: 150, label: 'Бургер', description: 'Восполняет 50 еды'}
+]
 
 
 const Market: React.FC = () => {
@@ -43,7 +45,7 @@ const Market: React.FC = () => {
     return (
         <Space style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height, justifyContent: 'center'}}>
             <Card>
-                <Space style={{width: 1100, height: 700}} align={"start"}>
+                <Space style={{width: 1100, height: 700}} align={"start"} direction={"vertical"}>
                     <Menu style={{width: 1100}} onClick={onClickMenu} selectedKeys={[current]} mode="horizontal" items={items} />
                     <Space wrap>
                         {current === "products" && listItems.filter(i=>i.type === ItemTypeEnum.Products).map(i=>

@@ -21,13 +21,14 @@ const Item: React.FC<ItemProps> = ({item}) => {
     })
 
     return (
-        <div style={{width: 80, height: 100, border: '1px gray'}}>
+        <Space align={"center"} direction={"vertical"} style={{border: '1px solid #f0f0f0', padding: 10, width: 90, borderRadius: '4px'}}>
             <img width={84} height={84} src={image} alt={item.label}/>
-            <Space>
-                <Button>Купить</Button>
-                <Text>{item.price + '$'}</Text>
+            <Space direction={"vertical"}>
+                <Text type={"secondary"} style={{width: 84}} ellipsis>{item.label}</Text>
+                <Text style={{width: 84}} ellipsis>{'Цена: ' + item.price + '$'}</Text>
+                <Button size={"small"} style={{width: 84}}>Купить</Button>
             </Space>
-        </div>
+        </Space>
     );
 };
 
