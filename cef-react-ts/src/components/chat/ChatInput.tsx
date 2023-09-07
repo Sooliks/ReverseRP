@@ -24,7 +24,7 @@ const ChatInput: React.FC<ChatInputProps> = ({onSubmit, width}) => {
                     label=""
                     name="text"
                 >
-                    <Input />
+                    <Input autoFocus />
                 </Form.Item>
                 <Form.Item>
                     <Button type="primary" htmlType="submit">Отправить</Button>
