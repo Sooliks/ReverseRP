@@ -10,6 +10,7 @@ public class ItemBase
     public string Description { get; set; }
     public int IdItem { get; set; }
     public int Hash { get; set; }
+    public Character Character { get; set; }
     public ItemBase(int count, string name, string description, int idItem, int hash = 0)
     {
         Count = count;

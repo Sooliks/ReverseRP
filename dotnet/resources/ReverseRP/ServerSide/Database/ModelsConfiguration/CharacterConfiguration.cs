@@ -10,5 +10,6 @@ public class CharacterConfiguration : IEntityTypeConfiguration<Character>
     {
         builder.HasKey(a => a.Id);
         builder.HasMany(a => a.Inventory);
+        builder.HasOne<Account>(a => a.Account);
     }
 }

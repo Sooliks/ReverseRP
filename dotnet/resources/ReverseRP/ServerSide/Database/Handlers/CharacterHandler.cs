@@ -11,7 +11,7 @@ public class CharacterHandler
     public static List<Character> GetCharactersByAccount(Account account)
     {
         using Context db = new Context();
-        var characters = db.Character.Where(c => c.AccountId == account.Id).ToList();
+        var characters = db.Character.Where(c => c.Account.Id == account.Id).ToList();
         return characters;
     }
 
@@ -21,7 +21,7 @@ public class CharacterHandler
         int hairType, bool gender)
     {
         using Context db = new Context();
-        var character = new Character(account.Id, firstName, lastName, birth, origin, headOverlaysJson,
+        var character = new Character(account, firstName, lastName, birth, origin, headOverlaysJson,
             headOverlaysColorsJson, headBlendDataJson, faceFeaturesJson, eyeColor, hairColor, hairType, gender);
         db.Character.Add(character);
         db.SaveChanges();
@@ -30,7 +30,7 @@ public class CharacterHandler
     public static Character GetLastCharacterByAccount(Account account)
     {
         using Context db = new Context();
-        var characters = db.Character.Where(c => c.AccountId == account.Id).ToList();
+        var characters = db.Character.Where(c => c.Account.Id == account.Id).ToList();
         int maxId = -1;
         for (int i = 0; i < characters.Count; i++)
         {
@@ -48,7 +48,7 @@ public class CharacterHandler
     {
         using Context db = new Context();
         var character = db.Character.FirstOrDefault(c => c.Id == idCharacter);
-        if (character.AccountId == account.Id)
+        if (character.Account.Id == account.Id)
         {
             return true;
         }

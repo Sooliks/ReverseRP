@@ -6,7 +6,7 @@ namespace ServerSide.Database.Models;
 public class Character
 {
     public int Id { get; set; }
-    public int AccountId { get; set; }
+    public Account Account { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public byte Birth { get; set; }
@@ -29,11 +29,11 @@ public class Character
         
     }
 
-    public Character(int accountId,string firstName, string lastName, byte birth, string origin,
+    public Character(Account account,string firstName, string lastName, byte birth, string origin,
         string headOverlaysJson, string headOverlaysColorsJson, string headBlendDataJson,
         string faceFeaturesJson, byte eyeColor, byte hairColor, int hairType, bool gender)
     {
-        AccountId = accountId;
+        Account = account;
         FirstName = firstName;
         LastName = lastName;
         Birth = birth;
