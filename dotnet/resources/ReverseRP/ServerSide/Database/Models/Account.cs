@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ServerSide.Database.Models;
@@ -12,9 +13,10 @@ public class Account
     public string Ip { get; set; }
     public long SocialClubId { get; set; }
     public bool IsBanned { get; set; }
-    
-    
-    
+    public List<Character> Characters { get; set; }
+
+
+
 
     public Account()
     {

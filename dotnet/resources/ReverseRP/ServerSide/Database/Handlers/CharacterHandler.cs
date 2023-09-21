@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using GTANetworkAPI;
+using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
 
 namespace ServerSide.Database.Handlers;
@@ -11,7 +13,7 @@ public class CharacterHandler
     public static List<Character> GetCharactersByAccount(Account account)
     {
         using Context db = new Context();
-        var characters = db.Character.Where(c => c.Account.Id == account.Id).ToList();
+        var characters = db.Character.Include(c=>c.Account).Where(c => c.Account.Id == account.Id).ToList();
         return characters;
     }
 
@@ -21,16 +23,18 @@ public class CharacterHandler
         int hairType, bool gender)
     {
         using Context db = new Context();
-        var character = new Character(account, firstName, lastName, birth, origin, headOverlaysJson,
+        var _account = db.Account.Include(a => a.Characters).SingleOrDefault(a => a.Id == account.Id);
+
+        var character = new Character(_account, firstName, lastName, birth, origin, headOverlaysJson,
             headOverlaysColorsJson, headBlendDataJson, faceFeaturesJson, eyeColor, hairColor, hairType, gender);
-        db.Character.Add(character);
+        _account.Characters.Add(character);
         db.SaveChanges();
     }
 
     public static Character GetLastCharacterByAccount(Account account)
     {
         using Context db = new Context();
-        var characters = db.Character.Where(c => c.Account.Id == account.Id).ToList();
+        var characters = db.Character.Include(c=>c.Account).Where(c => c.Account.Id == account.Id).ToList();
         int maxId = -1;
         for (int i = 0; i < characters.Count; i++)
         {
@@ -47,7 +51,7 @@ public class CharacterHandler
     public static bool IsAccountOwnerCharacter(Account account, int idCharacter)
     {
         using Context db = new Context();
-        var character = db.Character.FirstOrDefault(c => c.Id == idCharacter);
+        var character = db.Character.Include(c=>c.Account).FirstOrDefault(c => c.Id == idCharacter);
         if (character.Account.Id == account.Id)
         {
             return true;
