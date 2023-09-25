@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using ServerSide.Database.Handlers;
 
 namespace ServerSide.Database.Models;
 
+
 public class Character
 {
     public int Id { get; set; }
-    public Account Account { get; set; }
+    public Account? Account { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public byte Birth { get; set; }
@@ -22,7 +24,7 @@ public class Character
     public long Money { get; set; }
     public long MoneyBank { get; set; }
     public int Lvl { get; set; }
-    public List<ItemBase> Inventory { get; set; }
+    public List<ItemBase>? Inventory { get; set; }
 
     public Character()
     {

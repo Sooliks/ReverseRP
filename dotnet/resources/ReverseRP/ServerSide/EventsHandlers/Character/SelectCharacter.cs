@@ -18,8 +18,8 @@ public class SelectCharacter : Script
             return;
         }
         player.ChangeCefWindow(CefWindowsPaths.CreateCharacter);
+        //TODO сделать
         player.SetCamera(player.Position,player.Position,true);
-        
     }
     [RemoteEvent("CEF::SERVER::ON_SELECT_CHARACTER")]
     public async void OnClickSelectCharacter(Player player, int id)

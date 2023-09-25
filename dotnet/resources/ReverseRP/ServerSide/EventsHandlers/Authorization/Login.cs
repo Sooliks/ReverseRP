@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Linq;
 using GTANetworkAPI;
+using Newtonsoft.Json;
 using ServerSide.Database.Handlers;
-using ServerSide.Entities;
 using ServerSide.Extensions;
 using ServerSide.Services;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace ServerSide.EventsHandlers.Authorization;
 
@@ -26,7 +28,13 @@ public class Login : Script
             var _account = AccountsHandler.GetAccountByLogin(login);
             player.SetAccount(account);
             player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
-            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",CharacterHandler.GetCharactersByAccount(_account));
+            var list = CharacterHandler.GetCharactersByAccount(_account);
+            var newList = list.Select(c => new
+            {
+                Id = c.Id, FirstName = c.FirstName, LastName = c.LastName, Lvl = c.Lvl, Money = c.Money,
+                MoneyBank = c.MoneyBank
+            }).ToList();
+            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",newList);
         }
         else
         {

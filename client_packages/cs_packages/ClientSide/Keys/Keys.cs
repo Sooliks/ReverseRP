@@ -14,11 +14,11 @@ namespace ClientSide.Keys
             });
             Input.Bind(VirtualKeys.I, true, () =>
             {
-                CefService.SwapPath("/inventory");
+                CefService.SwapPath(CefService.MainCefWindow.Url == "http://localhost:3000/inventory" ? "" : "/inventory");
             });
             Input.Bind(VirtualKeys.P, true, () =>
             {
-                CefService.SwapPath("/phone");
+                CefService.SwapPath(CefService.MainCefWindow.Url == "http://localhost:3000/phone" ? "" : "/phone");
             });
         }
     }

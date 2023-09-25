@@ -31,5 +31,6 @@ public class Account
         this.Ip = ip;
         this.SocialClubId = Convert.ToInt64(socialClubId);
         this.IsBanned = false;
+        this.Characters = new List<Character>();
     }
 }

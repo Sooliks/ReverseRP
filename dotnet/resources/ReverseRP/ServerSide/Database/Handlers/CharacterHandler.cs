@@ -13,8 +13,9 @@ public class CharacterHandler
     public static List<Character> GetCharactersByAccount(Account account)
     {
         using Context db = new Context();
-        var characters = db.Character.Include(c=>c.Account).Where(c => c.Account.Id == account.Id).ToList();
-        return characters;
+        var _account = db.Account.SingleOrDefault(a => a.Id == account.Id);
+        db.Entry(_account).Collection(c=>c.Characters).Load();
+        return _account.Characters;
     }
 
     public static void AddNewCharacter(Account account,string firstName, string lastName,

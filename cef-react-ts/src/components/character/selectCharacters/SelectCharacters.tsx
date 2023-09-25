@@ -16,23 +16,17 @@ type CharacterType = {
 }
 
 
-const SelectCharacters : React.FC = () => {
-    //const navigate = useNavigate();
-    //{id: 0, firstName: '1', lastName: 'r', lvl: 23, money: 3535, moneyBank: 633}
+const SelectCharacters: React.FC = () => {
     const [characters,setCharacters] = useState<CharacterType[]>([])
 
-    try {
-        mp.events.add("SERVER::CEF::ADD_CHARACTERS_LIST",(json)=>{
-            json = JSON.parse(json);
-            if(json[0].length===0)return
 
-            setCharacters(json[0])
-        })
-    }catch (e) {}
+    mp.events.add("SERVER::CEF::ADD_CHARACTERS_LIST",(json: string)=> {
+        const args = JSON.parse(json);
+        setCharacters(args[0]);
+    })
+
     const count = [0,1,2];
-    useEffect(()=>{
 
-    },[])
 
 
     return (

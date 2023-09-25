@@ -43,6 +43,13 @@ namespace ClientSide.CEF
             {
                 if (MainCefWindow.Url == DefaultUrl)
                 {
+                    if (MainCefWindow.Url == DefaultUrl + path)
+                    {
+                        ChangePath("");
+                        RAGE.Ui.Cursor.ShowCursor(false, false);
+                        RAGE.Chat.Activate(true);
+                        return;
+                    }
                     ChangePath(path);
                     RAGE.Ui.Cursor.ShowCursor(true, true);
                     RAGE.Chat.Activate(false);
