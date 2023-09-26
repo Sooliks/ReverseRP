@@ -28,11 +28,7 @@ const Inventory : React.FC = () => {
 
     useEffect(()=>{
         Client.callProcServer<any>("RPC::CEF:SERVER:GetInventory").then(data=>console.log(data)).catch(e=>console.log(e));
-
-
-
-
-        //console.log(Client.callProcServer<string>("RPC::CEF:SERVER:GetInventory"))
+        
         
         //делаем клетки для айтемов
         let newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;

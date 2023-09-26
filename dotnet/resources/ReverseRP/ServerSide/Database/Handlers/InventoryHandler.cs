@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
 
 namespace ServerSide.Database.Handlers;
@@ -28,9 +31,7 @@ public class InventoryHandler
     public static List<ItemBase> GetInventory(Character character)
     {
         using Context db = new Context();
-        character = db.Character.SingleOrDefault(c => c == character);
-        db.Entry(character).Collection(c=>c.Inventory).Load();
-        return character.Inventory;
+        return db.ItemBase.Where(i => i.Character.Id == character.Id).ToList();
     }
     public static void RemoveItem(Character character,ItemBase item)
     {

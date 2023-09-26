@@ -25,8 +25,6 @@ public static class PlayerExtensionsData
         }
         return null;
     }
-    public static List<ItemBase> GetInventory(this Player player)
-    {
-        return InventoryHandler.GetInventory(player.GetCharacter());
-    }
+    public static List<ItemBase> GetInventory(this Player player) => InventoryHandler.GetInventory(player.GetCharacter());
+    
 }
