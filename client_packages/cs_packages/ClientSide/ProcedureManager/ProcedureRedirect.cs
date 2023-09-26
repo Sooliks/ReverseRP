@@ -8,13 +8,14 @@ namespace ClientSide.ProcedureManager
     {
         public ProcedureRedirect()
         {
-            Events.AddProc("RPC::REDIRECT::CEF_TO_SERVER",OnRedirect);
+            Events.AddProc("RPC::REDIRECT::CEF_TO_SERVER", OnRedirect, true);
         }
-        private async Task<object> OnRedirect(object[] args)
+        private async Task<string> OnRedirect(object[] args)
         {
             string nameServerProc = (string)args[0];
             args = args.Where(e => e != nameServerProc).ToArray();
             var res = (string) await Events.CallRemoteProc(nameServerProc,args);
+            RAGE.Chat.Output(res);
             return res;
         }
     }

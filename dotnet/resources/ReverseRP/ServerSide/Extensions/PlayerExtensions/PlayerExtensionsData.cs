@@ -1,4 +1,6 @@
-﻿using GTANetworkAPI;
+﻿using System.Collections.Generic;
+using GTANetworkAPI;
+using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
 
 namespace ServerSide.Extensions;
@@ -22,5 +24,9 @@ public static class PlayerExtensionsData
             return player.GetData<Character>("character");
         }
         return null;
+    }
+    public static List<ItemBase> GetInventory(this Player player)
+    {
+        return InventoryHandler.GetInventory(player.GetCharacter());
     }
 }

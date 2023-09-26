@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GTANetworkAPI;
@@ -14,7 +15,8 @@ public class Inventory : Script
     [RemoteProc("RPC::CEF:SERVER:GetInventory")]
     public string GetInventory(Player player)
     {
-        var list = NAPI.Util.ToJson(player.GetCharacter().Inventory);
+        var list = JsonConvert.SerializeObject(player.GetInventory());
+        Console.WriteLine(list);
         return list;
     }
 }
