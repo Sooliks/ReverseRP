@@ -21,10 +21,12 @@ public static class PlayerExtensionsData
     {
         if (player.HasData("character"))
         {
-            return player.GetData<Character>("character");
+            var c = player.GetData<Character>("character");
+            return CharacterHandler.GetCharacterById(c.Id);
         }
         return null;
     }
     public static List<ItemBase> GetInventory(this Player player) => InventoryHandler.GetInventory(player.GetCharacter());
+    
     
 }
