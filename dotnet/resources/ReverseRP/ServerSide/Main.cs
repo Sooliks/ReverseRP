@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using GTANetworkAPI;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using NLog;
 using ServerSide.Database;
 using ServerSide.Database.Models;
@@ -9,6 +12,7 @@ using ServerSide.Extensions;
 using ServerSide.Inventory.Enums;
 using ServerSide.Inventory.Items;
 using ServerSide.Services;
+using ServerSide.Services.MapService;
 
 
 namespace ServerSide;
@@ -38,6 +42,16 @@ public class Main : Script
             character.Inventory.Add(new Ammo(1,"Бургер", "Восполняет", 1, TypeAmmo.Rifle, 435));
             character.Inventory.Add(new ItemBase(1,"Бургер", "Восполняет", 1,  435));
             db.SaveChanges();*/
+        }
+        
+        using (StreamReader r = new StreamReader("dotnet/resources/ReverseRP/ServerSide/Data/markers.json"))
+        {
+            string json = r.ReadToEnd();
+            List<MarkerModel> markers = JsonConvert.DeserializeObject<List<MarkerModel>>(json);
+            foreach (var marker in markers)
+            {
+                InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
+            }
         }
     }
 

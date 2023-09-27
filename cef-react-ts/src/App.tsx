@@ -41,7 +41,7 @@ const App = () => {
         }
     })
 
-    
+
     return (
         <NavigationContextProvider>
             <div style={{width:Config.screenResolution.width, height:Config.screenResolution.height, backgroundImage: Config.isDevelopment ? `url('https://www.digiseller.ru/preview/858000/p1_3575817_2fcd5317.jpg')` : ``}}>
