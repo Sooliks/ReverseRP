@@ -7,7 +7,7 @@ using ServerSide.Services;
 
 namespace ServerSide.EventsHandlers.Authorization;
 
-public class Registration : Script
+public class EventsRegistration : Script
 {
     [RemoteEvent("CEF::SERVER::ON_FINISH_REGISTRATION")]
     public async void OnFinishRegistration(Player player, string login, string email, string password)

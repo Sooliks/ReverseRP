@@ -7,7 +7,7 @@ using ServerSide.Services.PlayerService;
 
 namespace ServerSide.EventsHandlers;
 
-public class SelectCharacter : Script
+public class EventsSelectCharacter : Script
 {
     [RemoteEvent("CEF::SERVER::ON_CLICK_CREATE_CHARACTER")]
     public async void OnClickCreateCharacter(Player player)

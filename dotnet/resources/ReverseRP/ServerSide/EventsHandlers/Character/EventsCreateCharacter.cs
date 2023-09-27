@@ -9,7 +9,7 @@ using ServerSide.Services.PlayerService;
 
 namespace ServerSide.EventsHandlers;
 
-public class CreateCharacter : Script
+public class EventsCreateCharacter : Script
 {
     [RemoteEvent("CEF::SERVER::ON_FINISH_CREATE_CHARACTER")]
     public async void OnFinishCreateCharacter(Player player, string characterJson)

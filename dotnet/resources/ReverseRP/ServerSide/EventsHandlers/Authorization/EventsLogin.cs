@@ -9,7 +9,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace ServerSide.EventsHandlers.Authorization;
 
-public class Login : Script
+public class EventsLogin : Script
 {
     [RemoteEvent("CEF::SERVER::ON_FINISH_LOGIN")]
     public async void OnFinishLogin(Player player, string login, string password, bool remember)

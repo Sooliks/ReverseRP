@@ -10,7 +10,7 @@ using ServerSide.Extensions;
 
 namespace ServerSide.EventsHandlers.Inventory;
 
-public class Inventory : Script
+public class EventsInventory : Script
 {
     [RemoteProc("RPC::CEF:SERVER:GetInventory")]
     public string GetInventory(Player player)
