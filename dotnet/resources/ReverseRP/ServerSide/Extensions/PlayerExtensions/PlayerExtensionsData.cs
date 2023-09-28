@@ -2,6 +2,8 @@
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
+using ServerSide.Inventory.Enums;
+using ServerSide.Services.AdminService;
 
 namespace ServerSide.Extensions;
 
@@ -27,6 +29,6 @@ public static class PlayerExtensionsData
         return null;
     }
     public static List<ItemBase> GetInventory(this Player player) => InventoryHandler.GetInventory(player.GetCharacter());
-    
-    
+    public static bool IsHaveAdminRank(this Player player, AdminLevels adminLevels) => AdminManager.IsPlayerHaveAdminRank(player, adminLevels);
+
 }
