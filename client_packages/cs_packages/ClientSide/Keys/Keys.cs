@@ -15,10 +15,12 @@ namespace ClientSide.Keys
             });
             Input.Bind(VirtualKeys.I, true, () =>
             {
+                if(RAGE.Elements.Player.LocalPlayer.IsTypingInTextChat)return;
                 CefService.SwapPath(CefService.MainCefWindow.Url == "http://localhost:3000/inventory" ? "" : "/inventory");
             });
             Input.Bind(VirtualKeys.P, true, () =>
             {
+                if(RAGE.Elements.Player.LocalPlayer.IsTypingInTextChat)return;
                 CefService.SwapPath(CefService.MainCefWindow.Url == "http://localhost:3000/phone" ? "" : "/phone");
             });
             Input.Bind(VirtualKeys.F4, true, () =>

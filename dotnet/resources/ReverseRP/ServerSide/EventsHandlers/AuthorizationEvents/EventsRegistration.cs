@@ -12,7 +12,7 @@ namespace ServerSide.EventsHandlers.Authorization;
 public class EventsRegistration : Script
 {
     [RemoteEvent("CEF::SERVER::ON_FINISH_REGISTRATION")]
-    public async void OnFinishRegistration(GTANetworkAPI.Player player, string login, string email, string password)
+    public async void OnFinishRegistration(Player player, string login, string email, string password)
     {
         try
         {

@@ -9,7 +9,7 @@ namespace ServerSide.EventsHandlers.Inventory;
 public class EventsInventory : Script
 {
     [RemoteProc("RPC::CEF:SERVER:GetInventory")]
-    public string GetInventory(GTANetworkAPI.Player player)
+    public string GetInventory(Player player)
     {
         var inventory = player.GetInventory().Select(i => new
         {
