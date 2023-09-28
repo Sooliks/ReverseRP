@@ -7746,3 +7746,218 @@ Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for p
 System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
  ---> Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'Inventory' with type 'System.Collections.Generic.List`1[ServerSide.Database.Models.ItemBase]'. Path '[0].Character'.
    at bool Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter 
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+=========================================================
+
+==================[28.09.2023 17:41:01]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'a.AdminLvl' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<M
+==================[28.09.2023 17:42:25]==================
+System.Reflection.TargetException: Non-static method requires a target.
+   at void System.Reflection.RuntimeMethodInfo.CheckConsistency(object target)
+=========================================================
+
+==================[28.09.2023 17:42:25]==================
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+=========================================================
+
+==================[28.09.2023 17:42:25]==================
+System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.CharacterHandler+<>c__DisplayClass0_0).account.Id'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+=========================================================
+
+==================[28.09.2023 17:42:25]==================
+System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.CharacterHandler+<>c__DisplayClass0_0).account.Id'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Evaluate(Expression expression, bool generateParameter)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitBinary(BinaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at Expression System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitLambda<T>(Expression<T> node)
+   at Expression System.Linq.Expressions.Expression<TDelegate>.Accept(ExpressionVisitor visitor)
+   at Expression System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitUnary(UnaryExpression node)
+   at Expression System.Linq.Expressions.UnaryExpression.Accept(ExpressionVisitor visitor)
+   at Expression System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression[] System.Dynamic.Utils.ExpressionVisitorUtils.VisitArguments(ExpressionVisitor visitor, IArgumentProvider nodes)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at Expression System.Linq.Expressions.Method
+==================[28.09.2023 18:34:51]==================
+System.Reflection.TargetException: Non-static method requires a target.
+   at void System.Reflection.RuntimeMethodInfo.CheckConsistency(object target)
+=========================================================
+
+==================[28.09.2023 18:34:51]==================
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+=========================================================
+
+==================[28.09.2023 18:34:51]==================
+System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.CharacterHandler+<>c__DisplayClass0_0).account.Id'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+=========================================================
+
+==================[28.09.2023 18:34:51]==================
+System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.CharacterHandler+<>c__DisplayClass0_0).account.Id'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Evaluate(Expression expression, bool generateParameter)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitBinary(BinaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at Expression System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitLambda<T>(Expression<T> node)
+   at Expression System.Linq.Expressions.Expression<TDelegate>.Accept(ExpressionVisitor visitor)
+   at Expression System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitUnary(UnaryExpression node)
+   at Expression System.Linq.Expressions.UnaryExpression.Accept(ExpressionVisitor visitor)
+   at Expression System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression[] System.Dynamic.Utils.ExpressionVisitorUtils.VisitArguments(ExpressionVisitor visitor, IArgumentProvider nodes)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at Expression System.Linq.Expressions.Method

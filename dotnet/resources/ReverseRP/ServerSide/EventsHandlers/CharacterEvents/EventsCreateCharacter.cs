@@ -1,4 +1,5 @@
-﻿using GTANetworkAPI;
+﻿using System;
+using GTANetworkAPI;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ServerSide.Database.Handlers;
@@ -40,8 +41,6 @@ public class EventsCreateCharacter : Script
         byte hairColor = (byte)character["hair"][1];
         int hairType = (int)character["hair"][0];
         byte eyeColor = (byte)character["eyeColor"];
-        
-        
         
         CharacterHandler.AddNewCharacter(player.GetAccount(),firstName, lastName, birth, origin, headOverlays, headOverlaysColors, headBlendData,
             faceFeatures, eyeColor, hairColor, hairType, gender);

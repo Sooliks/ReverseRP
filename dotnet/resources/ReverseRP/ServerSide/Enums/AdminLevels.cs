@@ -1,4 +1,4 @@
-﻿namespace ServerSide.Inventory.Enums;
+﻿namespace ServerSide.Enums;
 
 public enum AdminLevels
 {

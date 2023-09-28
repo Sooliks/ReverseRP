@@ -4,8 +4,8 @@ namespace ClientSide.EventsHandlers.PlayerEvents
 {
     public class Waypoints : Events.Script
     {
-        public static Vector3 LastWaypointPosition { get; set; }
-        private Waypoints()
+        public static Vector3 LastWaypointPosition { get; private set; }
+        public Waypoints()
         {
             Events.OnPlayerCreateWaypoint += OnWaypointCreated;
         }

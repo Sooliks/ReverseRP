@@ -34,9 +34,7 @@ public class EventsSelectCharacter : Script
                 character.HairColor, character.HairType, character.EyeColor);
             player.ChangeCefWindow(CefWindowsPaths.Default);
             player.FreezePlayer(false);
-            return;
         }
-        return;
     }
     
 }

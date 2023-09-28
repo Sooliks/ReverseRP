@@ -23,7 +23,7 @@ namespace ClientSide.Keys
             });
             Input.Bind(VirtualKeys.F4, true, () =>
             {
-                Events.CallRemote("CLIENT:SERVER::OnTeleport", Waypoints.LastWaypointPosition);
+                Events.CallRemote("CLIENT:SERVER::OnTeleport", RAGE.Util.Json.Serialize(Waypoints.LastWaypointPosition));
             });
         }
     }

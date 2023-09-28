@@ -1,17 +1,20 @@
-﻿using GTANetworkAPI;
+﻿
+using GTANetworkAPI;
+using ServerSide.Enums;
 using ServerSide.Extensions;
-using ServerSide.Inventory.Enums;
 
-namespace ServerSide.EventsHandlers.Player;
 
-public class EventsDefault
+namespace ServerSide.EventsHandlers.AdminEvents;
+
+public class EventsDefault : Script
 {
     [RemoteEvent("CLIENT:SERVER::OnTeleport")]
-    public async void OnClickCreateCharacter(GTANetworkAPI.Player player, Vector3 waypointPos)
+    public void OnTeleport(Player player, string waypointPosJson)
     {
+        if(waypointPosJson=="null")return;
         if (player.IsHaveAdminRank(AdminLevels.JuniorModerator))
         {
-            player.Position = waypointPos;
+            player.Position = NAPI.Util.FromJson<Vector3>(waypointPosJson);
         }
     }
 }

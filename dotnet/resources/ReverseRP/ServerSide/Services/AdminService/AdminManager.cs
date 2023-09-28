@@ -1,4 +1,5 @@
 ﻿using GTANetworkAPI;
+using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Inventory.Enums;
 

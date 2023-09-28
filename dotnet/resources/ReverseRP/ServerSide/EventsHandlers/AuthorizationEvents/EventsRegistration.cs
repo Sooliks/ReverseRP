@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
 using ServerSide.Entities;
@@ -36,9 +38,9 @@ public class EventsRegistration : Script
                 }
             }
             var regAccount = AccountsHandler.Register(login, email, password, player.Address,player.SocialClubId);
-            player.SetAccount(account);
+            player.SetAccount(regAccount);
             player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
-            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",CharacterHandler.GetCharactersByAccount(regAccount));
+            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",new List<string>());
         }
         catch (Exception e)
         {

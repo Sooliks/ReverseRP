@@ -2,7 +2,7 @@
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
-using ServerSide.Inventory.Enums;
+using ServerSide.Enums;
 using ServerSide.Services.AdminService;
 
 namespace ServerSide.Extensions;
