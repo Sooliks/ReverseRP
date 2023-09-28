@@ -12,7 +12,7 @@ namespace ServerSide.EventsHandlers.Authorization;
 public class EventsLogin : Script
 {
     [RemoteEvent("CEF::SERVER::ON_FINISH_LOGIN")]
-    public async void OnFinishLogin(Player player, string login, string password, bool remember)
+    public async void OnFinishLogin(GTANetworkAPI.Player player, string login, string password, bool remember)
     {
         var account = AccountsHandler.GetAccountBySocialClubId(Convert.ToInt64(player.SocialClubId));
         if (account != null)

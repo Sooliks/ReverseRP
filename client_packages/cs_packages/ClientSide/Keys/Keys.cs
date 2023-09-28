@@ -1,4 +1,5 @@
 ﻿using ClientSide.CEF;
+using ClientSide.EventsHandlers.PlayerEvents;
 using RAGE;
 using RAGE.Ui;
 
@@ -19,6 +20,10 @@ namespace ClientSide.Keys
             Input.Bind(VirtualKeys.P, true, () =>
             {
                 CefService.SwapPath(CefService.MainCefWindow.Url == "http://localhost:3000/phone" ? "" : "/phone");
+            });
+            Input.Bind(VirtualKeys.F4, true, () =>
+            {
+                Events.CallRemote("CLIENT:SERVER::OnTeleport", Waypoints.LastWaypointPosition);
             });
         }
     }

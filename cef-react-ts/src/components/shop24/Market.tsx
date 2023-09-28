@@ -4,6 +4,7 @@ import background from "../../assets/images/background_auth.png";
 import {Card, Menu, MenuProps, Space} from "antd";
 import {ShoppingCartOutlined, ToolOutlined} from "@ant-design/icons";
 import Item from "./Item";
+import {useParams} from "react-router-dom";
 
 export type ItemType = {
     id: number
@@ -20,9 +21,13 @@ export enum ItemTypeEnum {
 const listItems: ItemType[] = [
     {id: 0, type: ItemTypeEnum.Products, price: 150, label: 'Бургер', description: 'Восполняет 50 еды'}
 ]
+type MarketParams = {
+    id: string
+}
 
 
 const Market: React.FC = () => {
+    const params = useParams<MarketParams>();
     const [current,setCurrent] = useState<string>('products');
 
     const onClickMenu: MenuProps['onClick'] = (e) => {

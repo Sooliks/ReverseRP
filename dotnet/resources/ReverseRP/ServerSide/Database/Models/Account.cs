@@ -14,6 +14,7 @@ public class Account
     public long SocialClubId { get; set; }
     public bool IsBanned { get; set; }
     public List<Character> Characters { get; set; }
+    public byte AdminLvl { get; set; }
 
 
 
@@ -32,5 +33,6 @@ public class Account
         this.SocialClubId = Convert.ToInt64(socialClubId);
         this.IsBanned = false;
         this.Characters = new List<Character>();
+        this.AdminLvl = 0;
     }
 }

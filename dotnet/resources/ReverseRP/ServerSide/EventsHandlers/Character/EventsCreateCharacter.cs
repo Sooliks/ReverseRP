@@ -12,7 +12,7 @@ namespace ServerSide.EventsHandlers;
 public class EventsCreateCharacter : Script
 {
     [RemoteEvent("CEF::SERVER::ON_FINISH_CREATE_CHARACTER")]
-    public async void OnFinishCreateCharacter(Player player, string characterJson)
+    public async void OnFinishCreateCharacter(GTANetworkAPI.Player player, string characterJson)
     {
         var character = JObject.Parse(characterJson);
         bool gender = (string)character["gender"] == "женский" ? false : true;

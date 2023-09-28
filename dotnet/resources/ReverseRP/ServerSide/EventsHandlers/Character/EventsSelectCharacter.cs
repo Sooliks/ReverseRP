@@ -10,7 +10,7 @@ namespace ServerSide.EventsHandlers;
 public class EventsSelectCharacter : Script
 {
     [RemoteEvent("CEF::SERVER::ON_CLICK_CREATE_CHARACTER")]
-    public async void OnClickCreateCharacter(Player player)
+    public async void OnClickCreateCharacter(GTANetworkAPI.Player player)
     {
         var account = player.GetAccount();
         if (CharacterHandler.GetCharactersByAccount(account).Count == 3)
@@ -22,7 +22,7 @@ public class EventsSelectCharacter : Script
         player.SetCamera(player.Position,player.Position,true);
     }
     [RemoteEvent("CEF::SERVER::ON_SELECT_CHARACTER")]
-    public async void OnClickSelectCharacter(Player player, int id)
+    public async void OnClickSelectCharacter(GTANetworkAPI.Player player, int id)
     {
         if (CharacterHandler.IsAccountOwnerCharacter(player.GetAccount(), id))
         {

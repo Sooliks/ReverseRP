@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using GTANetworkAPI;
 using Newtonsoft.Json;
-using ServerSide.Database.Models;
-using ServerSide.Entities;
 using ServerSide.Extensions;
 
 namespace ServerSide.EventsHandlers.Inventory;
@@ -13,7 +9,7 @@ namespace ServerSide.EventsHandlers.Inventory;
 public class EventsInventory : Script
 {
     [RemoteProc("RPC::CEF:SERVER:GetInventory")]
-    public string GetInventory(Player player)
+    public string GetInventory(GTANetworkAPI.Player player)
     {
         var inventory = player.GetInventory().Select(i => new
         {
