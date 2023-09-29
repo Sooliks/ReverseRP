@@ -49,5 +49,6 @@ public class EventsCreateCharacter : Script
         player.SetCharacter(CharacterHandler.GetLastCharacterByAccount(player.GetAccount()));
         player.ChangeCefWindow(CefWindowsPaths.Default);
         player.FreezePlayer(false);
+        player.SetCameraOnPlayer(false);
     }
 }
