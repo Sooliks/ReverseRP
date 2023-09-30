@@ -31,7 +31,7 @@ public class InventoryHandler
     public static List<ItemBase> GetInventory(Character character)
     {
         using Context db = new Context();
-        return db.ItemBase.Where(i => i.Character.Id == character.Id).ToList();
+        return db.ItemBase.Include(i=> i.Character).Where(i => i.Character.Id == character.Id).ToList();
     }
     public static void RemoveItem(Character character,ItemBase item)
     {

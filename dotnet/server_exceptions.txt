@@ -7961,3 +7961,144 @@ System.InvalidOperationException: An exception was thrown while attempting to ev
    at Expression[] System.Dynamic.Utils.ExpressionVisitorUtils.VisitArguments(ExpressionVisitor visitor, IArgumentProvider nodes)
    at Expression System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
    at Expression System.Linq.Expressions.Method
+==================[30.09.2023 15:25:48]==================
+Newtonsoft.Json.JsonReaderException: Error parsing undefined value. Path '', line 1, position 1.
+   at void Newtonsoft.Json.JsonTextReader.ParseUndefined()
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Newtonsoft.Json.JsonReaderException: Error parsing undefined value. Path '', line 1, position 1.
+   at void Newtonsoft.Json.JsonTextReader.ParseUndefined()
+   at bool Newtonsoft.Json.JsonTextReader.ParseValue()
+   at bool Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, bool hasConverter)
+   at object Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, bool checkAdditionalContent)
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 15:25:48]==================
+Discord.Net.HttpException: The server responded with error 503: ServiceUnavailable
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at asy
+==================[30.09.2023 20:24:43]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+=========================================================
+
+==================[30.09.2023 20:24:43]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 20:24:43]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+=========================================================
+
+==================[30.09.2023 20:24:43]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.09.2023 20:24:43]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The WebSocket is in an invalid state ('Aborted') for this operation. Valid states are: 'Open, CloseReceived'
+   at void System.Net.WebSockets.WebSocketValidate.ThrowIfInvalidState(WebSocketState currentState, bool isDisposed, WebSocketState[] validStates)
+=========================================================
+
+==================[30.09.2023 20:24:43]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The WebSock
