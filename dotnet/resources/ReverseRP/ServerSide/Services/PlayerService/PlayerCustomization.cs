@@ -28,17 +28,16 @@ public class PlayerCustomization
             ShapeMix = headBlendObj[2],
             SkinMix = headBlendObj[3]
         };
-        float[] faceFeatures = new float[20];
         for (int i = 0; i < 20; i++)
         {
-            faceFeatures[i] = faceFeaturesObj[i];
+            player.SetFaceFeature(i,faceFeaturesObj[i]);
         }
         Dictionary<int, HeadOverlay> headOverlays = new Dictionary<int, HeadOverlay>();
         for (byte i = 0; i < 12; i++)
         {
             headOverlays.Add(i,new HeadOverlay(){Index = (byte)headOverlaysObj[i], Color = headOverlaysColorsObj[i], Opacity = 1});
         }
-        player.SetCustomization(gender, headBlend, eyeColor,hairColor,0,faceFeatures,headOverlays,new Decoration[]{});
+        player.SetCustomization(gender, headBlend, eyeColor,hairColor,0,faceFeaturesObj,headOverlays,new Decoration[]{});
         player.SetClothes(2,hairType,0);
     }
 }
