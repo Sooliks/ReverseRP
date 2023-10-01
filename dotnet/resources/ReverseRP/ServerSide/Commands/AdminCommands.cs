@@ -11,12 +11,12 @@ namespace ServerSide.Commands;
 public class AdminCommands : Script
 {
     [Command("saveposition", Alias = "savepos")]
-    public async Task OnSavePosition(Player player)
+    public async Task OnSavePosition(Player player, string name = "")
     {
         if (player.IsHaveAdminRank(AdminLevels.Helper))
         {
             player.SendChatMessage(NAPI.Util.ToJson(player.Position));
-            await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId, NAPI.Util.ToJson(player.Position));
+            await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId, $"Админ \"{player.GetAccount().Login}\" сохранил позицию \"{name}\": {NAPI.Util.ToJson(player.Position)}");
         }
         else
         {

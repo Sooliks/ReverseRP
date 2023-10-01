@@ -27,7 +27,6 @@ public class Main : Script
     {
         NAPI.Util.ConsoleOutput("Server started!");
         await DiscordBot.StartDiscordBot();
-        await DiscordBot.GetUserCount();
         NAPI.Server.SetGlobalServerChat(false);
         var datetime = DateTime.Now;
         NAPI.World.SetTime(datetime.Hour, datetime.Minute, datetime.Second);
