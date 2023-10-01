@@ -3,6 +3,7 @@ using System.Linq;
 using GTANetworkAPI;
 using Newtonsoft.Json;
 using ServerSide.Database.Handlers;
+using ServerSide.Discord;
 using ServerSide.Extensions;
 using ServerSide.Services;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -35,6 +36,7 @@ public class EventsLogin : Script
                 MoneyBank = c.MoneyBank
             }).ToList();
             player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",newList);
+            await Logs.SendGameLog($"Игрок с логином: \"{player.GetAccount().Login}\" и socClubId: \"{player.SocialClubId}\" и IP: \"{player.Address}\" зашел на сервер!");
         }
         else
         {

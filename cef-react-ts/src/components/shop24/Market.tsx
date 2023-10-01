@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {Config} from "../../conf";
 import background from "../../assets/images/background_auth.png";
-import {Card, Menu, MenuProps, Space} from "antd";
-import {ShoppingCartOutlined, ToolOutlined} from "@ant-design/icons";
+import {Button, Card, Menu, MenuProps, Space} from "antd";
+import {CloseOutlined, ShoppingCartOutlined, ToolOutlined} from "@ant-design/icons";
 import Item from "./Item";
-import {useParams} from "react-router-dom";
+import {useNavigate, useNavigation, useParams} from "react-router-dom";
 
 export type ItemType = {
     id: number
@@ -46,12 +46,19 @@ const Market: React.FC = () => {
             icon: <ToolOutlined />,
         },
     ]
+    const navigate = useNavigate();
+    const handleClickClose = () => {
+        navigate("/");
+    }
 
     return (
         <Space style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height, justifyContent: 'center'}}>
             <Card>
                 <Space style={{width: 1100, height: 700}} align={"start"} direction={"vertical"}>
-                    <Menu style={{width: 1100}} onClick={onClickMenu} selectedKeys={[current]} mode="horizontal" items={items} />
+                    <Space direction={"horizontal"}>
+                        <Menu style={{width: 1050}} onClick={onClickMenu} selectedKeys={[current]} mode="horizontal" items={items} />
+                        <Button icon={<CloseOutlined/>} onClick={handleClickClose}/>
+                    </Space>
                     <Space wrap style={{overflowY: 'auto'}}>
                         {current === "products" && listItems.filter(i=>i.type === ItemTypeEnum.Products).map(i=>
                             <Item item={i}/>
