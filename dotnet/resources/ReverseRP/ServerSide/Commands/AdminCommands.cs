@@ -16,7 +16,13 @@ public class AdminCommands : Script
         if (player.IsHaveAdminRank(AdminLevels.Helper))
         {
             player.SendChatMessage(NAPI.Util.ToJson(player.Position));
-            await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId, $"Админ \"{player.GetAccount().Login}\" сохранил позицию \"{name}\": {NAPI.Util.ToJson(player.Position)}");
+            if (name != "")
+                await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId,
+                    $"Админ \"{player.GetAccount().Login}\" сохранил позицию \"{name}\": {NAPI.Util.ToJson(player.Position)}");
+            else
+            {
+                await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId, $"Админ \"{player.GetAccount().Login}\" сохранил позицию: {NAPI.Util.ToJson(player.Position)}");
+            }
         }
         else
         {
