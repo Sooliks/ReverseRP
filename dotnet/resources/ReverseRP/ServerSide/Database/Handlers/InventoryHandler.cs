@@ -17,7 +17,7 @@ public class InventoryHandler
         var searchedItem = db.ItemBase.Include(i => i.ItemType).Include(i=>i.Character).FirstOrDefault(i => i.Character.Id == character.Id && i.ItemType.IdItem == itemType.IdItem);
         if (searchedItem!=null)
         {
-            searchedItem.Count += 1;
+            searchedItem.Count += count;
             db.Character.Update(character);
             db.SaveChanges();
             return;
