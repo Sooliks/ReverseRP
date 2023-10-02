@@ -6,4 +6,5 @@ export namespace Client{
         const res: T = await mp.events.callProc<T>("RPC::REDIRECT::CEF_TO_SERVER",name,...args);
         return res;
     }
+    export const closeWindow = () => mp.trigger("CEF::CLIENT:CLOSE_WINDOW");
 }

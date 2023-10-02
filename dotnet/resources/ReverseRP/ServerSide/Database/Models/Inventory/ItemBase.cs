@@ -21,6 +21,6 @@ public class ItemBase
     
     public virtual void DropItem(Player player)
     {
-        NAPI.Object.CreateObject(Item.Hash, player.Position, new Vector3());
+        NAPI.Object.CreateObject(Item.Hash, player.Position, new Vector3(), dimension: player.Dimension);
     }
 }

@@ -14,7 +14,7 @@ public class InventoryHandler
         using Context db = new Context();
         character = db.Character.SingleOrDefault(c => c == character);
         db.Entry(character).Collection(c=>c.Inventory).Load();
-        var searchedItem = db.ItemBase.Include(i => i.Item).FirstOrDefault(i => i.Item.IdItem == itemBase.Item.IdItem);
+        var searchedItem = db.ItemBase.Include(i => i.Item).Include(i=>i.Character).FirstOrDefault(i => i.Character.Id == character.Id && i.Item.IdItem == itemBase.Item.IdItem);
         if (searchedItem!=null)
         {
             searchedItem.Count += 1;

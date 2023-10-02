@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Google.Protobuf.WellKnownTypes;
 using Newtonsoft.Json;
 using ServerSide.Database.Handlers;
 
@@ -26,6 +28,23 @@ public class Character
     public int Lvl { get; set; }
     public List<ItemBase>? Inventory { get; set; }
 
+    public byte CountSatiety
+    {
+        get
+        {
+            return CountSatiety;
+        }
+        set
+        {
+            CountSatiety = value;
+            using Context db = new Context();
+            var character = db.Character.FirstOrDefault(c => c.Id == this.Id);
+            character.CountSatiety = value;
+            db.Character.Update(character);
+            db.SaveChanges();
+        }
+    }
+
     public Character()
     {
         
@@ -52,6 +71,7 @@ public class Character
         EyeColor = eyeColor;
         HairType = hairType;
         Inventory = new List<ItemBase>();
+        CountSatiety = 100;
     }
     
     public static List<ItemBase> GetInventory(Character character) => InventoryHandler.GetInventory(character);

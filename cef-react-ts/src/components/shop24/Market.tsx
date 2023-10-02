@@ -5,6 +5,7 @@ import {Button, Card, Menu, MenuProps, Space} from "antd";
 import {CloseOutlined, ShoppingCartOutlined, ToolOutlined} from "@ant-design/icons";
 import Item from "./Item";
 import {useNavigate, useNavigation, useParams} from "react-router-dom";
+import {Client} from "../../requests/Client";
 
 export type ItemType = {
     id: number
@@ -46,9 +47,9 @@ const Market: React.FC = () => {
             icon: <ToolOutlined />,
         },
     ]
-    const navigate = useNavigate();
+
     const handleClickClose = () => {
-        navigate("");
+        Client.closeWindow();
     }
 
     return (
