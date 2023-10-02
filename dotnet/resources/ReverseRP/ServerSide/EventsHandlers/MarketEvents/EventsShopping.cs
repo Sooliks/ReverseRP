@@ -15,7 +15,5 @@ public class EventsShopping : Script
         {
             player.AddItem(new ItemBase(1, ItemHandler.GetItemByIdItem(idItem)));
         }
-        Console.WriteLine(marketId);
-        Console.WriteLine(idItem);
     }
 }

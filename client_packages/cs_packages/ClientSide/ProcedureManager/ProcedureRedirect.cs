@@ -15,7 +15,6 @@ namespace ClientSide.ProcedureManager
             string nameServerProc = (string)args[0];
             args = args.Where(e => e != nameServerProc).ToArray();
             var res = (string) await Events.CallRemoteProc(nameServerProc,args);
-            RAGE.Chat.Output(res);
             return res;
         }
     }

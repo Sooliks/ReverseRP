@@ -9,6 +9,14 @@ import {useInventoryContext} from "./context/InventoryContextProvider";
 import {DragDropContext, DropResult} from "react-beautiful-dnd"
 import {Client} from "../../requests/Client";
 
+type IncomingInventory = {
+    count: number
+    name: string,
+    description: string,
+    idItem: number,
+    hash: number,
+    type: string
+}
 
 const Inventory : React.FC = () => {
     const [otherInventoryIsVisible,setOtherInventoryIsVisible] = useState<boolean>(true)
@@ -16,20 +24,13 @@ const Inventory : React.FC = () => {
 
     const inventoryContext = useInventoryContext()
 
-    const [inventoryPlayer,setInventoryPlayer] = useState<ItemType[]>([
-        {id: 0, count: 5, description: 'Восполняет 40 еды', name: "burger", currentBoard: inventoryContext.inventory.boardsPlayer[0], index: 0},
-        {id: 0, count: 5, description: 'Восполняет 40 еды', name: "бигтейсти", currentBoard: inventoryContext.inventory.boardsPlayer[1], index: 1},
-        {id: 5, count: 5, description: 'Восполняет 40 еды', name: "Телефон", currentBoard: inventoryContext.inventory.boardsPlayer[2], index: 2}
-    ])
+    const [inventoryPlayer,setInventoryPlayer] = useState<ItemType[]>([])
     const [inventoryClothes,setInventoryClothes] = useState<ItemType[]>([])
     const [inventoryOther,setInventoryOther] = useState<ItemType[]>([])
 
 
 
     useEffect(()=>{
-        Client.callProcServer<any>("RPC::CEF:SERVER:GetInventory").then(data=>console.log(data)).catch(e=>console.log(e));
-        
-        
         //делаем клетки для айтемов
         let newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;
         for(let i = 0; i < 56; i++){
@@ -44,32 +45,47 @@ const Inventory : React.FC = () => {
             newBoardsOther = [...newBoardsOther,{type: BoardTypeEnum.Other, idBoard: i}]
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////
-        //добавляем айтемы игрока в борды
-        //заполняем борды игрока айтемами
-        for (let i = 0; i< inventoryPlayer.length;i++){
-            newBoards[inventoryPlayer[i].index].item = inventoryPlayer[i];
-            if(newBoards[i].item!==undefined){
-                // @ts-ignore
-                newBoards[i].item.currentBoard = newBoards[inventoryPlayer[i].index];
+        let newInventoryPlayer: ItemType[] = [];
+        Client.callProcServer<string>("RPC::CEF:SERVER:GetInventoryPlayer").then(json=>{
+            const data: IncomingInventory[] = JSON.parse(json);
+            for(let i=0; i<data.length; i++){
+                newInventoryPlayer[i] = {
+                    id: data[i].idItem,
+                    count: data[i].count,
+                    description: data[i].description,
+                    name: data[i].name,
+                    currentBoard: inventoryContext.inventory.boardsPlayer[i],
+                    index: i
+                }
             }
-        }
-        //заполняем борды одежды игрока айтемами
-        for (let i = 0; i< inventoryClothes.length;i++){
-            newBoardsClothes[inventoryClothes[i].index].item = inventoryClothes[i];
-            if(newBoardsClothes[i].item!==undefined){
-                // @ts-ignore
-                newBoardsClothes[i].item.currentBoard = newBoardsClothes[inventoryClothes[i].index];
+            //добавляем айтемы игрока в борды
+            //заполняем борды игрока айтемами
+            for (let i = 0; i< newInventoryPlayer.length;i++){
+                newBoards[newInventoryPlayer[i].index].item = newInventoryPlayer[i];
+                if(newBoards[i].item!==undefined){
+                    // @ts-ignore
+                    newBoards[i].item.currentBoard = newBoards[newInventoryPlayer[i].index];
+                }
             }
-        }
-        //заполняем борды другого инвентаря айтемами
-        for (let i = 0; i < inventoryOther.length;i++){
-            newBoardsOther[inventoryOther[i].index].item = inventoryOther[i];
-            if(newBoardsOther[i].item!==undefined){
-                // @ts-ignore
-                newBoardsOther[i].item.currentBoard = newBoardsOther[inventoryOther[i].index];
+            //заполняем борды одежды игрока айтемами
+            for (let i = 0; i< inventoryClothes.length;i++){
+                newBoardsClothes[inventoryClothes[i].index].item = inventoryClothes[i];
+                if(newBoardsClothes[i].item!==undefined){
+                    // @ts-ignore
+                    newBoardsClothes[i].item.currentBoard = newBoardsClothes[inventoryClothes[i].index];
+                }
             }
-        }
-        inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards, boardsClothes: newBoardsClothes, boardsOther: newBoardsOther})
+            //заполняем борды другого инвентаря айтемами
+            for (let i = 0; i < inventoryOther.length;i++){
+                newBoardsOther[inventoryOther[i].index].item = inventoryOther[i];
+                if(newBoardsOther[i].item!==undefined){
+                    // @ts-ignore
+                    newBoardsOther[i].item.currentBoard = newBoardsOther[inventoryOther[i].index];
+                }
+            }
+            setInventoryPlayer(newInventoryPlayer);
+            inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards, boardsClothes: newBoardsClothes, boardsOther: newBoardsOther})
+        })
     },[])
 
     const getTypeBoardById = (idBoard?: number): BoardTypeEnum =>{

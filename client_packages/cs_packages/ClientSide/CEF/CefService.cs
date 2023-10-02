@@ -17,8 +17,9 @@ namespace ClientSide.CEF
         {
             MainCefWindow.Active = true;
             Events.Add("SERVER::CLIENT::CHANGE_WINDOW",OnChangeWindow);
+            Events.Add("CEF::CLIENT:CLOSE_WINDOW", OnCloseWindow);
         }
-        private static void ChangePath(string path) => MainCefWindow.Url = "http://localhost:3000" + path;
+        private static void ChangePath(string path) => MainCefWindow.Url = DefaultUrl + path;
 
         public static void SwapPath(string path)
         {
@@ -87,6 +88,12 @@ namespace ClientSide.CEF
                     return;
                 }
             }
+        }
+        private void OnCloseWindow(object[] args)
+        {
+            ChangePath("");
+            RAGE.Ui.Cursor.ShowCursor(false, false);
+            RAGE.Chat.Activate(true);
         }
         private static bool IsPathCanOpen(string path)
         {
