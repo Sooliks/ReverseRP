@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {ItemType} from "./Market";
 import {Button, Space, Typography} from "antd";
+import {Client} from "../../requests/Client";
 
 const {Text} = Typography;
 
 type ItemProps = {
     item: ItemType
+    idMarket: number
 }
 
 
-const Item: React.FC<ItemProps> = ({item}) => {
+const Item: React.FC<ItemProps> = ({item,idMarket}) => {
 
     const [image,setImage] = useState<string>('../../assets/images/inventory/' + 'item_' + item.id + '.png')
     useEffect(()=>{
@@ -19,6 +21,9 @@ const Item: React.FC<ItemProps> = ({item}) => {
             setImage(require('../../assets/images/not_found_image.jpg'));
         }
     })
+    const handleClickOnBuy = () => {
+        Client.triggerServer("CEF::SERVER:ON_BUY_ITEM", idMarket, item.id);
+    }
 
     return (
         <Space align={"center"} direction={"vertical"} style={{border: '1px solid #f0f0f0', padding: 10, width: 90, borderRadius: '4px'}}>
@@ -29,7 +34,7 @@ const Item: React.FC<ItemProps> = ({item}) => {
                     Цена: {' '}
                     <Text>{item.price + '$'}</Text>
                 </Text>
-                <Button size={"small"} style={{width: 84}}>Купить</Button>
+                <Button size={"small"} style={{width: 84}} onClick={handleClickOnBuy}>Купить</Button>
             </Space>
         </Space>
     );

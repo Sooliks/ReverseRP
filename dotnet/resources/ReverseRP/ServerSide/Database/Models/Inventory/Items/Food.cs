@@ -4,7 +4,13 @@ namespace ServerSide.Inventory.Items;
 
 public class Food : ItemBase
 {
-    public Food(int count, string name,string description,int idItem, int hash): base(count, name, description, idItem,hash)
+    public int CountSatiety { get; set; }
+    public Food(int count, Item item, int countSatiety): base(count, item)
+    {
+        CountSatiety = countSatiety;
+    }
+
+    public Food()
     {
         
     }

@@ -13,7 +13,7 @@ public class EventsInventory : Script
     {
         var inventory = player.GetInventory().Select(i => new
         {
-            Id = i.Id, Count = i.Count, Name = i.Name, Description = i.Description, IdItem = i.IdItem, Hash = i.Hash, Type = i.GetType().Name
+            Id = i.Id, Count = i.Count, Name = i.Item.Name, Description = i.Item.Description, IdItem = i.Item.IdItem, Hash = i.Item.Hash, Type = i.GetType().Name
         }).ToList();
         Console.WriteLine(JsonConvert.SerializeObject(inventory));
         return JsonConvert.SerializeObject(inventory);

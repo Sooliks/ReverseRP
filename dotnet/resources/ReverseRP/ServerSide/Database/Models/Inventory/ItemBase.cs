@@ -6,22 +6,21 @@ public class ItemBase
 {
     public int Id { get; set; }
     public int Count { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public int IdItem { get; set; }
-    public int Hash { get; set; }
+    public Item Item { get; set; }
     public Character? Character { get; set; } = new Character();
-    public ItemBase(int count, string name, string description, int idItem, int hash = 0)
+    public ItemBase(int count, Item item)
     {
         Count = count;
-        Name = name;
-        Description = description;
-        IdItem = idItem;
-        Hash = hash;
+        Item = item;
+    }
+
+    public ItemBase()
+    {
+        
     }
     
     public virtual void DropItem(Player player)
     {
-        NAPI.Object.CreateObject(Hash, player.Position, new Vector3());
+        NAPI.Object.CreateObject(Item.Hash, player.Position, new Vector3());
     }
 }

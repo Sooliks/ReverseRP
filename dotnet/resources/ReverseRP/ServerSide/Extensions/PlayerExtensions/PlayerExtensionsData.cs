@@ -30,5 +30,8 @@ public static class PlayerExtensionsData
     }
     public static List<ItemBase> GetInventory(this Player player) => InventoryHandler.GetInventory(player.GetCharacter());
     public static bool IsHaveAdminRank(this Player player, AdminLevels adminLevels) => AdminManager.IsPlayerHaveAdminRank(player, adminLevels);
+    public static void AddItem(this Player player, ItemBase itemBase) =>
+        InventoryHandler.AddItem(player.GetCharacter(), itemBase);
+    
 
 }

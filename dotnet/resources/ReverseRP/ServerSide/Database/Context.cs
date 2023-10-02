@@ -14,6 +14,7 @@ public class Context : DbContext
     public DbSet<Account> Account { get; set; }
     public DbSet<Character> Character { get; set; }
     public DbSet<ItemBase> ItemBase { get; set; }
+    public DbSet<Item> Items { get; set; }
     
 
     public Context()
@@ -40,9 +41,11 @@ public class Context : DbContext
         modelBuilder.ApplyConfiguration(new AccountConfiguration());
         modelBuilder.ApplyConfiguration(new CharacterConfiguration());
         modelBuilder.ApplyConfiguration(new ItemBaseConfiguration());
+        modelBuilder.ApplyConfiguration(new ItemConfiguration());
         
         modelBuilder.Entity<Ammo>().HasBaseType<ItemBase>();
         modelBuilder.Entity<Food>().HasBaseType<ItemBase>();
         modelBuilder.Entity<Gun>().HasBaseType<ItemBase>();
+        modelBuilder.Entity<Medkit>().HasBaseType<ItemBase>();
     }
 }

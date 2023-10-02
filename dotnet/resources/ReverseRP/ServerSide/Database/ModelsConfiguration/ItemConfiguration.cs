@@ -4,12 +4,10 @@ using ServerSide.Database.Models;
 
 namespace ServerSide.Database.ModelsConfiguration;
 
-public class ItemBaseConfiguration : IEntityTypeConfiguration<ItemBase>
+public class ItemConfiguration : IEntityTypeConfiguration<Item>
 {
-    public void Configure(EntityTypeBuilder<ItemBase> builder)
+    public void Configure(EntityTypeBuilder<Item> builder)
     {
         builder.HasKey(i => i.Id);
-        builder.HasOne<Character>(i => i.Character);
-        builder.HasOne<Item>(i => i.Item);
     }
 }

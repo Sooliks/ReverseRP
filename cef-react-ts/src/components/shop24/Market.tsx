@@ -48,7 +48,7 @@ const Market: React.FC = () => {
     ]
     const navigate = useNavigate();
     const handleClickClose = () => {
-        navigate("/");
+        navigate("");
     }
 
     return (
@@ -61,10 +61,10 @@ const Market: React.FC = () => {
                     </Space>
                     <Space wrap style={{overflowY: 'auto'}}>
                         {current === "products" && listItems.filter(i=>i.type === ItemTypeEnum.Products).map(i=>
-                            <Item item={i}/>
+                            <Item item={i} idMarket={Number(params.id)}/>
                         )}
                         {current === "tools" && listItems.filter(i=>i.type === ItemTypeEnum.Tools).map(i=>
-                            <Item item={i}/>
+                            <Item item={i} idMarket={Number(params.id)}/>
                         )}
                     </Space>
                 </Space>
