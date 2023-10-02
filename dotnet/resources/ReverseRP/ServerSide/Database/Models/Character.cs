@@ -75,7 +75,7 @@ public class Character
     }
     
     public static List<ItemBase> GetInventory(Character character) => InventoryHandler.GetInventory(character);
-    public static void AddItem(Character character, ItemBase item) => InventoryHandler.AddItem(character, item);
+    public static void AddItem(Character character, ItemType itemType, int count) => InventoryHandler.AddItem(character, itemType, count);
     public static void RemoveItem(Character character, ItemBase item) => InventoryHandler.RemoveItem(character, item);
     
 }

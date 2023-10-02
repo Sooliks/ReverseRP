@@ -5,10 +5,10 @@ using ServerSide.Extensions;
 
 namespace ServerSide.Inventory.Items;
 
-public class Food : ItemBase
+public class Food : ItemType
 {
     public byte CountSatiety { get; set; }
-    public Food(int count, Item item, byte countSatiety): base(count, item)
+    public Food(string name, string description, int hash, int idItem, byte countSatiety): base(name, description, hash, idItem)
     {
         CountSatiety = countSatiety;
     }

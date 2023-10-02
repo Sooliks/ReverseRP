@@ -9,12 +9,12 @@ namespace ServerSide.Database.Handlers;
 
 public class InventoryHandler
 {
-    public static void AddItem(Character character,ItemBase itemBase)
+    public static void AddItem(Character character,ItemType itemType, int count)
     {
         using Context db = new Context();
         character = db.Character.SingleOrDefault(c => c == character);
         db.Entry(character).Collection(c=>c.Inventory).Load();
-        var searchedItem = db.ItemBase.Include(i => i.Item).Include(i=>i.Character).FirstOrDefault(i => i.Character.Id == character.Id && i.Item.IdItem == itemBase.Item.IdItem);
+        var searchedItem = db.ItemBase.Include(i => i.ItemType).Include(i=>i.Character).FirstOrDefault(i => i.Character.Id == character.Id && i.ItemType.IdItem == itemType.IdItem);
         if (searchedItem!=null)
         {
             searchedItem.Count += 1;
@@ -22,14 +22,14 @@ public class InventoryHandler
             db.SaveChanges();
             return;
         }
-        character.Inventory.Add(itemBase);
+        character.Inventory.Add(new ItemBase(count, itemType));
         db.Character.Update(character);
         db.SaveChanges();
     }
     public static List<ItemBase> GetInventory(Character character)
     {
         using Context db = new Context();
-        return db.ItemBase.Include(i=> i.Character).Include(i=>i.Item).Where(i => i.Character.Id == character.Id).ToList();
+        return db.ItemBase.Include(i=> i.Character).Include(i=>i.ItemType).Where(i => i.Character.Id == character.Id).ToList();
     }
     public static void RemoveItem(Character character,ItemBase item)
     {

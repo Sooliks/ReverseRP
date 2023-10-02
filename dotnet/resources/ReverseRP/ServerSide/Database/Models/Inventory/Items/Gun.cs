@@ -3,9 +3,9 @@ using ServerSide.Database.Models;
 
 namespace ServerSide.Inventory.Items;
 
-public class Gun : ItemBase
+public class Gun : ItemType
 {
-    public Gun(int count, Item item): base(count,item)
+    public Gun(string name, string description, int hash, int idItem): base(name, description, hash, idItem)
     {
         
     }
@@ -17,10 +17,5 @@ public class Gun : ItemBase
     public void Use()
     {
         //достаем ган
-    }
-    public override void DropItem(Player player)
-    {
-        //дропаем ган если умираем с ним в руках
-        base.DropItem(player);
     }
 }

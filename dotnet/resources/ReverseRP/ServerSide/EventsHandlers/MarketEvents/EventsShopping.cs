@@ -3,17 +3,23 @@ using GTANetworkAPI;
 using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
 using ServerSide.Extensions;
+using ServerSide.Inventory.Items;
 
 namespace ServerSide.EventsHandlers.MarketEvents;
 
 public class EventsShopping : Script
 {
     [RemoteEvent("CEF::SERVER:ON_BUY_ITEM")]
-    public void OnBuyItem(Player player,int marketId, int idItem)
+    public void OnBuyItem(Player player,int marketId, int idItem, int itemType)
     {
-        if (player.MinusMoney(120))
+        switch (itemType)
         {
-            player.AddItem(new ItemBase(1, ItemHandler.GetItemByIdItem(idItem)));
+            case 1:
+                if (player.MinusMoney(120))
+                {
+                    player.AddItem(ItemTypeHandler.GetItemByIdItem(idItem));
+                }
+                break;
         }
     }
 }

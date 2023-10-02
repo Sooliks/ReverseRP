@@ -10,6 +10,6 @@ public class ItemBaseConfiguration : IEntityTypeConfiguration<ItemBase>
     {
         builder.HasKey(i => i.Id);
         builder.HasOne<Character>(i => i.Character);
-        builder.HasOne<Item>(i => i.Item);
+        builder.HasOne<ItemType>(i => i.ItemType);
     }
 }

@@ -3,10 +3,10 @@ using ServerSide.Database.Models;
 
 namespace ServerSide.Inventory.Items;
 
-public class Medkit : ItemBase
+public class Medkit : ItemType
 {
     public int CountHp { get; set; }
-    public Medkit(int count, Item item,int countHp): base(count,item)
+    public Medkit(string name, string description, int hash, int idItem,int countHp): base(name, description, hash, idItem)
     {
         CountHp = countHp;
     }

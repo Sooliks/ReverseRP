@@ -22,7 +22,7 @@ const Item: React.FC<ItemProps> = ({item,idMarket}) => {
         }
     })
     const handleClickOnBuy = () => {
-        Client.triggerServer("CEF::SERVER:ON_BUY_ITEM", idMarket, item.id);
+        Client.triggerServer("CEF::SERVER:ON_BUY_ITEM", idMarket, item.id, item.type);
     }
 
     return (

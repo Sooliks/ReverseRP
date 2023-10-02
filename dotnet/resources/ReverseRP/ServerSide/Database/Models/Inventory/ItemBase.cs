@@ -6,12 +6,12 @@ public class ItemBase
 {
     public int Id { get; set; }
     public int Count { get; set; }
-    public Item Item { get; set; }
+    public ItemType ItemType { get; set; }
     public Character? Character { get; set; } = new Character();
-    public ItemBase(int count, Item item)
+    public ItemBase(int count, ItemType item)
     {
         Count = count;
-        Item = item;
+        ItemType = item;
     }
 
     public ItemBase()
@@ -21,6 +21,6 @@ public class ItemBase
     
     public virtual void DropItem(Player player)
     {
-        NAPI.Object.CreateObject(Item.Hash, player.Position, new Vector3(), dimension: player.Dimension);
+        NAPI.Object.CreateObject(ItemType.Hash, player.Position, new Vector3(), dimension: player.Dimension);
     }
 }

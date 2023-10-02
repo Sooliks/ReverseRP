@@ -4,9 +4,9 @@ using ServerSide.Database.Models;
 
 namespace ServerSide.Database.ModelsConfiguration;
 
-public class ItemConfiguration : IEntityTypeConfiguration<Item>
+public class ItemTypeConfiguration : IEntityTypeConfiguration<ItemType>
 {
-    public void Configure(EntityTypeBuilder<Item> builder)
+    public void Configure(EntityTypeBuilder<ItemType> builder)
     {
         builder.HasKey(i => i.Id);
     }

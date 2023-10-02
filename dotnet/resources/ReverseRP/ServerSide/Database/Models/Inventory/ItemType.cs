@@ -1,6 +1,6 @@
 ﻿namespace ServerSide.Database.Models;
 
-public class Item
+public class ItemType
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -8,11 +8,11 @@ public class Item
     public int Hash { get; set; }
     public int IdItem { get; set; }
 
-    public Item()
+    public ItemType()
     {
         
     }
-    public Item(string name, string description, int hash, int idItem)
+    public ItemType(string name, string description, int hash, int idItem)
     {
         Name = name;
         Description = description;
