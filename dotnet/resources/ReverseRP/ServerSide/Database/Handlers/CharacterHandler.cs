@@ -1,7 +1,6 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using GTANetworkAPI;
 using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
@@ -44,7 +43,6 @@ public class CharacterHandler
             }
         }
         var character = characters.SingleOrDefault(c=>c.Id == maxId);
-        db.Entry(character).Collection(c=>c.Inventory).Load();
         return character;
     }
     public static bool IsAccountOwnerCharacter(Account account, int idCharacter)
@@ -62,7 +60,6 @@ public class CharacterHandler
     {
         using Context db = new Context();
         var character = db.Character.SingleOrDefault(c => c.Id == id);
-        db.Entry(character).Collection(c=>c.Inventory).Load();
         return character;
     }
     public static bool MinusMoney(Player player, int countMoney)

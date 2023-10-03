@@ -1,6 +1,5 @@
-﻿using System;
+﻿
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
 
 namespace ServerSide.Database.Handlers;

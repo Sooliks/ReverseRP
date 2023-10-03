@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using GTANetworkAPI;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using NLog;
 using ServerSide.Database;
-using ServerSide.Database.Models;
 using ServerSide.Discord;
 using ServerSide.Extensions;
-using ServerSide.Inventory.Enums;
-using ServerSide.Inventory.Items;
 using ServerSide.Services;
 using ServerSide.Services.MapService;
+using Task = System.Threading.Tasks.Task;
 
 
 namespace ServerSide;
@@ -23,7 +19,7 @@ public class Main : Script
     public static readonly Logger Logger = LogManager.GetCurrentClassLogger();
     
     [ServerEvent(Event.ResourceStart)]
-    public async void OnResourceStart()
+    public async Task OnResourceStart()
     {
         NAPI.Util.ConsoleOutput("Server started!");
         await DiscordBot.StartDiscordBot();
@@ -39,13 +35,9 @@ public class Main : Script
             }
             catch (Exception e)
             {
-                NAPI.Util.ConsoleOutput(e.ToString());
+                NAPI.Util.ConsoleOutput("[Database]-> "+e.ToString());
+                return;
             }
-            /*var character = db.Character.Include(c=>c.Inventory).SingleOrDefault(c => c.Id == 1);
-            character.Inventory.Add(new Food(1,"Бургер", "Восполняет", 1, 3535));
-            character.Inventory.Add(new Ammo(1,"Бургер", "Восполняет", 1, TypeAmmo.Rifle, 435));
-            character.Inventory.Add(new ItemBase(1,"Бургер", "Восполняет", 1,  435));
-            db.SaveChanges();*/
         }
         using (var r = new StreamReader("dotnet/resources/ReverseRP/ServerSide/Data/markers.json"))
         {
@@ -56,6 +48,8 @@ public class Main : Script
                 InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
             }
         }
+        await Task.Delay(1000);
+        await Logs.SendGameLogAsync("Server started!");
     }
 
     [ServerEvent(Event.PlayerConnected)]
@@ -70,5 +64,11 @@ public class Main : Script
     public async void OnPlayerDisconnected(Player player, DisconnectionType type, string reason)
     {
         await DiscordBot.GetUserCount();
+    }
+
+    [ServerEvent(Event.ResourceStop)]
+    public async void OnResourceStop()
+    {
+        await Logs.SendGameLogAsync("Server stopped!");
     }
 }

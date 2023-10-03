@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Reflection;
 using System.Threading.Tasks;
 using Discord;
-using Discord.Commands;
 using Discord.WebSocket;
 using GTANetworkAPI;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualBasic.CompilerServices;
-using MySqlX.XDevAPI;
+
 
 namespace ServerSide.Discord;
 
@@ -55,4 +51,5 @@ public class DiscordBot
         var channel = Client.GetGuild(Guild).GetTextChannel(channelId);
         await channel.SendMessageAsync(message);
     }
+    
 }

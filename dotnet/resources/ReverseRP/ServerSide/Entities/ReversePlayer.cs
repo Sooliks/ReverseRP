@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
+﻿
 using GTANetworkAPI;
 using ServerSide.Database.Models;
-using ServerSide.Enums;
-using ServerSide.Extensions;
 
 namespace ServerSide.Entities;
 

@@ -1,9 +1,8 @@
-﻿using System;
+﻿
 using GTANetworkAPI;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ServerSide.Database.Handlers;
-using ServerSide.Entities;
 using ServerSide.Extensions;
 using ServerSide.Services;
 using ServerSide.Services.PlayerService;
@@ -13,7 +12,7 @@ namespace ServerSide.EventsHandlers;
 public class EventsCreateCharacter : Script
 {
     [RemoteEvent("CEF::SERVER::ON_FINISH_CREATE_CHARACTER")]
-    public async void OnFinishCreateCharacter(Player player, string characterJson)
+    public void OnFinishCreateCharacter(Player player, string characterJson)
     {
         var character = JObject.Parse(characterJson);
         bool gender = (string)character["gender"] == "женский" ? false : true;
@@ -41,12 +40,13 @@ public class EventsCreateCharacter : Script
         byte hairColor = (byte)character["hair"][1];
         int hairType = (int)character["hair"][0];
         byte eyeColor = (byte)character["eyeColor"];
-        
-        CharacterHandler.AddNewCharacter(player.GetAccount(),firstName, lastName, birth, origin, headOverlays, headOverlaysColors, headBlendData,
+
+        var playerAccount = player.GetAccount();
+        CharacterHandler.AddNewCharacter(playerAccount,firstName, lastName, birth, origin, headOverlays, headOverlaysColors, headBlendData,
             faceFeatures, eyeColor, hairColor, hairType, gender);
         PlayerCustomization.PlayerSetBaseCustomization(player, headOverlays,headOverlaysColors,headBlendData,
             faceFeatures,gender, firstName, lastName, hairColor,hairType, eyeColor);
-        player.SetCharacter(CharacterHandler.GetLastCharacterByAccount(player.GetAccount()));
+        player.SetCharacter(CharacterHandler.GetLastCharacterByAccount(playerAccount));
         player.ChangeCefWindow(CefWindowsPaths.Default);
         player.FreezePlayer(false);
         player.SetCameraOnPlayer(false);

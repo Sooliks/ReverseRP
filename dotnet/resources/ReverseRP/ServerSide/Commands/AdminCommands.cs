@@ -1,6 +1,5 @@
-﻿using System;
+﻿
 using System.Threading.Tasks;
-using Discord;
 using GTANetworkAPI;
 using ServerSide.Discord;
 using ServerSide.Enums;

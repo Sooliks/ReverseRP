@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using GTANetworkAPI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using MySql.Data.MySqlClient;
