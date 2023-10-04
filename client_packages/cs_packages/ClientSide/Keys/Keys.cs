@@ -27,6 +27,10 @@ namespace ClientSide.Keys
             {
                 Events.CallRemote("CLIENT:SERVER::OnTeleport", RAGE.Util.Json.Serialize(Waypoints.LastWaypointPosition));
             });
+            Input.Bind(VirtualKeys.E, true, () =>
+            {
+                Events.CallRemote("CLIENT::SERVER:ON_PICKUP_ITEM");
+            });
         }
     }
 }

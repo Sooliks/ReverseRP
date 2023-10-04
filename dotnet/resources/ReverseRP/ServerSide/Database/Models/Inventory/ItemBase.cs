@@ -30,6 +30,8 @@ public class ItemBase
             return;
         }
         InventoryHandler.RemoveItem(player.GetCharacter(), this, count);
-        ItemService.SpawnItem(this, player.Position, player.Dimension, count);
+        var newItemBase = this;
+        newItemBase.Count = count;
+        ItemService.SpawnItem(newItemBase, player.Position, player.Dimension, count);
     }
 }
