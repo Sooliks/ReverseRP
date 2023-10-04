@@ -1,20 +1,31 @@
 import React, {useState} from 'react';
 import {Button, Col, InputNumber, Row, Slider, Space} from "antd";
 import {ItemType} from "./Item";
+import {Client} from "../../requests/Client";
 
 type ItemManagerProps = {
-    count: number
+    item: ItemType
 
 }
 
 
-const ItemManager: React.FC<ItemManagerProps> = ({count}) => {
+const ItemManager: React.FC<ItemManagerProps> = ({item}) => {
 
-    const [inputValue, setInputValue] = useState<number | null>(0);
+    const [inputValue, setInputValue] = useState<number | null>(1);
 
     const onChange = (newValue: number | null) => {
         setInputValue(newValue);
     };
+
+    const handleClickSlice = () => {
+
+    }
+    const handleClickUse = () => {
+        Client.triggerServer("CEF::SERVER:USE_ITEM", item.id)
+    }
+    const handleClickDrop = () =>{
+        Client.triggerServer("CEF::SERVER:DROP_ITEM", item.id, inputValue)
+    }
 
     return (
         <Space>
@@ -23,7 +34,7 @@ const ItemManager: React.FC<ItemManagerProps> = ({count}) => {
                     <Slider
                         style={{width:84}}
                         min={0}
-                        max={count}
+                        max={item.count}
                         onChange={onChange}
                         value={typeof inputValue === 'number' ? inputValue : 0}
                     />
@@ -32,13 +43,15 @@ const ItemManager: React.FC<ItemManagerProps> = ({count}) => {
                     <InputNumber
                         style={{ margin: '0 10px'}}
                         min={0}
-                        max={count}
+                        max={item.count}
                         value={inputValue}
                         onChange={onChange}
                     />
                 </Col>
             </Row>
-            <Button>Разделить</Button>
+            <Button onClick={handleClickSlice}>Разделить</Button>
+            <Button onClick={handleClickUse}>Использовать</Button>
+            <Button onClick={handleClickDrop}>Выкинуть</Button>
         </Space>
     );
 };

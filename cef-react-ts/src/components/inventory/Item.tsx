@@ -15,13 +15,17 @@ export type ItemType = {
     currentBoard?: BoardType
 }
 
+type ItemProps = {
+    item: ItemType
+}
 
-const Item: React.FC<ItemType> = ({id, name, description, count}) => {
 
-    const [image,setImage] = useState<string>('../../assets/images/inventory/' + 'item_' + id + '.png')
+const Item: React.FC<ItemProps> = ({item}) => {
+
+    const [image,setImage] = useState<string>('../../assets/images/inventory/' + 'item_' + item.id + '.png')
     useEffect(()=>{
         try {
-            setImage(require('../../assets/images/inventory/' + 'item_' + id + '.png'))
+            setImage(require('../../assets/images/inventory/' + 'item_' + item.id + '.png'))
         }catch (e) {
             setImage(require('../../assets/images/not_found_image.jpg'));
         }
@@ -33,10 +37,10 @@ const Item: React.FC<ItemType> = ({id, name, description, count}) => {
             style={{width:84,height:84, cursor: 'grab'}}
             align={"center"}
         >
-            <Tooltip title={`${name} ${count} шт.`}>
-                <Popover placement="topLeft" title={name} content={<ItemManager count={count}/>} trigger="click">
+            <Tooltip title={`${item.name} ${item.count} шт.`}>
+                <Popover placement="topLeft" title={item.name} content={<ItemManager item={item}/>} trigger="click">
                     <Space style={{border: '1px gray', margin: 0}} direction={"vertical"}>
-                        <img width={84} height={84} src={image} alt={name}/>
+                        <img width={84} height={84} src={image} alt={item.name}/>
                     </Space>
                 </Popover>
             </Tooltip>

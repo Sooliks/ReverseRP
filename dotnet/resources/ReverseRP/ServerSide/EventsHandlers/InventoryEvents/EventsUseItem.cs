@@ -4,7 +4,7 @@ using ServerSide.Extensions;
 
 namespace ServerSide.EventsHandlers.Inventory;
 
-public class EventsUseItem
+public class EventsUseItem : Script
 {
     [RemoteEvent("CEF::SERVER:USE_ITEM")]
     public void OnUseItem(Player player, int idItem)

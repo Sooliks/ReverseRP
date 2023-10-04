@@ -46,8 +46,7 @@ const Board: React.FC<BoardProps> = ({board}) => {
                                 <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} onMouseDown={(e)=>e.preventDefault()}>
                                     {provided.placeholder}
                                     {board.item !== undefined &&
-                                        <Item index={board.item.index} id={board.item.id} name={board.item.name} count={board.item.count}
-                                              description={board.item.description}/>
+                                        <Item item={board.item}/>
                                     }
                                 </div>
                             )}

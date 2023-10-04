@@ -248,4 +248,220 @@ Started! Waiting for connections..
 [Discord Bot]-> 14:30:41 Gateway     Disconnecting
 [Discord Bot]-> 14:30:41 Gateway     Disconnected
 [Discord Bot]-> 14:30:42 Gateway     Connecting
-[Discord Bot]-> 14:30:42 Gateway     You're using the GuildScheduledEvents gateway int
+[Discord Bot]-> 14:30:42 Gateway     You're using the GuildScheduledEvents gateway intInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 04.10.2023 16:12:38
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.MarketEvents.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 1 server event(s)
+ReverseRP: loaded 5 server events(s)
+ReverseRP: loading commands.. found 1 command(s)
+ReverseRP: loaded 1 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 7 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 1 remote procedure(s)
+Server started!
+[Discord Bot]-> 16:12:39 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 16:12:41 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:12:41 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:12:41 Gateway     Connected
+[Discord Bot]-> 16:12:41 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.InventoryHandler+<>c__DisplayClass0_0).itemType.IdItem'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Evaluate(Expression expression, bool generateParameter)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitBinary(BinaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitLambda<T>(Expression<T> node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitUnary(UnaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression[] System.Dynamic.Utils.ExpressionVisitorUtils.VisitArguments(ExpressionVisitor visitor, IArgumentProvider nodes)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.ExtractParameters(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExtractParameters(Expression query, IParameterValues parameterValues, IDiagnosticsLogger<Query> logger, bool parameterize, bool generateContextAccessors)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute<TResult>(Expression query)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute<TResult>(Expression expression)
+   at TSource System.Linq.Queryable.FirstOrDefault<TSource>(IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
+   at void ServerSide.Database.Handlers.InventoryHandler.AddItem(Character character, ItemType itemType, int count) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/InventoryHandler.cs:line 16
+   at void ServerSide.Extensions.PlayerExtensionsData.AddItem(Player player, ItemType itemType, int count) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Extensions/PlayerExtensions/PlayerExtensionsData.cs:line 34
+   at void ServerSide.EventsHandlers.MarketEvents.EventsShopping.OnBuyItem(Player player, int marketId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/MarketEvents/EventsShopping.cs:line 19
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.InventoryHandler+<>c__DisplayClass0_0).itemType.IdItem'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Evaluate(Expression expression, bool generateParameter)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitBinary(BinaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitLambda<T>(Expression<T> node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitUnary(UnaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression[] System.Dynamic.Utils.ExpressionVisitorUtils.VisitArguments(ExpressionVisitor visitor, IArgumentProvider nodes)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.ExtractParameters(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExtractParameters(Expression query, IParameterValues parameterValues, IDiagnosticsLogger<Query> logger, bool parameterize, bool generateContextAccessors)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute<TResult>(Expression query)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute<TResult>(Expression expression)
+   at TSource System.Linq.Queryable.FirstOrDefault<TSource>(IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
+   at void ServerSide.Database.Handlers.InventoryHandler.AddItem(Character character, ItemType itemType, int count) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/InventoryHandler.cs:line 16
+   at void ServerSide.Extensions.PlayerExtensionsData.AddItem(Player player, ItemType itemType, int count) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Extensions/PlayerExtensions/PlayerExtensionsData.cs:line 34
+   at void ServerSide.EventsHandlers.MarketEvents.EventsShopping.OnBuyItem(Player player, int marketId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/MarketEvents/EventsShopping.cs:line 19
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidCastException: Unable to cast object of type 'System.UInt32' to type 'System.Int32'.
+   at bool Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer<T>.Equals(object left, object right)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.LocalDetectChanges(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(IStateManager stateManager)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges()
+   at void Microsoft.EntityFrameworkCore.DbContext.TryDetectChanges()Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 04.10.2023 19:03:34
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.MarketEvents.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 1 server event(s)
+ReverseRP: loaded 5 server events(s)
+ReverseRP: loading commands.. found 1 command(s)
+ReverseRP: loaded 1 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 9 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 1 remote procedure(s)
+Server started!
+[Discord Bot]-> 19:03:34 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 19:03:36 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:03:36 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:03:36 Gateway     Connected
+[Discord Bot]-> 19:03:36 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: The instance of entity type 'ItemBase' cannot be tracked because another instance with the key value '{Id: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.ThrowIdentityConflict(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(TKey key, InternalEntityEntry entry, bool updateDuplicate)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(TKey key, InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(InternalEntityEntry entry)
+   at InternalEntityEntry Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, bool acceptChanges, bool modifyProperties)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, bool acceptChanges, bool modifyProperties, EntityState? forceStateWhenUnknownKey)
+   at bool Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 04.10.2023 19:04:39
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.MarketEvents.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 1 server event(s)
+ReverseRP: loaded 5 server events(s)
+ReverseRP: loading commands.. found 1 command(s)
+ReverseRP: loaded 1 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 9 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 1 remote procedure(s)
+Server started!
+[Discord Bot]-> 19:04:39 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 19:04:41 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:04:41 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:04:41 Gateway     Connected
+[Discord Bot]-> 19:04:41 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: The instance of entity type 'Character' cannot be tracked because another instance with the key value '{Id: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.ThrowIdentityConflict(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(TKey key, InternalEntityEntry entry, bool updateDuplicate)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(TKey key, InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(InternalEntityEntry entry)
+   at InternalEntityEntry Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, bool acceptChanges, bool modifyProperties)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, bool acceptChanges, bool modifyProperties, EntityState? forceStateWhenUnknownKey)
+   at bool Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntry

@@ -8,7 +8,7 @@ namespace ServerSide.Inventory.Items;
 public class Food : ItemType
 {
     public byte CountSatiety { get; set; }
-    public Food(string name, string description, uint hash, int idItem, byte countSatiety): base(name, description, hash, idItem)
+    public Food(string name, string description, int hash, int idItem, byte countSatiety): base(name, description, hash, idItem)
     {
         CountSatiety = countSatiety;
     }

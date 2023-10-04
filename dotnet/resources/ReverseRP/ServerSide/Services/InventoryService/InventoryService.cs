@@ -5,7 +5,7 @@ namespace ServerSide.Services.InventoryService;
 
 public class InventoryService
 {
-    public static List<ItemBase> Items = new List<ItemBase>()
+    public static List<DroppedItemModel> DroppedItems = new List<DroppedItemModel>()
     {
         
     };

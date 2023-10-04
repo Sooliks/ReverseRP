@@ -8232,3 +8232,195 @@ System.Net.WebSockets.WebSocketException (0x80004005): The WebSocket is in an in
 
 ==================[02.10.2023 20:09:46]==================
 System.Net.WebSockets.WebSocketException (0x80004005): The WebSock
+==================[04.10.2023 16:14:56]==================
+System.Reflection.TargetException: Non-static method requires a target.
+   at void System.Reflection.RuntimeMethodInfo.CheckConsistency(object target)
+=========================================================
+
+==================[04.10.2023 16:14:56]==================
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+=========================================================
+
+==================[04.10.2023 16:14:56]==================
+System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.InventoryHandler+<>c__DisplayClass0_0).itemType.IdItem'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+=========================================================
+
+==================[04.10.2023 16:14:56]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.InventoryHandler+<>c__DisplayClass0_0).itemType.IdItem'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Evaluate(Expression expression, bool generateParameter)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitBinary(BinaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitLambda<T>(Expression<T> node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitUnary(UnaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression[] System.Dynamic.Utils.ExpressionVisitorUtils.VisitArguments(ExpressionVisitor visitor, IArgumentProvider nodes)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.ExtractParameters(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExtractParameters(Expression query, IParameterValues parameterValues, IDiagnosticsLogger<Query> logger, bool parameterize, bool generateContextAccessors)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute<TResult>(Expression query)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute<TResult>(Expression expression)
+   at TSource System.Linq.Queryable.FirstOrDefault<TSource>(IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
+   at void ServerSide.Database.Handlers.InventoryHandler.AddItem(Character character, ItemType itemType, int count) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/InventoryHandler.cs:line 16
+   at void ServerSide.Extensions.PlayerExtensionsData.AddItem(Player player, ItemType itemType, int count) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Extensions/PlayerExtensions/PlayerExtensionsData.cs:line 34
+   at void ServerSide.EventsHandlers.MarketEvents.EventsShopping.OnBuyItem(Player player, int marketId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/MarketEvents/EventsShopping.cs:line 19
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[04.10.2023 16:14:57]==================
+System.Reflection.TargetException: Non-static method requires a target.
+   at void System.Reflection.RuntimeMethodInfo.CheckConsistency(object target)
+=========================================================
+
+==================[04.10.2023 16:14:57]==================
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+=========================================================
+
+==================[04.10.2023 16:14:57]==================
+System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.InventoryHandler+<>c__DisplayClass0_0).itemType.IdItem'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+=========================================================
+
+==================[04.10.2023 16:14:57]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.InventoryHandler+<>c__DisplayClass0_0).itemType.IdItem'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Evaluate(Expression expression, bool generateParameter)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitBinary(BinaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitLambda<T>(Expression<T> node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitUnary(UnaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression[] System.Dynamic.Utils.ExpressionVisitorUtils.VisitArguments(ExpressionVisitor visitor, IArgumentProvider nodes)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.ExtractParameters(Expression expression)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExtractParameters(Expression query, IParameterValues parameterValues, IDiagnosticsLogger<Query> logger, bool parameterize, bool generateContextAccessors)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute<TResult>(Expression query)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute<TResult>(Expression expression)
+   at TSource System.Linq.Queryable.FirstOrDefault<TSource>(IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
+   at void ServerSide.Database.Handlers.InventoryHandler.AddItem(Character character, ItemType itemType, int count) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/InventoryHandler.cs:line 16
+   at void ServerSide.Extensions.PlayerExtensionsData.AddItem(Player player, ItemType itemType, int count) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Extensions/PlayerExtensions/PlayerExtensionsData.cs:line 34
+   at void ServerSide.EventsHandlers.MarketEvents.EventsShopping.OnBuyItem(Player player, int marketId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/MarketEvents/EventsShopping.cs:line 19
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[04.10.2023 16:17:00]==================
+System.InvalidCastException: Unable to cast object of type 'System.UInt32' to type 'System.Int32'.
+   at bool Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer<T>.Equals(object left, object right)
+=========================================================
+
+==================[04.10.2023 16:17:00]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidCastException: Unable to cast object of type 'System.UInt32' to type 'System.Int32'
+==================[04.10.2023 17:02:35]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+=========================================================
+
+==================[04.10.2023 17:02:35]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[04.10.2023 17:02:35]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+=========================================================
+
+==================[04.10.2023 17:02:35]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[04.10.2023 17:02:35]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The WebSocket is in an invalid state ('Aborted') for this operation. Valid states are: 'Open, CloseReceived'
+   at void System.Net.WebSockets.WebSocketValidate.ThrowIfInvalidState(WebSocketState currentState, bool isDisposed, WebSocketState[] validStates)
+=========================================================
+
+==================[04.10.2023 17:02:35]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The WebSock
+==================[04.10.2023 18:59:52]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+=========================================================
+
+==================[04.10.2023 18:59:52]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[04.10.2023 18:59:52]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+=========================================================
+
+==================[04.10.2023 18:59:52]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[04.10.2023 18:59:52]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The WebSocket is in an invalid state ('Aborted') for this operation. Valid states are: 'Open, CloseReceived'
+   at void System.Net.WebSockets.WebSocketValidate.ThrowIfInvalidState(WebSocketState currentState, bool isDisposed, WebSocketState[] validStates)
+=========================================================
+
+==================[04.10.2023 18:59:52]==================
+System.Net.WebSockets.WebSocketException (0x80004005): The WebSock
