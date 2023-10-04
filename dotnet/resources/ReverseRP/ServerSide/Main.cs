@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using GTANetworkAPI;
 using Newtonsoft.Json;
-using NLog;
 using ServerSide.Database;
 using ServerSide.Discord;
 using ServerSide.Extensions;
@@ -16,8 +15,6 @@ namespace ServerSide;
 
 public class Main : Script
 {
-    public static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-    
     [ServerEvent(Event.ResourceStart)]
     public async Task OnResourceStart()
     {

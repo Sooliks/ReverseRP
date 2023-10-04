@@ -25,24 +25,8 @@ public class Character
     public long MoneyBank { get; set; }
     public int Lvl { get; set; }
     public List<ItemBase>? Inventory { get; set; }
-
-    public byte CountSatiety
-    {
-        get
-        {
-            return CountSatiety;
-        }
-        set
-        {
-            CountSatiety = value;
-            using Context db = new Context();
-            var character = db.Character.FirstOrDefault(c => c.Id == this.Id);
-            character.CountSatiety = value;
-            db.Character.Update(character);
-            db.SaveChanges();
-        }
-    }
-
+    public byte CountSatiety { get; set; }
+    
     public Character()
     {
         
@@ -71,9 +55,4 @@ public class Character
         Inventory = new List<ItemBase>();
         CountSatiety = 100;
     }
-    
-    public static List<ItemBase> GetInventory(Character character) => InventoryHandler.GetInventory(character);
-    public static void AddItem(Character character, ItemType itemType, int count) => InventoryHandler.AddItem(character, itemType, count);
-    public static void RemoveItem(Character character, ItemBase item) => InventoryHandler.RemoveItem(character, item);
-    
 }

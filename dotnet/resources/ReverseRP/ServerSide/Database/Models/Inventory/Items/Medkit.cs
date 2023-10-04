@@ -6,7 +6,7 @@ namespace ServerSide.Inventory.Items;
 public class Medkit : ItemType
 {
     public int CountHp { get; set; }
-    public Medkit(string name, string description, int hash, int idItem,int countHp): base(name, description, hash, idItem)
+    public Medkit(string name, string description, uint hash, int idItem,int countHp): base(name, description, hash, idItem)
     {
         CountHp = countHp;
     }

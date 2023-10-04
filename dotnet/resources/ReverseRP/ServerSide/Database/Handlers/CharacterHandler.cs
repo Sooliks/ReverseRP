@@ -42,8 +42,7 @@ public class CharacterHandler
                 maxId = characters[i].Id;
             }
         }
-        var character = characters.SingleOrDefault(c=>c.Id == maxId);
-        return character;
+        return characters.SingleOrDefault(c=>c.Id == maxId);
     }
     public static bool IsAccountOwnerCharacter(Account account, int idCharacter)
     {
