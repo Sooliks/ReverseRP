@@ -30,10 +30,6 @@ public class ItemBase
             return;
         }
         InventoryHandler.RemoveItem(player.GetCharacter(), this, count);
-        NAPI.Object.CreateObject(ItemType.Hash, new Vector3(player.Position.X, player.Position.Y, player.Position.Z - 1.01f), new Vector3(), dimension: player.Dimension);
-        NAPI.TextLabel.CreateTextLabel($"{ItemType.Name} {count} шт.",
-            new Vector3(player.Position.X, player.Position.Y, player.Position.Z - 0.5f), 10.0f, 0.45f, 4,
-            new Color(255, 255, 255));
-        InventoryService.DroppedItems.Add(new DroppedItemModel(this, player.Position, player.Dimension));
+        ItemService.SpawnItem(this, player.Position, player.Dimension, count);
     }
 }
