@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json.Linq;
 using ServerSide.Database.Models;
 using ServerSide.Database.ModelsConfiguration;
 using ServerSide.Inventory.Items;
@@ -22,13 +24,19 @@ public class Context : DbContext
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        string json = "";
+        using (var r = new StreamReader("dotnet/resources/ReverseRP/ServerSide/Data/conf.json"))
+        {
+            json = r.ReadToEnd();
+        }
+        var obj = JObject.Parse(json);
         var connectionString = new MySqlConnectionStringBuilder()
         {
-            Server = "localhost",
-            Database = "reverserp",
-            Port = 3306,
-            UserID = "root",
-            Password = "",
+            Server = (string)obj["database"]["server"],
+            Database = (string)obj["database"]["database"],
+            Port = (uint)obj["database"]["port"],
+            UserID = (string)obj["database"]["userId"],
+            Password = (string)obj["database"]["password"],
         };
         optionsBuilder.UseMySQL(connectionString.ConnectionString)
             .LogTo(str => Debug.WriteLine(str), new[] { RelationalEventId.CommandExecuted })

@@ -1,0 +1,9 @@
+﻿{
+  "database": {
+    "server": "localhost",
+    "database": "reverserp",
+    "port": "3306",
+    "userId": "root",
+    "password": ""
+  }
+}

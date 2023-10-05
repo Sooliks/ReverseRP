@@ -43,11 +43,8 @@ public class EventsUseItem : Script
     [RemoteEvent("CLIENT::SERVER:ON_PICKUP_ITEM")]
     public async void OnPickupItem(Player player)
     {
-        if (await player.IsAnimPlaying("pickup_object", "pickup_low", 15))
-        {
-            return;
-        }
-        if(player.IsInVehicle)return;
+        if (await player.IsAnimPlaying("pickup_object", "pickup_low", 15)) return;
+        if (player.IsInVehicle)return;
         var itemBase = ItemService.GetClosestItemBase(player);
         if (itemBase != null)
         {
