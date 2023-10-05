@@ -2,6 +2,7 @@
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
+using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Inventory.Items;
 using ServerSide.Services.InventoryService;
@@ -25,6 +26,11 @@ public class EventsUseItem : Script
     [RemoteEvent("CEF::SERVER:DROP_ITEM")]
     public void OnDropItem(Player player, int idItem, int count)
     {
+        if (player.IsInVehicle)
+        {
+            player.SendNotify(NotifyType.Warning, "Вы не можете это сделать находясь в машине!");
+            return;
+        }
         var inventory = player.GetInventory();
         var item = inventory.FirstOrDefault(i => i.ItemType.IdItem == idItem);
         if (item != null)
@@ -34,13 +40,23 @@ public class EventsUseItem : Script
     }
 
     [RemoteEvent("CLIENT::SERVER:ON_PICKUP_ITEM")]
-    public void OnPickupItem(Player player)
+    public async void OnPickupItem(Player player)
     {
+        if (await player.IsAnimPlaying("pickup_object", "pickup_low", 15))
+        {
+            return;
+        }
+        if(player.IsInVehicle)return;
         var itemBase = ItemService.GetClosestItemBase(player);
         if (itemBase != null)
         {
             ItemService.DestroyItem(itemBase);
             player.AddItem(itemBase.ItemType, itemBase.Count);
+            player.PlayAnimation("pickup_object", "pickup_low", 15);
+            NAPI.Task.Run(() =>
+            {
+                player.StopAnimation();
+            }, 1900);
         }
     }
 }

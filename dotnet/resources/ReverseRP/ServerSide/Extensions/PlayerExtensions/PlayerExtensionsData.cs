@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using GTANetworkAPI;
 using Newtonsoft.Json;
 using ServerSide.Database.Handlers;
@@ -43,4 +44,7 @@ public static class PlayerExtensionsData
         }).ToList();
         player.TriggerCefEvent("SERVER::CEF:UPDATE_INVENTORY_PLAYER",inventory);
     }
+    public static async Task<bool> IsAnimPlaying(this Player player,string animDict, string animName, int flag) =>
+        (bool) await player.TriggerProcedure("RPC::SERVER::CLIENT:IsPlayerAnimPlaying", animDict, animName, flag);
+    
 }
