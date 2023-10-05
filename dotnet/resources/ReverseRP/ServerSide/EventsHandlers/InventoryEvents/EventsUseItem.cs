@@ -36,6 +36,7 @@ public class EventsUseItem : Script
         if (item != null)
         {
             item.DropItem(player,count);
+            player.PlayAnimation("anim@heists@narcotics@trash","pickup_45_r",0);
         }
     }
 
