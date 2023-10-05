@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GTANetworkAPI;
 using ServerSide.Database.Models;
@@ -30,13 +31,15 @@ public class ItemService : Script
     public static ItemBase GetClosestItemBase(Player player)
     {
         ItemBase itemBase = null;
+        Console.WriteLine(DateTime.Now);
         foreach (var droppedItem in DroppedItems)
         {
-            if (player.Position.DistanceTo(droppedItem.Object.Position) < 2.0f)
+            if (player.Position.DistanceTo(droppedItem.Object.Position) < 1.8f)
             {
                 itemBase = droppedItem.ItemBase;
             }
         }
+        Console.WriteLine(DateTime.Now);
         return itemBase;
     }
 }

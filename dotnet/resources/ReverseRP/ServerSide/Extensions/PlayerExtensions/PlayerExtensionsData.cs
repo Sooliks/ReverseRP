@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GTANetworkAPI;
+using Newtonsoft.Json;
 using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
 using ServerSide.Enums;
@@ -32,6 +34,13 @@ public static class PlayerExtensionsData
     public static bool IsHaveAdminRank(this Player player, AdminLevels adminLevels) => AdminManager.IsPlayerHaveAdminRank(player, adminLevels);
     public static void AddItem(this Player player, ItemType itemType, int count = 1) =>
         InventoryHandler.AddItem(player.GetCharacter(), itemType, count);
-    
 
+    public static void UpdateInventoryCef(this Player player)
+    {
+        var inventory = player.GetInventory().Select(i => new
+        {
+            count = i.Count, name = i.ItemType.Name, description = i.ItemType.Description, idItem = i.ItemType.IdItem, hash = i.ItemType.Hash, type = i.GetType().Name
+        }).ToList();
+        player.TriggerCefEvent("SERVER::CEF:UPDATE_INVENTORY_PLAYER",inventory);
+    }
 }

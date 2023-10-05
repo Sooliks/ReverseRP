@@ -33,5 +33,6 @@ public class ItemBase
         var newItemBase = this;
         newItemBase.Count = count;
         ItemService.SpawnItem(newItemBase, player.Position, player.Dimension, count);
+        player.UpdateInventoryCef();
     }
 }

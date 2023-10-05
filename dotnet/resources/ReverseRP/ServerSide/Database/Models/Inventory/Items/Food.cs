@@ -19,7 +19,6 @@ public class Food : ItemType
     }
     public void Use(Player player)
     {
-        byte countSatiety = player.GetCharacter().CountSatiety += CountSatiety;
-        player.SendNotify(NotifyType.Info, $"Cытость восстановлена на {countSatiety}%");
+        player.SendNotify(NotifyType.Info, $"Cытость восстановлена на {player.GetCharacter().CountSatiety+CountSatiety}%");
     }
 }

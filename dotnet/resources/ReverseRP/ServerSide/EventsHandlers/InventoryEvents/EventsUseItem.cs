@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using GTANetworkAPI;
+using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
 using ServerSide.Extensions;
+using ServerSide.Inventory.Items;
 using ServerSide.Services.InventoryService;
 
 namespace ServerSide.EventsHandlers.Inventory;
@@ -11,7 +13,14 @@ public class EventsUseItem : Script
     [RemoteEvent("CEF::SERVER:USE_ITEM")]
     public void OnUseItem(Player player, int idItem)
     {
-        
+        var inventory = player.GetInventory();
+        var item = inventory.FirstOrDefault(i => i.ItemType.IdItem == idItem);
+        if (item.ItemType is Food food)
+        {
+            food.Use(player);
+            InventoryHandler.RemoveItem(player.GetCharacter(),item, 1);
+            player.UpdateInventoryCef();
+        }
     }
     [RemoteEvent("CEF::SERVER:DROP_ITEM")]
     public void OnDropItem(Player player, int idItem, int count)
