@@ -28,43 +28,66 @@ const Inventory : React.FC = () => {
     const [inventoryClothes,setInventoryClothes] = useState<ItemType[]>([])
     const [inventoryOther,setInventoryOther] = useState<ItemType[]>([])
 
-
+    mp.events.add("SERVER::CEF:UPDATE_INVENTORY_PLAYER",(args)=>{
+        args = JSON.parse(args);
+        const data: IncomingInventory[] = args[0];
+        updateInventory(data);
+    })
 
     useEffect(()=>{
+        Client.callProcServer<string>("RPC::CEF:SERVER:GetInventoryPlayer").then(json=>{
+            const data: IncomingInventory[] = JSON.parse(json);
+            updateInventory(data);
+        })
+    },[])
+
+    const updateInventory = (invPlayer?: IncomingInventory[],invClothes?: IncomingInventory[], invOther?: IncomingInventory[]) => {
         //делаем клетки для айтемов
-        let newBoards: BoardType[] = inventoryContext.inventory.boardsPlayer;
+        let newBoards: BoardType[] = [];
         for(let i = 0; i < 56; i++){
             newBoards = [...newBoards,{type: BoardTypeEnum.Player, idBoard: i}]
         }
-        let newBoardsClothes: BoardType[] = inventoryContext.inventory.boardsClothes;
+        let newBoardsClothes: BoardType[] = [];
         for(let i = 56; i < 63; i++){
             newBoardsClothes = [...newBoardsClothes,{type: BoardTypeEnum.ClothesPlayer, idBoard: i}]
         }
-        let newBoardsOther: BoardType[] = inventoryContext.inventory.boardsOther;
+        let newBoardsOther: BoardType[] = [];
         for(let i = 63; i < 63+21; i++){
             newBoardsOther = [...newBoardsOther,{type: BoardTypeEnum.Other, idBoard: i}]
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////
-        let newInventoryPlayer: ItemType[] = [];
-        Client.callProcServer<string>("RPC::CEF:SERVER:GetInventoryPlayer").then(json=>{
-            const data: IncomingInventory[] = JSON.parse(json);
-            for(let i=0; i<data.length; i++){
+        if(invPlayer!==undefined) {
+            let newInventoryPlayer: ItemType[] = [];
+            for (let i = 0; i < invPlayer.length; i++) {
                 newInventoryPlayer[i] = {
-                    id: data[i].idItem,
-                    count: data[i].count,
-                    description: data[i].description,
-                    name: data[i].name,
+                    id: invPlayer[i].idItem,
+                    count: invPlayer[i].count,
+                    description: invPlayer[i].description,
+                    name: invPlayer[i].name,
                     currentBoard: inventoryContext.inventory.boardsPlayer[i],
                     index: i
                 }
             }
-            //добавляем айтемы игрока в борды
             //заполняем борды игрока айтемами
-            for (let i = 0; i< newInventoryPlayer.length;i++){
+            for (let i = 0; i < newInventoryPlayer.length; i++) {
                 newBoards[newInventoryPlayer[i].index].item = newInventoryPlayer[i];
-                if(newBoards[i].item!==undefined){
+                if (newBoards[i].item !== undefined) {
                     // @ts-ignore
                     newBoards[i].item.currentBoard = newBoards[newInventoryPlayer[i].index];
+                }
+            }
+            setInventoryPlayer(newInventoryPlayer);
+        }
+        if(invClothes!==undefined){
+            let newInventoryClothes: ItemType[] = [];
+            for (let i = 0; i < invClothes.length; i++) {
+                newInventoryClothes[i] = {
+                    id: invClothes[i].idItem,
+                    count: invClothes[i].count,
+                    description: invClothes[i].description,
+                    name: invClothes[i].name,
+                    currentBoard: inventoryContext.inventory.boardsPlayer[i],
+                    index: i
                 }
             }
             //заполняем борды одежды игрока айтемами
@@ -75,6 +98,20 @@ const Inventory : React.FC = () => {
                     newBoardsClothes[i].item.currentBoard = newBoardsClothes[inventoryClothes[i].index];
                 }
             }
+            setInventoryClothes(newInventoryClothes);
+        }
+        if(invOther!==undefined){
+            let newInventoryOther: ItemType[] = [];
+            for (let i = 0; i < invOther.length; i++) {
+                newInventoryOther[i] = {
+                    id: invOther[i].idItem,
+                    count: invOther[i].count,
+                    description: invOther[i].description,
+                    name: invOther[i].name,
+                    currentBoard: inventoryContext.inventory.boardsPlayer[i],
+                    index: i
+                }
+            }
             //заполняем борды другого инвентаря айтемами
             for (let i = 0; i < inventoryOther.length;i++){
                 newBoardsOther[inventoryOther[i].index].item = inventoryOther[i];
@@ -83,10 +120,11 @@ const Inventory : React.FC = () => {
                     newBoardsOther[i].item.currentBoard = newBoardsOther[inventoryOther[i].index];
                 }
             }
-            setInventoryPlayer(newInventoryPlayer);
-            inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards, boardsClothes: newBoardsClothes, boardsOther: newBoardsOther})
-        })
-    },[])
+            setInventoryOther(newInventoryOther);
+        }
+        //inventoryContext.setInventory({...inventoryContext.inventory,boardsPlayer: newBoards, boardsClothes: newBoardsClothes, boardsOther: newBoardsOther})
+        inventoryContext.setInventory({boardsPlayer: newBoards, boardsClothes: newBoardsClothes, boardsOther: newBoardsOther})
+    }
 
     const getTypeBoardById = (idBoard?: number): BoardTypeEnum =>{
         if(idBoard===undefined)return BoardTypeEnum.Player;

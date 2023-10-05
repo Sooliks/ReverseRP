@@ -31,7 +31,6 @@ public class ItemService : Script
     public static ItemBase GetClosestItemBase(Player player)
     {
         ItemBase itemBase = null;
-        Console.WriteLine(DateTime.Now);
         foreach (var droppedItem in DroppedItems)
         {
             if (player.Position.DistanceTo(droppedItem.Object.Position) < 1.8f)
@@ -39,7 +38,6 @@ public class ItemService : Script
                 itemBase = droppedItem.ItemBase;
             }
         }
-        Console.WriteLine(DateTime.Now);
         return itemBase;
     }
 }
