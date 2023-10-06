@@ -23,11 +23,11 @@ public class Food : ItemType
         var character = player.GetCharacter();
         if (character.CountSatiety + CountSatiety >= 100)
         {
-            CharacterHandler.SetSatiety(player,100);
+            CharacterHandler.SetSatiety(character,100);
             player.SendNotify(NotifyType.Info, "Cытость восстановлена на 100%");
             return;
         }
-        CharacterHandler.SetSatiety(player,character.CountSatiety+=CountSatiety);
+        CharacterHandler.SetSatiety(character,character.CountSatiety+=CountSatiety);
         player.SendNotify(NotifyType.Info, $"Cытость восстановлена на {character.CountSatiety+CountSatiety}%");
     }
 }

@@ -103,12 +103,12 @@ public class CharacterHandler
         db.Character.Update(character);
         db.SaveChanges();
     }
-    public static void SetSatiety(Player player, byte satiety)
+    public static void SetSatiety(Character character, byte satiety)
     {
         using Context db = new Context();
-        var character = db.Character.SingleOrDefault(c => c.Id == player.GetCharacter().Id);
-        character.CountSatiety = satiety;
-        db.Character.Update(character);
+        var c = db.Character.SingleOrDefault(c => c.Id == character.Id);
+        c.CountSatiety = satiety;
+        db.Character.Update(c);
         db.SaveChanges();
     }
 }
