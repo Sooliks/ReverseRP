@@ -1,4 +1,5 @@
 ﻿using GTANetworkAPI;
+using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
 using ServerSide.Enums;
 using ServerSide.Extensions;
@@ -19,6 +20,14 @@ public class Food : ItemType
     }
     public void Use(Player player)
     {
-        player.SendNotify(NotifyType.Info, $"Cытость восстановлена на {player.GetCharacter().CountSatiety+CountSatiety}%");
+        var character = player.GetCharacter();
+        if (character.CountSatiety + CountSatiety >= 100)
+        {
+            CharacterHandler.SetSatiety(player,100);
+            player.SendNotify(NotifyType.Info, "Cытость восстановлена на 100%");
+            return;
+        }
+        CharacterHandler.SetSatiety(player,character.CountSatiety+=CountSatiety);
+        player.SendNotify(NotifyType.Info, $"Cытость восстановлена на {character.CountSatiety+CountSatiety}%");
     }
 }

@@ -16,6 +16,9 @@ public class Context : DbContext
     public DbSet<Character> Character { get; set; }
     public DbSet<ItemBase> ItemBase { get; set; }
     public DbSet<ItemType> ItemsTypes { get; set; }
+    public DbSet<BusinessBase> BusinessesBase { get; set; }
+    public DbSet<Vehicle> Vehicles { get; set; }
+    public DbSet<VehicleType> VehicleTypes { get; set; }
     
 
     public Context()
@@ -54,5 +57,7 @@ public class Context : DbContext
         modelBuilder.Entity<Food>().HasBaseType<ItemType>();
         modelBuilder.Entity<Gun>().HasBaseType<ItemType>();
         modelBuilder.Entity<Medkit>().HasBaseType<ItemType>();
+        
+        modelBuilder.Entity<Market>().HasBaseType<BusinessBase>();
     }
 }

@@ -15,15 +15,10 @@ public class Account
     public bool IsBanned { get; set; }
     public List<Character> Characters { get; set; }
     public byte AdminLvl { get; set; }
-
-
-
-
     public Account()
     {
         
     }
-
     public Account(string login, string email, string password, string ip, ulong socialClubId)
     {
         this.Login = login;

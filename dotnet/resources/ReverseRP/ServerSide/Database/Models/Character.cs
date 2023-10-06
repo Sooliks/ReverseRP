@@ -26,7 +26,7 @@ public class Character
     public int Lvl { get; set; }
     public List<ItemBase>? Inventory { get; set; }
     public byte CountSatiety { get; set; }
-    public List<Vehicle> Vehicles { get; set; }
+    public List<Vehicle>? Vehicles { get; set; }
 
     public Character()
     {
@@ -55,5 +55,6 @@ public class Character
         HairType = hairType;
         Inventory = new List<ItemBase>();
         CountSatiety = 100;
+        Vehicles = new List<Vehicle>();
     }
 }
