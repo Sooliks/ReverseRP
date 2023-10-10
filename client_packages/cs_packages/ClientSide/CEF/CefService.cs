@@ -17,6 +17,7 @@ namespace ClientSide.CEF
         public CefService()
         {
             MainCefWindow.Active = true;
+            NotifyCefWindow.Active = true;
             Events.Add("SERVER::CLIENT::CHANGE_WINDOW",OnChangeWindow);
             Events.Add("CEF::CLIENT:CLOSE_WINDOW", OnCloseWindow);
         }
