@@ -621,4 +621,200 @@ Database success connected!
    at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
    at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
    at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
-   at MySqlDataReader MySql.Data.MySqlClient.
+   at MySqlDataReader MySql.Data.MySqlClient.Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 09.10.2023 18:09:26
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.MarketEvents.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 1 server event(s)
+ReverseRP: loaded 5 server events(s)
+ReverseRP: loading commands.. found 1 command(s)
+ReverseRP: loaded 1 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 10 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 1 remote procedure(s)
+Server started!
+[Discord Bot]-> 18:09:26 Gateway     Connecting
+Database success connected!
+[Database]-> Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'ItemsJson' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificatiInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 09.10.2023 18:09:49
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.MarketEvents.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 1 server event(s)
+ReverseRP: loaded 5 server events(s)
+ReverseRP: loading commands.. found 1 command(s)
+ReverseRP: loaded 1 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 10 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 1 remote procedure(s)
+Server started!
+[Discord Bot]-> 18:09:50 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 18:09:51 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 18:09:51 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 18:09:51 Gateway     Connected
+[Discord Bot]-> 18:09:52 Gateway     Ready
+[Discord Bot]-> 18:52:59 Gateway     System.Exception: WebSocket connection was closed
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+[Discord Bot]-> 18:52:59 Gateway     Disconnecting
+[Discord Bot]-> 18:52:59 Gateway     Disconnected
+[Discord Bot]-> 18:53:00 Gateway     Connecting
+[Discord Bot]-> 18:53:01 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 18:53:01 Gateway     Resumed previous session
+[Discord Bot]-> 18:53:01 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 18:53:01 Gateway     Connected
+[Discord Bot]-> 19:44:42 Gateway     Discord.WebSocket.GatewayReconnectException: Server requested a reconnect
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+[Discord Bot]-> 19:44:42 Gateway     Disconnecting
+[Discord Bot]-> 19:44:42 Gateway     Disconnected
+[Discord Bot]-> 19:44:43 Gateway     Connecting
+[Discord Bot]-> 19:44:43 Gateway     Resumed previous session
+[Discord Bot]-> 19:44:43 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:44:43 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:44:43 Gateway     Connected
+[Discord Bot]-> 19:58:39 Gateway     System.Exception: WebSocket connection was closed
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+[Discord Bot]-> 19:58:39 Gateway     Disconnecting
+[Discord Bot]-> 19:58:39 Gateway     Disconnected
+[Discord Bot]-> 19:58:40 Gateway     Connecting
+[Discord Bot]-> 19:58:40 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:58:40 Gateway     Resumed previous session
+[Discord Bot]-> 19:58:40 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:58:40 Gateway     Connected
+[Discord Bot]-> 20:12:20 Gateway     System.Exception: WebSocket connection was closed
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 10.10.2023 14:14:17
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.MarketEvents.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 1 server event(s)
+ReverseRP: loaded 5 server events(s)
+ReverseRP: loading commands.. found 1 command(s)
+ReverseRP: loaded 1 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 10 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 1 remote procedure(s)
+Server started!
+[Discord Bot]-> 14:14:17 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 14:14:19 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 14:14:19 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 14:14:19 Gateway     Connected
+[Discord Bot]-> 14:14:19 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(ServerSide.Database.Handlers.CharacterHandler+<>c__DisplayClass5_0).player.GetCharacter().Id'. See the inner exception for more information.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at object lambda_method(Closure)
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   --- End of inner exception stack trace ---
+   at object Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.GetValue(Expression expression, out string parameterName)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Evaluate(Expression expression, bool generateParameter)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.Visit(Expression expression)
+   at Expression System.Linq.Expressions.ExpressionVisitor.VisitBinary(BinaryExpression node)
+   at Expression Microsoft.EntityFrameworkCore.Query.Internal.ParameterExtractingExpressionVisitor.VisitBinary(BinaryExpression binaryExpression)
+   at Expression System.Linq.Expressions.BinaryExpression.Accept(ExpressionVis

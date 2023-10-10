@@ -31,15 +31,6 @@ public class Main : Script
             {
                 bool isAvalaible = db.Database.CanConnect();
                 NAPI.Util.ConsoleOutput(isAvalaible ? "Database success connected!" : "Database is unavailable!");
-                var business = db.BusinessesBase.SingleOrDefault(b => b.Id == 3);
-                if (business is Market market)
-                {
-                    foreach (var item in market.PriceItems)
-                    {
-                        Console.WriteLine(item.Key);
-                        Console.WriteLine(item.Value);
-                    }
-                }
             }
             catch (Exception e)
             {

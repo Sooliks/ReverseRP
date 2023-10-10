@@ -6,9 +6,9 @@ public class BusinessBase
     public Character? OwnerCharacter { get; set; }
     public int Bank { get; set; }
 
-    public BusinessBase(int bank)
+    public BusinessBase()
     {
-        Bank = bank;
+        Bank = 1000;
     }
     
 }

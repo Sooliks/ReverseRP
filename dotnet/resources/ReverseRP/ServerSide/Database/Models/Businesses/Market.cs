@@ -8,20 +8,17 @@ namespace ServerSide.Database.Models;
 
 public class Market : BusinessBase
 {
+    public int MarketId { get; set; }
 
     [NotMapped]
-    public Dictionary<int, int> PriceItems
+    public List<MarketItem> Items
     {
-        get { return JsonConvert.DeserializeObject<Dictionary<int, int>>(PriceItemsJson); }
-        set { PriceItemsJson = JsonConvert.SerializeObject(value); }
+        get { return JsonConvert.DeserializeObject<List<MarketItem>>(ItemsJson); }
+        set { ItemsJson = JsonConvert.SerializeObject(value); }
     }
-    public string PriceItemsJson { get; set; }
-
-    public Market(int bank) : base(bank)
+    public string ItemsJson { get; set; }
+    public Market() : base()
     {
-        PriceItems = new Dictionary<int, int>()
-        {
-            {0,200}
-        };
+        Items = new List<MarketItem>();
     }
 }
