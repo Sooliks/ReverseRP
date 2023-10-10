@@ -7,9 +7,10 @@ public class BusinessBase
     public int Bank { get; set; }
     public int GosPrice { get; set; }
 
-    public BusinessBase()
+    public BusinessBase(int gosPrice)
     {
         Bank = 1000;
+        GosPrice = gosPrice;
     }
     
 }

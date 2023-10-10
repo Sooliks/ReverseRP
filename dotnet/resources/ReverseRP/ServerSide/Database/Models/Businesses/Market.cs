@@ -17,8 +17,9 @@ public class Market : BusinessBase
         set { ItemsJson = JsonConvert.SerializeObject(value); }
     }
     public string ItemsJson { get; set; }
-    public Market() : base()
+    public Market(int marketId, int gosPrice, List<MarketItem> marketItems) : base(gosPrice)
     {
-        Items = new List<MarketItem>();
+        Items = marketItems;
+        MarketId = marketId;
     }
 }

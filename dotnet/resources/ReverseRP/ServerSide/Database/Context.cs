@@ -1,9 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json.Linq;
+using ServerSide.Data;
 using ServerSide.Database.Models;
 using ServerSide.Database.ModelsConfiguration;
 using ServerSide.Inventory.Items;
@@ -23,7 +25,12 @@ public class Context : DbContext
 
     public Context()
     {
-        Database.EnsureCreated();
+        if (Database.EnsureCreated())
+        {
+            using Context db = new Context();
+            db.BusinessesBase.AddRange(Businesses.BusinessesDefault);
+            db.SaveChanges();
+        }
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

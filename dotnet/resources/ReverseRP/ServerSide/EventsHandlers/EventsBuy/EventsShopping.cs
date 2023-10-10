@@ -25,8 +25,11 @@ public class EventsShopping : Script
             if (player.MinusMoney(item.Price))
             {
                 player.AddItem(ItemTypeHandler.GetItemByIdItem(idItem));
-                MarketsHandler.RemoveItem(item, market);
-                BusinessHandler.AddMoneyInBank(item.Price, market.Id);
+                if (market.OwnerCharacter != null)
+                {
+                    MarketsHandler.RemoveItem(item, market);
+                    BusinessHandler.AddMoneyInBank(item.Price, market.Id);
+                }
             }
         }
     }

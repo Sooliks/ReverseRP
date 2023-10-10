@@ -9,42 +9,6 @@ import {notification} from "antd";
 
 
 const App = () => {
-    try {
-        mp.events.add("SERVER:CEF::NOTIFY", (json: string) => {
-            const args: any[] = JSON.parse(json);
-            const type: number = args[0];
-            const message: string = args[1];
-            switch (type) {
-                case 0:
-                    notification.error({
-                        message: "Уведомление",
-                        description: message
-                    })
-                    break
-                case 1:
-                    notification.success({
-                        message: "Уведомление",
-                        description: message
-                    })
-                    break
-                case 2:
-                    notification.info({
-                        message: "Уведомление",
-                        description: message
-                    })
-                    break
-                case 3:
-                    notification.warning({
-                        message: "Уведомление",
-                        description: message
-                    })
-                    break
-            }
-        })
-    }catch (e) {
-        
-    }
-
 
     return (
         <NavigationContextProvider>
