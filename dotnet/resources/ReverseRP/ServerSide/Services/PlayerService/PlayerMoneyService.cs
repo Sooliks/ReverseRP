@@ -14,7 +14,7 @@ public class PlayerMoneyService
         {
             return true;
         }
-        player.SendNotify(NotifyType.Error, "Не достаточно средств!");
+        player.SendNotify(NotifyType.Error, "Не достаточно наличных средств!");
         return false;
     }
     public static bool MinusMoneyBank(Player player, int countMoney)
@@ -23,7 +23,7 @@ public class PlayerMoneyService
         {
             return true;
         }
-        player.SendNotify(NotifyType.Error, "Не достаточно средств!");
+        player.SendNotify(NotifyType.Error, "Не достаточно средств на карте!");
         return false;
     }
     public static void PlusMoney(Player player, int countMoney) => CharacterHandler.PlusMoney(player, countMoney);

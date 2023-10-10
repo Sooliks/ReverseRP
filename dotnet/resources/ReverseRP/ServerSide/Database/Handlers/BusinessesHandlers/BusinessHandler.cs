@@ -14,4 +14,18 @@ public class BusinessHandler
         db.BusinessesBase.Update(business);
         db.SaveChanges();
     }
+    public static BusinessBase GetBusinessById(int idBusiness)
+    {
+        using Context db = new Context();
+        return db.BusinessesBase.FirstOrDefault(b=>b.Id == idBusiness);
+    }
+
+    public static void SetOwnerCharacterBusiness(Character character, int businessId)
+    {
+        using Context db = new Context();
+        var business = db.BusinessesBase.FirstOrDefault(b=>b.Id == businessId);
+        business.OwnerCharacter = character;
+        db.BusinessesBase.Update(business);
+        db.SaveChanges();
+    }
 }
