@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
+using GTANetworkAPI;
 using Newtonsoft.Json;
 
 
@@ -22,7 +22,7 @@ public class Market : BusinessBase
     {
         
     }
-    public Market(int marketId, int gosPrice, List<MarketItem> marketItems) : base(gosPrice)
+    public Market(int marketId, int gosPrice, List<MarketItem> marketItems, Vector3 positionManagementBusiness) : base(gosPrice,positionManagementBusiness)
     {
         Items = marketItems;
         MarketId = marketId;

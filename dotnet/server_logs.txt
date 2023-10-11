@@ -961,4 +961,150 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
    at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
    at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
-   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationTokenInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 11.10.2023 13:40:17
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.MarketEvents.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 1 server event(s)
+ReverseRP: loaded 5 server events(s)
+ReverseRP: loading commands.. found 1 command(s)
+ReverseRP: loaded 1 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 10 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 1 remote procedure(s)
+Server started!
+[Discord Bot]-> 13:40:17 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 13:40:19 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 13:40:19 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 13:40:19 Gateway     Connected
+[Discord Bot]-> 13:40:19 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'b.PositionManagementBusinessJson' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.InitializeReader(DbContext _, bool result)
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.MoveNext()
+   at new System.Collections.Generic.List<T>(IEnumerable<T> collection)
+   at List<TSource> System.Linq.Enumerable.ToList<TSource>(IEnumerable<TSource> source)
+   at Market ServerSide.Database.Handlers.MarketsHandler.GetMarketByIdMarket(int idMarket) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/BusinessesHandlers/MarketsHandler.cs:line 12
+   at void ServerSide.EventsHandlers.MarketEvents.EventsShopping.OnBuyItem(Player player, int marketId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 16
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'b.PositionManagementBusinessJson' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.InitializeReader(DbContext _, bool result)
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.MoveNext()
+   at new System.Collections.Generic.List<T>(IEnumerable<T> collection)
+   at List<TSource> System.Linq.Enumerable.ToList<TSource>(IEnumerable<TSource> source)
+   at Market ServerSide.Database.Handlers.MarketsHandler.GetMarketByIdMarket(int idMarket) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/BusinessesHandlers/MarketsHandler.cs:line 12
+   at void ServerSide.EventsHandlers.MarketEvents.EventsShopping.OnBuyItem(Player player, int marketId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 16
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'b.PositionManagementBusinessJson' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.InitializeReader(DbContext _, bool result)
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.MoveNext()
+   at new System.Collections.Generic.List<T>(IEnumerable<T> collection)
+   at List<TSource> System.Linq.Enumerable.ToList<TSource>(IEnumerable<TSource> source)
+   at Market ServerSide.Database.Handlers.MarketsHandler.GetMarketByIdMarket(int idMarket) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/BusinessesHandlers/MarketsHandler.cs:line 12
+   at void ServerSide.EventsHandlers.MarketEvents.EventsShopping.OnBuyItem(Player player, int marketId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 16
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'b.PositionManagementBusinessJson' in 'field list'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.NativeDriver.GetResultAsync(int affectedRow, long insertedId, bool execAsync)
+   at async Task<Tuple<int, int, long>> MySql.Data.MySqlClient.Driver.GetResultAsync(int statementId, int affectedRows, long insertedId, bool execAsync)
+   at async Task<ResultSet> MySql.Data.MySqlClient.Driver.NextResultAsync(int statementId, bool force, bool execAsync)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<bool> MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at async Task<MySqlDataReader> MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, bool execAsync, CancellationToken cancellationToken)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at DbDataReader System.Data.Common.DbCommand.ExecuteReader()
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.InitializeReader(DbContext _, bool result)
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.MoveNext()
+   at new System.Collections.Generic.List<T>(IEnumerable<T> collection)
+   at List<TSource> System.Linq.Enumerable.ToList<TSource>(IEnumerable<TSource> source)
+   at Market ServerSide.Database.Handlers.MarketsHandler.GetMarketByIdMarket(int idMarket) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/BusinessesHandlers/MarketsHandler.cs:line 12
+   at void ServerSide.EventsHandlers.MarketEvents.EventsShopping.OnBuyItem(Player player, int marketId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 16
+   --- 
