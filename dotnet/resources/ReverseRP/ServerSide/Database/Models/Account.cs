@@ -15,6 +15,7 @@ public class Account
     public bool IsBanned { get; set; }
     public List<Character> Characters { get; set; }
     public byte AdminLvl { get; set; }
+    public DateTime DateTimeCreated { get; set; }
     public Account()
     {
         
@@ -29,5 +30,6 @@ public class Account
         this.IsBanned = false;
         this.Characters = new List<Character>();
         this.AdminLvl = 0;
+        DateTimeCreated = DateTime.Now;
     }
 }

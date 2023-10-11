@@ -48,7 +48,7 @@ public class Main : Script
                 InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
             }
         }
-        foreach (var business in Businesses.BusinessesDefault)
+        foreach (var business in BusinessesData.BusinessesDefault)
         {
             InputMarker.CreateInputMarkerWithOpenCefPathWithoutBlip("Информация", business.PositionManagementBusiness,"");
         }

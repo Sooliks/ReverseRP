@@ -4,10 +4,10 @@ using ServerSide.Database.Models;
 
 namespace ServerSide.Data;
 
-public class Businesses
+public class BusinessesData
 {
     public static readonly List<BusinessBase> BusinessesDefault = new List<BusinessBase>()
     {
-        new Market(1, 1300000, ItemsDefaultMarket.DefaultItemsMarket, new Vector3(23.983646,-1349.657,29.323343))
+        new Market(1, 1300000, ItemsDefaultMarketData.DefaultItemsMarket, new Vector3(23.983646,-1349.657,29.323343))
     };
 }

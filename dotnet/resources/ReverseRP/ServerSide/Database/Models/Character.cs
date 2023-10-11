@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ServerSide.Database.Handlers;
 
@@ -27,6 +28,7 @@ public class Character
     public List<ItemBase>? Inventory { get; set; }
     public byte CountSatiety { get; set; }
     public List<Vehicle>? Vehicles { get; set; }
+    public DateTime DateTimeCreated { get; set; }
 
     public Character()
     {
@@ -56,5 +58,6 @@ public class Character
         Inventory = new List<ItemBase>();
         CountSatiety = 100;
         Vehicles = new List<Vehicle>();
+        DateTimeCreated = DateTime.Now;
     }
 }

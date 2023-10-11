@@ -30,7 +30,8 @@ public class Context : DbContext
         if (Database.EnsureCreated())
         {
             using Context db = new Context();
-            db.BusinessesBase.AddRange(Businesses.BusinessesDefault);
+            db.BusinessesBase.AddRange(BusinessesData.BusinessesDefault);
+            db.ItemsTypes.AddRange(ItemsTypesData.ItemTypesDefault);
             db.SaveChanges();
         }
     }
