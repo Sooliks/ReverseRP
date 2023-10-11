@@ -30,6 +30,7 @@ public class EventsShopping : Script
                     MarketsHandler.RemoveItem(item, market);
                     BusinessHandler.AddMoneyInBank(item.Price, market.Id);
                 }
+                StatisticBusinessHandler.AddVisitor(market);
             }
         }
     }
