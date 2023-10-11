@@ -1107,4 +1107,57 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at List<TSource> System.Linq.Enumerable.ToList<TSource>(IEnumerable<TSource> source)
    at Market ServerSide.Database.Handlers.MarketsHandler.GetMarketByIdMarket(int idMarket) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/BusinessesHandlers/MarketsHandler.cs:line 12
    at void ServerSide.EventsHandlers.MarketEvents.EventsShopping.OnBuyItem(Player player, int marketId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 16
-   --- 
+   --- Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 11.10.2023 13:44:25
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.MarketEvents.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 1 server event(s)
+ReverseRP: loaded 5 server events(s)
+ReverseRP: loading commands.. found 1 command(s)
+ReverseRP: loaded 1 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 10 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 1 remote procedure(s)
+Server started!
+[Discord Bot]-> 13:44:26 Gateway     Connecting
+[Discord Bot]-> 13:44:27 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 13:44:27 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 13:44:27 Gateway     Connected
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 13:44:28 Gateway     Ready
+[Discord Bot]-> 14:11:34 Gateway     System.Exception: WebSocket connection was closed
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+ ---> System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake.
+   at void System.Net.WebSockets.ManagedWebSocket.ThrowIfEOFUnexpected(bool throwOnPrematureClosure)
+   at async Task System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(int minimumRequiredBytes, CancellationToken cancellationToken, bool throwOnPrematureClosure)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async ValueTask<TWebSocketReceiveResult> System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate<TWebSocketReceiveResultGetter, TWebSocketReceiveResult>(Memory<byte> payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+[Discord Bot]-> 14:11:
