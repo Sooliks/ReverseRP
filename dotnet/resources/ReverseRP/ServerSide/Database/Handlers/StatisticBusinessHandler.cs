@@ -13,7 +13,8 @@ public class StatisticBusinessHandler
         var statisticOfCurrentDay = db.StatisticBusinesses.FirstOrDefault(b => b.DateTime.Day == DateTime.Now.Day && b.BusinessBase.Id == businessBase.Id);
         if (statisticOfCurrentDay == null)
         {
-            db.StatisticBusinesses.Add(new StatisticBusiness(businessBase, DateTime.Now));
+            businessBase.StatisticBusinesses.Add(new StatisticBusiness(businessBase, DateTime.Now));
+            db.BusinessesBase.Update(businessBase);
             db.SaveChanges();
             return;
         }

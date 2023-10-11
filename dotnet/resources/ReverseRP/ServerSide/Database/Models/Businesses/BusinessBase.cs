@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using GTANetworkAPI;
 using Newtonsoft.Json;
 
@@ -17,7 +18,8 @@ public class BusinessBase
         set { PositionManagementBusinessJson = JsonConvert.SerializeObject(value); }
     }
     public string PositionManagementBusinessJson { get; private set; }
-    
+    public List<StatisticBusiness>? StatisticBusinesses { get; set; } = new List<StatisticBusiness>();
+
 
     public BusinessBase(int gosPrice, Vector3 positionManagementBusiness)
     {

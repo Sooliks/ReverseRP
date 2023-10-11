@@ -26,6 +26,7 @@ public class Context : DbContext
 
     public Context()
     {
+        //Database.EnsureDeleted();
         if (Database.EnsureCreated())
         {
             using Context db = new Context();
