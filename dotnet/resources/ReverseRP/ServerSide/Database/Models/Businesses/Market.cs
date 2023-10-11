@@ -16,7 +16,7 @@ public class Market : BusinessBase
         get { return JsonConvert.DeserializeObject<List<MarketItem>>(ItemsJson); }
         set { ItemsJson = JsonConvert.SerializeObject(value); }
     }
-    public string ItemsJson { get; set; }
+    public string ItemsJson { get; private set; }
 
     public Market()
     {

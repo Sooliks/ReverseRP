@@ -19,7 +19,7 @@ export enum ItemTypeEnum {
     Tools,
     Products
 }
-const listItems: ItemType[] = [
+export const listMarketItems: ItemType[] = [
     {id: 0, type: ItemTypeEnum.Products, price: 150, label: 'Бургер', description: 'Восполняет 50 еды'}
 ]
 type MarketParams = {
@@ -61,10 +61,10 @@ const Market: React.FC = () => {
                         <Button icon={<CloseOutlined/>} onClick={handleClickClose}/>
                     </Space>
                     <Space wrap style={{overflowY: 'auto'}}>
-                        {current === "products" && listItems.filter(i=>i.type === ItemTypeEnum.Products).map(i=>
+                        {current === "products" && listMarketItems.filter(i=>i.type === ItemTypeEnum.Products).map(i=>
                             <Item item={i} idMarket={Number(params.id)}/>
                         )}
-                        {current === "tools" && listItems.filter(i=>i.type === ItemTypeEnum.Tools).map(i=>
+                        {current === "tools" && listMarketItems.filter(i=>i.type === ItemTypeEnum.Tools).map(i=>
                             <Item item={i} idMarket={Number(params.id)}/>
                         )}
                     </Space>
