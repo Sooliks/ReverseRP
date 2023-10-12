@@ -2,6 +2,7 @@
 using System.Linq;
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
+using ServerSide.Database.Models;
 using ServerSide.Enums;
 using ServerSide.Extensions;
 
@@ -11,10 +12,10 @@ namespace ServerSide.EventsHandlers.MarketEvents;
 public class EventsShopping : Script
 {
     [RemoteEvent("CEF::SERVER:ON_BUY_ITEM")]
-    public void OnBuyItem(Player player,int marketId, int idItem, int itemType)
+    public void OnBuyItem(Player player,int businessId, int idItem, int itemType)
     {
-        var market = MarketsHandler.GetMarketByIdMarket(marketId);
-        if (market != null)
+        var business = BusinessHandler.GetBusinessById(businessId);
+        if (business != null && business is Market market)
         {
             var item = market.Items.FirstOrDefault(i => i.IdItem == idItem);
             if (item.Count < 1)
@@ -30,7 +31,7 @@ public class EventsShopping : Script
                     MarketsHandler.RemoveItem(item, market);
                     BusinessHandler.AddMoneyInBank(item.Price, market.Id);
                 }
-                StatisticBusinessHandler.AddVisitor(market);
+                StatisticBusinessHandler.AddBuyProduct(market);
             }
         }
     }

@@ -22,4 +22,16 @@ public class EventsGetBusinessInfo : Script
     {
         return NAPI.Util.ToJson(StatisticBusinessHandler.GetCountVisitorsAllDays(BusinessHandler.GetBusinessById(businessId)));
     }
+
+    [RemoteProc("RPC::CEF::SERVER:GetExtendedStatistic")]
+    public string OnGetExtendStatistic(Player player, int businessId)
+    {
+        var business = BusinessHandler.GetBusinessById(businessId);
+        return NAPI.Util.ToJson(new
+        {
+            CountVisitorsCurrentDay = StatisticBusinessHandler.GetCountVisitorsCurrentDay(business),
+            Bank = business.Bank,
+            CountVisitorsMonth = StatisticBusinessHandler.GetCountVisitorsMonth(business)
+        });
+    }
 }

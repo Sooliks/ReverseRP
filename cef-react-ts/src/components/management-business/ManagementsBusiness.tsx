@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Config} from "../../conf";
-import {Card, Menu, MenuProps, Space} from "antd";
-import {ShoppingCartOutlined, ToolOutlined} from "@ant-design/icons";
+import {Button, Card, Menu, MenuProps, Space} from "antd";
+import {CloseOutlined, ShoppingCartOutlined, ToolOutlined} from "@ant-design/icons";
 import Products from "./Products";
 import Statistics from "./Statistics";
 import {useParams} from "react-router-dom";
+import {Client} from "../../requests/Client";
 
 
 type ManagementsBusinessParams = {
@@ -32,7 +33,7 @@ const ManagementsBusiness: React.FC = () => {
 
     return (
         <Space style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height, justifyContent: 'center'}}>
-            <Card title={"Управление бизнесом"}>
+            <Card title={"Управление бизнесом"} extra={<Button icon={<CloseOutlined/>} onClick={()=>Client.closeWindow()}/>}>
                 <div style={{width: '60vw', height: '80vh'}}>
                     <Menu onClick={onClickMenu} selectedKeys={[current]} mode="horizontal" items={items} />
                     {current === 'products' && <Products idBusiness={Number(params.id)}/>}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Config} from "../../conf";
 import background from "../../assets/images/background_auth.png";
 import {Button, Card, Menu, MenuProps, Space} from "antd";
@@ -47,6 +47,9 @@ const Market: React.FC = () => {
             icon: <ToolOutlined />,
         },
     ]
+    useEffect(()=>{
+        Client.triggerServer("CEF::SERVER:ON_OPEN_BUSINESS_WINDOW", params.id)
+    },[])
 
     const handleClickClose = () => {
         Client.closeWindow();

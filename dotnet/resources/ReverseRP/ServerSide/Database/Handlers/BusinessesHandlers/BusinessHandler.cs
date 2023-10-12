@@ -34,6 +34,7 @@ public class BusinessHandler
 
     public static bool IsCharacterOwnerBusiness(Character character, int businessId)
     {
+        if (character == null) return false;
         using Context db = new Context();
         var business = db.BusinessesBase.Include(b=>b.OwnerCharacter).FirstOrDefault(b=>b.Id == businessId);
         if (business == null) return false;

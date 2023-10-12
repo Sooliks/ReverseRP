@@ -9,6 +9,7 @@ public class StatisticBusiness
     public BusinessBase? BusinessBase { get; set; }
     public DateTime DateTime { get; set; }
     public int CountVisitors { get; set; }
+    public int PurchasedGoods { get; set; }
 
     public StatisticBusiness()
     {
@@ -20,5 +21,6 @@ public class StatisticBusiness
         BusinessBase = businessBase;
         DateTime = dateTime;
         CountVisitors = 1;
+        PurchasedGoods = 0;
     }
 }
