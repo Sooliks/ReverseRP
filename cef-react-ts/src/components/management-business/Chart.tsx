@@ -19,16 +19,28 @@ const Chart: React.FC<ChartProps> = ({idBusiness}) => {
         try {
             Client.callProcServer<string>("RPC::CEF::SERVER:GetStatisticsBusiness", idBusiness).then(d => {
                 const statistics: StatisticType[] = JSON.parse(d);
+
                 const labels: string[] = [];
                 statistics.map(stat=>labels.push(stat.DateTime))
-                const data: number[] = [];
-                statistics.map(stat=>data.push(stat.CountVisitors))
+
+                const dataVisitors: number[] = [];
+                statistics.map(stat=>dataVisitors.push(stat.CountVisitors))
+
+                const dataPurchasedGoods: number[] = [];
+                statistics.map(stat=>dataPurchasedGoods.push(stat.PurchasedGoods))
+
                 setLineChartData({
                     labels: labels,
                     datasets: [
                         {
                             label: 'Кол-во посетителей',
-                            data: data,
+                            data: dataVisitors,
+                            borderColor: "#4133ff",
+                        },
+                        {
+                            label: 'Расход товаров',
+                            data: dataPurchasedGoods,
+                            borderColor: "#66b74a",
                         },
                     ]
                 })
