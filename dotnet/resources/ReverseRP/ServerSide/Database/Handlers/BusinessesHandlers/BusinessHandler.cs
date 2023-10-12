@@ -20,7 +20,7 @@ public class BusinessHandler
     public static BusinessBase GetBusinessById(int idBusiness)
     {
         using Context db = new Context();
-        return db.BusinessesBase.FirstOrDefault(b=>b.Id == idBusiness);
+        return db.BusinessesBase.Include(b=>b.OwnerCharacter).FirstOrDefault(b=>b.Id == idBusiness);
     }
 
     public static void SetOwnerCharacterBusiness(Character character, int businessId)
@@ -50,5 +50,13 @@ public class BusinessHandler
     {
         using Context db = new Context();
         return db.BusinessesBase.ToList();
+    }
+
+    public static void MinusMoneyBank(BusinessBase businessBase, int countMoney)
+    {
+        using Context db = new Context();
+        businessBase.Bank -= countMoney;
+        db.BusinessesBase.Update(businessBase);
+        db.SaveChanges();
     }
 }
