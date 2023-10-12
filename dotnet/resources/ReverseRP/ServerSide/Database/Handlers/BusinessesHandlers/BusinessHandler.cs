@@ -36,6 +36,7 @@ public class BusinessHandler
     {
         using Context db = new Context();
         var business = db.BusinessesBase.Include(b=>b.OwnerCharacter).FirstOrDefault(b=>b.Id == businessId);
+        if (business == null) return false;
         if (business.OwnerCharacter != null && business.OwnerCharacter.Id == character.Id)
         {
             return true;

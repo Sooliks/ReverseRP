@@ -51,7 +51,14 @@ public class Main : Script
         }
         foreach (var business in BusinessHandler.GetAllBusinesses())
         {
-            InputMarker.CreateInputMarkerWithOpenCefPathWithoutBlip("Информация", business.PositionManagementBusiness, $"/managementbusiness/{business.Id}");
+            InputMarker.CreateDefaultInputMarkerWithFuncCallbackWithoutBlip("Информация", business.PositionManagementBusiness,
+                player =>
+                {
+                    if (BusinessHandler.IsCharacterOwnerBusiness(player.GetCharacter(), business.Id))
+                    {
+                        player.ChangeCefWindow($"/managementbusiness/{business.Id}");
+                    }
+                });
         }
         await Task.Delay(1000);
         await Logs.SendGameLogAsync("Server started!");

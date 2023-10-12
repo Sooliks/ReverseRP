@@ -10,7 +10,8 @@ const Statistics: React.FC<StatisticsProps> = ({idBusiness}) => {
     useEffect(()=>{
         try {
             Client.callProcServer<string>("RPC::CEF::SERVER:GetStatisticsBusiness", idBusiness).then(data => {
-
+                data = JSON.parse(data);
+                console.log(data[0])
             })
         }catch (e) {
             

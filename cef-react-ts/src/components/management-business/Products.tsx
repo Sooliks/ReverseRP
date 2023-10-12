@@ -10,7 +10,8 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
     useEffect(()=>{
         try {
             Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsMarket", idBusiness).then(data => {
-
+                data = JSON.parse(data);
+                console.log(data[0])
             })
         }catch (e) {
             
