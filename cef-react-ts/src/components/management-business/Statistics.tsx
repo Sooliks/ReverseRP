@@ -15,17 +15,9 @@ export type StatisticType = {
 
 const Statistics: React.FC<StatisticsProps> = ({idBusiness}) => {
     useEffect(()=>{
-        try {
-            Client.callProcServer<string>("RPC::CEF::SERVER:GetStatisticsBusiness", idBusiness).then(data => {
-                data = JSON.parse(data);
-                const stat: StatisticType[] = JSON.parse(data[0]);
-                setStatistic(stat);
-            })
-        }catch (e) {
-            
-        }
+
     },[])
-    const [statistics,setStatistic] = useState<StatisticType[]>([])
+
 
 
     return (
@@ -41,7 +33,7 @@ const Statistics: React.FC<StatisticsProps> = ({idBusiness}) => {
                 </Space>
             </Space>
             <Divider/>
-            <Chart statistics={statistics}/>
+            <Chart idBusiness={idBusiness}/>
         </div>
     );
 };

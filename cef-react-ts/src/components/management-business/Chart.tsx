@@ -3,28 +3,39 @@ import {Line} from "react-chartjs-2";
 import {ChartData} from "chart.js";
 import "chart.js/auto";
 import {StatisticType} from "./Statistics";
+import {Client} from "../../requests/Client";
+
+
+
 
 
 
 type ChartProps = {
-    statistics: StatisticType[]
+    idBusiness: number
 }
 
-const Chart: React.FC<ChartProps> = ({statistics}) => {
+const Chart: React.FC<ChartProps> = ({idBusiness}) => {
     useEffect(()=>{
-        const labels: string[] = [];
-        statistics.map(stat=>labels.push(stat.DateTime))
-        const data: number[] = [];
-        statistics.map(stat=>data.push(stat.CountVisitors))
-        setLineChartData({
-            labels: labels,
-            datasets: [
-                {
-                    label: 'Кол-во посетителей',
-                    data: data,
-                },
-            ]
-        })
+        try {
+            Client.callProcServer<string>("RPC::CEF::SERVER:GetStatisticsBusiness", idBusiness).then(d => {
+                const statistics: StatisticType[] = JSON.parse(d);
+                const labels: string[] = [];
+                statistics.map(stat=>labels.push(stat.DateTime))
+                const data: number[] = [];
+                statistics.map(stat=>data.push(stat.CountVisitors))
+                setLineChartData({
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Кол-во посетителей',
+                            data: data,
+                        },
+                    ]
+                })
+            })
+        }catch (e) {
+
+        }
     },[])
 
     const [lineChartData, setLineChartData] = useState<ChartData<"line">>({

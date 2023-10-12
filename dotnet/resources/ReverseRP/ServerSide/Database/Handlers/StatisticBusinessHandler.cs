@@ -38,7 +38,7 @@ public class StatisticBusinessHandler
         var business = db.BusinessesBase.Include(b => b.StatisticBusinesses)
             .FirstOrDefault(b => b.Id == businessBase.Id);
         
-        return business.StatisticBusinesses.Select(s => new StatisticList() { DateTime = s.DateTime, CountVisitors = s.CountVisitors }).ToList();
+        return business.StatisticBusinesses.Select(s => new StatisticList() { DateTime = s.DateTime.Date, CountVisitors = s.CountVisitors }).ToList();
     }
     
 }
