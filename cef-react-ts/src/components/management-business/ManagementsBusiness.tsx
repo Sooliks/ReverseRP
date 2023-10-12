@@ -33,7 +33,7 @@ const ManagementsBusiness: React.FC = () => {
     return (
         <Space style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height, justifyContent: 'center'}}>
             <Card title={"Управление бизнесом"}>
-                <div style={{width: '60vw', height: '70vh'}}>
+                <div style={{width: '60vw', height: '80vh'}}>
                     <Menu onClick={onClickMenu} selectedKeys={[current]} mode="horizontal" items={items} />
                     {current === 'products' && <Products idBusiness={Number(params.id)}/>}
                     {current === 'statistics' && <Statistics idBusiness={Number(params.id)}/>}
