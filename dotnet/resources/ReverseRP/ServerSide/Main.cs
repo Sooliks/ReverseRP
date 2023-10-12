@@ -6,6 +6,7 @@ using GTANetworkAPI;
 using Newtonsoft.Json;
 using ServerSide.Data;
 using ServerSide.Database;
+using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
 using ServerSide.Discord;
 using ServerSide.Extensions;
@@ -48,9 +49,9 @@ public class Main : Script
                 InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
             }
         }
-        foreach (var business in BusinessesData.BusinessesDefault)
+        foreach (var business in BusinessHandler.GetAllBusinesses())
         {
-            InputMarker.CreateInputMarkerWithOpenCefPathWithoutBlip("Информация", business.PositionManagementBusiness,"");
+            InputMarker.CreateInputMarkerWithOpenCefPathWithoutBlip("Информация", business.PositionManagementBusiness, $"/managementbusiness/{business.Id}");
         }
         await Task.Delay(1000);
         await Logs.SendGameLogAsync("Server started!");

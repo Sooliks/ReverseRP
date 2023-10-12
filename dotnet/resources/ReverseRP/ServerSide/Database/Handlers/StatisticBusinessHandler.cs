@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
 
 namespace ServerSide.Database.Handlers;
@@ -34,8 +35,10 @@ public class StatisticBusinessHandler
     public static List<StatisticList> GetCountVisitorsAllDays(BusinessBase businessBase)
     {
         using Context db = new Context();
-        return db.StatisticBusinesses.AsQueryable().Where(s => s.BusinessBase.Id == businessBase.Id)
-            .Select(s => new StatisticList() { DateTime = s.DateTime, CountVisitors = s.CountVisitors }).ToList();
+        var business = db.BusinessesBase.Include(b => b.StatisticBusinesses)
+            .FirstOrDefault(b => b.Id == businessBase.Id);
+        
+        return business.StatisticBusinesses.Select(s => new StatisticList() { DateTime = s.DateTime, CountVisitors = s.CountVisitors }).ToList();
     }
     
 }

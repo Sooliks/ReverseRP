@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
 
 namespace ServerSide.Database.Handlers;
@@ -9,7 +10,7 @@ public class MarketsHandler
     public static Market GetMarketByIdMarket(int idMarket)
     {
         using Context db = new Context();
-        var businesses = db.BusinessesBase.ToList();
+        var businesses = db.BusinessesBase.Include(b=>b.OwnerCharacter).ToList();
         Market market = null;
         foreach (var business in businesses)
         {

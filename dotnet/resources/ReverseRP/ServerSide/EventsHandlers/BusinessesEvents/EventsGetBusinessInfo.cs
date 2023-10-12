@@ -1,4 +1,5 @@
-﻿using GTANetworkAPI;
+﻿using System;
+using GTANetworkAPI;
 using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
 
@@ -7,7 +8,7 @@ namespace ServerSide.EventsHandlers.BusinessesEvents;
 public class EventsGetBusinessInfo : Script
 {
     [RemoteProc("RPC::CEF::SERVER:GetProductsMarket")]
-    public string OnGetProductsMarket(int businessId)
+    public string OnGetProductsMarket(Player player, int businessId)
     {
         if (BusinessHandler.GetBusinessById(businessId) is Market market)
         {
@@ -17,7 +18,7 @@ public class EventsGetBusinessInfo : Script
         return null;
     }
     [RemoteProc("RPC::CEF::SERVER:GetStatisticsBusiness")]
-    public string OnGetStatisticsBusiness(int businessId)
+    public string OnGetStatisticsBusiness(Player player, int businessId)
     {
         return NAPI.Util.ToJson(StatisticBusinessHandler.GetCountVisitorsAllDays(BusinessHandler.GetBusinessById(businessId)));
     }
