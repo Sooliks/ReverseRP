@@ -13,7 +13,7 @@ public class EventsBuyBusinesses
         var business = BusinessHandler.GetBusinessById(businessId);
         if (player.MinusMoney(business.GosPrice))
         {
-            if(business.OwnerCharacter==null)return;
+            if(business.OwnerCharacter!=null)return;
             BusinessHandler.SetOwnerCharacterBusiness(player.GetCharacter(), businessId);
         }
     }

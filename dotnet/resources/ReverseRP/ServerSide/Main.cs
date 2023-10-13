@@ -25,6 +25,7 @@ public class Main : Script
         NAPI.Util.ConsoleOutput("Server started!");
         await DiscordBot.StartDiscordBot();
         NAPI.Server.SetGlobalServerChat(false);
+        NAPI.Server.SetDefaultSpawnLocation(new Vector3(30.660997, -1345.5656, 29.497015));
         var datetime = DateTime.Now;
         NAPI.World.SetTime(datetime.Hour, datetime.Minute, datetime.Second);
         await using (var db = new Context())
@@ -54,7 +55,7 @@ public class Main : Script
             InputMarker.CreateDefaultInputMarkerWithFuncCallbackWithoutBlip("Информация", business.PositionManagementBusiness,
                 player =>
                 {
-                    if (BusinessHandler.IsCharacterOwnerBusiness(player.GetCharacter(), business.Id))
+                    if (BusinessHandler.IsCharacterOwnerBusiness(player.GetCharacter(), BusinessHandler.GetBusinessById(business.Id)))
                     {
                         player.ChangeCefWindow($"/managementbusiness/{business.Id}");
                     }

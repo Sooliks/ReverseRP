@@ -10,66 +10,85 @@ public class StatisticBusinessHandler
 {
     public static void AddVisitor(BusinessBase businessBase)
     {
-        using Context db = new Context();
-        var statisticOfCurrentDay = db.StatisticBusinesses.FirstOrDefault(b => b.DateTime.Day == DateTime.Now.Day && b.BusinessBase.Id == businessBase.Id);
-        if (statisticOfCurrentDay == null)
+        using (Context db = new Context())
         {
-            businessBase.StatisticBusinesses.Add(new StatisticBusiness(businessBase, DateTime.Now));
-            db.BusinessesBase.Update(businessBase);
-            db.SaveChanges();
-            return;
-        }
+            var statisticOfCurrentDay = db.StatisticBusinesses.FirstOrDefault(b =>
+                b.DateTime.Day == DateTime.Now.Day && b.BusinessBase.Id == businessBase.Id);
+            if (statisticOfCurrentDay == null)
+            {
+                businessBase.StatisticBusinesses.Add(new StatisticBusiness(businessBase, DateTime.Now));
+                db.BusinessesBase.Update(businessBase);
+                db.SaveChanges();
+                return;
+            }
 
-        statisticOfCurrentDay.CountVisitors += 1;
-        db.StatisticBusinesses.Update(statisticOfCurrentDay);
-        db.SaveChanges();
+            statisticOfCurrentDay.CountVisitors += 1;
+            db.StatisticBusinesses.Update(statisticOfCurrentDay);
+            db.SaveChanges();
+        }
     }
     public static void AddBuyProduct(BusinessBase businessBase)
     {
-        using Context db = new Context();
-        var statisticOfCurrentDay = db.StatisticBusinesses.FirstOrDefault(b => b.DateTime.Day == DateTime.Now.Day && b.BusinessBase.Id == businessBase.Id);
-        if (statisticOfCurrentDay == null)
+        using (Context db = new Context())
         {
-            businessBase.StatisticBusinesses.Add(new StatisticBusiness(businessBase, DateTime.Now));
-            db.BusinessesBase.Update(businessBase);
-            db.SaveChanges();
-            return;
-        }
+            var statisticOfCurrentDay = db.StatisticBusinesses.FirstOrDefault(b =>
+                b.DateTime.Day == DateTime.Now.Day && b.BusinessBase.Id == businessBase.Id);
+            if (statisticOfCurrentDay == null)
+            {
+                businessBase.StatisticBusinesses.Add(new StatisticBusiness(businessBase, DateTime.Now));
+                db.BusinessesBase.Update(businessBase);
+                db.SaveChanges();
+                return;
+            }
 
-        statisticOfCurrentDay.PurchasedGoods += 1;
-        db.StatisticBusinesses.Update(statisticOfCurrentDay);
-        db.SaveChanges();
+            statisticOfCurrentDay.PurchasedGoods += 1;
+            db.StatisticBusinesses.Update(statisticOfCurrentDay);
+            db.SaveChanges();
+        }
     }
 
     public static int GetCountVisitorsCurrentDay(BusinessBase businessBase)
     {
-        using Context db = new Context();
-        var statisticOfCurrentDay = db.StatisticBusinesses.FirstOrDefault(b => b.DateTime.Day == DateTime.Today.Day && b.BusinessBase.Id == businessBase.Id);
-        return statisticOfCurrentDay.CountVisitors;
+        using (Context db = new Context())
+        {
+            var statisticOfCurrentDay = db.StatisticBusinesses.FirstOrDefault(b =>
+                b.DateTime.Day == DateTime.Today.Day && b.BusinessBase.Id == businessBase.Id);
+            return statisticOfCurrentDay == null ? 0 : statisticOfCurrentDay.CountVisitors;
+        }
     }
     public static int GetCountVisitorsMonth(BusinessBase businessBase)
     {
-        using Context db = new Context();
-        var business = db.BusinessesBase.Include(b => b.StatisticBusinesses)
-            .FirstOrDefault(b => b.Id == businessBase.Id);
-        int countVisitors = 0;
-        var statisticOfMonthly = business.StatisticBusinesses.Where(b => b.DateTime.Month == DateTime.Today.Month).ToList();
-        foreach (var statistic in statisticOfMonthly)
+        using (Context db = new Context())
         {
-            countVisitors += statistic.CountVisitors;
+            var business = db.BusinessesBase.Include(b => b.StatisticBusinesses)
+                .FirstOrDefault(b => b.Id == businessBase.Id);
+            int countVisitors = 0;
+            var statisticOfMonthly = business.StatisticBusinesses.Where(b => b.DateTime.Month == DateTime.Today.Month)
+                .ToList();
+            foreach (var statistic in statisticOfMonthly)
+            {
+                countVisitors += statistic.CountVisitors;
+            }
+
+            return countVisitors;
         }
-        return countVisitors;
     }
 
     public static List<StatisticList> GetCountVisitorsAllDays(BusinessBase businessBase)
     {
-        using Context db = new Context();
-        var business = db.BusinessesBase.Include(b => b.StatisticBusinesses)
-            .FirstOrDefault(b => b.Id == businessBase.Id);
-        
-        return business.StatisticBusinesses.Select(s => new StatisticList() { DateTime = $"{s.DateTime.Day}.{s.DateTime.Month}", CountVisitors = s.CountVisitors, PurchasedGoods = s.PurchasedGoods }).ToList();
+        using (Context db = new Context())
+        {
+
+            var business = db.BusinessesBase.Include(b => b.StatisticBusinesses)
+                .FirstOrDefault(b => b.Id == businessBase.Id);
+
+            return business.StatisticBusinesses.Select(s => new StatisticList()
+            {
+                DateTime = $"{s.DateTime.Day}.{s.DateTime.Month}", CountVisitors = s.CountVisitors,
+                PurchasedGoods = s.PurchasedGoods
+            }).ToList();
+        }
     }
-    
 }
 
 public record StatisticList

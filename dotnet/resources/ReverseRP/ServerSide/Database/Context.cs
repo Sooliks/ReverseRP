@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +29,7 @@ public class Context : DbContext
         //Database.EnsureDeleted();
         if (Database.EnsureCreated())
         {
+            Console.WriteLine("DB CREATED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             using Context db = new Context();
             db.BusinessesBase.AddRange(BusinessesData.BusinessesDefault);
             db.ItemsTypes.AddRange(ItemsTypesData.ItemTypesDefault);
@@ -52,7 +53,7 @@ public class Context : DbContext
             Password = (string)obj["database"]["password"],
         };
         optionsBuilder.UseMySQL(connectionString.ConnectionString)
-            .LogTo(str => Debug.WriteLine(str), new[] { RelationalEventId.CommandExecuted })
+            .LogTo(str => Console.WriteLine(str), new[] { RelationalEventId.CommandExecuted })
             .EnableSensitiveDataLogging();
     }
 

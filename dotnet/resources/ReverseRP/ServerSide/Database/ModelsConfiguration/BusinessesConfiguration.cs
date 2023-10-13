@@ -9,5 +9,6 @@ public class BusinessesConfiguration : IEntityTypeConfiguration<BusinessBase>
     public void Configure(EntityTypeBuilder<BusinessBase> builder)
     {
         builder.HasKey(i => i.Id);
+        builder.HasOne<Character>(b => b.OwnerCharacter);
     }
 }

@@ -29,6 +29,7 @@ public class Character
     public byte CountSatiety { get; set; }
     public List<Vehicle>? Vehicles { get; set; }
     public DateTime DateTimeCreated { get; set; }
+    public List<BusinessBase>? BusinessBases { get; set; }
 
     public Character()
     {
@@ -59,5 +60,6 @@ public class Character
         CountSatiety = 100;
         Vehicles = new List<Vehicle>();
         DateTimeCreated = DateTime.Now;
+        BusinessBases = new List<BusinessBase>();
     }
 }

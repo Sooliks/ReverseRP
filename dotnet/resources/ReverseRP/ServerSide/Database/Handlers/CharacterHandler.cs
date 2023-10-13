@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GTANetworkAPI;
@@ -57,36 +58,47 @@ public class CharacterHandler
     }
     public static Character GetCharacterById(int id)
     {
-        using Context db = new Context();
-        var character = db.Character.SingleOrDefault(c => c.Id == id);
-        return character;
+        using (Context db = new Context())
+        {
+            var character = db.Character.FirstOrDefault(c => c.Id == id);
+            return character;
+        }
     }
     public static bool MinusMoney(Player player, int countMoney)
     {
-        using Context db = new Context();
-        var character = db.Character.SingleOrDefault(c => c.Id == player.GetCharacter().Id);
-        if (character.Money > countMoney)
+        using (Context db = new Context())
         {
-            character.Money -= countMoney;
-            db.Character.Update(character);
-            db.SaveChanges();
-            return true;
+            var character = player.GetCharacter();
+            if (character == null) return false;
+            if (character.Money >= countMoney)
+            {
+                db.Attach(character);
+                character.Money -= countMoney;
+                db.Character.Update(character);
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
-        return false;
     }
     public static void PlusMoney(Player player, int countMoney)
     {
-        using Context db = new Context();
-        var character = db.Character.SingleOrDefault(c => c.Id == player.GetCharacter().Id);
-        character.Money += countMoney;
-        db.Character.Update(character);
-        db.SaveChanges();
+        using (Context db = new Context())
+        {
+            var character = player.GetCharacter();
+            db.Attach(character);
+            character.Money += countMoney;
+            db.Character.Update(character);
+            db.SaveChanges();
+        }
     }
     public static bool MinusMoneyBank(Player player, int countMoney)
     {
         using Context db = new Context();
-        var character = db.Character.SingleOrDefault(c => c.Id == player.GetCharacter().Id);
-        if (character.MoneyBank > countMoney)
+        var character = player.GetCharacter();
+        if (character == null) return false;
+        if (character.MoneyBank >= countMoney)
         {
             character.MoneyBank -= countMoney;
             db.Character.Update(character);
@@ -98,7 +110,7 @@ public class CharacterHandler
     public static void PlusMoneyBank(Player player, int countMoney)
     {
         using Context db = new Context();
-        var character = db.Character.SingleOrDefault(c => c.Id == player.GetCharacter().Id);
+        var character = player.GetCharacter();
         character.MoneyBank += countMoney;
         db.Character.Update(character);
         db.SaveChanges();
@@ -106,7 +118,7 @@ public class CharacterHandler
     public static void SetSatiety(Character character, byte satiety)
     {
         using Context db = new Context();
-        var c = db.Character.SingleOrDefault(c => c.Id == character.Id);
+        var c = db.Character.FirstOrDefault(c => c.Id == character.Id);
         c.CountSatiety = satiety;
         db.Character.Update(c);
         db.SaveChanges();

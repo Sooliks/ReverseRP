@@ -17,11 +17,11 @@ public class EventsActionPlayerWithBusiness : Script
     [RemoteEvent("CEF::SERVER:ON_GET_BANK")]
     public void OnGetBankBusiness(Player player, int businessId)
     {
-        if (BusinessHandler.IsCharacterOwnerBusiness(player.GetCharacter(), businessId))
+        var business = BusinessHandler.GetBusinessById(businessId);
+        if (BusinessHandler.IsCharacterOwnerBusiness(player.GetCharacter(), business))
         {
-            var business = BusinessHandler.GetBusinessById(businessId);
-            BusinessHandler.MinusMoneyBank(business, business.Bank);
             player.PlusMoney(business.Bank);
+            BusinessHandler.MinusMoneyBank(business, business.Bank);
         }
     }
 }

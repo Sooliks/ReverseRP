@@ -8,7 +8,7 @@ using ServerSide.Enums;
 using ServerSide.Extensions;
 
 
-namespace ServerSide.EventsHandlers.MarketEvents;
+namespace ServerSide.EventsHandlers.EventsBuy;
 
 public class EventsShopping : Script
 {

@@ -32,6 +32,10 @@ const Statistics: React.FC<StatisticsProps> = ({idBusiness}) => {
         CountVisitorsMonth: 0,
         Bank: 0
     })
+    const handleClickGetBank = () => {
+        Client.triggerServer("CEF::SERVER:ON_GET_BANK", idBusiness)
+        setStatistic({...statistic, Bank: 0});
+    }
 
     return (
         <div style={{width: '100%', height: '100%'}}>
@@ -40,7 +44,7 @@ const Statistics: React.FC<StatisticsProps> = ({idBusiness}) => {
                 <Divider type={"vertical"} style={{height: 130}}/>
                 <Space direction={"vertical"}>
                     <Statistic title="Баланс предприятия" value={statistic.Bank} precision={2} />
-                    <Button style={{ marginTop: 16 }} type="primary">
+                    <Button style={{ marginTop: 16 }} type="primary" onClick={handleClickGetBank}>
                         Забрать
                     </Button>
                 </Space>
