@@ -4,7 +4,7 @@ export namespace Config {
         width: window.screen.width,
         height: window.screen.height
     }
-    export const isDevelopment: boolean = false;
+    export const isDevelopment: boolean = true;
 
 }
 
