@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useNavigation, useParams} from "react-router-dom";
 import {Config} from "../../conf";
 import {Button, Card, Modal, Space} from "antd";
 import {CloseOutlined, ExclamationCircleOutlined} from "@ant-design/icons";
@@ -15,6 +15,7 @@ type BusinessType = {
     GosPrice: number
     Type: string
 }
+const { confirm } = Modal;
 
 const InformationOfBusiness: React.FC = () => {
     const params = useParams<InformationOfBusinessParams>();
@@ -24,16 +25,26 @@ const InformationOfBusiness: React.FC = () => {
         OwnerName: 'Нету', GosPrice: 1000000, Type: "Market"
     })
     useEffect(()=>{
-
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetInformationBusiness", params.id).then(data=>{
+            setBusiness(JSON.parse(data));
+        })
     },[])
-
+    const navigation = useNavigate()
     const handleClickBuy = () => {
-        modal.confirm({
+        confirm({
             title: 'Подтверждение',
             icon: <ExclamationCircleOutlined />,
             content: `Вы действительно хотите купить бизнес за ${business.GosPrice} ?`,
             okText: 'Купить',
             cancelText: 'Отмена',
+            open: true,
+            onOk(){
+                Client.triggerServer("CEF::SERVER:ON_BUY_BUSINESS", params.id)
+                setTimeout(()=>{
+                    navigation(`/informationbusiness/${params.id}`)
+                },1000)
+                Client.closeWindow()
+            },
         });
     }
 

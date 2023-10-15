@@ -34,4 +34,16 @@ public class EventsGetBusinessInfo : Script
             CountVisitorsMonth = StatisticBusinessHandler.GetCountVisitorsMonth(business)
         });
     }
+
+    [RemoteProc("RPC::CEF::SERVER:GetInformationBusiness")]
+    public string OnGetInformationBusiness(Player player, int businessId)
+    {
+        var business = BusinessHandler.GetBusinessById(businessId);
+        return NAPI.Util.ToJson(new
+        {
+            OwnerName = business.OwnerCharacter!=null ? $"{business.OwnerCharacter.FirstName} {business.OwnerCharacter.LastName}" : "Нету",
+            GosPrice = business.GosPrice,
+            Type = business.GetType().Name
+        });
+    }
 }

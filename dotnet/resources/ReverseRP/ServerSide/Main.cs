@@ -59,6 +59,10 @@ public class Main : Script
                     {
                         player.ChangeCefWindow($"/managementbusiness/{business.Id}");
                     }
+                    else
+                    {
+                        player.ChangeCefWindow($"/informationbusiness/{business.Id}");;
+                    }
                 });
         }
         await Task.Delay(1000);

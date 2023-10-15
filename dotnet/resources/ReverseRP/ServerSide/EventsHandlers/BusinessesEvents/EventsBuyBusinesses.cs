@@ -5,7 +5,7 @@ using ServerSide.Extensions;
 
 namespace ServerSide.EventsHandlers.BusinessesEvents;
 
-public class EventsBuyBusinesses
+public class EventsBuyBusinesses : Script
 {
     [RemoteEvent("CEF::SERVER:ON_BUY_BUSINESS")]
     public void OnBuyBusiness(Player player, int businessId)
