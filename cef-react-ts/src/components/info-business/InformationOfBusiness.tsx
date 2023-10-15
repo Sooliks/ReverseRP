@@ -34,16 +34,19 @@ const InformationOfBusiness: React.FC = () => {
         confirm({
             title: 'Подтверждение',
             icon: <ExclamationCircleOutlined />,
-            content: `Вы действительно хотите купить бизнес за ${business.GosPrice} ?`,
+            content: `Вы действительно хотите купить бизнес за ${business.GosPrice}$ ?`,
             okText: 'Купить',
             cancelText: 'Отмена',
             open: true,
             onOk(){
-                Client.triggerServer("CEF::SERVER:ON_BUY_BUSINESS", params.id)
-                setTimeout(()=>{
-                    navigation(`/informationbusiness/${params.id}`)
-                },1000)
-                Client.closeWindow()
+                Client.callProcServer<boolean>("RPC::CEF::SERVER:ON_BUY_BUSINESS", params.id).then(data=>{
+                    if(data){
+                        navigation(`/managementbusiness/${params.id}`)
+                    }
+                    else {
+                        Client.closeWindow();
+                    }
+                })
             },
         });
     }

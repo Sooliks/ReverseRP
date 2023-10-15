@@ -1846,4 +1846,272 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
    at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
    at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
-   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsyncInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 15.10.2023 17:31:17
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 1 server event(s)
+ReverseRP: loaded 5 server events(s)
+ReverseRP: loading commands.. found 1 command(s)
+ReverseRP: loaded 1 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 13 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loaded 5 remote procedure(s)
+Server started!
+[Discord Bot]-> 17:31:17 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 17:31:19 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 17:31:19 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 17:31:19 Gateway     Connected
+[Discord Bot]-> 17:31:19 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddVisitor(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 19
+   at void ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness.OnOpenBusinessWindow(Player player, int businessId) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/BusinessesEvents/EventsActionPlayerWithBusiness.cs:line 14
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddVisitor(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 19
+   at void ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness.OnOpenBusinessWindow(Player player, int businessId) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/BusinessesEvents/EventsActionPlayerWithBusiness.cs:line 14
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddVisitor(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 19
+   at void ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness.OnOpenBusinessWindow(Player player, int businessId) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/BusinessesEvents/EventsActionPlayerWithBusiness.cs:line 14
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem, int itemType) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 35
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void ServerSide.Database.Handlers.StatisticBusinessHandler.AddBuyProduct(BusinessBase businessBase) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/StatisticBusinessHandler.cs:line 38
+   at void ServerSide.EventsHandlers.Even

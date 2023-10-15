@@ -7,14 +7,17 @@ namespace ServerSide.EventsHandlers.BusinessesEvents;
 
 public class EventsBuyBusinesses : Script
 {
-    [RemoteEvent("CEF::SERVER:ON_BUY_BUSINESS")]
-    public void OnBuyBusiness(Player player, int businessId)
+    [RemoteProc("RPC::CEF::SERVER:ON_BUY_BUSINESS")]
+    public bool OnBuyBusiness(Player player, int businessId)
     {
         var business = BusinessHandler.GetBusinessById(businessId);
         if (player.MinusMoney(business.GosPrice))
         {
-            if(business.OwnerCharacter!=null)return;
+            if(business.OwnerCharacter!=null)return false;
             BusinessHandler.SetOwnerCharacterBusiness(player.GetCharacter(), businessId);
+            return true;
         }
+
+        return false;
     }
 }
