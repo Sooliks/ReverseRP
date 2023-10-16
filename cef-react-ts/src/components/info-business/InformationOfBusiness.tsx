@@ -39,8 +39,9 @@ const InformationOfBusiness: React.FC = () => {
             cancelText: 'Отмена',
             open: true,
             onOk(){
-                Client.callProcServer<boolean>("RPC::CEF::SERVER:ON_BUY_BUSINESS", params.id).then(data=>{
-                    if(data){
+                Client.callProcServer<string>("RPC::CEF::SERVER:ON_BUY_BUSINESS", params.id).then(data=>{
+                    const d: boolean = JSON.parse(data)
+                    if(d){
                         navigation(`/managementbusiness/${params.id}`)
                     }
                     else {

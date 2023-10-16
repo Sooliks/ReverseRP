@@ -64,11 +64,10 @@ public class CharacterHandler
             return character;
         }
     }
-    public static bool MinusMoney(Player player, int countMoney)
+    public static bool MinusMoney(Character character, int countMoney)
     {
         using (Context db = new Context())
         {
-            var character = player.GetCharacter();
             if (character == null) return false;
             if (character.Money >= countMoney)
             {
@@ -82,21 +81,19 @@ public class CharacterHandler
             return false;
         }
     }
-    public static void PlusMoney(Player player, int countMoney)
+    public static void PlusMoney(Character character, int countMoney)
     {
         using (Context db = new Context())
         {
-            var character = player.GetCharacter();
             db.Attach(character);
             character.Money += countMoney;
             db.Character.Update(character);
             db.SaveChanges();
         }
     }
-    public static bool MinusMoneyBank(Player player, int countMoney)
+    public static bool MinusMoneyBank(Character character, int countMoney)
     {
         using Context db = new Context();
-        var character = player.GetCharacter();
         if (character == null) return false;
         if (character.MoneyBank >= countMoney)
         {
@@ -107,10 +104,9 @@ public class CharacterHandler
         }
         return false;
     }
-    public static void PlusMoneyBank(Player player, int countMoney)
+    public static void PlusMoneyBank(Character character, int countMoney)
     {
         using Context db = new Context();
-        var character = player.GetCharacter();
         character.MoneyBank += countMoney;
         db.Character.Update(character);
         db.SaveChanges();

@@ -10,8 +10,10 @@ public class PlayerMoneyService
 {
     public static bool MinusMoney(Player player, int countMoney)
     {
-        if (CharacterHandler.MinusMoney(player, countMoney))
+        var character = player.GetCharacter();
+        if (CharacterHandler.MinusMoney(character, countMoney))
         {
+            player.TriggerCefEvent("SERVER::CEF:UPDATE_HUD", new {money = character.Money, moneyBank = character.MoneyBank});
             return true;
         }
         player.SendNotify(NotifyType.Error, "Не достаточно наличных средств!");
@@ -19,13 +21,27 @@ public class PlayerMoneyService
     }
     public static bool MinusMoneyBank(Player player, int countMoney)
     {
-        if (CharacterHandler.MinusMoney(player, countMoney))
+        var character = player.GetCharacter();
+        if (CharacterHandler.MinusMoney(character, countMoney))
         {
+            player.TriggerCefEvent("SERVER::CEF:UPDATE_HUD", new {money = character.Money, moneyBank = character.MoneyBank});
             return true;
         }
         player.SendNotify(NotifyType.Error, "Не достаточно средств на карте!");
         return false;
     }
-    public static void PlusMoney(Player player, int countMoney) => CharacterHandler.PlusMoney(player, countMoney);
-    public static void PlusMoneyBank(Player player, int countMoney) => CharacterHandler.PlusMoneyBank(player, countMoney);
+
+    public static void PlusMoney(Player player, int countMoney)
+    {
+        var character = player.GetCharacter();
+        CharacterHandler.PlusMoney(character, countMoney);
+        player.TriggerCefEvent("SERVER::CEF:UPDATE_HUD", new {money = character.Money, moneyBank = character.MoneyBank});
+    }
+
+    public static void PlusMoneyBank(Player player, int countMoney)
+    {
+        var character = player.GetCharacter();
+        CharacterHandler.PlusMoneyBank(character, countMoney);
+        player.TriggerCefEvent("SERVER::CEF:UPDATE_HUD", new {money = character.Money, moneyBank = character.MoneyBank});
+    }
 }

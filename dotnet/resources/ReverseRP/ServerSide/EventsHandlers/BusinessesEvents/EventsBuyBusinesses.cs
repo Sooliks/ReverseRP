@@ -8,16 +8,15 @@ namespace ServerSide.EventsHandlers.BusinessesEvents;
 public class EventsBuyBusinesses : Script
 {
     [RemoteProc("RPC::CEF::SERVER:ON_BUY_BUSINESS")]
-    public bool OnBuyBusiness(Player player, int businessId)
+    public string OnBuyBusiness(Player player, int businessId)
     {
         var business = BusinessHandler.GetBusinessById(businessId);
         if (player.MinusMoney(business.GosPrice))
         {
-            if(business.OwnerCharacterId!=0)return false;
+            if(business.OwnerCharacterId!=0)return NAPI.Util.ToJson(false);
             BusinessHandler.SetOwnerCharacterBusiness(player.GetCharacter(), businessId);
-            return true;
+            return NAPI.Util.ToJson(true);
         }
-
-        return false;
+        return NAPI.Util.ToJson(false);
     }
 }
