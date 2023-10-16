@@ -36,8 +36,8 @@ const Hud : React.FC = () => {
             <Space align={"end"}>
                 <Card style={{width: 200}}>
                     <Space direction={"vertical"}>
-                        <Text><DollarOutlined /> {' '+data.money}</Text>
-                        <Text><CreditCardOutlined /> {' '+data.moneyBank}</Text>
+                        <Text><DollarOutlined /> {' '+data.money + '$'}</Text>
+                        <Text><CreditCardOutlined /> {' '+data.moneyBank + '$'}</Text>
                     </Space>
                 </Card>
             </Space>
