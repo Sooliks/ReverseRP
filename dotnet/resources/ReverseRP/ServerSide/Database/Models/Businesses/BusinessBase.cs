@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GTANetworkAPI;
 using Newtonsoft.Json;
@@ -8,7 +10,7 @@ namespace ServerSide.Database.Models;
 public class BusinessBase
 {
     public int Id { get; set; }
-    public Character? OwnerCharacter { get; set; }
+    public int OwnerCharacterId { get; set; }
     public int Bank { get; set; }
     public int GosPrice { get; set; }
     [NotMapped]
@@ -26,6 +28,7 @@ public class BusinessBase
         Bank = 1000;
         GosPrice = gosPrice;
         PositionManagementBusiness = positionManagementBusiness;
+        OwnerCharacterId = 0;
     }
 
     public BusinessBase()

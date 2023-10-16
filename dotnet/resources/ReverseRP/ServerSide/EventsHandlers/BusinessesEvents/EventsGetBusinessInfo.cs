@@ -39,9 +39,10 @@ public class EventsGetBusinessInfo : Script
     public string OnGetInformationBusiness(Player player, int businessId)
     {
         var business = BusinessHandler.GetBusinessById(businessId);
+        var character = CharacterHandler.GetCharacterById(business.OwnerCharacterId);
         return NAPI.Util.ToJson(new
         {
-            OwnerName = business.OwnerCharacter!=null ? $"{business.OwnerCharacter.FirstName} {business.OwnerCharacter.LastName}" : "Нету",
+            OwnerName = business.OwnerCharacterId!=0 ? $"{character.FirstName} {character.LastName}" : "Нету",
             GosPrice = business.GosPrice,
             Type = business.GetType().Name
         });

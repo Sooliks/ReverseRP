@@ -27,7 +27,7 @@ public class EventsShopping : Script
             if (player.MinusMoney(item.Price))
             {
                 player.AddItem(ItemTypeHandler.GetItemByIdItem(idItem));
-                if (market.OwnerCharacter != null)
+                if (market.OwnerCharacterId != 0)
                 {
                     MarketsHandler.RemoveItem(item, market);
                     BusinessHandler.AddMoneyInBank(item.Price, market.Id);

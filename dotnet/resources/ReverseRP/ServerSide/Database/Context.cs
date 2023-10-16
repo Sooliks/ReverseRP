@@ -72,5 +72,7 @@ public class Context : DbContext
         modelBuilder.Entity<Medkit>().HasBaseType<ItemType>();
         
         modelBuilder.Entity<Market>().HasBaseType<BusinessBase>();
+        
+        
     }
 }

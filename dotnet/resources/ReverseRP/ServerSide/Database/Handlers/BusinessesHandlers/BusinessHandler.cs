@@ -23,7 +23,7 @@ public class BusinessHandler
     {
         using (Context db = new Context())
         {
-            return db.BusinessesBase.Include(b => b.OwnerCharacter).FirstOrDefault(b => b.Id == idBusiness);
+            return db.BusinessesBase.FirstOrDefault(b => b.Id == idBusiness);
         }
     }
 
@@ -32,7 +32,7 @@ public class BusinessHandler
         using (Context db = new Context())
         {
             var business = db.BusinessesBase.FirstOrDefault(b => b.Id == businessId);
-            business.OwnerCharacter = character;
+            business.OwnerCharacterId = character.Id;
             db.BusinessesBase.Update(business);
             db.SaveChanges();
         }
@@ -42,7 +42,7 @@ public class BusinessHandler
     {
         if (character == null) return false;
         if (business == null) return false;
-        if (business.OwnerCharacter != null && business.OwnerCharacter.Id == character.Id)
+        if (business.OwnerCharacterId != 0 && business.OwnerCharacterId == character.Id)
         {
             return true;
         }

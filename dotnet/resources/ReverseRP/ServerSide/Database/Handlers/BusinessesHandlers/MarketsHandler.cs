@@ -10,7 +10,7 @@ public class MarketsHandler
     public static Market GetMarketByIdMarket(int idMarket)
     {
         using Context db = new Context();
-        var businesses = db.BusinessesBase.Include(b=>b.OwnerCharacter).ToList();
+        var businesses = db.BusinessesBase.ToList();
         Market market = null;
         foreach (var business in businesses)
         {
