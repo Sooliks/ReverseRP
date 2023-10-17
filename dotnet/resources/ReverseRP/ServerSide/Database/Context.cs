@@ -7,6 +7,8 @@ using MySql.Data.MySqlClient;
 using Newtonsoft.Json.Linq;
 using ServerSide.Data;
 using ServerSide.Database.Models;
+using ServerSide.Database.Models.CarDealership;
+using ServerSide.Database.Models.GasStation;
 using ServerSide.Database.ModelsConfiguration;
 using ServerSide.Inventory.Items;
 
@@ -72,7 +74,8 @@ public class Context : DbContext
         modelBuilder.Entity<Medkit>().HasBaseType<ItemType>();
         
         modelBuilder.Entity<Market>().HasBaseType<BusinessBase>();
-        
+        modelBuilder.Entity<CarDealership>().HasBaseType<BusinessBase>();
+        modelBuilder.Entity<GasStation>().HasBaseType<BusinessBase>();
         
     }
 }

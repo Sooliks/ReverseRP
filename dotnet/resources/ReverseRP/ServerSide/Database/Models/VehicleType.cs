@@ -1,4 +1,6 @@
-﻿namespace ServerSide.Database.Models;
+﻿using ServerSide.Enums;
+
+namespace ServerSide.Database.Models;
 
 public class VehicleType
 {
@@ -10,13 +12,14 @@ public class VehicleType
     public string Class { get; set; }
     public int BaggageHoldCapacity { get; set; }
     public float FuelConsumption { get; set; }
+    public GasType GasType { get; set; }
 
     public VehicleType()
     {
         
     }
 
-    public VehicleType(string modelHash, string mark, string model,int fuelTankCapacity, string _class, int baggageHoldCapacity, float fuelConsumption)
+    public VehicleType(string modelHash, string mark, string model,int fuelTankCapacity, string _class, int baggageHoldCapacity, float fuelConsumption, GasType gasType)
     {
         ModelHash = modelHash;
         Mark = mark;
@@ -25,5 +28,6 @@ public class VehicleType
         Class = _class;
         BaggageHoldCapacity = baggageHoldCapacity;
         FuelConsumption = fuelConsumption;
+        GasType = gasType;
     }
 }
