@@ -41,40 +41,17 @@ public class Main : Script
                 return;
             }
         }
-        using (var r = new StreamReader("dotnet/resources/ReverseRP/ServerSide/Data/markers.json"))
-        {
-            string json = r.ReadToEnd();
-            var markers = JsonConvert.DeserializeObject<List<MarkerModel>>(json);
-            foreach (var marker in markers)
-            {
-                InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
-            }
-        }
-        foreach (var business in BusinessHandler.GetAllBusinesses())
-        {
-            InputMarker.CreateDefaultInputMarkerWithFuncCallbackWithoutBlip("Информация", business.PositionManagementBusiness,
-                player =>
-                {
-                    if (BusinessHandler.IsCharacterOwnerBusiness(player.GetCharacter(), BusinessHandler.GetBusinessById(business.Id)))
-                    {
-                        player.ChangeCefWindow($"/managementbusiness/{business.Id}");
-                    }
-                    else
-                    {
-                        player.ChangeCefWindow($"/informationbusiness/{business.Id}");;
-                    }
-                });
-        }
+        StartedCreateMarkers.LoadMarkers();
         await Task.Delay(1000);
         await Logs.SendGameLogAsync("Server started!");
     }
 
     [ServerEvent(Event.PlayerConnected)]
-    public async void OnPlayerConnected(Player player)
+    public void OnPlayerConnected(Player player)
     {
         player.ChangeCefWindow(CefWindowsPaths.Authorization);
         player.FreezePlayer(true);
-        await DiscordBot.GetUserCount();
+        DiscordBot.GetUserCount();
     }
 
     [ServerEvent(Event.PlayerDisconnected)]

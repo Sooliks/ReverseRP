@@ -10,4 +10,5 @@ public class BusinessesData
     {
         new Market(1, 1300000, ItemsDefaultMarketData.DefaultItemsMarket, new Vector3(23.983646,-1349.657,29.323343))
     };
+    
 }

@@ -21,8 +21,6 @@ public class BusinessBase
     }
     public string PositionManagementBusinessJson { get; private set; }
     public List<StatisticBusiness>? StatisticBusinesses { get; set; } = new List<StatisticBusiness>();
-
-
     public BusinessBase(int gosPrice, Vector3 positionManagementBusiness)
     {
         Bank = 1000;

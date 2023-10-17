@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Config} from "../../conf";
-import {Button, Card, Col, Divider, InputNumber, Row, Slider, Space, Typography} from "antd";
+import {Button, Card, Col, Divider, InputNumber, Row, Slider, Space, Statistic, Typography} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
 import {Client} from "../../requests/Client";
 
@@ -27,10 +27,10 @@ const GasStation: React.FC = () => {
     return (
         <Space style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height, justifyContent: 'center'}}>
             <Card title={"Заправка"} extra={<Button icon={<CloseOutlined/>} onClick={()=>Client.closeWindow()}/>}>
-                <div style={{width: '50vw', height: '55vh'}}>
+                <div style={{width: '50vw', height: '50vh'}}>
                     <div style={{display: 'flex', justifyContent: 'space-around', flexDirection: 'row'}}>
                         {gasProperties.map(gas=>
-                            <Button autoFocus={currentGas === gas} onClick={()=>setCurrentGas(gas)} style={{height: 150, width: 145, fontSize: '15px'}}>{gas.typeGas + ' '+ gas.price + '$/л'}</Button>
+                            <Button autoFocus={currentGas === gas} onClick={()=>setCurrentGas(gas)} style={{height: 150, width: 145, fontSize: '15px'}}>{gas.typeGas + ' '+ gas.price + (gas.typeGas === 'Electric' ? '$/кв' : '$/л')}</Button>
                         )}
                     </div>
                     <Divider type={"horizontal"}/>
@@ -40,19 +40,19 @@ const GasStation: React.FC = () => {
                             max={maxFuel}
                             onChange={(v)=>setInputValue(v)}
                             value={typeof inputValue === 'number' ? inputValue : 0}
-                            style={{width: '100%'}}
+                            style={{width: '97%'}}
                         />
                         <InputNumber
-                            min={1}
+                            min={maxFuel === 0 ? 0 : 1}
                             max={maxFuel}
-                            style={{margin: '0 16px'}}
                             value={inputValue}
                             onChange={(v)=>setInputValue(v)}
+                            style={{marginLeft: 16}}
                         />
-
                     </div>
-                    <div>
-                        <Button style={{width: '100%'}}>Заправить</Button>
+                    <div style={{height: '50%',display: 'flex', flexDirection: 'column', justifyContent:'space-between'}}>
+                        <Statistic title="Итого: " value={currentGas.price * inputValue! + '$'} precision={2} />
+                        <Button size={"large"} type={"primary"} style={{width: '100%'}}>Заправить</Button>
                     </div>
                 </div>
             </Card>
