@@ -12,6 +12,7 @@ import Market from "./components/shop24/Market";
 import MarketPlace from "./components/marketplace/MarketPlace";
 import ManagementsBusiness from "./components/management-business/ManagementsBusiness";
 import InformationOfBusiness from "./components/info-business/InformationOfBusiness";
+import AdminPanel from "./components/adminpanel/AdminPanel";
 
 const AppRouter: React.FC = () => {
     const { message, notification, modal } = App.useApp();
@@ -30,6 +31,7 @@ const AppRouter: React.FC = () => {
                 <Route path={"/marketplace"} element={<MarketPlace/>}/>
                 <Route path={"/managementbusiness/:id"} element={<ManagementsBusiness/>}/>
                 <Route path={"/informationbusiness/:id"} element={<InformationOfBusiness/>}/>
+                <Route path={"/adminpanel"} element={<AdminPanel/>}/>
                 <Route path={"/*"} element={<DefaultRouter/>}/>
             </Routes>
         </App>
