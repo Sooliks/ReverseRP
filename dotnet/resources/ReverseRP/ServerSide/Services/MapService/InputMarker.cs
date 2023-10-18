@@ -11,7 +11,7 @@ public class InputMarker : Script
     private static readonly string ColShapeGetCallbackKey = nameof(ColShapeGetCallbackKey);
     private static readonly string ColshapeIsForWalkingKey = nameof(ColshapeIsForWalkingKey);
     private static readonly string ColShapeIsTriggeredByPressEKey = nameof(ColShapeIsTriggeredByPressEKey);
-    private static readonly string ActiveColshapePlayerKey = nameof(ActiveColshapePlayerKey);
+    public static readonly string ActiveColshapePlayerKey = nameof(ActiveColshapePlayerKey);
     
     /// <summary>
     /// Дефолтный маркер, с колшейпом блипом, маркером и с открытием cef path
@@ -134,7 +134,16 @@ public class InputMarker : Script
         bool isForWalking = colShape.HasData(ColshapeIsForWalkingKey) ? colShape.GetData<bool>(ColshapeIsForWalkingKey) : false;
         if (colShape.HasData(ColShapeIsTriggeredByPressEKey))
         {
-            player.SendNotify(NotifyType.Info, "Нажмите Е");
+            if (isForWalking)
+            {
+                if(player.IsInVehicle)return;
+                player.SendNotify(NotifyType.Info, "Нажмите Е");
+            }
+            else
+            {
+                if(player.Vehicle == null)return;
+                player.SendNotify(NotifyType.Info, "Нажмите Е");
+            }
             player.SetData(ActiveColshapePlayerKey, colShape);
         }
         

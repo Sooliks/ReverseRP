@@ -27,12 +27,15 @@ public class StartedCreateMarkers
                 {
                     if (marker.NameCefPath.StartsWith("/gasstation"))
                     {
-                        //TODO сделать открытие заправки на кнопку Е и проверять заглушен ли двигатель
                         InputMarker.CreateColShapeWithCallback(marker.Position, 5, (player) =>
                         {
                             if (player.Vehicle.EngineStatus)
                             {
                                 player.SendNotify(NotifyType.Warning, "Заглушите двигатель");
+                            }
+                            else
+                            {
+                                player.ChangeCefWindow(marker.NameCefPath);
                             }
                         }, false, true);
                     }
