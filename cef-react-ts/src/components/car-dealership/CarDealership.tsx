@@ -4,11 +4,17 @@ import {Config} from "../../conf";
 import DefaultColorPalette from "../../ui/DefaultColorPalette";
 import ReverseColorPicker from "../../ui/ReverseColorPicker";
 import ReverseList from "../../ui/ReverseList";
+import {useParams} from "react-router-dom";
 
 const {Title, Text} = Typography;
 
+type CarDealershipParams = {
+    id: string
+}
+
 
 const CarDealership: React.FC = () => {
+    const params = useParams<CarDealershipParams>();
     type CarType = {
         id: number
         name: string

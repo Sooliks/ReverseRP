@@ -56,7 +56,7 @@ public class EventsShopping : Script
             }
             if (player.MinusMoney(item.Price * count))
             {
-                
+                //TODO сделать автосалон и заправку здесь
             }
         }
     }

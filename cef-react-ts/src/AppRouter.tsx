@@ -27,7 +27,7 @@ const AppRouter: React.FC = () => {
                 <Route path={"/selectcharacters"} element={<SelectCharacters/>}/>
                 <Route path={"/inventory"} element={<InventoryMain/>}/>
                 <Route path={"/menu"} element={<ReverseMenu/>}/>
-                <Route path={"/cardealership"} element={<CarDealership/>}/>
+                <Route path={"/cardealership/:id"} element={<CarDealership/>}/>
                 <Route path={"/market/:id"} element={<Market/>}/>
                 <Route path={"/marketplace"} element={<MarketPlace/>}/>
                 <Route path={"/managementbusiness/:id"} element={<ManagementsBusiness/>}/>
