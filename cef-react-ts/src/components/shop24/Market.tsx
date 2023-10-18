@@ -6,6 +6,7 @@ import {CloseOutlined, ShoppingCartOutlined, ToolOutlined} from "@ant-design/ico
 import Item from "./Item";
 import {useNavigate, useNavigation, useParams} from "react-router-dom";
 import {Client} from "../../requests/Client";
+import {IncomingItemBusiness} from "../../types/businessesTypes";
 
 export type ItemType = {
     id: number
@@ -19,9 +20,6 @@ export enum ItemTypeEnum {
     Tools,
     Products
 }
-export const listMarketItems: ItemType[] = [
-    {id: 0, type: ItemTypeEnum.Products, price: 150, label: 'Бургер', description: 'Восполняет 50 еды'}
-]
 type MarketParams = {
     id: string
 }
@@ -35,6 +33,9 @@ const Market: React.FC = () => {
         console.log('click ', e);
         setCurrent(e.key);
     };
+    const[listMarketItems,setListMarketItems] = useState<ItemType[]>([
+        {id: 0, type: ItemTypeEnum.Products, price: 150, label: 'Бургер', description: 'Восполняет 50 еды'}
+    ])
     const items: MenuProps['items'] = [
         {
             label: 'Продукты',
@@ -49,6 +50,12 @@ const Market: React.FC = () => {
     ]
     useEffect(()=>{
         Client.triggerServer("CEF::SERVER:ON_OPEN_BUSINESS_WINDOW", params.id)
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", params.id).then(data=>{
+            const incomingItems: IncomingItemBusiness[] = JSON.parse(data);
+            setListMarketItems([
+                {id: 0, type: ItemTypeEnum.Products, price: incomingItems[0].Price, label: 'Бургер', description: 'Восполняет 50 еды'},
+            ])
+        })
     },[])
 
     const handleClickClose = () => {

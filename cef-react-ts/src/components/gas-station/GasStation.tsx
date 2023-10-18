@@ -4,6 +4,7 @@ import {Button, Card, Col, Divider, InputNumber, Row, Slider, Space, Statistic, 
 import {CloseOutlined} from "@ant-design/icons";
 import {Client} from "../../requests/Client";
 import {useParams} from "react-router-dom";
+import {IncomingItemBusiness} from "../../types/businessesTypes";
 
 
 const {Text} = Typography;
@@ -31,10 +32,21 @@ const GasStation: React.FC = () => {
     ])
 
     useEffect(()=>{
-        Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness").then(data=>{
-
+        Client.triggerServer("CEF::SERVER:ON_OPEN_BUSINESS_WINDOW", params.id)
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", params.id).then(data=>{
+            const incomingItems: IncomingItemBusiness[] = JSON.parse(data);
+            setGasProperties([
+                {typeGas: 'Eco', price: incomingItems[0].Price},
+                {typeGas: 'Premium', price: incomingItems[1].Price},
+                {typeGas: 'Lux', price: incomingItems[2].Price},
+                {typeGas: 'Electric', price: incomingItems[3].Price}
+            ])
         })
     },[])
+
+    const handleClickBuy = () => {
+
+    }
 
     return (
         <Space style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height, justifyContent: 'center'}}>
