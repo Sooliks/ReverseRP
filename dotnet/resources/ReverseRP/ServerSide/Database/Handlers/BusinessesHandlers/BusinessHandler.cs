@@ -66,4 +66,15 @@ public class BusinessHandler
             db.SaveChanges();
         }
     }
+    public static void RemoveItem(ItemBusiness itemBusiness, BusinessBase business, int count = 1)
+    {
+        using Context db = new Context();
+        var newListItems = business.Items;
+        int index = business.Items.FindIndex(s => s.ItemId == itemBusiness.ItemId);
+        itemBusiness.Count -= count;
+        newListItems[index] = itemBusiness;
+        business.Items = newListItems;
+        db.BusinessesBase.Update(business);
+        db.SaveChanges();
+    }
 }

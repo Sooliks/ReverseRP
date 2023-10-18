@@ -2,6 +2,7 @@
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
+using ServerSide.Enums;
 
 namespace ServerSide.EventsHandlers.BusinessesEvents;
 
@@ -10,12 +11,9 @@ public class EventsGetBusinessInfo : Script
     [RemoteProc("RPC::CEF::SERVER:GetProductsMarket")]
     public string OnGetProductsMarket(Player player, int businessId)
     {
-        if (BusinessHandler.GetBusinessById(businessId) is Market market)
-        {
-            return NAPI.Util.ToJson(market.Items);
-        }
-
-        return null;
+        var business = BusinessHandler.GetBusinessById(businessId);
+        if (business.BusinessType != BusinessesTypes.Market) return "null";
+        return NAPI.Util.ToJson(business.Items);
     }
     [RemoteProc("RPC::CEF::SERVER:GetStatisticsBusiness")]
     public string OnGetStatisticsBusiness(Player player, int businessId)
@@ -44,7 +42,15 @@ public class EventsGetBusinessInfo : Script
         {
             OwnerName = business.OwnerCharacterId!=0 ? $"{character.FirstName} {character.LastName}" : "Нету",
             GosPrice = business.GosPrice,
-            Type = business.GetType().Name
+            Type = business.BusinessType
         });
+    }
+
+
+    [RemoteProc("RPC::CEF::SERVER:GetProductsBusiness")]
+    public string OnGetProductsBusiness(Player player, int businessId)
+    {
+        var business = BusinessHandler.GetBusinessById(businessId);
+        return NAPI.Util.ToJson(business.Items);
     }
 }

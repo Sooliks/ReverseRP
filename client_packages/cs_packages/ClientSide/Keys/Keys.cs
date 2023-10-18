@@ -36,6 +36,13 @@ namespace ClientSide.Keys
                 }
                 Events.CallRemote("CLIENT::SERVER:ON_PICKUP_ITEM");
             });
+            Input.Bind(VirtualKeys.LeftControl, true, () =>
+            {
+                if (RAGE.Elements.Player.LocalPlayer.Vehicle != null)
+                {
+                    Events.CallRemote("CLIENT::SERVER:PRESS_CTRL_IN_VEHICLE");
+                }
+            });
         }
     }
 }

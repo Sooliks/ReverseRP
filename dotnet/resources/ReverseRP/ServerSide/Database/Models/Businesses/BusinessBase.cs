@@ -1,7 +1,7 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
 using GTANetworkAPI;
 using Newtonsoft.Json;
 
@@ -21,12 +21,23 @@ public class BusinessBase
     }
     public string PositionManagementBusinessJson { get; private set; }
     public List<StatisticBusiness>? StatisticBusinesses { get; set; } = new List<StatisticBusiness>();
-    public BusinessBase(int gosPrice, Vector3 positionManagementBusiness)
+    [NotMapped]
+    public List<ItemBusiness> Items
+    {
+        get { return JsonConvert.DeserializeObject<List<ItemBusiness>>(ItemsJson); }
+        set { ItemsJson = JsonConvert.SerializeObject(value); }
+    }
+    public string ItemsJson { get; private set; }
+    public string BusinessType { get; set; }
+    
+    public BusinessBase(int gosPrice, Vector3 positionManagementBusiness, List<ItemBusiness> items, string businessType)
     {
         Bank = 1000;
         GosPrice = gosPrice;
         PositionManagementBusiness = positionManagementBusiness;
         OwnerCharacterId = 0;
+        Items = items;
+        BusinessType = businessType;
     }
 
     public BusinessBase()

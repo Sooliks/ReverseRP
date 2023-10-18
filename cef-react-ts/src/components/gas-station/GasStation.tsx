@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Config} from "../../conf";
 import {Button, Card, Col, Divider, InputNumber, Row, Slider, Space, Statistic, Typography} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
@@ -29,6 +29,12 @@ const GasStation: React.FC = () => {
         {typeGas: 'Lux', price: 50},
         {typeGas: 'Electric', price: 27},
     ])
+
+    useEffect(()=>{
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness").then(data=>{
+
+        })
+    },[])
 
     return (
         <Space style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height, justifyContent: 'center'}}>

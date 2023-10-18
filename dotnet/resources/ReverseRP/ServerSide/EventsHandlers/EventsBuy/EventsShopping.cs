@@ -16,9 +16,9 @@ public class EventsShopping : Script
     public void OnBuyItem(Player player,int businessId, int idItem, int itemType)
     {
         var business = BusinessHandler.GetBusinessById(businessId);
-        if (business != null && business is Market market)
+        if (business != null)
         {
-            var item = market.Items.FirstOrDefault(i => i.IdItem == idItem);
+            var item = business.Items.FirstOrDefault(i => i.ItemId == idItem);
             if (item.Count < 1)
             {
                 player.SendNotify(NotifyType.Warning, "Данный товар закончился на складе");
@@ -27,12 +27,12 @@ public class EventsShopping : Script
             if (player.MinusMoney(item.Price))
             {
                 player.AddItem(ItemTypeHandler.GetItemByIdItem(idItem));
-                if (market.OwnerCharacterId != 0)
+                if (business.OwnerCharacterId != 0)
                 {
-                    MarketsHandler.RemoveItem(item, market);
-                    BusinessHandler.AddMoneyInBank(item.Price, market.Id);
+                    BusinessHandler.RemoveItem(item, business);
+                    BusinessHandler.AddMoneyInBank(item.Price, business.Id);
                 }
-                StatisticBusinessHandler.AddBuyProduct(market);
+                StatisticBusinessHandler.AddBuyProduct(business);
             }
         }
     }
