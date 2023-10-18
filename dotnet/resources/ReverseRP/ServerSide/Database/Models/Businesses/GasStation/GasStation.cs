@@ -7,7 +7,6 @@ namespace ServerSide.Database.Models.GasStation;
 
 public class GasStation : BusinessBase
 {
-    public int GasStationId { get; set; }
     [NotMapped]
     public List<GasItem> GasItems
     {
@@ -22,9 +21,8 @@ public class GasStation : BusinessBase
         
     }
 
-    public GasStation(int gasStationId,int gosPrice, List<GasItem> gasItems, Vector3 positionManagementBusiness): base(gosPrice,positionManagementBusiness)
+    public GasStation(int gosPrice, List<GasItem> gasItems, Vector3 positionManagementBusiness): base(gosPrice,positionManagementBusiness)
     {
-        GasStationId = gasStationId;
         GasItems = gasItems;
     }
 }

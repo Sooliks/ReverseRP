@@ -3,6 +3,7 @@ import {Config} from "../../conf";
 import {Button, Card, Col, Divider, InputNumber, Row, Slider, Space, Statistic, Typography} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
 import {Client} from "../../requests/Client";
+import {useParams} from "react-router-dom";
 
 
 const {Text} = Typography;
@@ -11,8 +12,13 @@ type GasType = {
     typeGas: string
     price: number
 }
+type GasStationParams = {
+    id: string
+}
 
 const GasStation: React.FC = () => {
+    const params = useParams<GasStationParams>();
+
     const [inputValue, setInputValue] = useState<number | null>(1);
     const [currentGas,setCurrentGas] = useState<GasType>({typeGas: 'Eco', price: 30})
     const [maxFuel, setMaxFuel] = useState<number>(20);

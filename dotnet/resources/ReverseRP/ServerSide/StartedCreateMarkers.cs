@@ -3,6 +3,7 @@ using System.IO;
 using GTANetworkMethods;
 using Newtonsoft.Json;
 using ServerSide.Database.Handlers;
+using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Services.MapService;
 
@@ -12,13 +13,30 @@ public class StartedCreateMarkers
 {
     public static void LoadMarkers()
     {
-        using (var r = new StreamReader("dotnet/resources/ReverseRP/ServerSide/Data/markersForWalking.json"))
+        using (var r = new StreamReader("dotnet/resources/ReverseRP/ServerSide/Data/markers.json"))
         {
             string json = r.ReadToEnd();
             var markers = JsonConvert.DeserializeObject<List<MarkerModel>>(json);
             foreach (var marker in markers)
             {
-                InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
+                if (marker.IsForWalking)
+                {
+                    InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
+                }
+                else
+                {
+                    if (marker.NameCefPath.StartsWith("/gasstation"))
+                    {
+                        //TODO сделать открытие заправки на кнопку Е и проверять заглушен ли двигатель
+                        InputMarker.CreateColShapeWithCallback(marker.Position, 5, (player) =>
+                        {
+                            if (player.Vehicle.EngineStatus)
+                            {
+                                player.SendNotify(NotifyType.Warning, "Заглушите двигатель");
+                            }
+                        }, false, true);
+                    }
+                }
             }
         }
         foreach (var business in BusinessHandler.GetAllBusinesses())

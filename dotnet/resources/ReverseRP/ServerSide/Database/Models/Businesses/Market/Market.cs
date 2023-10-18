@@ -8,8 +8,6 @@ namespace ServerSide.Database.Models;
 
 public class Market : BusinessBase
 {
-    public int MarketId { get; set; }
-
     [NotMapped]
     public List<MarketItem> Items
     {
@@ -22,9 +20,8 @@ public class Market : BusinessBase
     {
         
     }
-    public Market(int marketId, int gosPrice, List<MarketItem> marketItems, Vector3 positionManagementBusiness) : base(gosPrice,positionManagementBusiness)
+    public Market(int gosPrice, List<MarketItem> marketItems, Vector3 positionManagementBusiness) : base(gosPrice,positionManagementBusiness)
     {
         Items = marketItems;
-        MarketId = marketId;
     }
 }

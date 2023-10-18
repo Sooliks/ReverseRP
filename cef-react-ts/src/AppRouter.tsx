@@ -33,7 +33,7 @@ const AppRouter: React.FC = () => {
                 <Route path={"/managementbusiness/:id"} element={<ManagementsBusiness/>}/>
                 <Route path={"/informationbusiness/:id"} element={<InformationOfBusiness/>}/>
                 <Route path={"/adminpanel"} element={<AdminPanel/>}/>
-                <Route path={"/gasstation"} element={<GasStation/>}/>
+                <Route path={"/gasstation/:id"} element={<GasStation/>}/>
                 <Route path={"/*"} element={<DefaultRouter/>}/>
             </Routes>
         </App>

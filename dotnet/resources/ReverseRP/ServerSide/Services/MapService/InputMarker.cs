@@ -1,5 +1,6 @@
 ﻿using System;
 using GTANetworkAPI;
+using ServerSide.Enums;
 using ServerSide.Extensions;
 
 namespace ServerSide.Services.MapService;
@@ -8,7 +9,9 @@ public class InputMarker : Script
 {
     private static readonly string ColShapeCefPathKey = nameof(ColShapeCefPathKey);
     private static readonly string ColShapeGetCallbackKey = nameof(ColShapeGetCallbackKey);
-    private static readonly string ColshapeIsAllowInVehicleKey = nameof(ColshapeIsAllowInVehicleKey);
+    private static readonly string ColshapeIsForWalkingKey = nameof(ColshapeIsForWalkingKey);
+    private static readonly string ColShapeIsTriggeredByPressEKey = nameof(ColShapeIsTriggeredByPressEKey);
+    private static readonly string ActiveColshapePlayerKey = nameof(ActiveColshapePlayerKey);
     
     /// <summary>
     /// Дефолтный маркер, с колшейпом блипом, маркером и с открытием cef path
@@ -18,7 +21,7 @@ public class InputMarker : Script
     /// <param name="iconBlip"></param>
     /// <param name="colorBlip"></param>
     /// <param name="nameCefPath"></param>
-    public static void CreateDefaultInputMarkerWithOpenCefPath(string textLabel, Vector3 pos, int iconBlip, byte colorBlip, string nameCefPath, bool allowInVehicle = false)
+    public static void CreateDefaultInputMarkerWithOpenCefPath(string textLabel, Vector3 pos, int iconBlip, byte colorBlip, string nameCefPath, bool isForWalking = true)
     {
         float posX = pos.X;
         float posY = pos.Y;
@@ -30,7 +33,7 @@ public class InputMarker : Script
         NAPI.Blip.SetBlipShortRange(blip, true); //Установка видимости блипу
         var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f);
         colShape.SetData(ColShapeCefPathKey,nameCefPath);
-        colShape.SetData(ColshapeIsAllowInVehicleKey,allowInVehicle);
+        colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
     
     /// <summary>
@@ -41,7 +44,7 @@ public class InputMarker : Script
     /// <param name="iconBlip"></param>
     /// <param name="colorBlip"></param>
     /// <param name="nameCefPath"></param>
-    public static void CreateInputMarkerWithOpenCefPathWithoutBlip(string textLabel, Vector3 pos, string nameCefPath, bool allowInVehicle = false)
+    public static void CreateInputMarkerWithOpenCefPathWithoutBlip(string textLabel, Vector3 pos, string nameCefPath, bool isForWalking = true)
     {
         float posX = pos.X;
         float posY = pos.Y;
@@ -50,7 +53,7 @@ public class InputMarker : Script
         NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255));//Маркер
         var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f);
         colShape.SetData(ColShapeCefPathKey,nameCefPath);
-        colShape.SetData(ColshapeIsAllowInVehicleKey,allowInVehicle);
+        colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
     /// <summary>
     /// Дефолтный маркер, с колшейпом, маркером, блипом и с функцией обратного вызова
@@ -60,7 +63,7 @@ public class InputMarker : Script
     /// <param name="iconBlip"></param>
     /// <param name="colorBlip"></param>
     /// <param name="nameCefPath"></param>
-    public static void CreateDefaultInputMarkerWithFuncCallback(string textLabel, Vector3 pos, int iconBlip, byte colorBlip, Callback callback, bool allowInVehicle = false)
+    public static void CreateDefaultInputMarkerWithFuncCallback(string textLabel, Vector3 pos, int iconBlip, byte colorBlip, Callback callback, bool isForWalking = true)
     {
         float posX = pos.X;
         float posY = pos.Y;
@@ -72,7 +75,7 @@ public class InputMarker : Script
         NAPI.Blip.SetBlipShortRange(blip, true); //Установка видимости блипу
         var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f);
         colShape.SetData(ColShapeGetCallbackKey,callback);
-        colShape.SetData(ColshapeIsAllowInVehicleKey,allowInVehicle);
+        colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
     /// <summary>
     /// Дефолтный маркер, с колшейпом, маркером, без блипа и с функцией обратного вызова
@@ -82,7 +85,7 @@ public class InputMarker : Script
     /// <param name="iconBlip"></param>
     /// <param name="colorBlip"></param>
     /// <param name="nameCefPath"></param>
-    public static void CreateDefaultInputMarkerWithFuncCallbackWithoutBlip(string textLabel, Vector3 pos, Callback callback, bool allowInVehicle = false)
+    public static void CreateDefaultInputMarkerWithFuncCallbackWithoutBlip(string textLabel, Vector3 pos, Callback callback, bool isForWalking = true)
     {
         float posX = pos.X;
         float posY = pos.Y;
@@ -91,37 +94,100 @@ public class InputMarker : Script
         NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255));//Маркер
         var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f);
         colShape.SetData(ColShapeGetCallbackKey,callback);
-        colShape.SetData(ColshapeIsAllowInVehicleKey,allowInVehicle);
+        colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
-
-    public static void CreateColShapeWithOpenCefPath(Vector3 pos, float range, string nameCefPath, bool allowInVehicle = false)
+    /// <summary>
+    /// Колшейп с открытием cefpath
+    /// </summary>
+    /// <param name="pos">позиция колшейпа</param>
+    /// <param name="range">радиус колшейпа</param>
+    /// <param name="nameCefPath">сefPath for open</param>
+    /// <param name="isForWalking">для ходьбы на колшейп либо для машины</param>
+    public static void CreateColShapeWithOpenCefPath(Vector3 pos, float range, string nameCefPath, bool isForWalking = true)
     {
         var colShape = NAPI.ColShape.CreateCylinderColShape(pos, range, 1.0f);
         colShape.SetData(ColShapeCefPathKey,nameCefPath);
-        colShape.SetData(ColshapeIsAllowInVehicleKey,allowInVehicle);
+        colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
+    }
+    /// <summary>
+    /// Колшейп с callback
+    /// </summary>
+    /// <param name="pos">позиция колшейпа</param>
+    /// <param name="range">радиус колшейпа</param>
+    /// <param name="callback">функция обратного вызова при срабатывании колшейпа</param>
+    /// <param name="isForWalking">для ходьбы на колшейп либо для машины</param>
+    public static void CreateColShapeWithCallback(Vector3 pos, float range, Callback callback, bool isForWalking = true, bool isTriggeredByPressKey = false)
+    {
+        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, range, 1.0f);
+        if (isTriggeredByPressKey)
+        {
+            colShape.SetData(ColShapeIsTriggeredByPressEKey,isTriggeredByPressKey);
+        }
+        colShape.SetData(ColShapeGetCallbackKey,callback);
+        colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
     public delegate void Callback(Player player);
 
     [ServerEvent(Event.PlayerEnterColshape)]
     public static void OnPlayerEnterColShape(ColShape colShape, Player player)
     {
-        bool allowInVehicle = colShape.HasData(ColshapeIsAllowInVehicleKey) ? colShape.GetData<bool>(ColshapeIsAllowInVehicleKey) : false;
+        bool isForWalking = colShape.HasData(ColshapeIsForWalkingKey) ? colShape.GetData<bool>(ColshapeIsForWalkingKey) : false;
+        if (colShape.HasData(ColShapeIsTriggeredByPressEKey))
+        {
+            player.SendNotify(NotifyType.Info, "Нажмите Е");
+            player.SetData(ActiveColshapePlayerKey, colShape);
+        }
         
         if (colShape.HasData(ColShapeCefPathKey))
         {
-            if (!allowInVehicle)
+            if (isForWalking)
             {
                 if(player.IsInVehicle)return;
+                player.ChangeCefWindow(colShape.GetData<string>(ColShapeCefPathKey));
             }
-            player.ChangeCefWindow(colShape.GetData<string>(ColShapeCefPathKey));
+            else
+            {
+                if(player.Vehicle == null)return;
+                player.ChangeCefWindow(colShape.GetData<string>(ColShapeCefPathKey));
+            }
         }
         if (colShape.HasData(ColShapeGetCallbackKey))
         {
-            if (!allowInVehicle)
+            if (isForWalking)
             {
                 if(player.IsInVehicle)return;
+                colShape.GetData<Callback>(ColShapeGetCallbackKey)(player);
             }
-            colShape.GetData<Callback>(ColShapeGetCallbackKey)(player);
+            else
+            {
+                if(player.Vehicle == null)return;
+                colShape.GetData<Callback>(ColShapeGetCallbackKey)(player);
+            }
+        }
+    }
+
+    [ServerEvent(Event.PlayerExitColshape)]
+    public static void OnPlayerExitColShape(ColShape colShape, Player player)
+    {
+        player.ResetData(ActiveColshapePlayerKey);
+    }
+
+    [RemoteEvent("CLIENT::SERVER:PRESS_E_IN_VEHICLE")]
+    public void OnPressEInVehicle(Player player)
+    {
+        if (player.HasData(ActiveColshapePlayerKey))
+        {
+            var colShape = player.GetData<ColShape>(ActiveColshapePlayerKey);
+            if (colShape.HasData(ColShapeCefPathKey))
+            {
+                if(player.Vehicle == null)return;
+                player.ChangeCefWindow(colShape.GetData<string>(ColShapeCefPathKey));
+            }
+            if (colShape.HasData(ColShapeGetCallbackKey))
+            {
+                if(player.Vehicle == null)return;
+                colShape.GetData<Callback>(ColShapeGetCallbackKey)(player);
+            }
         }
     }
     

@@ -1,0 +1,23 @@
+﻿[
+  {
+    "textLabel": "Магазин 24/7",
+    "position": {
+      "x": "25.660997",
+      "y": "-1345.5656",
+      "z": "29.497015"
+    },
+    "iconBlip": "52",
+    "colorBlip": "15",
+    "nameCefPath": "/market/1",
+    "isForWalking": "true"
+  },
+  {
+    "position": {
+      "x":-307.47076,
+      "y":-1470.2275,
+      "z":30.123451
+    },
+    "nameCefPath": "/gasstation/2",
+    "isForWalking": "false"
+  }
+]

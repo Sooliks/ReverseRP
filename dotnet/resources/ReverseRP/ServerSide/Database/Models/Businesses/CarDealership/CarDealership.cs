@@ -7,7 +7,6 @@ namespace ServerSide.Database.Models.CarDealership;
 
 public class CarDealership : BusinessBase
 {
-    public int CarDealershipId { get; set; }
     [NotMapped]
     public List<CarItem> CarItems
     {
@@ -20,9 +19,8 @@ public class CarDealership : BusinessBase
     {
         
     }
-    public CarDealership(int carDealershipId, int gosPrice, List<CarItem> carItems, Vector3 positionManagementBusiness) : base(gosPrice,positionManagementBusiness)
+    public CarDealership(int gosPrice, List<CarItem> carItems, Vector3 positionManagementBusiness) : base(gosPrice,positionManagementBusiness)
     {
         CarItems = carItems;
-        CarDealershipId = carDealershipId;
     }
 }
