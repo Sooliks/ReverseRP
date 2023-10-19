@@ -9,5 +9,8 @@ export namespace Data {
     export const vehicleTypes: any[] = [
 
     ]
+    export const itemTypes: any[] = [
+        
+    ]
 }
 
