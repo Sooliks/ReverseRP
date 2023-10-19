@@ -19,5 +19,17 @@
     },
     "nameCefPath": "/gasstation/2",
     "isForWalking": "false"
+  },
+  {
+    "textLabel": "Автосалон люкс",
+    "position": {
+      "x":-802.9197,
+      "y":-223.82439,
+      "z":37.220158
+    },
+    "iconBlip": "523",
+    "colorBlip": "62",
+    "nameCefPath": "/cardealership/3",
+    "isForWalking": "true"
   }
 ]

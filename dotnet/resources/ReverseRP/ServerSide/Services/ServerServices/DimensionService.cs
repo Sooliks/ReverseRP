@@ -7,10 +7,12 @@ namespace ServerSide.Services.ServerServices;
 
 public class DimensionService
 {
+    public static readonly uint MainDimension = 0;
+    
     public static void SetUniqueDimension(Entity entity)
     {
         var random = new Random();
-        uint newDimension = (uint)random.Next(0,int.MaxValue);
+        uint newDimension = (uint)random.Next(1,int.MaxValue);
         if (NAPI.Pools.GetAllVehicles().FirstOrDefault(v=>v.Dimension == newDimension)!=null)
         {
             SetUniqueDimension(entity);

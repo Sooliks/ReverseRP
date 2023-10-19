@@ -19,27 +19,30 @@ public class StartedCreateMarkers
             var markers = JsonConvert.DeserializeObject<List<MarkerModel>>(json);
             foreach (var marker in markers)
             {
-                if (marker.IsForWalking)
+                if (marker.NameCefPath.StartsWith("/cardealership"))
                 {
-                    InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
-                }
-                else
-                {
-                    if (marker.NameCefPath.StartsWith("/gasstation"))
+                    InputMarker.CreateDefaultInputMarkerWithFuncCallback(marker.TextLabel,marker.Position, marker.IconBlip, marker.ColorBlip,player =>
                     {
-                        InputMarker.CreateColShapeWithCallback(marker.Position, 5, (player) =>
-                        {
-                            if (player.Vehicle.EngineStatus)
-                            {
-                                player.SendNotify(NotifyType.Warning, "Заглушите двигатель");
-                            }
-                            else
-                            {
-                                player.ChangeCefWindow(marker.NameCefPath);
-                            }
-                        }, false, true);
-                    }
+                        player.ChangeCefWindow(marker.NameCefPath);
+                    });
+                    continue;
                 }
+                if (marker.NameCefPath.StartsWith("/gasstation"))
+                {
+                    InputMarker.CreateColShapeWithCallback(marker.Position, 5, player =>
+                    {
+                        if (player.Vehicle.EngineStatus)
+                        {
+                            player.SendNotify(NotifyType.Warning, "Заглушите двигатель");
+                        }
+                        else
+                        {
+                            player.ChangeCefWindow(marker.NameCefPath);
+                        }
+                    }, marker.IsForWalking, true);
+                    continue;
+                }
+                InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
             }
         }
         foreach (var business in BusinessHandler.GetAllBusinesses())
