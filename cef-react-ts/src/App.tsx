@@ -5,10 +5,20 @@ import Hud from "./components/hud/Hud";
 import AppRouter from "./AppRouter";
 import {Config} from "./conf";
 import {notification} from "antd";
+import {Client} from "./requests/Client";
+import {ServerData} from "./data/ServerData";
+
+
 
 
 
 const App = () => {
+    useEffect(()=>{
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetVehiclesTypes").then(data=>{
+            ServerData.vehiclesTypes = JSON.parse(data);
+        })
+    },[])
+
 
     return (
         <NavigationContextProvider>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using GTANetworkAPI;
 using GTANetworkMethods;
@@ -25,6 +26,7 @@ public class StartedCreateMarkers
                     InputMarker.CreateDefaultInputMarkerWithFuncCallback(marker.TextLabel,marker.Position, marker.IconBlip, marker.ColorBlip,player =>
                     {
                         player.ChangeCefWindow(marker.NameCefPath);
+                        
                     });
                     continue;
                 }

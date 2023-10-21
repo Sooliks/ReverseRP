@@ -5,6 +5,10 @@ import DefaultColorPalette from "../../ui/DefaultColorPalette";
 import ReverseColorPicker from "../../ui/ReverseColorPicker";
 import ReverseList from "../../ui/ReverseList";
 import {useParams} from "react-router-dom";
+import {Client} from "../../requests/Client";
+import {IncomingItemBusiness} from "../../types/businessesTypes";
+import {VehicleType} from "../../types/vehicleType";
+import {ServerData} from "../../data/ServerData";
 
 const {Title, Text} = Typography;
 
@@ -16,32 +20,37 @@ type CarDealershipParams = {
 const CarDealership: React.FC = () => {
     const params = useParams<CarDealershipParams>();
     type CarType = {
-        id: number
-        name: string
-        capacityTrunk: number
         price: number
-        countPassengers: number
-        value: string
+        VehicleType: VehicleType | undefined
     }
 
     const [currentCar,setCurrentCar] = useState<CarType>();
     const [cars,setCars] = useState<CarType[]>([])
+    const [listCars,setListCars] = useState<{name: string, value: string}[]>([])
 
     useEffect(()=>{
-        setCars([
-            {id: 0, name: 'BMW M8', capacityTrunk: 10, price: 1000000, countPassengers: 4, value: 'bmw m8'},
-            {id: 1, name: 'BMW M5 Competition', capacityTrunk: 20, price: 1200000, countPassengers: 2, value: 'bmw m5'},
-        ])
+        Client.triggerServer("CEF::SERVER:ON_OPEN_BUSINESS_WINDOW", params.id)
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", params.id).then(data=>{
+            const incomingItems: IncomingItemBusiness[] = JSON.parse(data);
+            let _cars: CarType[] = [];
+            incomingItems.map(incomingItem =>{
+                _cars.push({price: incomingItem.Price, VehicleType: ServerData.vehiclesTypes.find(v=>v.Id == incomingItem.ItemId)});
+            })
+            setCars(_cars);
+            _cars.map(car=>{
+                setListCars([...listCars, {name: car.VehicleType?.Mark!, value: car.VehicleType?.ModelHash!}])
+            })
+        })
     },[])
 
-    const handleClickSetCurrentCar = (name: string, value: string) => {
-        const index: number = cars.findIndex(c=>c.name === name);
+    const handleClickSetCurrentCar = (value: string) => {
+        const index: number = cars.findIndex(c=>c.VehicleType?.ModelHash === value);
         setCurrentCar(cars[index]);
     }
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'space-between'}}>
-            <ReverseList onClick={handleClickSetCurrentCar} data={cars}/>
+            <ReverseList onClick={handleClickSetCurrentCar} data={listCars}/>
             {currentCar &&
                 <Space direction={"vertical"}>
                     <ReverseColorPicker width={300} onPickColor={()=>{}}/>
@@ -54,11 +63,11 @@ const CarDealership: React.FC = () => {
                             </Space>
                             <Space>
                                 <Text type={"secondary"}>Кол-во посадочных мест:</Text>
-                                <Text>{currentCar.countPassengers}</Text>
+                                <Text>{currentCar.VehicleType?.CountPassengersCapacity}</Text>
                             </Space>
                             <Space>
                                 <Text type={"secondary"}>Вместимость багажника:</Text>
-                                <Text>{currentCar.capacityTrunk + ' кг'}</Text>
+                                <Text>{currentCar.VehicleType?.BaggageHoldCapacity + ' кг'}</Text>
                             </Space>
                         </Space>
                         <Divider/>

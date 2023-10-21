@@ -54,7 +54,7 @@ const GasStation: React.FC = () => {
                 <div style={{width: '50vw', height: '50vh'}}>
                     <div style={{display: 'flex', justifyContent: 'space-around', flexDirection: 'row'}}>
                         {gasProperties.map(gas=>
-                            <Button autoFocus={currentGas === gas} onClick={()=>setCurrentGas(gas)} style={{height: 150, width: 145, fontSize: '15px'}}>{gas.typeGas + ' '+ gas.price + (gas.typeGas === 'Electric' ? '$/кв' : '$/л')}</Button>
+                            <Button type={"primary"} autoFocus={currentGas === gas} onClick={()=>setCurrentGas(gas)} style={{height: 150, width: 145, fontSize: '15px'}}>{gas.typeGas + ' '+ gas.price + (gas.typeGas === 'Electric' ? '$/кв' : '$/л')}</Button>
                         )}
                     </div>
                     <Divider type={"horizontal"}/>
