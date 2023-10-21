@@ -27,8 +27,4 @@
       <PackageReference Include="NLog" Version="5.2.3" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="EventsHandlers\PlayerEvents\" />
-    </ItemGroup>
-
 </Project>

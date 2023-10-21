@@ -8,6 +8,6 @@ public class VehiclesTypesData
 {
     public static readonly List<VehicleType> VehiclesDefault = new List<VehicleType>()
     {
-        new VehicleType("c63w205", "Merceder", "C63", 70, "Luxury", 50, 4.5f, GasType.Lux, 4)
+        new VehicleType("c63w205", "Mercedes", "C63", 70, "Luxury", 50, 4.5f, GasType.Lux, 4)
     };
 }

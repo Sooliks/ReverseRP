@@ -13,13 +13,14 @@ public class VehicleType
     public int BaggageHoldCapacity { get; set; }
     public float FuelConsumption { get; set; }
     public GasType GasType { get; set; }
+    public int CountPassengersCapacity { get; set; }
 
     public VehicleType()
     {
         
     }
 
-    public VehicleType(string modelHash, string mark, string model,int fuelTankCapacity, string _class, int baggageHoldCapacity, float fuelConsumption, GasType gasType)
+    public VehicleType(string modelHash, string mark, string model,int fuelTankCapacity, string _class, int baggageHoldCapacity, float fuelConsumption, GasType gasType, int countPassengersCapacity)
     {
         ModelHash = modelHash;
         Mark = mark;
@@ -29,5 +30,6 @@ public class VehicleType
         BaggageHoldCapacity = baggageHoldCapacity;
         FuelConsumption = fuelConsumption;
         GasType = gasType;
+        CountPassengersCapacity = countPassengersCapacity;
     }
 }

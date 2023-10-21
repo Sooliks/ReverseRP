@@ -34047,3 +34047,382 @@ MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'loca
    at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
    at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
    at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, b
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void MySql.Data.MySqlClient.MySqlConnection.Open()
+   at void Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(bool errorsExpected)
+   at void Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(bool errorsExpected)
+=========================================================
+
+==================[21.10.2023 21:22:17]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, b

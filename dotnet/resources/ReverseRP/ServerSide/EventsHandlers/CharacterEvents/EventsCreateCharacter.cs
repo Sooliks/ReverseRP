@@ -50,5 +50,6 @@ public class EventsCreateCharacter : Script
         player.ChangeCefWindow(CefWindowsPaths.Default);
         player.FreezePlayer(false);
         player.SetCameraOnPlayer(false);
+        player.SetAuthorized(true);
     }
 }

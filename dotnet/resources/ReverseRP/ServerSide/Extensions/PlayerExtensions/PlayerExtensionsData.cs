@@ -46,5 +46,20 @@ public static class PlayerExtensionsData
     }
     public static async Task<bool> IsAnimPlaying(this Player player,string animDict, string animName, int flag) =>
         (bool) await player.TriggerProcedure("RPC::SERVER::CLIENT:IsPlayerAnimPlaying", animDict, animName, flag);
+
+    public static bool IsAuthorized(this Player player)
+    {
+        if (player.HasData("authorized"))
+        {
+            return player.GetData<bool>("authorized");
+        }
+
+        return false;
+    }
+
+    public static void SetAuthorized(this Player player, bool isAuthorized)
+    {
+        player.SetData("authorized", isAuthorized);
+    }
     
 }

@@ -38,7 +38,7 @@ const CarDealership: React.FC = () => {
             })
             setCars(_cars);
             _cars.map(car=>{
-                setListCars([...listCars, {name: car.VehicleType?.Mark!, value: car.VehicleType?.ModelHash!}])
+                setListCars([...listCars, {name: car.VehicleType?.Mark! + " " + car.VehicleType?.Model, value: car.VehicleType?.ModelHash!}])
             })
         })
     },[])
