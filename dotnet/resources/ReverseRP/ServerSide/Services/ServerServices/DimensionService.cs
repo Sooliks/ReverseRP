@@ -13,10 +13,21 @@ public class DimensionService
     {
         var random = new Random();
         uint newDimension = (uint)random.Next(1,int.MaxValue);
-        if (NAPI.Pools.GetAllVehicles().FirstOrDefault(v=>v.Dimension == newDimension)!=null)
+        if (entity is Vehicle)
         {
-            SetUniqueDimension(entity);
-            return;
+            if (NAPI.Pools.GetAllVehicles().FirstOrDefault(v=>v.Dimension == newDimension)!=null)
+            {
+                SetUniqueDimension(entity);
+                return;
+            }
+        }
+        if (entity is Player)
+        {
+            if (NAPI.Pools.GetAllPlayers().FirstOrDefault(v=>v.Dimension == newDimension)!=null)
+            {
+                SetUniqueDimension(entity);
+                return;
+            }
         }
         entity.Dimension = newDimension;
     }

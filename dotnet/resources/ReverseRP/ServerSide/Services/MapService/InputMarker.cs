@@ -142,6 +142,7 @@ public class InputMarker : Script
             else
             {
                 if(player.Vehicle == null)return;
+                if(player.VehicleSeat != (int)VehicleSeat.Driver)return;
                 player.SendNotify(NotifyType.Info, "Нажмите Е");
             }
             player.SetData(ActiveColshapePlayerKey, colShape);

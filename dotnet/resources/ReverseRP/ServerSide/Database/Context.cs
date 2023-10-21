@@ -32,7 +32,7 @@ public class Context : DbContext
             Console.WriteLine("DB CREATED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             using Context db = new Context();
             db.BusinessesBase.AddRange(BusinessesData.BusinessesDefault);
-            db.ItemsTypes.AddRange(ItemsTypesData.ItemTypesDefault);
+            db.ItemsTypes.AddRange(ItemsTypesData.ItemsMarket);
             db.SaveChanges();
         }
     }

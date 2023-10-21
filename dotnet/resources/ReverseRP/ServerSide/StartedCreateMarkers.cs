@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using GTANetworkAPI;
 using GTANetworkMethods;
 using Newtonsoft.Json;
 using ServerSide.Database.Handlers;
@@ -34,11 +35,10 @@ public class StartedCreateMarkers
                         if (player.Vehicle.EngineStatus)
                         {
                             player.SendNotify(NotifyType.Warning, "Заглушите двигатель");
+                            return;
                         }
-                        else
-                        {
-                            player.ChangeCefWindow(marker.NameCefPath);
-                        }
+                        player.ChangeCefWindow(marker.NameCefPath);
+                        
                     }, marker.IsForWalking, true);
                     continue;
                 }
