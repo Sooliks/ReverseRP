@@ -14,4 +14,5 @@ public static class PlayerExtensions
     public static void FreezePlayer(this Player player,bool toggle) => player.TriggerEvent("SERVER::CLIENT::FREEZE_PLAYER",toggle);
     public static void SetCamera(this Player player, Vector3 positionCamera, Vector3 pointCamAtCoord, bool active) => player.TriggerEvent("SERVER:CLIENT::SET_GENERAL_CAMERA", positionCamera, pointCamAtCoord, active);
     public static void SetCameraOnPlayer(this Player player, bool toggle) => PlayerCameraService.SetCameraOnPlayer(player, toggle);
+    public static void DestroyMainCamera(this Player player) => PlayerCameraService.SetCameraOnPlayer(player, false);
 }

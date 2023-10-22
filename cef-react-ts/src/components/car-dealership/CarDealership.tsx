@@ -34,12 +34,15 @@ const CarDealership: React.FC = () => {
             const incomingItems: IncomingItemBusiness[] = JSON.parse(data);
             let _cars: CarType[] = [];
             incomingItems.map(incomingItem =>{
-                _cars.push({price: incomingItem.Price, VehicleType: ServerData.vehiclesTypes.find(v=>v.Id === incomingItem.ItemId)});
+                _cars = [..._cars,{price: incomingItem.Price, VehicleType: ServerData.vehiclesTypes.find(v=>v.Id === incomingItem.ItemId)}];
             })
-            setCars(_cars);
+            setCars(_cars)
+
+            let _listCars: {name: string, value: string}[] = [];
             _cars.map(car=>{
-                setListCars(l=> [...l, {name: car.VehicleType?.Mark! + " " + car.VehicleType?.Model, value: car.VehicleType?.ModelHash!}])
+                _listCars =  [..._listCars, {name: car.VehicleType?.Mark! + " " + car.VehicleType?.Model, value: car.VehicleType?.ModelHash!}]
             })
+            setListCars(_listCars);
         })
     },[])
 
@@ -48,10 +51,15 @@ const CarDealership: React.FC = () => {
         setCurrentCar(car)
         Client.triggerServer("CEF::SERVER:SELECT_CAR_IN_CARDEALERSHIP", Number(params.id), value);
     }
+    const handleClickClose = () =>{
+        Client.closeWindow();
+        
+    }
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'space-between'}}>
             <ReverseList onClick={handleClickSetCurrentCar} data={listCars}/>
+            <Button type={"primary"} size={"large"} style={{marginTop: '80vh', width: '12vw'}}>Выйти</Button>
             {currentCar &&
                 <Space direction={"vertical"}>
                     <ReverseColorPicker width={300} onPickColor={()=>{}}/>

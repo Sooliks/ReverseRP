@@ -21,17 +21,17 @@ public class InputMarker : Script
     /// <param name="iconBlip"></param>
     /// <param name="colorBlip"></param>
     /// <param name="nameCefPath"></param>
-    public static void CreateDefaultInputMarkerWithOpenCefPath(string textLabel, Vector3 pos, int iconBlip, byte colorBlip, string nameCefPath, bool isForWalking = true)
+    public static void CreateDefaultInputMarkerWithOpenCefPath(string textLabel, Vector3 pos, int iconBlip, byte colorBlip, string nameCefPath, bool isForWalking = true, uint dimension = 0)
     {
         float posX = pos.X;
         float posY = pos.Y;
         float posZ = pos.Z;
-        NAPI.TextLabel.CreateTextLabel(textLabel, new Vector3(posX, posY, posZ + 0.8f), 20.0f, 0.75f, 4, new Color(255, 255, 255));//Основной тект
-        NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255));//Маркер
-        Blip blip = NAPI.Blip.CreateBlip(iconBlip, new Vector3(posX, posY, posZ), 1.0f, colorBlip);//Блип
+        NAPI.TextLabel.CreateTextLabel(textLabel, new Vector3(posX, posY, posZ + 0.8f), 20.0f, 0.75f, 4, new Color(255, 255, 255), dimension:dimension);//Основной тект
+        NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255), dimension:dimension);//Маркер
+        Blip blip = NAPI.Blip.CreateBlip(iconBlip, new Vector3(posX, posY, posZ), 1.0f, colorBlip, dimension:dimension);//Блип
         NAPI.Blip.SetBlipName(blip, textLabel);//Установка имени блипу
         NAPI.Blip.SetBlipShortRange(blip, true); //Установка видимости блипу
-        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f);
+        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f, dimension:dimension);
         colShape.SetData(ColShapeCefPathKey,nameCefPath);
         colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
@@ -44,14 +44,14 @@ public class InputMarker : Script
     /// <param name="iconBlip"></param>
     /// <param name="colorBlip"></param>
     /// <param name="nameCefPath"></param>
-    public static void CreateInputMarkerWithOpenCefPathWithoutBlip(string textLabel, Vector3 pos, string nameCefPath, bool isForWalking = true)
+    public static void CreateInputMarkerWithOpenCefPathWithoutBlip(string textLabel, Vector3 pos, string nameCefPath, bool isForWalking = true, uint dimension = 0)
     {
         float posX = pos.X;
         float posY = pos.Y;
         float posZ = pos.Z;
-        NAPI.TextLabel.CreateTextLabel(textLabel, new Vector3(posX, posY, posZ + 0.8f), 20.0f, 0.75f, 4, new Color(255, 255, 255));//Основной тект
-        NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255));//Маркер
-        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f);
+        NAPI.TextLabel.CreateTextLabel(textLabel, new Vector3(posX, posY, posZ + 0.8f), 20.0f, 0.75f, 4, new Color(255, 255, 255), dimension:dimension);//Основной тект
+        NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255), dimension:dimension);//Маркер
+        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f, dimension:dimension);
         colShape.SetData(ColShapeCefPathKey,nameCefPath);
         colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
@@ -63,17 +63,17 @@ public class InputMarker : Script
     /// <param name="iconBlip"></param>
     /// <param name="colorBlip"></param>
     /// <param name="nameCefPath"></param>
-    public static void CreateDefaultInputMarkerWithFuncCallback(string textLabel, Vector3 pos, int iconBlip, byte colorBlip, Callback callback, bool isForWalking = true)
+    public static void CreateDefaultInputMarkerWithFuncCallback(string textLabel, Vector3 pos, int iconBlip, byte colorBlip, Callback callback, bool isForWalking = true, uint dimension = 0)
     {
         float posX = pos.X;
         float posY = pos.Y;
         float posZ = pos.Z;
-        NAPI.TextLabel.CreateTextLabel(textLabel, new Vector3(posX, posY, posZ + 0.8f), 20.0f, 0.75f, 4, new Color(255, 255, 255));//Основной тект
-        NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255));//Маркер
-        Blip blip = NAPI.Blip.CreateBlip(iconBlip, new Vector3(posX, posY, posZ), 1.0f, colorBlip);//Блип
+        NAPI.TextLabel.CreateTextLabel(textLabel, new Vector3(posX, posY, posZ + 0.8f), 20.0f, 0.75f, 4, new Color(255, 255, 255), dimension:dimension);//Основной тект
+        NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255), dimension:dimension);//Маркер
+        Blip blip = NAPI.Blip.CreateBlip(iconBlip, new Vector3(posX, posY, posZ), 1.0f, colorBlip, dimension:dimension);//Блип
         NAPI.Blip.SetBlipName(blip, textLabel);//Установка имени блипу
         NAPI.Blip.SetBlipShortRange(blip, true); //Установка видимости блипу
-        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f);
+        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f, dimension:dimension);
         colShape.SetData(ColShapeGetCallbackKey,callback);
         colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
@@ -85,14 +85,14 @@ public class InputMarker : Script
     /// <param name="iconBlip"></param>
     /// <param name="colorBlip"></param>
     /// <param name="nameCefPath"></param>
-    public static void CreateDefaultInputMarkerWithFuncCallbackWithoutBlip(string textLabel, Vector3 pos, Callback callback, bool isForWalking = true)
+    public static void CreateDefaultInputMarkerWithFuncCallbackWithoutBlip(string textLabel, Vector3 pos, Callback callback, bool isForWalking = true, uint dimension = 0)
     {
         float posX = pos.X;
         float posY = pos.Y;
         float posZ = pos.Z;
-        NAPI.TextLabel.CreateTextLabel(textLabel, new Vector3(posX, posY, posZ + 0.8f), 20.0f, 0.75f, 4, new Color(255, 255, 255));//Основной тект
-        NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255));//Маркер
-        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f);
+        NAPI.TextLabel.CreateTextLabel(textLabel, new Vector3(posX, posY, posZ + 0.8f), 20.0f, 0.75f, 4, new Color(255, 255, 255), dimension:dimension);//Основной тект
+        NAPI.Marker.CreateMarker(MarkerType.VerticalCylinder, new Vector3(posX, posY, posZ - 1), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255), dimension:dimension);//Маркер
+        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, 1.0f, 1.0f, dimension:dimension);
         colShape.SetData(ColShapeGetCallbackKey,callback);
         colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
@@ -103,9 +103,9 @@ public class InputMarker : Script
     /// <param name="range">радиус колшейпа</param>
     /// <param name="nameCefPath">сefPath for open</param>
     /// <param name="isForWalking">для ходьбы на колшейп либо для машины</param>
-    public static void CreateColShapeWithOpenCefPath(Vector3 pos, float range, string nameCefPath, bool isForWalking = true)
+    public static void CreateColShapeWithOpenCefPath(Vector3 pos, float range, string nameCefPath, bool isForWalking = true, uint dimension = 0)
     {
-        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, range, 1.0f);
+        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, range, 1.0f, dimension:dimension);
         colShape.SetData(ColShapeCefPathKey,nameCefPath);
         colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
@@ -116,9 +116,9 @@ public class InputMarker : Script
     /// <param name="range">радиус колшейпа</param>
     /// <param name="callback">функция обратного вызова при срабатывании колшейпа</param>
     /// <param name="isForWalking">для ходьбы на колшейп либо для машины</param>
-    public static void CreateColShapeWithCallback(Vector3 pos, float range, Callback callback, bool isForWalking = true, bool isTriggeredByPressKey = false)
+    public static void CreateColShapeWithCallback(Vector3 pos, float range, Callback callback, bool isForWalking = true, bool isTriggeredByPressKey = false, uint dimension = 0)
     {
-        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, range, 1.0f);
+        var colShape = NAPI.ColShape.CreateCylinderColShape(pos, range, 1.0f, dimension:dimension);
         if (isTriggeredByPressKey)
         {
             colShape.SetData(ColShapeIsTriggeredByPressEKey,isTriggeredByPressKey);

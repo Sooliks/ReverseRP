@@ -19,6 +19,7 @@ public class ItemsDefaultForBusinesses
     };
     public static readonly List<ItemBusiness> DefaultItemsCarDealerShipLuxury = new List<ItemBusiness>()
     {
-        new ItemBusiness(1, 10,2000000)
+        new ItemBusiness(1, 10,2000000),
+        new ItemBusiness(2, 10,2100000)
     };
 }
