@@ -59,4 +59,17 @@ public class AdminCommands : Script
             player.SendChatMessage("~r~Эта команда не доступна");
         }
     }
+    [Command("fixcar","/fix", Alias = "fix")]
+    public async Task OnFixCar(Player player)
+    {
+        if (player.IsHaveAdminRank(AdminLevels.SeniorHelper))
+        {
+            if(player.Vehicle == null)return;
+            player.Vehicle.Repair();
+        }
+        else
+        {
+            player.SendChatMessage("~r~Эта команда не доступна");
+        }
+    }
 }

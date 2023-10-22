@@ -2,8 +2,10 @@
 using RAGE.Ui;
 using System.Collections.Generic;
 using ClientSide.Enums;
+using ClientSide.Services;
 using RAGE.Elements;
 using RAGE.Game;
+using RAGE.NUI;
 using Player = RAGE.Elements.Player;
 using Utils = ClientSide.Services.Utils;
 
@@ -30,16 +32,20 @@ namespace ClientSide.EventsHandlers.PlayerEvents
                     NoClipIsEnabled = !NoClipIsEnabled;
                     Player.LocalPlayer.FreezePosition(false);
                     Utils.NotifyPlayer(NotifyType.Info,"Noclip выключен");
+                    Player.LocalPlayer.SetVisible(true,false);
                     return;
                 }
+                if(Player.LocalPlayer.Vehicle!=null)return;
+                
+
                 bool isAcceptedNoClip = (bool) await Events.CallRemoteProc("RPC::CLIENT::SERVER:EnableNoClip");
                 if (isAcceptedNoClip)
                 {
+                    Speed = 0.5f;
                     NoClipIsEnabled = true;
                     Utils.NotifyPlayer(NotifyType.Info,"Noclip включен");
-                    Camera = new Camera((ushort)Cam.CreateCameraWithParams(Misc.GetHashKey("DEFAULT_SCRIPTED_CAMERA"), Player.LocalPlayer.Position.X, Player.LocalPlayer.Position.Y, Player.LocalPlayer.Position.Z, Player.LocalPlayer.GetRotationVelocity().X, Player.LocalPlayer.GetRotationVelocity().Y, Player.LocalPlayer.GetRotationVelocity().Z, 70.0f, false, 2), 0);
-                    Cam.SetCamActive(Camera.Id, true);
-                    Cam.RenderScriptCams(true, false, 0,true, false, 0);
+                    Player.LocalPlayer.FreezePosition(true);
+                    Player.LocalPlayer.SetVisible(false,false);
                 }
             });
             Input.Bind(VirtualKeys.W, true, async () => KeyWIsHolding = true);
@@ -56,13 +62,13 @@ namespace ClientSide.EventsHandlers.PlayerEvents
             
             Input.Bind(VirtualKeys.Up, true, async () =>
             {
-                if(Speed==5.0f)return;
-                Speed += 0.1f;
+                if(Speed>=10.0f)return;
+                Speed += 0.08f;
             });
             Input.Bind(VirtualKeys.Down, true, async () =>
             {
-                if(Speed==0.1f)return;
-                Speed -= 0.1f;
+                if(Speed<=0.1f)return;
+                Speed -= 0.08f;
             });
         }
 
@@ -70,19 +76,19 @@ namespace ClientSide.EventsHandlers.PlayerEvents
         {
             if (NoClipIsEnabled)
             {
-                Player.LocalPlayer.FreezePosition(true);
-                var position = RAGE.Elements.Player.LocalPlayer.Position;
                 if (KeyShiftIsHolding)
                 {
-                    Camera.Position = new Vector3(position.X, position.Y, position.Z += Speed);
+                    Player.LocalPlayer.Position = new Vector3(Player.LocalPlayer.Position.X, Player.LocalPlayer.Position.Y, Player.LocalPlayer.Position.Z += Speed);
                 }
                 if (KeyCtrlIsHolding)
                 {
-                    Camera.Position = new Vector3(position.X, position.Y, position.Z -= Speed);
+                    Player.LocalPlayer.Position = new Vector3(Player.LocalPlayer.Position.X, Player.LocalPlayer.Position.Y, Player.LocalPlayer.Position.Z -= Speed);
                 }
                 if (KeyWIsHolding)
                 {
-                    Camera.Position = new Vector3(position.X+=Speed, position.Y+=Speed, position.Z);
+                    var posLookAt = Direction.GetDirection(Player.LocalPlayer.Position, Cam.GetGameplayCamRot(0), Speed);
+                    Player.LocalPlayer.Position = new Vector3(posLookAt.X, posLookAt.Y, posLookAt.Z);
+                    
                 }
             }
         }
