@@ -6,6 +6,7 @@ public class Vehicle
     public VehicleType VehicleType { get; set; }
     public float FuelTank { get; set; }
     public float Mileage { get; set; }
+    public Character? Character { get; set; }
 
     public Vehicle()
     {

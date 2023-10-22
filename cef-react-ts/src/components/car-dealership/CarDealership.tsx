@@ -27,6 +27,7 @@ const CarDealership: React.FC = () => {
     const [currentCar,setCurrentCar] = useState<CarType>();
     const [cars,setCars] = useState<CarType[]>([])
     const [listCars,setListCars] = useState<{name: string, value: string}[]>([])
+    const [currentColor,setCurrentColor] = useState<{index: number, hexColor: string | undefined}>();
 
     useEffect(()=>{
         Client.callProcServer<string>("RPC::CEF::SERVER:GetVehiclesTypes").then(data=>{
@@ -57,6 +58,14 @@ const CarDealership: React.FC = () => {
         Client.closeWindow();
         Client.triggerServer("CEF::SERVER:ON_EXIT_CARDEALERSHIP");
     }
+    const handleClickBuy = () => {
+        Client.triggerServer("CEF::SERVER:ON_BUY_CAR", Number(params.id), currentCar!.VehicleType!.Id, currentColor?.hexColor);
+    }
+
+    const handleClickPickColor = (index: number, hexColor?: string) => {
+        setCurrentColor({index: index, hexColor: hexColor})
+        Client.triggerServer("CEF::SERVER:ON_PICK_COLOR_CARDEALEARSHIP", hexColor);
+    }
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'space-between'}}>
@@ -64,7 +73,7 @@ const CarDealership: React.FC = () => {
             <Button type={"primary"} size={"large"} style={{marginTop: '80vh', width: '12vw'}} onClick={handleClickClose}>Выйти</Button>
             {currentCar &&
                 <Space direction={"vertical"}>
-                    <ReverseColorPicker width={300} onPickColor={()=>{}}/>
+                    <ReverseColorPicker width={300} onPickColor={handleClickPickColor}/>
                     <Card style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
                         <Space direction={"vertical"} style={{width: 300}}>
                             <Title level={4}>Характеристики</Title>
@@ -83,7 +92,7 @@ const CarDealership: React.FC = () => {
                         </Space>
                         <Divider/>
                         <Space style={{justifyContent: 'space-between', width: '100%'}}>
-                            <Button type={"primary"}>Купить</Button>
+                            <Button type={"primary"} onClick={handleClickBuy}>Купить</Button>
                             <Button>Тест драйв</Button>
                         </Space>
                     </Card>

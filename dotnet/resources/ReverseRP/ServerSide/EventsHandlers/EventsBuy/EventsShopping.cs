@@ -6,6 +6,8 @@ using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
 using ServerSide.Enums;
 using ServerSide.Extensions;
+using ServerSide.Services;
+using ServerSide.Services.MapService;
 
 
 namespace ServerSide.EventsHandlers.EventsBuy;
@@ -58,6 +60,41 @@ public class EventsShopping : Script
             {
                 //TODO сделать заправку здесь
             }
+        }
+    }
+
+    [RemoteEvent("CEF::SERVER:ON_BUY_CAR")]
+    public void OnBuyCar(Player player, int businessId, int idItem, string hexColor)
+    {
+        if(!player.IsAuthorized())return;
+        var business = BusinessHandler.GetBusinessById(businessId);
+        var item = business.Items.FirstOrDefault(i => i.ItemId == idItem);
+        if (item.Count < 1)
+        {
+            player.SendNotify(NotifyType.Warning, "Эти машины закончились");
+            return;
+        }
+        if (player.MinusMoney(item.Price))
+        {
+            var vehicleType = VehicleTypeHandler.GetVehicleTypeById(item.ItemId);
+            uint vehHash = NAPI.Util.GetHashKey(vehicleType.ModelHash);
+            var veh = NAPI.Vehicle.CreateVehicle(vehHash, new Vector3(-808.8914,-227.92992,36.73519), 30.815432f, 0 ,0);
+            var color = System.Drawing.ColorTranslator.FromHtml(hexColor);
+            veh.CustomPrimaryColor = new Color(color.R, color.G,color.B);
+            veh.CustomSecondaryColor = new Color(color.R, color.G,color.B);
+            veh.NumberPlate = "";
+            veh.Locked = true;
+            veh.EngineStatus = false;
+            VehicleHandler.AddNewVehicle(player.GetCharacter(), vehicleType);
+            if (business.OwnerCharacterId != 0)
+            {
+                BusinessHandler.RemoveItem(item, business);
+                BusinessHandler.AddMoneyInBank(item.Price, business.Id);
+            }
+            StatisticBusinessHandler.AddBuyProduct(business);
+            InteriorService.ExitSoloInterior(player);
+            player.SetIntoVehicle(veh, 0);
+            player.ChangeCefWindow(CefWindowsPaths.Default);
         }
     }
 }

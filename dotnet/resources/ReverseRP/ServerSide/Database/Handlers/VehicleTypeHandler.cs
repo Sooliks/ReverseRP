@@ -11,4 +11,10 @@ public class VehicleTypeHandler
         using Context db = new Context();
         return db.VehicleTypes.ToList();
     }
+
+    public static VehicleType GetVehicleTypeById(int id)
+    {
+        using Context db = new Context();
+        return db.VehicleTypes.FirstOrDefault(v => v.Id == id);
+    }
 }

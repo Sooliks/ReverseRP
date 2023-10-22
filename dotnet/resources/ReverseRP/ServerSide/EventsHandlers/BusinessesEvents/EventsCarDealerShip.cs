@@ -1,5 +1,6 @@
 ﻿using GTANetworkAPI;
 using ServerSide.Extensions;
+using ServerSide.Services.MapService;
 using ServerSide.Services.ServerServices;
 
 namespace ServerSide.EventsHandlers.BusinessesEvents;
@@ -29,12 +30,18 @@ public class EventsCarDealerShip : Script
     [RemoteEvent("CEF::SERVER:ON_EXIT_CARDEALERSHIP")]
     public void OnExitCarDealerShip(Player player)
     {
-        player.DestroyMainCamera();
-        player.Dimension = DimensionService.MainDimension;
-        player.SetPlayerIsExitInterior(true);
-        NAPI.Task.Run(() =>
+        InteriorService.ExitSoloInterior(player);
+    }
+
+    [RemoteEvent("CEF::SERVER:ON_PICK_COLOR_CARDEALEARSHIP")]
+    public void OnPickColorCarDealerShip(Player player, string hexColor)
+    {
+        if (player.HasData(ActiveViewCarKey))
         {
-            player.SetPlayerIsExitInterior(false);
-        },2000);
+            var activeVeh = player.GetData<Vehicle>(ActiveViewCarKey);
+            var color = System.Drawing.ColorTranslator.FromHtml(hexColor);
+            activeVeh.CustomPrimaryColor = new Color(color.R, color.G,color.B);
+            activeVeh.CustomSecondaryColor = new Color(color.R, color.G,color.B);
+        }
     }
 }
