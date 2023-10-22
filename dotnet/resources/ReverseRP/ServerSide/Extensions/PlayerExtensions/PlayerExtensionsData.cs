@@ -61,5 +61,18 @@ public static class PlayerExtensionsData
     {
         player.SetData("authorized", isAuthorized);
     }
-    
+
+    public static void SetPlayerIsExitInterior(this Player player, bool toggle)
+    {
+        player.SetData("exitinterior", toggle);
+    }
+    public static bool IsExitInterior(this Player player)
+    {
+        if (player.HasData("exitinterior"))
+        {
+            return player.GetData<bool>("exitinterior");
+        }
+
+        return false;
+    }
 }

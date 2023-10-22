@@ -27,9 +27,14 @@ public class EventsCarDealerShip : Script
     }
 
     [RemoteEvent("CEF::SERVER:ON_EXIT_CARDEALERSHIP")]
-    public void OnExitCarDealerShip(Player player, int businessId)
+    public void OnExitCarDealerShip(Player player)
     {
         player.DestroyMainCamera();
         player.Dimension = DimensionService.MainDimension;
+        player.SetPlayerIsExitInterior(true);
+        NAPI.Task.Run(() =>
+        {
+            player.SetPlayerIsExitInterior(false);
+        },2000);
     }
 }

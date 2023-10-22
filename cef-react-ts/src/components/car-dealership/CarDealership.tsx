@@ -29,6 +29,9 @@ const CarDealership: React.FC = () => {
     const [listCars,setListCars] = useState<{name: string, value: string}[]>([])
 
     useEffect(()=>{
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetVehiclesTypes").then(data=>{
+            ServerData.vehiclesTypes = JSON.parse(data);
+        })
         Client.triggerServer("CEF::SERVER:ON_OPEN_BUSINESS_WINDOW", params.id)
         Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", params.id).then(data=>{
             const incomingItems: IncomingItemBusiness[] = JSON.parse(data);
@@ -37,10 +40,9 @@ const CarDealership: React.FC = () => {
                 _cars = [..._cars,{price: incomingItem.Price, VehicleType: ServerData.vehiclesTypes.find(v=>v.Id === incomingItem.ItemId)}];
             })
             setCars(_cars)
-
             let _listCars: {name: string, value: string}[] = [];
             _cars.map(car=>{
-                _listCars =  [..._listCars, {name: car.VehicleType?.Mark! + " " + car.VehicleType?.Model, value: car.VehicleType?.ModelHash!}]
+                _listCars =  [..._listCars, {name: car.VehicleType!.Mark + " " + car.VehicleType!.Model, value: car.VehicleType!.ModelHash!}]
             })
             setListCars(_listCars);
         })
@@ -53,13 +55,13 @@ const CarDealership: React.FC = () => {
     }
     const handleClickClose = () =>{
         Client.closeWindow();
-        
+        Client.triggerServer("CEF::SERVER:ON_EXIT_CARDEALERSHIP");
     }
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'space-between'}}>
             <ReverseList onClick={handleClickSetCurrentCar} data={listCars}/>
-            <Button type={"primary"} size={"large"} style={{marginTop: '80vh', width: '12vw'}}>Выйти</Button>
+            <Button type={"primary"} size={"large"} style={{marginTop: '80vh', width: '12vw'}} onClick={handleClickClose}>Выйти</Button>
             {currentCar &&
                 <Space direction={"vertical"}>
                     <ReverseColorPicker width={300} onPickColor={()=>{}}/>

@@ -27,9 +27,10 @@ public class StartedCreateMarkers
                 {
                     InputMarker.CreateDefaultInputMarkerWithFuncCallback(marker.TextLabel,marker.Position, marker.IconBlip, marker.ColorBlip,player =>
                     {
+                        if(player.IsExitInterior())return;
                         player.ChangeCefWindow(marker.NameCefPath);
                         DimensionService.SetUniqueDimension(player);
-                        player.SetCamera(new Vector3(-789.714f,-242.11792f,37.734104f), new Vector3(-790.37256f,-236.32191f,37.35478f), true);
+                        player.SetCamera(new Vector3(-789.714f,-242.11792f,37.734104f+2f), new Vector3(-790.37256f,-236.32191f,37.35478f), true);
                     });
                     continue;
                 }
