@@ -8,6 +8,7 @@ using ServerSide.Database.Handlers;
 using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Services.MapService;
+using ServerSide.Services.ServerServices;
 
 namespace ServerSide;
 
@@ -26,7 +27,8 @@ public class StartedCreateMarkers
                     InputMarker.CreateDefaultInputMarkerWithFuncCallback(marker.TextLabel,marker.Position, marker.IconBlip, marker.ColorBlip,player =>
                     {
                         player.ChangeCefWindow(marker.NameCefPath);
-                        
+                        DimensionService.SetUniqueDimension(player);
+                        player.SetCamera(new Vector3(-789.714f,-242.11792f,37.734104f), new Vector3(-790.37256f,-236.32191f,37.35478f), true);
                     });
                     continue;
                 }

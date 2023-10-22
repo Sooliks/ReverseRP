@@ -34,18 +34,19 @@ const CarDealership: React.FC = () => {
             const incomingItems: IncomingItemBusiness[] = JSON.parse(data);
             let _cars: CarType[] = [];
             incomingItems.map(incomingItem =>{
-                _cars.push({price: incomingItem.Price, VehicleType: ServerData.vehiclesTypes.find(v=>v.Id == incomingItem.ItemId)});
+                _cars.push({price: incomingItem.Price, VehicleType: ServerData.vehiclesTypes.find(v=>v.Id === incomingItem.ItemId)});
             })
             setCars(_cars);
             _cars.map(car=>{
-                setListCars([...listCars, {name: car.VehicleType?.Mark! + " " + car.VehicleType?.Model, value: car.VehicleType?.ModelHash!}])
+                setListCars(l=> [...l, {name: car.VehicleType?.Mark! + " " + car.VehicleType?.Model, value: car.VehicleType?.ModelHash!}])
             })
         })
     },[])
 
-    const handleClickSetCurrentCar = (value: string) => {
-        const index: number = cars.findIndex(c=>c.VehicleType?.ModelHash === value);
-        setCurrentCar(cars[index]);
+    const handleClickSetCurrentCar = (name: string,value: string) => {
+        const car: CarType = cars.find(c=>c.VehicleType?.ModelHash === value)!;
+        setCurrentCar(car)
+        Client.triggerServer("CEF::SERVER:SELECT_CAR_IN_CARDEALERSHIP", Number(params.id), value);
     }
 
     return (

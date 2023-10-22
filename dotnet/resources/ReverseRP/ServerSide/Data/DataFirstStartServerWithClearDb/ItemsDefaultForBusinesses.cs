@@ -17,4 +17,8 @@ public class ItemsDefaultForBusinesses
        new ItemBusiness((int)GasType.Lux, 1000, 60),
        new ItemBusiness((int)GasType.Electric, 1000, 27),
     };
+    public static readonly List<ItemBusiness> DefaultItemsCarDealerShipLuxury = new List<ItemBusiness>()
+    {
+        new ItemBusiness(1, 10,2000000)
+    };
 }

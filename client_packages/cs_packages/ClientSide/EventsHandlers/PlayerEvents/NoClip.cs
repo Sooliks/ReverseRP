@@ -1,6 +1,7 @@
 ﻿using RAGE;
 using RAGE.Ui;
 using System.Collections.Generic;
+using ClientSide.CEF;
 using ClientSide.Enums;
 using ClientSide.Services;
 using RAGE.Elements;
@@ -36,8 +37,7 @@ namespace ClientSide.EventsHandlers.PlayerEvents
                     return;
                 }
                 if(Player.LocalPlayer.Vehicle!=null)return;
-                
-
+                if(CefService.IsOpenAnyCefPath())return;
                 bool isAcceptedNoClip = (bool) await Events.CallRemoteProc("RPC::CLIENT::SERVER:EnableNoClip");
                 if (isAcceptedNoClip)
                 {
@@ -46,6 +46,7 @@ namespace ClientSide.EventsHandlers.PlayerEvents
                     Utils.NotifyPlayer(NotifyType.Info,"Noclip включен");
                     Player.LocalPlayer.FreezePosition(true);
                     Player.LocalPlayer.SetVisible(false,false);
+                    
                 }
             });
             Input.Bind(VirtualKeys.W, true, async () => KeyWIsHolding = true);

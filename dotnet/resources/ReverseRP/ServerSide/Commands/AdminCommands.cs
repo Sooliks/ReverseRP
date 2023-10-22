@@ -19,20 +19,20 @@ public class AdminCommands : Script
                 player.SendChatMessage(NAPI.Util.ToJson(player.Vehicle.Position));
                 if (name != "")
                     await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId,
-                        $"Админ \"{player.GetAccount().Login}\" сохранил позицию на машине: \"{name}\": {NAPI.Util.ToJson(player.Vehicle.Position)}");
+                        $"Админ \"{player.GetAccount().Login}\" сохранил позицию на машине: \"{name}\": pos: {NAPI.Util.ToJson(player.Vehicle.Position)}, rot: {NAPI.Util.ToJson(player.Vehicle.Rotation)}");
                 else
                 {
-                    await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId, $"Админ \"{player.GetAccount().Login}\" сохранил позицию на машине: {NAPI.Util.ToJson(player.Vehicle.Position)}");
+                    await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId, $"Админ \"{player.GetAccount().Login}\" сохранил позицию на машине: pos: {NAPI.Util.ToJson(player.Vehicle.Position)}, rot: {NAPI.Util.ToJson(player.Vehicle.Rotation)}");
                 }
                 return;
             }
             player.SendChatMessage(NAPI.Util.ToJson(player.Position));
             if (name != "")
                 await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId,
-                    $"Админ \"{player.GetAccount().Login}\" сохранил позицию \"{name}\": {NAPI.Util.ToJson(player.Position)}");
+                    $"Админ \"{player.GetAccount().Login}\" сохранил позицию \"{name}\": pos: {NAPI.Util.ToJson(player.Position)}, rot: {NAPI.Util.ToJson(player.Rotation)}");
             else
             {
-                await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId, $"Админ \"{player.GetAccount().Login}\" сохранил позицию: {NAPI.Util.ToJson(player.Position)}");
+                await DiscordBot.SendMessageInChannelAsync(DiscordBot.ChannelDevId, $"Админ \"{player.GetAccount().Login}\" сохранил позицию: pos: {NAPI.Util.ToJson(player.Position)}, rot: {NAPI.Util.ToJson(player.Rotation)}");
             }
         }
         else

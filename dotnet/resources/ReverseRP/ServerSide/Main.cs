@@ -57,6 +57,8 @@ public class Main : Script
     [ServerEvent(Event.PlayerDisconnected)]
     public async void OnPlayerDisconnected(Player player, DisconnectionType type, string reason)
     {
+        player.SetAuthorized(false);
+        player.SetCameraOnPlayer(false);
         await DiscordBot.GetUserCount();
     }
 
