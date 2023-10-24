@@ -6,6 +6,7 @@ using ServerSide.Database.Handlers;
 using ServerSide.Database.Models;
 using ServerSide.Enums;
 using ServerSide.Extensions;
+using ServerSide.Extensions.VehicleExtensions;
 using ServerSide.Services;
 using ServerSide.Services.MapService;
 
@@ -51,14 +52,29 @@ public class EventsShopping : Script
                 player.SendNotify(NotifyType.Warning, "Это топливо закончилось");
                 return;
             }
-            if (player.Vehicle == null && player.VehicleSeat != (int)VehicleSeat.Driver)
+
+            var vehicle = player.Vehicle;
+            if (vehicle == null && player.VehicleSeat != (int)VehicleSeat.Driver)
             {
                 player.SendNotify(NotifyType.Error, "Вы должны быть в машине");
                 return;
             }
             if (player.MinusMoney(item.Price * count))
             {
-                //TODO сделать заправку здесь
+                var modelVehicle = vehicle.GetVehicleModel();
+                vehicle.SetVehicleIsRefueling(true);
+                player.SendProgressBar((count*200)/1000, "Заправка...");
+                NAPI.Task.Run(() =>
+                {
+                    VehicleHandler.AddFuel(modelVehicle,count);
+                    vehicle.SetVehicleIsRefueling(false);
+                },count*200);
+                if (business.OwnerCharacterId != 0)
+                {
+                    BusinessHandler.RemoveItem(item, business, count);
+                    BusinessHandler.AddMoneyInBank(item.Price * count, business.Id);
+                }
+                StatisticBusinessHandler.AddBuyProduct(business);
             }
         }
     }
@@ -84,8 +100,9 @@ public class EventsShopping : Script
             veh.CustomSecondaryColor = new Color(color.R, color.G,color.B);
             veh.NumberPlate = "";
             veh.Locked = true;
-            veh.EngineStatus = false;
-            VehicleHandler.AddNewVehicle(player.GetCharacter(), vehicleType);
+            veh.EngineStatus = true;
+            VehicleHandler.AddNewVehicle(player.GetCharacter(), vehicleType, veh);
+            
             if (business.OwnerCharacterId != 0)
             {
                 BusinessHandler.RemoveItem(item, business);

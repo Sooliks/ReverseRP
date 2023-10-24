@@ -42,10 +42,13 @@ const GasStation: React.FC = () => {
                 {typeGas: 'Electric', price: incomingItems[3].Price}
             ])
         })
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetFuelTankCapacity").then(data=>{
+            setMaxFuel(JSON.parse(data));
+        })
     },[])
 
     const handleClickBuy = () => {
-
+        Client.triggerServer("CEF::SERVER:BUY_FUEL",Number(params.id), gasProperties.indexOf(currentGas), inputValue)
     }
 
     return (
@@ -76,7 +79,7 @@ const GasStation: React.FC = () => {
                     </div>
                     <div style={{height: '50%',display: 'flex', flexDirection: 'column', justifyContent:'space-between'}}>
                         <Statistic title="Итого: " value={currentGas.price * inputValue! + '$'} precision={2} />
-                        <Button size={"large"} type={"primary"} style={{width: '100%'}}>Заправить</Button>
+                        <Button size={"large"} type={"primary"} style={{width: '100%'}} onClick={handleClickBuy}>Заправить</Button>
                     </div>
                 </div>
             </Card>

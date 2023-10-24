@@ -1,4 +1,7 @@
-﻿namespace ServerSide.Database.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
+
+namespace ServerSide.Database.Models;
 
 public class Vehicle
 {
@@ -7,16 +10,25 @@ public class Vehicle
     public float FuelTank { get; set; }
     public float Mileage { get; set; }
     public Character? Character { get; set; }
+    [NotMapped]
+    public GTANetworkAPI.Vehicle VehicleRage 
+    {
+        get { return JsonConvert.DeserializeObject<GTANetworkAPI.Vehicle>(VehicleRageJson); }
+        set { VehicleRageJson = JsonConvert.SerializeObject(value); }
+    }
+    public string VehicleRageJson { get; private set; } 
 
     public Vehicle()
     {
         
     }
 
-    public Vehicle(VehicleType vehicleType, float fuelTank, float mileage)
+    public Vehicle(VehicleType vehicleType, float fuelTank, float mileage, GTANetworkAPI.Vehicle vehicleRage)
     {
         VehicleType = vehicleType;
         FuelTank = fuelTank;
         Mileage = mileage;
+        VehicleRage = vehicleRage;
     }
+    
 }

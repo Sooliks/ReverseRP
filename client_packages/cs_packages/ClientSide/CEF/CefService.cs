@@ -9,6 +9,7 @@ namespace ClientSide.CEF
         public static readonly string DefaultUrl = "http://localhost:3000";
         public static readonly HtmlWindow MainCefWindow = new HtmlWindow(DefaultUrl);
         public static readonly HtmlWindow NotifyCefWindow = new HtmlWindow("package://static-cef/notify/index.html");
+        public static readonly HtmlWindow ProgressBarCefWindow = new HtmlWindow("package://static-cef/progress-bar/index.html");
         public static readonly List<string> PathToWindowsOpenByKey = new List<string>()
         {
             "/inventory",

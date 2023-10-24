@@ -146,6 +146,7 @@ public class InputMarker : Script
                 player.SendNotify(NotifyType.Info, "Нажмите Е");
             }
             player.SetData(ActiveColshapePlayerKey, colShape);
+            return;
         }
         
         if (colShape.HasData(ColShapeCefPathKey))

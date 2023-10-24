@@ -8,6 +8,7 @@ using ServerSide.Database.Handlers;
 using ServerSide.Enums;
 using ServerSide.EventsHandlers.BusinessesEvents;
 using ServerSide.Extensions;
+using ServerSide.Extensions.VehicleExtensions;
 using ServerSide.Services.MapService;
 using ServerSide.Services.ServerServices;
 
@@ -38,6 +39,11 @@ public class StartedCreateMarkers
                 {
                     InputMarker.CreateColShapeWithCallback(marker.Position, 5, player =>
                     {
+                        if (player.Vehicle.GetVehicleModel() == null)
+                        {
+                            player.SendNotify(NotifyType.Warning, "Вы не можете заправить это т/с");
+                            return;
+                        }
                         if (player.Vehicle.EngineStatus)
                         {
                             player.SendNotify(NotifyType.Warning, "Заглушите двигатель");
@@ -45,7 +51,7 @@ public class StartedCreateMarkers
                         }
                         player.ChangeCefWindow(marker.NameCefPath);
                         
-                    }, marker.IsForWalking, true);
+                    }, false, true);
                     continue;
                 }
                 InputMarker.CreateDefaultInputMarkerWithOpenCefPath(marker.TextLabel, marker.Position, marker.IconBlip, marker.ColorBlip, marker.NameCefPath);
