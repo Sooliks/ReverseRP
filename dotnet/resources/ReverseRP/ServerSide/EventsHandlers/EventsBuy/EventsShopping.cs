@@ -61,6 +61,7 @@ public class EventsShopping : Script
             }
             if (player.MinusMoney(item.Price * count))
             {
+                player.ChangeCefWindow(CefWindowsPaths.Default);
                 var modelVehicle = vehicle.GetVehicleModel();
                 vehicle.SetVehicleIsRefueling(true);
                 player.SendProgressBar((count*200)/1000, "Заправка...");
@@ -74,7 +75,7 @@ public class EventsShopping : Script
                     BusinessHandler.RemoveItem(item, business, count);
                     BusinessHandler.AddMoneyInBank(item.Price * count, business.Id);
                 }
-                StatisticBusinessHandler.AddBuyProduct(business);
+                StatisticBusinessHandler.AddBuyProduct(business, count);
             }
         }
     }
@@ -100,7 +101,7 @@ public class EventsShopping : Script
             veh.CustomSecondaryColor = new Color(color.R, color.G,color.B);
             veh.NumberPlate = "";
             veh.Locked = true;
-            veh.EngineStatus = true;
+            veh.EngineStatus = false;
             VehicleHandler.AddNewVehicle(player.GetCharacter(), vehicleType, veh);
             
             if (business.OwnerCharacterId != 0)

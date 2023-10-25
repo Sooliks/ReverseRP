@@ -3073,4 +3073,190 @@ Database success connected!
 -> Resource ReverseRP started!
 Started! Waiting for connections..
 [Discord Bot]-> 00:07:29 Gateway     Ready
-WARNING: "GetVehicleBulle
+WARNING: "GetVehicleBulle-> SERVER STARTED AT 25.10.2023 15:20:30
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 6 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 19 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loaded 10 remote procedure(s)
+Server started!
+[Discord Bot]-> 15:20:31 Gateway     Connecting
+[Discord Bot]-> 15:20:34 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 15:20:34 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 15:20:34 Gateway     Connected
+Database success connected!
+[Discord Bot]-> 15:20:35 Gateway     Ready
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+WARNING: "GetVehicleBullInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.10.2023 16:15:40
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 6 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 19 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loaded 10 remote procedure(s)
+Server started!
+[Discord Bot]-> 16:15:41 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 16:15:43 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:15:43 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:15:43 Gateway     Connected
+[Discord Bot]-> 16:15:43 Gateway     Ready
+System.Reflection.TargetInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.10.2023 16:17:02
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 6 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 19 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loaded 10 remote procedure(s)
+Server started!
+[Discord Bot]-> 16:17:03 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 16:17:04 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:17:04 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:17:04 Gateway     Connected
+[Discord Bot]-> 16:17:05 Gateway     Ready
+System.Reflection.Target

@@ -27,7 +27,7 @@ public class StatisticBusinessHandler
             db.SaveChanges();
         }
     }
-    public static void AddBuyProduct(BusinessBase businessBase)
+    public static void AddBuyProduct(BusinessBase businessBase, int count = 1)
     {
         using (Context db = new Context())
         {
@@ -35,13 +35,13 @@ public class StatisticBusinessHandler
                 b.DateTime.Day == DateTime.Now.Day && b.BusinessBase.Id == businessBase.Id);
             if (statisticOfCurrentDay == null)
             {
-                businessBase.StatisticBusinesses.Add(new StatisticBusiness(businessBase, DateTime.Now));
+                businessBase.StatisticBusinesses.Add(new StatisticBusiness(businessBase, DateTime.Now, count));
                 db.BusinessesBase.Update(businessBase);
                 db.SaveChanges();
                 return;
             }
 
-            statisticOfCurrentDay.PurchasedGoods += 1;
+            statisticOfCurrentDay.PurchasedGoods += count;
             db.StatisticBusinesses.Update(statisticOfCurrentDay);
             db.SaveChanges();
         }

@@ -1,4 +1,5 @@
-﻿using GTANetworkAPI;
+﻿using System;
+using GTANetworkAPI;
 using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Extensions.VehicleExtensions;
@@ -17,7 +18,7 @@ public class EventsManagementVehicle : Script
             player.Vehicle.EngineStatus = false;
             return;
         }
-        if (vehicleModel.Character.Id != player.GetCharacter().Id)
+        if (vehicleModel == null || vehicleModel.Character.Id != player.GetCharacter().Id)
         {
             player.SendNotify(NotifyType.Warning, "У вас нет ключей!");
             return;

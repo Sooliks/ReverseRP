@@ -32,8 +32,10 @@ public class VehicleHandler
         if (vehicle.FuelTank + count >= vehicle.VehicleType.FuelTankCapacity)
         {
             vehicle.FuelTank = vehicle.VehicleType.FuelTankCapacity;
+            db.Vehicles.Update(vehicle);
+            db.SaveChanges();
+            return;
         }
-
         vehicle.FuelTank += count;
         db.Vehicles.Update(vehicle);
         db.SaveChanges();

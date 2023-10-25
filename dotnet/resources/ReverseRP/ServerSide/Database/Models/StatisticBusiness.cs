@@ -16,11 +16,11 @@ public class StatisticBusiness
         
     }
 
-    public StatisticBusiness(BusinessBase businessBase, DateTime dateTime)
+    public StatisticBusiness(BusinessBase businessBase, DateTime dateTime, int count = 0)
     {
         BusinessBase = businessBase;
         DateTime = dateTime;
         CountVisitors = 1;
-        PurchasedGoods = 0;
+        PurchasedGoods = count;
     }
 }

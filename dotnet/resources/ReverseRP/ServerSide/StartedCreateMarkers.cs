@@ -39,6 +39,11 @@ public class StartedCreateMarkers
                 {
                     InputMarker.CreateColShapeWithCallback(marker.Position, 5, player =>
                     {
+                        if (player.Vehicle.IsRefueling())
+                        {
+                            player.SendNotify(NotifyType.Warning, "Т/с уже заправляется!");
+                            return;
+                        }
                         if (player.Vehicle.GetVehicleModel() == null)
                         {
                             player.SendNotify(NotifyType.Warning, "Вы не можете заправить это т/с");
