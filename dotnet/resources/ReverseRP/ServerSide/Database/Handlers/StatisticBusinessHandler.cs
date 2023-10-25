@@ -82,7 +82,7 @@ public class StatisticBusinessHandler
             var business = db.BusinessesBase.Include(b => b.StatisticBusinesses)
                 .FirstOrDefault(b => b.Id == businessBase.Id);
 
-            return business.StatisticBusinesses.Select(s => new StatisticList()
+            return business.StatisticBusinesses.Where(s=>s.DateTime.Month == DateTime.Now.Month).Select(s => new StatisticList()
             {
                 DateTime = $"{s.DateTime.Day}.{s.DateTime.Month}", CountVisitors = s.CountVisitors,
                 PurchasedGoods = s.PurchasedGoods
