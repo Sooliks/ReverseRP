@@ -40,7 +40,7 @@ namespace ClientSide.Keys
             {
                 if (RAGE.Elements.Player.LocalPlayer.Vehicle != null)
                 {
-                    Events.CallRemote("CLIENT::SERVER:PRESS_CTRL_IN_VEHICLE");
+                    Events.CallRemote("CLIENT::SERVER:PRESS_ALT_IN_VEHICLE");
                 }
             });
         }

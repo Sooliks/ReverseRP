@@ -8,11 +8,12 @@ namespace ServerSide.EventsHandlers.VehicleEvents;
 
 public class EventsManagementVehicle : Script
 {
-    [RemoteEvent("CLIENT::SERVER:PRESS_CTRL_IN_VEHICLE")]
+    [RemoteEvent("CLIENT::SERVER:PRESS_ALT_IN_VEHICLE")]
     public void OnPressCtrlInVehicle(Player player)
     {
         if(player.Vehicle == null)return;
         var vehicleModel = player.Vehicle.GetVehicleModel();
+        Console.WriteLine(player.GetCurrentCefPath());
         if (player.Vehicle.EngineStatus)
         {
             player.Vehicle.EngineStatus = false;

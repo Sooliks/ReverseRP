@@ -75,4 +75,6 @@ public static class PlayerExtensionsData
 
         return false;
     }
+    public static async Task<string> GetCurrentCefPath(this Player player) =>
+        (string) await player.TriggerProcedure("RPC::SERVER::CLIENT:GetCurrentCefPath");
 }
