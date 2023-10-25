@@ -9,16 +9,20 @@ namespace ServerSide.EventsHandlers.VehicleEvents;
 public class EventsManagementVehicle : Script
 {
     [RemoteEvent("CLIENT::SERVER:PRESS_ALT_IN_VEHICLE")]
-    public void OnPressCtrlInVehicle(Player player)
+    public async void OnPressCtrlInVehicle(Player player)
     {
         if(player.Vehicle == null)return;
-        var vehicleModel = player.Vehicle.GetVehicleModel();
-        Console.WriteLine(player.GetCurrentCefPath());
+        string path = await player.GetCurrentCefPath();
+        if (path.Split('/').Length > 3)
+        {
+            if(path.Split('/')[3] == "gasstation") return;
+        }
         if (player.Vehicle.EngineStatus)
         {
             player.Vehicle.EngineStatus = false;
             return;
         }
+        var vehicleModel = player.Vehicle.GetVehicleModel();
         if (vehicleModel == null || vehicleModel.Character.Id != player.GetCharacter().Id)
         {
             player.SendNotify(NotifyType.Warning, "У вас нет ключей!");
