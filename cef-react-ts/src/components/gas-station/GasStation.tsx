@@ -22,7 +22,7 @@ const GasStation: React.FC = () => {
 
     const [inputValue, setInputValue] = useState<number | null>(1);
     const [currentGas,setCurrentGas] = useState<GasType>({typeGas: 'Eco', price: 30})
-    const [maxFuel, setMaxFuel] = useState<number>(0);
+    const [maxFuel, setMaxFuel] = useState<number>(1);
 
     const[gasProperties,setGasProperties] = useState<GasType[]>([
         {typeGas: 'Eco', price: 30},
@@ -69,7 +69,7 @@ const GasStation: React.FC = () => {
                         <div style={{height: '100%'}}>
                             <div style={{display: 'flex', justifyContent: 'space-around', flexDirection: 'row'}}>
                                 {gasProperties.map(gas=>
-                                    <Button type={"primary"} autoFocus={currentGas === gas} onClick={()=>setCurrentGas(gas)} style={{height: 150, width: 145, fontSize: '15px'}}>{gas.typeGas + ' '+ gas.price + (gas.typeGas === 'Electric' ? '$/кв' : '$/л')}</Button>
+                                    <Button type={currentGas !== gas ? "dashed" : "primary"} autoFocus={currentGas === gas} onClick={()=>setCurrentGas(gas)} style={{height: 150, width: 145, fontSize: '15px'}}>{gas.typeGas + ' '+ gas.price + (gas.typeGas === 'Electric' ? '$/кв' : '$/л')}</Button>
                                 )}
                             </div>
                             <Divider type={"horizontal"}/>
