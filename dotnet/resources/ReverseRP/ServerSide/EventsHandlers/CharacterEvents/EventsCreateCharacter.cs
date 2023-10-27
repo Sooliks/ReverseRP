@@ -49,7 +49,7 @@ public class EventsCreateCharacter : Script
         player.SetCharacter(CharacterHandler.GetLastCharacterByAccount(playerAccount));
         player.ChangeCefWindow(CefWindowsPaths.Default);
         player.FreezePlayer(false);
-        player.SetCameraOnPlayer(false);
+        player.DestroyMainCamera();
         player.SetAuthorized(true);
     }
 }

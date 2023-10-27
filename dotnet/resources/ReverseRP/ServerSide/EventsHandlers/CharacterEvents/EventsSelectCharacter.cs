@@ -1,5 +1,6 @@
 ﻿using GTANetworkAPI;
 using ServerSide.Database.Handlers;
+using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Services;
 using ServerSide.Services.PlayerService;
@@ -17,7 +18,7 @@ public class EventsSelectCharacter : Script
             return;
         }
         player.ChangeCefWindow(CefWindowsPaths.CreateCharacter);
-        player.SetCameraOnPlayer(true);
+        player.SetCameraOnPlayer(TypeCameraOnPlayer.Face,true);
     }
     [RemoteEvent("CEF::SERVER::ON_SELECT_CHARACTER")]
     public async void OnClickSelectCharacter(Player player, int id)
