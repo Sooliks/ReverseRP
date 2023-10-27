@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Config} from "../../../../conf";
-import {Button, Card, Segmented, Space, Typography} from "antd";
+import {Card, Segmented, Space, Typography} from "antd";
 import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
 import CustomSlider from "../../../../ui/CustomSlider";
 import DefaultColorPalette from "../../../../ui/DefaultColorPalette";
+import {Client} from "../../../../requests/Client";
+import {TypeCameraOnPlayer} from "../../../../enums/typeCameraOnPlayerEnum";
 
 
 const {Title } = Typography;
@@ -21,6 +23,7 @@ const Hair : React.FC = () => {
     const[currentHairWomen,setCurrentHairWomen] = useState<number | undefined>()
 
     useEffect(()=>{
+        Client.setCameraOnPlayer(TypeCameraOnPlayer.Face)
         let newHairsMan: any[] = [];
         let newHairsWomen: any[] = [];
         for(let i: number = 1; i <= 36; i++){

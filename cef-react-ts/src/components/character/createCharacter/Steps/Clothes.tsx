@@ -1,12 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Config} from "../../../../conf";
 import {Card, Space} from "antd";
 import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
 import Switcher, {DataTypeSwitcher} from "../../../../ui/Switcher";
-
-
-
-
+import {TypeCameraOnPlayer} from "../../../../enums/typeCameraOnPlayerEnum";
+import {Client} from "../../../../requests/Client";
 
 
 const Clothes: React.FC = () => {
@@ -42,6 +40,9 @@ const Clothes: React.FC = () => {
         {value: 1, placeHolder: "Кроссовки"},
         {value: 6, placeHolder: "Каблуки"}
     ]
+    useEffect(()=>{
+       Client.setCameraOnPlayer(TypeCameraOnPlayer.Body)
+    },[])
 
     return (
         <Space align={"start"} direction={"horizontal"} style={{justifyContent: 'space-between', width: Config.screenResolution.width}}>

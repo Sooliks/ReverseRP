@@ -4,6 +4,8 @@ import {Config} from "../../../../conf";
 import {CreateCharacterType, useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
 import CustomSlider from "../../../../ui/CustomSlider";
 import {ManOutlined, WomanOutlined} from "@ant-design/icons";
+import {Client} from "../../../../requests/Client";
+import {TypeCameraOnPlayer} from "../../../../enums/typeCameraOnPlayerEnum";
 import isDevelopment = Config.isDevelopment;
 
 const {Title } = Typography;
@@ -28,6 +30,7 @@ const Genetics: React.FC = () => {
     const [currentSelectedGen2,setCurrentSelectedGen2] = useState<GenType>({id: 1, active: false, pathToFace: '1.png', skinId: 0})
 
     useEffect(()=>{
+        Client.setCameraOnPlayer(TypeCameraOnPlayer.Face)
         let gens1: GenType[] = [];
         let gens2: GenType[] = [];
         for(let i: number = 1; i <= 22; i++){

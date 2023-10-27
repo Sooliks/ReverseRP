@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Card, Space} from "antd";
 import {Config} from "../../../../conf";
 import CustomSlider from "../../../../ui/CustomSlider";
 import {useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
+import {Client} from "../../../../requests/Client";
+import {TypeCameraOnPlayer} from "../../../../enums/typeCameraOnPlayerEnum";
 
 type SkinPropertiesType = {
     id: number,
@@ -30,6 +32,9 @@ const SkinFeatures: React.FC = () => {
         }
     };
     const[currentChanged, setCurrentChanged] = useState<SkinPropertiesType>(skinProperties[0])
+    useEffect(()=>{
+        Client.setCameraOnPlayer(TypeCameraOnPlayer.Body)
+    },[])
 
     return (
         <Space align={"start"} direction={"horizontal"} style={{justifyContent: 'space-between', width: Config.screenResolution.width}}>

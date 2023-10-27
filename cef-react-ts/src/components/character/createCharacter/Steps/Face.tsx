@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Card, Space} from "antd";
 import {Config} from "../../../../conf";
 import CustomSlider from "../../../../ui/CustomSlider";
 import {useCreateCharacterContext} from "../context/CreateCharacterContextProvider";
+import {Client} from "../../../../requests/Client";
+import {TypeCameraOnPlayer} from "../../../../enums/typeCameraOnPlayerEnum";
 
 type FacePropertiesType = {
     id: number,
@@ -34,6 +36,9 @@ const Face: React.FC = () => {
         {id: 18, text: 'Отступ подбородка'},
         {id: 19, text: 'Шея'},
     ]
+    useEffect(()=>{
+        Client.setCameraOnPlayer(TypeCameraOnPlayer.Face)
+    },[])
 
 
     return (

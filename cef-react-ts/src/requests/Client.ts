@@ -1,3 +1,5 @@
+import {TypeCameraOnPlayer} from "../enums/typeCameraOnPlayerEnum";
+
 export namespace Client{
     export const triggerServer = (name: string, ...args: any[]) => {
         mp.trigger("REDIRECT::CEF_TO_SERVER",name,...args);
@@ -7,4 +9,8 @@ export namespace Client{
         return res;
     }
     export const closeWindow = () => mp.trigger("CEF::CLIENT:CLOSE_WINDOW");
+
+    export const setCameraOnPlayer = (typeCameraOnPlayer: TypeCameraOnPlayer, toggle: boolean = true) => {
+        mp.trigger("CEF::CLIENT:SetCameraOnPlayer", Number(typeCameraOnPlayer));
+    }
 }
