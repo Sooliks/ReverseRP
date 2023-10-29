@@ -30,5 +30,13 @@ public class Vehicle
         Mileage = mileage;
         VehicleRage = vehicleRage;
     }
+
+    public void MinusFuel()
+    {
+        using Context db = new Context();
+        this.FuelTank -= this.VehicleType.FuelConsumption;
+        db.Vehicles.Update(this);
+        db.SaveChanges();
+    }
     
 }

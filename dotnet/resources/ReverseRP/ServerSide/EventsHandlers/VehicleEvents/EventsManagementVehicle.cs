@@ -72,6 +72,12 @@ public class EventsManagementVehicle : Script
     [RemoteEvent("CLIENT::SERVER:ONE_TICK_FUEL")]
     public void OnOneTickFuel(Player player)
     {
-        
+        if (player.Vehicle != null)
+        {
+            if (player.Vehicle.GetVehicleModel() != null)
+            {
+                player.Vehicle.GetVehicleModel().MinusFuel();
+            }
+        }
     }
 }
