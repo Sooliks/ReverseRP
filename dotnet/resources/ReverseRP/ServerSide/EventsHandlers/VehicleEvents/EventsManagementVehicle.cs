@@ -12,16 +12,22 @@ public class EventsManagementVehicle : Script
     public async void OnPressCtrlInVehicle(Player player)
     {
         if(player.Vehicle == null)return;
+        if(player.VehicleSeat != (int)VehicleSeat.Driver)return;
         string path = await player.GetCurrentCefPath();
         if (path.Split('/').Length > 3)
         {
             if(path.Split('/')[3] == "gasstation") return;
         }
-        if (player.Vehicle.GetVehicleModel().FuelTank < 0.3f)
+        var vehicleModel = player.Vehicle.GetVehicleModel();
+        if (vehicleModel != null)
         {
-            player.SendNotify(NotifyType.Warning, "Топливо закончилось!");
-            return;
+            if (player.Vehicle.GetVehicleModel().FuelTank < 0.3f)
+            {
+                player.SendNotify(NotifyType.Warning, "Топливо закончилось!");
+                return;
+            }
         }
+
         if (player.Vehicle.IsRefueling())
         {
             player.SendNotify(NotifyType.Warning, "Подождите пока машина заправиться!");
@@ -39,7 +45,6 @@ public class EventsManagementVehicle : Script
             player.Vehicle.SetSharedData("vehicleEngineStatusKey", false);
             return;
         }
-        var vehicleModel = player.Vehicle.GetVehicleModel();
         if (vehicleModel == null || vehicleModel.Character.Id != player.GetCharacter().Id)
         {
             player.SendNotify(NotifyType.Warning, "У вас нет ключей!");
@@ -82,6 +87,7 @@ public class EventsManagementVehicle : Script
     {
         if (player.Vehicle != null)
         {
+            if(player.VehicleSeat != (int)VehicleSeat.Driver)return;
             var vehicleModel = player.Vehicle.GetVehicleModel();
             if (vehicleModel != null)
             {

@@ -3475,4 +3475,129 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at TResult Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute<TState, TResult>(IExecutionStrategy strategy, TState state, Func<TState, TResult> operation, Func<TState, ExecutionResult<TResult>> verifySucceeded)+(DbContext c, TState s) => { }
    at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
    --- End of inner exception stack trace ---
-   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> oper
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 30.10.2023 1:03:52
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 21 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loaded 10 remote procedure(s)
+Server started!
+[Discord Bot]-> 01:03:52 Gateway     Connecting
+[Discord Bot]-> 01:03:54 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 01:03:54 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 01:03:54 Gateway     Connected
+[Discord Bot]-> 01:03:54 Gateway     Ready
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   at Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)+(Exception ex) => { }
+   at void AggregateException.Handle(Func<Exception, bool> predicate)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void MySql.Data.MySqlClient.MySqlConnection.Open()
+   at bool MySql.EntityFrameworkCore.MySQLDatabaseCreator.Exists(bool retryOnNotExists)+(DateTime giveUp) => { }
+   at TResult Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute<TState, TResult>(IExecutionStrategy strategy, TState state, Func<TState, TResult> operation, Func<TState, ExecutionResult<TResult>> verifySucceeded)+(DbContext c, TState s) => { }
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   --- End of inner exception stack trace ---
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at TResult Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute<TState, TResult>(IExecutionStrategy strategy, TState state, Func<TState, TResult> operation, Func<TState, ExecutionResult<TResult>> verifySucceeded)
+   at TResult Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute<TState, TResult>(IExecutionStrategy strategy, TState state, Func<TState, TResult> operation)
+   at bool MySql.EntityFrameworkCore.MySQLDatabaseCreator.Exists(bool retryOnNotExists)
+   at bool MySql.EntityFrameworkCore.MySQLDatabaseCreator.Exists()
+   at bool Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at bool Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at new ServerSide.Database.Context() in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Context.cs:line 30
+   at List<VehicleType> ServerSide.Database.Handlers.VehicleTypeHandler.GetVehicleTypes() in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/VehicleTypeHandler.cs:line 11
+   at string ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents.OnGetVehiclesTypes(Player player) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/GeneralDataEvents/GeneralDataEvents.cs:line 11
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.RemoteProcParser.Parse(Player sender, ulong eventNameHash, out object ret, params object[] args)
+   at void GTANetworkInternals.RemoteProcHandler.Parse(Player player, ulong eventNameHash, uint callIdx, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   at Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)+(Exception ex) => { }
+   at void AggregateException.Handle(Func<Exception, bool> predicate)
+   at async 

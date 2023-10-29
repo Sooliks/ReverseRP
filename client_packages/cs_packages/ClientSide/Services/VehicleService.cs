@@ -18,7 +18,7 @@ namespace ClientSide.Services
             {
                 var vehicle = Player.LocalPlayer.Vehicle;
                 GeneralRpm += vehicle.Rpm;
-                if (GeneralRpm > 750)
+                if (GeneralRpm > 900)
                 {
                     Events.CallRemote("CLIENT::SERVER:ONE_TICK_FUEL");
                     GeneralRpm = 0;
