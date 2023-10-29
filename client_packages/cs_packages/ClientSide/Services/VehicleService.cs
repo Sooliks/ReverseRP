@@ -1,0 +1,29 @@
+﻿using RAGE;
+using RAGE.Elements;
+using System.Collections.Generic;
+
+namespace ClientSide.Services
+{
+    public class VehicleService : Events.Script
+    {
+        private static float GeneralRpm { get; set; } = 0;
+        public VehicleService()
+        {
+            Events.Tick += OnTick;
+        }
+        private void OnTick(List<Events.TickNametagData> nametags)
+        {
+            if (Player.LocalPlayer.Vehicle != null)
+            {
+                var vehicle = Player.LocalPlayer.Vehicle;
+                GeneralRpm += vehicle.Rpm;
+                if (GeneralRpm > 900)
+                {
+                    Events.CallRemote("CLIENT::SERVER:ONE_TICK_FUEL");
+                    GeneralRpm = 0;
+                }
+            }
+            if(Player.LocalPlayer.Vehicle == null) GeneralRpm = 0;
+        }
+    }
+}

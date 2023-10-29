@@ -18,6 +18,7 @@ public class EventsShopping : Script
     [RemoteEvent("CEF::SERVER:ON_BUY_ITEM")]
     public void OnBuyItem(Player player,int businessId, int idItem)
     {
+        if(!player.IsAuthorized())return;
         var business = BusinessHandler.GetBusinessById(businessId);
         if (business != null && business.BusinessType == BusinessesTypes.Market)
         {
@@ -43,6 +44,7 @@ public class EventsShopping : Script
     [RemoteEvent("CEF::SERVER:BUY_FUEL")]
     public void OnBuyFuel(Player player, int businessId, int itemId, int count)
     {
+        if(!player.IsAuthorized())return;
         var business = BusinessHandler.GetBusinessById(businessId);
         if (business != null && business.BusinessType == BusinessesTypes.GasStation)
         {
@@ -85,6 +87,10 @@ public class EventsShopping : Script
     {
         if(!player.IsAuthorized())return;
         var business = BusinessHandler.GetBusinessById(businessId);
+        if (business == null || business.BusinessType != BusinessesTypes.GasStation)
+        {
+            return;
+        }
         var item = business.Items.FirstOrDefault(i => i.ItemId == idItem);
         if (item.Count < 1)
         {

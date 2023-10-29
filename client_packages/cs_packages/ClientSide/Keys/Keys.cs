@@ -43,6 +43,10 @@ namespace ClientSide.Keys
                     Events.CallRemote("CLIENT::SERVER:PRESS_ALT_IN_VEHICLE");
                 }
             });
+            Input.Bind(VirtualKeys.L, true, () =>
+            {
+                Events.CallRemote("CLIENT::SERVER:PRESS_L");
+            });
         }
     }
 }

@@ -31,5 +31,15 @@
     "colorBlip": "62",
     "nameCefPath": "/cardealership/3",
     "isForWalking": "true"
+  },
+  {
+    "textLabel": "Заправка",
+    "position": {
+      "x":-319.25897,
+      "y":-1471.9436,
+      "z":29.870808
+    },
+    "iconBlip": "361",
+    "colorBlip": "6"
   }
 ]

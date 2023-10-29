@@ -180,6 +180,7 @@ public class InputMarker : Script
     [ServerEvent(Event.PlayerExitColshape)]
     public static void OnPlayerExitColShape(ColShape colShape, Player player)
     {
+        //player.ChangeCefWindow(CefWindowsPaths.Default);
         player.ResetData(ActiveColshapePlayerKey);
     }
 

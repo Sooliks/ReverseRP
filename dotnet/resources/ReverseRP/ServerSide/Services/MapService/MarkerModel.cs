@@ -10,8 +10,8 @@ public class MarkerModel
     public Vector3 Position { get; set; }
     public int IconBlip { get; set; }
     public byte ColorBlip { get; set; }
-    public string NameCefPath { get; set; }
-    public bool IsForWalking { get; set; }
+    public string? NameCefPath { get; set; }
+    public bool? IsForWalking { get; set; }
 
     public MarkerModel()
     {

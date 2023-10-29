@@ -1,12 +1,10 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.IO;
 using GTANetworkAPI;
-using GTANetworkMethods;
 using Newtonsoft.Json;
 using ServerSide.Database.Handlers;
 using ServerSide.Enums;
-using ServerSide.EventsHandlers.BusinessesEvents;
 using ServerSide.Extensions;
 using ServerSide.Extensions.VehicleExtensions;
 using ServerSide.Services.MapService;
@@ -24,6 +22,12 @@ public class StartedCreateMarkers
             var markers = JsonConvert.DeserializeObject<List<MarkerModel>>(json);
             foreach (var marker in markers)
             {
+                if (marker.NameCefPath == null && marker.IsForWalking == null)
+                {
+                    Blip blip = NAPI.Blip.CreateBlip(marker.IconBlip, marker.Position, 1.0f, marker.ColorBlip);
+                    NAPI.Blip.SetBlipShortRange(blip, true);
+                    continue;
+                }
                 if (marker.NameCefPath.StartsWith("/cardealership"))
                 {
                     InputMarker.CreateDefaultInputMarkerWithFuncCallback(marker.TextLabel,marker.Position, marker.IconBlip, marker.ColorBlip,player =>

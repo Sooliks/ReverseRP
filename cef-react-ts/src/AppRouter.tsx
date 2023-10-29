@@ -14,6 +14,7 @@ import ManagementsBusiness from "./components/management-business/ManagementsBus
 import InformationOfBusiness from "./components/info-business/InformationOfBusiness";
 import AdminPanel from "./components/adminpanel/AdminPanel";
 import GasStation from "./components/gas-station/GasStation";
+import Truckers from "./components/works/truckers/Truckers";
 
 const AppRouter: React.FC = () => {
     const { message, notification, modal } = App.useApp();
@@ -35,6 +36,7 @@ const AppRouter: React.FC = () => {
                 <Route path={"/adminpanel"} element={<AdminPanel/>}/>
                 <Route path={"/gasstation/:id"} element={<GasStation/>}/>
                 <Route path={"/*"} element={<DefaultRouter/>}/>
+                <Route path={"/works/truckers"} element={<Truckers/>}/>
             </Routes>
         </App>
     );

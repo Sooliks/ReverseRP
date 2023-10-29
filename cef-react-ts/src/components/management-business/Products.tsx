@@ -12,19 +12,18 @@ type IncomingProductType = {
 }
 
 type ProductType = {
-
+    name: string
+    count: number
+    price: number
 }
 
 const Products: React.FC<ProductsProps> = ({idBusiness}) => {
     useEffect(()=>{
-        try {
-            Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsMarket", idBusiness).then(data => {
-                data = JSON.parse(data);
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsMarket", idBusiness).then(data => {
+            console.log(data)
+            data = JSON.parse(data);
 
-            })
-        }catch (e) {
-            
-        }
+        })
     },[])
     const [products,setProducts] = useState<ProductType[]>([])
 
