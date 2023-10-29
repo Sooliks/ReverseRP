@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
+using NLog.Config;
 
 namespace ServerSide.Database.Models;
 
@@ -34,6 +35,13 @@ public class Vehicle
     public void MinusFuel()
     {
         using Context db = new Context();
+        if ((FuelTank - VehicleType.FuelConsumption) < 0.3f)
+        {
+            this.FuelTank = 0;
+            db.Vehicles.Update(this);
+            db.SaveChanges();
+            return;
+        }
         this.FuelTank -= this.VehicleType.FuelConsumption;
         db.Vehicles.Update(this);
         db.SaveChanges();

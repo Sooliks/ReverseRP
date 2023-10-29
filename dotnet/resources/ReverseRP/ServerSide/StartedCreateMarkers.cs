@@ -24,7 +24,7 @@ public class StartedCreateMarkers
             {
                 if (marker.NameCefPath == null && marker.IsForWalking == null)
                 {
-                    Blip blip = NAPI.Blip.CreateBlip(marker.IconBlip, marker.Position, 1.0f, marker.ColorBlip);
+                    Blip blip = NAPI.Blip.CreateBlip(marker.IconBlip, marker.Position, 1.0f, marker.ColorBlip, marker.TextLabel);
                     NAPI.Blip.SetBlipShortRange(blip, true);
                     continue;
                 }

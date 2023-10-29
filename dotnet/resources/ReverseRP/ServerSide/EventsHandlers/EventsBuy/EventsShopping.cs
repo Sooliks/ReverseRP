@@ -87,7 +87,7 @@ public class EventsShopping : Script
     {
         if(!player.IsAuthorized())return;
         var business = BusinessHandler.GetBusinessById(businessId);
-        if (business == null || business.BusinessType != BusinessesTypes.GasStation)
+        if (business == null || business.BusinessType != BusinessesTypes.CarDealerShipLuxury)
         {
             return;
         }

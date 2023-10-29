@@ -17,6 +17,11 @@ public class EventsManagementVehicle : Script
         {
             if(path.Split('/')[3] == "gasstation") return;
         }
+        if (player.Vehicle.GetVehicleModel().FuelTank < 0.3f)
+        {
+            player.SendNotify(NotifyType.Warning, "Топливо закончилось!");
+            return;
+        }
         if (player.Vehicle.IsRefueling())
         {
             player.SendNotify(NotifyType.Warning, "Подождите пока машина заправиться!");
@@ -25,11 +30,13 @@ public class EventsManagementVehicle : Script
         if (player.IsHaveAdminRank(AdminLevels.SeniorAdmin))
         {
             player.Vehicle.EngineStatus = !player.Vehicle.EngineStatus;
+            player.Vehicle.SetSharedData("vehicleEngineStatusKey", player.Vehicle.EngineStatus);
             return;
         }
         if (player.Vehicle.EngineStatus)
         {
             player.Vehicle.EngineStatus = false;
+            player.Vehicle.SetSharedData("vehicleEngineStatusKey", false);
             return;
         }
         var vehicleModel = player.Vehicle.GetVehicleModel();
@@ -39,6 +46,7 @@ public class EventsManagementVehicle : Script
             return;
         }
         player.Vehicle.EngineStatus = true;
+        player.Vehicle.SetSharedData("vehicleEngineStatusKey", true);
     }
 
     [RemoteEvent("CLIENT::SERVER:PRESS_L")]
@@ -74,10 +82,29 @@ public class EventsManagementVehicle : Script
     {
         if (player.Vehicle != null)
         {
-            if (player.Vehicle.GetVehicleModel() != null)
+            var vehicleModel = player.Vehicle.GetVehicleModel();
+            if (vehicleModel != null)
             {
-                player.Vehicle.GetVehicleModel().MinusFuel();
+                if (vehicleModel.FuelTank < 0.3f)
+                {
+                    player.Vehicle.EngineStatus = false;
+                    player.Vehicle.SetSharedData("vehicleEngineStatusKey", false);
+                    return;
+                }
+                vehicleModel.MinusFuel();
+                player.SendChatMessage(vehicleModel.FuelTank.ToString());
             }
         }
+    }
+
+    [ServerEvent(Event.PlayerExitVehicle)]
+    public void OnPlayerExitVehicle(Player player, Vehicle vehicle)
+    {
+        vehicle.SetSharedData("vehicleEngineStatusKey", vehicle.EngineStatus);
+    }
+    [ServerEvent(Event.PlayerEnterVehicle)]
+    public void OnPlayerEnterVehicle(Player player, Vehicle vehicle, sbyte seatId)
+    {
+        vehicle.SetSharedData("vehicleEngineStatusKey", vehicle.EngineStatus);
     }
 }
