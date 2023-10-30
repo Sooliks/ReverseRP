@@ -126,6 +126,29 @@ public class InputMarker : Script
         colShape.SetData(ColShapeGetCallbackKey,callback);
         colShape.SetData(ColshapeIsForWalkingKey,isForWalking);
     }
+    public static void CreateNpcWithOpenCefPath(string namePed, Vector3 position, float heading, string titlePed, string titleBlip, int iconBlip, byte colorBlip, string nameCefPath, uint dimension = 0)
+    {
+        var ped = NAPI.Ped.CreatePed(NAPI.Util.GetHashKey(namePed), position, heading, dimension);
+        var colShape = NAPI.ColShape.CreateCylinderColShape(position, 1.0f, 1.0f, dimension:dimension);
+        Blip blip = NAPI.Blip.CreateBlip(iconBlip, position, 1.0f, colorBlip, dimension:dimension);
+        NAPI.Blip.SetBlipName(blip, titleBlip);
+        NAPI.Blip.SetBlipShortRange(blip, true);
+        colShape.SetData(ColShapeIsTriggeredByPressEKey,true);
+        colShape.SetData(ColshapeIsForWalkingKey,true);
+        colShape.SetData(ColShapeCefPathKey,nameCefPath);
+    }
+    public static void CreateNpcWithCallback(string namePed, Vector3 position, float heading, string titlePed, string titleBlip, int iconBlip, byte colorBlip, Callback callback, uint dimension = 0)
+    {
+        var ped = NAPI.Ped.CreatePed(NAPI.Util.GetHashKey(namePed), position, heading, dimension);
+        var colShape = NAPI.ColShape.CreateCylinderColShape(position, 1.0f, 1.0f, dimension:dimension);
+        Blip blip = NAPI.Blip.CreateBlip(iconBlip, position, 1.0f, colorBlip, dimension:dimension);
+        NAPI.Blip.SetBlipName(blip, titleBlip);
+        NAPI.Blip.SetBlipShortRange(blip, true);
+        colShape.SetData(ColShapeIsTriggeredByPressEKey,true);
+        colShape.SetData(ColshapeIsForWalkingKey,true);
+        colShape.SetData(ColShapeGetCallbackKey,callback);
+    }
+    
     public delegate void Callback(Player player);
 
     [ServerEvent(Event.PlayerEnterColshape)]
@@ -184,8 +207,8 @@ public class InputMarker : Script
         player.ResetData(ActiveColshapePlayerKey);
     }
 
-    [RemoteEvent("CLIENT::SERVER:PRESS_E_IN_VEHICLE")]
-    public void OnPressEInVehicle(Player player)
+    [RemoteEvent("CLIENT::SERVER:PRESS_E")]
+    public void OnPressE(Player player)
     {
         if (player.HasData(ActiveColshapePlayerKey))
         {

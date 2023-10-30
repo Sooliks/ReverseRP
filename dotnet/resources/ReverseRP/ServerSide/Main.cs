@@ -42,6 +42,7 @@ public class Main : Script
             }
         }
         StartedCreateMarkers.LoadMarkers();
+        StartedCreatePeds.LoadPeds();
         await Task.Delay(1000);
         await Logs.SendGameLogAsync("Server started!");
     }

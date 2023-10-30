@@ -66,6 +66,20 @@ const CarDealership: React.FC = () => {
         setCurrentColor({index: index, hexColor: hexColor})
         Client.triggerServer("CEF::SERVER:ON_PICK_COLOR_CARDEALEARSHIP", hexColor);
     }
+    const getTypeGasById = (id: number | undefined): string => {
+        switch (id){
+            case 0:
+                return "Eco"
+            case 1:
+                return "Premium"
+            case 2:
+                return "Lux"
+            case 3:
+                return "Electric"
+            default:
+                return "Неизвестно"
+        }
+    }
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'space-between'}}>
@@ -88,6 +102,14 @@ const CarDealership: React.FC = () => {
                             <Space>
                                 <Text type={"secondary"}>Вместимость багажника:</Text>
                                 <Text>{currentCar.VehicleType?.BaggageHoldCapacity + ' кг'}</Text>
+                            </Space>
+                            <Space>
+                                <Text type={"secondary"}>Расход топлива:</Text>
+                                <Text>{currentCar.VehicleType?.FuelConsumption}</Text>
+                            </Space>
+                            <Space>
+                                <Text type={"secondary"}>Тип топлива:</Text>
+                                <Text>{getTypeGasById(currentCar.VehicleType?.GasType)}</Text>
                             </Space>
                         </Space>
                         <Divider/>

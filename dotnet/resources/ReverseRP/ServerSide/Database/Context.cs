@@ -54,7 +54,7 @@ public class Context : DbContext
             Password = (string)obj["database"]["password"],
         };
         optionsBuilder.UseMySQL(connectionString.ConnectionString)
-            .LogTo(str => Debug.WriteLine(str), new[] { RelationalEventId.CommandExecuted })
+            .LogTo(str => Debug.WriteLine("[Database]-> "+str), new[] { RelationalEventId.CommandExecuted })
             .EnableSensitiveDataLogging();
     }
 
