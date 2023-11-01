@@ -13,7 +13,7 @@ public class VehicleHandler
         using Context db = new Context();
         //db.Entry(character).Collection(c=>c.Vehicles).Load();
         character = db.Character.Include(c=>c.Vehicles).FirstOrDefault(c => c.Id == character.Id);
-        var vehicleModel = new Vehicle(vehicleType, 30, 0, vehicleRage);
+        var vehicleModel = new Vehicle(vehicleType, 35, 0, vehicleRage);
         vehicleRage.SetVehicleModel(vehicleModel);
         character.Vehicles.Add(vehicleModel);
         db.Character.Update(character);

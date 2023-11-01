@@ -139,7 +139,7 @@ public class InputMarker : Script
     }
     public static void CreateNpcWithCallback(string namePed, Vector3 position, float heading, string titlePed, string titleBlip, int iconBlip, byte colorBlip, Callback callback, uint dimension = 0)
     {
-        var ped = NAPI.Ped.CreatePed(NAPI.Util.GetHashKey(namePed), position, heading, dimension);
+        var ped = NAPI.Ped.CreatePed(NAPI.Util.GetHashKey(namePed), position, heading, false, false, true, true, dimension);
         var colShape = NAPI.ColShape.CreateCylinderColShape(position, 1.0f, 1.0f, dimension:dimension);
         Blip blip = NAPI.Blip.CreateBlip(iconBlip, position, 1.0f, colorBlip, dimension:dimension);
         NAPI.Blip.SetBlipName(blip, titleBlip);
@@ -213,15 +213,32 @@ public class InputMarker : Script
         if (player.HasData(ActiveColshapePlayerKey))
         {
             var colShape = player.GetData<ColShape>(ActiveColshapePlayerKey);
-            if (colShape.HasData(ColShapeCefPathKey))
+            bool isForWalking = colShape.HasData(ColshapeIsForWalkingKey) ? colShape.GetData<bool>(ColshapeIsForWalkingKey) : false;
+            if (isForWalking)
             {
-                if(player.Vehicle == null)return;
-                player.ChangeCefWindow(colShape.GetData<string>(ColShapeCefPathKey));
+                if (colShape.HasData(ColShapeCefPathKey))
+                {
+                    if (player.IsInVehicle) return;
+                    player.ChangeCefWindow(colShape.GetData<string>(ColShapeCefPathKey));
+                }
+                if (colShape.HasData(ColShapeGetCallbackKey))
+                {
+                    if (player.IsInVehicle) return;
+                    colShape.GetData<Callback>(ColShapeGetCallbackKey)(player);
+                }
             }
-            if (colShape.HasData(ColShapeGetCallbackKey))
+            else
             {
-                if(player.Vehicle == null)return;
-                colShape.GetData<Callback>(ColShapeGetCallbackKey)(player);
+                if (colShape.HasData(ColShapeCefPathKey))
+                {
+                    if (player.Vehicle == null) return;
+                    player.ChangeCefWindow(colShape.GetData<string>(ColShapeCefPathKey));
+                }
+                if (colShape.HasData(ColShapeGetCallbackKey))
+                {
+                    if (player.Vehicle == null) return;
+                    colShape.GetData<Callback>(ColShapeGetCallbackKey)(player);
+                }
             }
         }
     }

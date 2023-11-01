@@ -109,7 +109,6 @@ namespace ClientSide.CEF
 
         public static bool IsOpenAnyCefPath()
         {
-            RAGE.Chat.Output(MainCefWindow.Url);
             if (MainCefWindow.Url != DefaultUrl) return true;
             return false;
         }
