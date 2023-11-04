@@ -6,12 +6,21 @@ namespace ServerSide.Extensions.VehicleExtensions;
 public static class VehicleExtensionsData
 {
     public static void SetVehicleModel(this GTANetworkAPI.Vehicle vehicle, Vehicle vehModel) => vehicle.SetData("vehicleModel", vehModel);
-    public static Vehicle GetVehicleModel(this GTANetworkAPI.Vehicle  vehicle)
+    public static Vehicle GetVehicleModelFromDb(this GTANetworkAPI.Vehicle  vehicle)
     {
         if (vehicle.HasData("vehicleModel"))
         {
             var v = vehicle.GetData<Vehicle>("vehicleModel");
             return VehicleHandler.GetVehicleModelById(v.Id);
+        }
+        return null;
+    }
+    public static Vehicle GetVehicleModel(this GTANetworkAPI.Vehicle  vehicle)
+    {
+        if (vehicle.HasData("vehicleModel"))
+        {
+            var v = vehicle.GetData<Vehicle>("vehicleModel");
+            return v;
         }
         return null;
     }

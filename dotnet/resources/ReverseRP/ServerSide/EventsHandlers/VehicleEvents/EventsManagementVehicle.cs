@@ -21,10 +21,10 @@ public class EventsManagementVehicle : Script
         {
             if(path.Split('/')[3] == "gasstation") return;
         }
-        var vehicleModel = player.Vehicle.GetVehicleModel();
+        var vehicleModel = player.Vehicle.GetVehicleModelFromDb();
         if (vehicleModel != null)
         {
-            if (player.Vehicle.GetVehicleModel().FuelTank < 0.3f)
+            if (vehicleModel.FuelTank < 0.3f)
             {
                 player.SendNotify(NotifyType.Warning, "Топливо закончилось!");
                 return;
@@ -62,8 +62,8 @@ public class EventsManagementVehicle : Script
     {
         if (player.IsInVehicle)
         {
-            if(player.Vehicle.GetVehicleModel()==null)return;
-            if (player.Vehicle.GetVehicleModel().Character.Id == player.GetCharacter().Id)
+            if(player.Vehicle.GetVehicleModelFromDb()==null)return;
+            if (player.Vehicle.GetVehicleModelFromDb().Character.Id == player.GetCharacter().Id)
             {
                 player.Vehicle.Locked = !player.Vehicle.Locked;
                 player.SendNotify(NotifyType.Info, player.Vehicle.Locked ? "Т/с закрыто!" : "Т/с открыто!");
@@ -74,8 +74,8 @@ public class EventsManagementVehicle : Script
         {
             if (player.Position.DistanceTo(vehicle.Position) < 7f)
             {
-                if(vehicle.GetVehicleModel()==null)return;
-                if (vehicle.GetVehicleModel().Character.Id == player.GetCharacter().Id)
+                if(vehicle.GetVehicleModelFromDb()==null)return;
+                if (vehicle.GetVehicleModelFromDb().Character.Id == player.GetCharacter().Id)
                 {
                     vehicle.Locked = !vehicle.Locked;
                     player.SendNotify(NotifyType.Info, vehicle.Locked ? "Т/с закрыто!" : "Т/с открыто!");
@@ -91,7 +91,7 @@ public class EventsManagementVehicle : Script
         if (player.Vehicle != null)
         {
             if(player.VehicleSeat != (int)VehicleSeat.Driver)return;
-            var vehicleModel = player.Vehicle.GetVehicleModel();
+            var vehicleModel = player.Vehicle.GetVehicleModelFromDb();
             if (vehicleModel != null)
             {
                 if (vehicleModel.FuelTank < 0.3f)
@@ -107,16 +107,17 @@ public class EventsManagementVehicle : Script
     }
 
     [RemoteEvent("CEF::SERVER:GET_VEHICLE_FROM_PARKING")]
-    public void OnGetVehicleFromParking(Player player, int idVehicle)
+    public void OnGetVehicleFromParking(Player player, int idVehicle, int idParking)
     {
         var vehicleModel = VehicleHandler.GetVehicleModelById(idVehicle);
-        if (NAPI.Pools.GetAllVehicles().FirstOrDefault(v => v.Id == vehicleModel.VehicleRage.Id) != null)
+        if (NAPI.Pools.GetAllVehicles().FirstOrDefault(v => v.GetVehicleModel().Id == vehicleModel.Id) != null)
         {
             player.ChangeCefWindow(CefWindowsPaths.Default);
             player.SendNotify(NotifyType.Warning, "Этот транспорт уже находится на сервере!");
             return;
         }
         player.ChangeCefWindow(CefWindowsPaths.Default);
+        
     }
 
     [ServerEvent(Event.PlayerExitVehicle)]

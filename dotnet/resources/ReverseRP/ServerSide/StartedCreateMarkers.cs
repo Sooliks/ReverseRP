@@ -48,7 +48,7 @@ public class StartedCreateMarkers
                             player.SendNotify(NotifyType.Warning, "Т/с уже заправляется!");
                             return;
                         }
-                        if (player.Vehicle.GetVehicleModel() == null)
+                        if (player.Vehicle.GetVehicleModelFromDb() == null)
                         {
                             player.SendNotify(NotifyType.Warning, "Вы не можете заправить это т/с");
                             return;

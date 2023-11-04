@@ -38,7 +38,7 @@ const AppRouter: React.FC = () => {
                 <Route path={"/gasstation/:id"} element={<GasStation/>}/>
                 <Route path={"/*"} element={<DefaultRouter/>}/>
                 <Route path={"/works/truckers"} element={<Truckers/>}/>
-                <Route path={"/parkingpanel"} element={<ParkingPanel/>}/>
+                <Route path={"/parkingpanel/:id"} element={<ParkingPanel/>}/>
             </Routes>
         </App>
     );

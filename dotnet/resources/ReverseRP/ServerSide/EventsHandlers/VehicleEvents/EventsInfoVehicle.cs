@@ -13,7 +13,7 @@ public class EventsInfoVehicle : Script
     {
         if (!player.IsAuthorized()) return null;
         if(!player.IsInVehicle)return null;
-        var vehicleModel = player.Vehicle.GetVehicleModel();
+        var vehicleModel = player.Vehicle.GetVehicleModelFromDb();
         return NAPI.Util.ToJson(vehicleModel.VehicleType.FuelTankCapacity - vehicleModel.FuelTank);
     }
 

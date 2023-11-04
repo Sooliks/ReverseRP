@@ -4,6 +4,7 @@ import {Button, Card, Result, Space} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
 import {Client} from "../../requests/Client";
 import Car from "./Car";
+import {useParams} from "react-router-dom";
 
 export type CarType = {
     id: number,
@@ -11,9 +12,15 @@ export type CarType = {
     registerNumber: string
     vehicleTypeId: number
 }
+type ParkingPanelParams = {
+    id: string
+}
 
 const ParkingPanel: React.FC = () => {
-    const[cars,setCars] = useState<CarType[]>([]);
+    const params = useParams<ParkingPanelParams>();
+    const[cars,setCars] = useState<CarType[]>([
+        {id: 0, registerNumber: 'fdfdf', name: 'fgfg', vehicleTypeId: 3}
+    ]);
 
     useEffect(()=>{
         Client.callProcServer<string>("RPC::CEF::SERVER:GET_VEHICLES_CHARACTER").then(data=>{
@@ -28,7 +35,7 @@ const ParkingPanel: React.FC = () => {
                     {cars.length!==0 ?
                         <Space size={[22,22]} wrap>
                             {cars.map((car,index)=>
-                                <Car car={car} key={index}/>
+                                <Car idParking={params.id} car={car} key={index}/>
                             )}
                         </Space>
                         :

@@ -65,7 +65,7 @@ public class EventsShopping : Script
             if (player.MinusMoney(item.Price * count))
             {
                 player.ChangeCefWindow(CefWindowsPaths.Default);
-                var modelVehicle = vehicle.GetVehicleModel();
+                var modelVehicle = vehicle.GetVehicleModelFromDb();
                 vehicle.SetVehicleIsRefueling(true);
                 player.SendProgressBar((count*200)/1000, "Заправка...");
                 NAPI.Task.Run(() =>
