@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using GTANetworkAPI;
-using Newtonsoft.Json;
-using ServerSide.Data;
 using ServerSide.Database;
-using ServerSide.Database.Handlers;
-using ServerSide.Database.Models;
 using ServerSide.Discord;
 using ServerSide.Extensions;
 using ServerSide.Services;
-using ServerSide.Services.MapService;
 using Task = System.Threading.Tasks.Task;
 
 
@@ -52,7 +44,7 @@ public class Main : Script
     {
         player.ChangeCefWindow(CefWindowsPaths.Authorization);
         player.FreezePlayer(true);
-        DiscordBot.GetUserCount();
+        DiscordBot.UpdateUserCount();
     }
 
     [ServerEvent(Event.PlayerDisconnected)]
@@ -60,7 +52,7 @@ public class Main : Script
     {
         player.SetAuthorized(false);
         player.DestroyMainCamera();
-        await DiscordBot.GetUserCount();
+        await DiscordBot.UpdateUserCount();
     }
 
     [ServerEvent(Event.ResourceStop)]

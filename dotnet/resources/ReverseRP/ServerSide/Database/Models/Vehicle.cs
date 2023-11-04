@@ -18,6 +18,7 @@ public class Vehicle
         set { VehicleRageJson = JsonConvert.SerializeObject(value); }
     }
     public string VehicleRageJson { get; private set; } 
+    public string RegisterNumber { get; set; }
 
     public Vehicle()
     {
@@ -30,6 +31,7 @@ public class Vehicle
         FuelTank = fuelTank;
         Mileage = mileage;
         VehicleRage = vehicleRage;
+        RegisterNumber = vehicleRage.NumberPlate;
     }
 
     public void MinusFuel()

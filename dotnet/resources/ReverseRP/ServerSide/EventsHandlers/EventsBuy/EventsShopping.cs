@@ -9,6 +9,7 @@ using ServerSide.Extensions;
 using ServerSide.Extensions.VehicleExtensions;
 using ServerSide.Services;
 using ServerSide.Services.MapService;
+using ServerSide.Services.VehicleServices;
 
 
 namespace ServerSide.EventsHandlers.EventsBuy;
@@ -105,7 +106,7 @@ public class EventsShopping : Script
             var color = System.Drawing.ColorTranslator.FromHtml(hexColor);
             veh.CustomPrimaryColor = new Color(color.R, color.G,color.B);
             veh.CustomSecondaryColor = new Color(color.R, color.G,color.B);
-            veh.NumberPlate = "";
+            veh.NumberPlate = VehicleService.GetUniqNumberPlate();
             veh.Locked = true;
             veh.EngineStatus = false;
             VehicleHandler.AddNewVehicle(player.GetCharacter(), vehicleType, veh);

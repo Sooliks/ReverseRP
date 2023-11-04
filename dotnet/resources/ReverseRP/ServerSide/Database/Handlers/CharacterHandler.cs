@@ -6,6 +6,7 @@ using GTANetworkAPI;
 using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
 using ServerSide.Extensions;
+using Vehicle = ServerSide.Database.Models.Vehicle;
 
 namespace ServerSide.Database.Handlers;
 
@@ -118,5 +119,12 @@ public class CharacterHandler
         c.CountSatiety = satiety;
         db.Character.Update(c);
         db.SaveChanges();
+    }
+
+    public static List<Vehicle> GetVehicles(Character character)
+    {
+        using Context db = new Context();
+        db.Entry(character).Collection(c=>c.Vehicles).Load();
+        return character.Vehicles;
     }
 }

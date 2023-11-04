@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Bcrypt
+namespace Utils
 {
     // Copyright (c) 2006 Damien Miller <djm@mindrot.org>
     // Copyright (c) 2007 Derek Slager

@@ -1,6 +1,7 @@
 ﻿
 using System.Linq;
 using ServerSide.Database.Models;
+using Utils;
 
 namespace ServerSide.Database.Handlers;
 
@@ -21,7 +22,7 @@ public static class AccountsHandler
     {
         using Context db = new Context();
         var account = db.Account.SingleOrDefault(a => a.Login == login);
-        if (Bcrypt.BCrypt.CheckPassword(password, account.Password)) return true;
+        if (BCrypt.CheckPassword(password, account.Password)) return true;
         return false;
     }
 
@@ -38,7 +39,7 @@ public static class AccountsHandler
     public static Account Register(string login, string email, string password, string ip, ulong socialClubId)
     {
         using Context db = new Context();
-        string saltePassword = Bcrypt.BCrypt.HashPassword(password, Bcrypt.BCrypt.GenerateSalt());
+        string saltePassword = BCrypt.HashPassword(password, BCrypt.GenerateSalt());
         var account = new Account(login,email, saltePassword, ip, socialClubId);
         db.Account.Add(account);
         db.SaveChanges();

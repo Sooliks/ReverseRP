@@ -25,7 +25,6 @@ public class VehicleHandler
         using Context db = new Context();
         return db.Vehicles.Include(v=>v.Character).Include(v=>v.VehicleType).FirstOrDefault(v => v.Id == id);
     }
-
     public static void AddFuel(Vehicle vehicle,int count)
     {
         using Context db = new Context();
@@ -39,5 +38,12 @@ public class VehicleHandler
         vehicle.FuelTank += count;
         db.Vehicles.Update(vehicle);
         db.SaveChanges();
+    }
+
+    public static bool IsNumberPlateExist(string numberPlate)
+    {
+        using Context db = new Context();
+        var vehicle = db.Vehicles.FirstOrDefault(v => v.RegisterNumber == numberPlate);
+        return vehicle != null;
     }
 }

@@ -41,7 +41,7 @@ public class DiscordBot
         return Task.CompletedTask;
     }
 
-    public static async Task GetUserCount()
+    public static async Task UpdateUserCount()
     {
         var memberCountTextChannel = Client.GetGuild(Guild).GetTextChannel(1039165715623710792);
         await memberCountTextChannel.ModifyAsync(p=>p.Name = $"Онлайн {NAPI.Pools.GetAllPlayers().Count}");

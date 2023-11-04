@@ -14,9 +14,9 @@ import {ServerData} from "./data/ServerData";
 
 const App = () => {
     useEffect(()=>{
-        Client.callProcServer<string>("RPC::CEF::SERVER:GetVehiclesTypes").then(data=>{
+        /*Client.callProcServer<string>("RPC::CEF::SERVER:GetVehiclesTypes").then(data => {
             ServerData.vehiclesTypes = JSON.parse(data);
-        })
+        })*/
     },[])
 
 
