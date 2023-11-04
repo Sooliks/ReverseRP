@@ -25,13 +25,13 @@ const Car: React.FC<CarProps> = ({car}) => {
 
     return (
         <Card title={car.name}>
-            <div style={{width: 200, height: 160, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+            <div style={{width: 200, height: 164, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                 <img src={image} alt={"name"} style={{borderRadius: 10}}/>
                 <Space style={{marginTop: 4}}>
                     <Text type={"secondary"}>Номерной знак: </Text>
                     <Text>{car.registerNumber}</Text>
                 </Space>
-                <Button type={"primary"} style={{width: '100%'}} onClick={handleClickGetVehicle}>Забрать</Button>
+                <Button type={"primary"} style={{width: '100%', marginBottom: 4}} onClick={handleClickGetVehicle}>Забрать</Button>
             </div>
         </Card>
     );

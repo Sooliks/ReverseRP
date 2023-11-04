@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Linq;
 using GTANetworkAPI;
+using ServerSide.Database.Handlers;
 using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Extensions.VehicleExtensions;
+using ServerSide.Services;
 
 namespace ServerSide.EventsHandlers.VehicleEvents;
 
@@ -101,6 +104,19 @@ public class EventsManagementVehicle : Script
                 player.SendChatMessage(vehicleModel.FuelTank.ToString());
             }
         }
+    }
+
+    [RemoteEvent("CEF::SERVER:GET_VEHICLE_FROM_PARKING")]
+    public void OnGetVehicleFromParking(Player player, int idVehicle)
+    {
+        var vehicleModel = VehicleHandler.GetVehicleModelById(idVehicle);
+        if (NAPI.Pools.GetAllVehicles().FirstOrDefault(v => v.Id == vehicleModel.VehicleRage.Id) != null)
+        {
+            player.ChangeCefWindow(CefWindowsPaths.Default);
+            player.SendNotify(NotifyType.Warning, "Этот транспорт уже находится на сервере!");
+            return;
+        }
+        player.ChangeCefWindow(CefWindowsPaths.Default);
     }
 
     [ServerEvent(Event.PlayerExitVehicle)]

@@ -19,6 +19,9 @@ const ParkingPanel: React.FC = () => {
         {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
         {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
         {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
+        {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
+        {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
+        {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
     ]);
 
     useEffect(()=>{
@@ -27,8 +30,8 @@ const ParkingPanel: React.FC = () => {
 
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', backgroundColor: 'white', justifyContent: 'center'}}>
-            <Card extra={<Button icon={<CloseOutlined/>} onClick={()=>Client.closeWindow()}/>}>
-                <div style={{width: '57vw', height: '69vh'}}>
+            <Card title={"Стоянка"} extra={<Button icon={<CloseOutlined/>} onClick={()=>Client.closeWindow()}/>}>
+                <div style={{width: '58vw', height: 560,overflowY: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                     <Space size={[22,22]} wrap>
                         {cars.map((car,index)=>
                             <Car car={car} key={index}/>
