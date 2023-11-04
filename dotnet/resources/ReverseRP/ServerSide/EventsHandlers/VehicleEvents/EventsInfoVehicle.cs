@@ -11,6 +11,7 @@ public class EventsInfoVehicle : Script
     [RemoteProc("RPC::CEF::SERVER:GetFuelTankCapacity")]
     public string OnGetFuelTankCapacity(Player player)
     {
+        if (!player.IsAuthorized()) return null;
         if(!player.IsInVehicle)return null;
         var vehicleModel = player.Vehicle.GetVehicleModel();
         return NAPI.Util.ToJson(vehicleModel.VehicleType.FuelTankCapacity - vehicleModel.FuelTank);
@@ -19,6 +20,7 @@ public class EventsInfoVehicle : Script
     [RemoteProc("RPC::CEF::SERVER:GET_VEHICLES_CHARACTER")]
     public string OnGetVehiclesCharacter(Player player)
     {
+        if (!player.IsAuthorized()) return null;
         return NAPI.Util.ToJson(CharacterHandler.GetVehicles(player.GetCharacter()).Select(v=>new
         {
             id = v.Id,
