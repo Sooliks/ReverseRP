@@ -3,6 +3,7 @@ import {Config} from "../../conf";
 import {Button, Card, Space} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
 import {Client} from "../../requests/Client";
+import Car from "./Car";
 
 export type CarType = {
     id: number,
@@ -12,7 +13,13 @@ export type CarType = {
 }
 
 const ParkingPanel: React.FC = () => {
-    const[cars,setCars] = useState<CarType[]>([]);
+    const[cars,setCars] = useState<CarType[]>([
+        {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
+        {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
+        {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
+        {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
+        {id: 1, name: 'BMW M8', registerNumber: 'AG534H', vehicleTypeId: 1},
+    ]);
 
     useEffect(()=>{
 
@@ -21,9 +28,11 @@ const ParkingPanel: React.FC = () => {
     return (
         <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', backgroundColor: 'white', justifyContent: 'center'}}>
             <Card extra={<Button icon={<CloseOutlined/>} onClick={()=>Client.closeWindow()}/>}>
-                <div style={{width: '50vw', height: '50vh'}}>
-                    <Space direction={"horizontal"} wrap>
-                        
+                <div style={{width: '57vw', height: '69vh'}}>
+                    <Space size={[22,22]} wrap>
+                        {cars.map((car,index)=>
+                            <Car car={car} key={index}/>
+                        )}
                     </Space>
                 </div>
             </Card>
