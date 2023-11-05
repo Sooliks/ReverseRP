@@ -111,7 +111,7 @@ public class EventsManagementVehicle : Script
     public void OnGetVehicleFromParking(Player player, int idVehicle, int idParking)
     {
         var vehicleModel = VehicleHandler.GetVehicleModelById(idVehicle);
-        if (NAPI.Pools.GetAllVehicles().FirstOrDefault(v => v.GetVehicleModel().Id == vehicleModel.Id) != null)
+        if (NAPI.Pools.GetAllVehicles().FirstOrDefault(v => v.GetVehicleModel()!=null && v.GetVehicleModel().Id == vehicleModel.Id) != null)
         {
             player.ChangeCefWindow(CefWindowsPaths.Default);
             player.SendNotify(NotifyType.Warning, "Этот транспорт уже находится на сервере!");
@@ -119,7 +119,12 @@ public class EventsManagementVehicle : Script
         }
         player.ChangeCefWindow(CefWindowsPaths.Default);
         var positionAndRotationVehicleSpawn = ParkingService.GetRandomPositionParking(idParking);
-        vehicleModel.VehicleRage.Spawn(positionAndRotationVehicleSpawn.Position, positionAndRotationVehicleSpawn.Rotation.Z);
+        var veh = NAPI.Vehicle.CreateVehicle(NAPI.Util.GetHashKey(vehicleModel.VehicleType.ModelHash), positionAndRotationVehicleSpawn.Position, positionAndRotationVehicleSpawn.Rotation.Z, 0, 0, vehicleModel.RegisterNumber);
+        veh.Locked = vehicleModel.VehicleRage.Locked;
+        veh.EngineStatus = false;
+        veh.SetVehicleModel(vehicleModel);
+        veh.CustomPrimaryColor = vehicleModel.VehicleRage.CustomPrimaryColor;
+        veh.CustomSecondaryColor = vehicleModel.VehicleRage.CustomSecondaryColor;
     }
 
     [ServerEvent(Event.PlayerExitVehicle)]

@@ -124,7 +124,7 @@ public class CharacterHandler
     public static List<Vehicle> GetVehicles(Character character)
     {
         using Context db = new Context();
-        db.Entry(character).Collection(c=>c.Vehicles).Load();
-        return character.Vehicles;
+        var vehicles = db.Vehicles.Include(v=>v.VehicleType).AsQueryable().Where(v => v.Character.Id == character.Id).ToList();
+        return vehicles;
     }
 }

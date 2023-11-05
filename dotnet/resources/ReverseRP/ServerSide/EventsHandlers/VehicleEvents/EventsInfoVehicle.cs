@@ -27,7 +27,7 @@ public class EventsInfoVehicle : Script
             name = $"{v.VehicleType.Mark} {v.VehicleType.Model}",
             registerNumber = v.RegisterNumber,
             vehicleTypeId = v.VehicleType.Id
-        }));
+        }).ToList());
     }
     
 }

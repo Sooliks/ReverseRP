@@ -3662,4 +3662,282 @@ Started! Waiting for connections..
 [Discord Bot]-> 18:54:54 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
 [Discord Bot]-> 18:54:54 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
 [Discord Bot]-> 18:54:54 Gateway     Connected
+[DiscordInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 05.11.2023 18:47:24
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 22 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loaded 11 remote procedure(s)
+Server started!
+[Discord Bot]-> 18:47:24 Gateway     Connecting
+[Discord Bot]-> 18:47:26 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 18:47:26 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 18:47:26 Gateway     Connected
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[DiscordInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 05.11.2023 19:01:56
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 22 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loaded 11 remote procedure(s)
+Server started!
+[Discord Bot]-> 19:01:57 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 19:01:58 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:01:58 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:01:58 Gateway     Connected
+[Discord Bot]-> 19:01:59 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at string ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle.OnGetVehiclesCharacter(Player player)+(Vehicle v) => { } in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/VehicleEvents/EventsInfoVehicle.cs:line 24
+   at bool System.Linq.Enumerable+SelectListIterator<TSource, TResult>.MoveNext()
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, object value, Type objectType)
+   at void Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, object value, Type objectType)
+   at void Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, object value, Type objectType)
+   at string Newtonsoft.Json.JsonConvert.SerializeObjectInternal(object value, Type type, JsonSerializer jsonSerializer)
+   at string Newtonsoft.Json.JsonConvert.SerializeObject(object value, Type type, JsonSerializerSettings settings)
+   at string Newtonsoft.Json.JsonConvert.SerializeObject(object value)
+   at string GTANetworkMethods.Util.ToJson(object data)
+   at string ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle.OnGetVehiclesCharacter(Player player) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/VehicleEvents/EventsInfoVehicle.cs:line 24
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.RemoteProcParser.Parse(Player sender, ulong eventNameHash, out object ret, params object[] args)
+   at void GTANetworkInternals.RemoteProcHandler.Parse(Player player, ulong eventNameHash, uint callIdx, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at string ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle.OnGetVehiclesCharacter(Player player)+(Vehicle v) => { } in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/VehicleEvents/EventsInfoVehicle.cs:line 24
+   at bool System.Linq.Enumerable+SelectListIterator<TSource, TResult>.MoveNext()
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at void Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, object value, Type objectType)
+   at void Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, object value, Type objectType)
+   at void Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, object value, Type objectType)
+   at string Newtonsoft.Json.JsonConvert.SerializeObjectInternal(object value, Type type, JsonSerializer jsonSerializer)
+   at string NewtonsoftInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 05.11.2023 19:03:17
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 22 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loaded 11 remote procedure(s)
+Server started!
+[Discord Bot]-> 19:03:17 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 19:03:19 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:03:19 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:03:19 Gateway     Connected
+[DiscordInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 05.11.2023 19:16:50
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 22 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loaded 11 remote procedure(s)
+Server started!
+[Discord Bot]-> 19:16:50 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 19:16:52 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:16:52 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 19:16:52 Gateway     Connected
 [Discord
