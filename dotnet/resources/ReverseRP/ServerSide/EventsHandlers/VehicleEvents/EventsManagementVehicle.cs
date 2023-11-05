@@ -119,7 +119,7 @@ public class EventsManagementVehicle : Script
         }
         player.ChangeCefWindow(CefWindowsPaths.Default);
         var positionAndRotationVehicleSpawn = ParkingService.GetRandomPositionParking(idParking);
-        VehicleService.CreateVehicle(vehicleModel.VehicleRage, positionAndRotationVehicleSpawn.Position, positionAndRotationVehicleSpawn.Rotation.Z);
+        vehicleModel.VehicleRage.Spawn(positionAndRotationVehicleSpawn.Position, positionAndRotationVehicleSpawn.Rotation.Z);
     }
 
     [ServerEvent(Event.PlayerExitVehicle)]
