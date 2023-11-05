@@ -18,9 +18,7 @@ type ParkingPanelParams = {
 
 const ParkingPanel: React.FC = () => {
     const params = useParams<ParkingPanelParams>();
-    const[cars,setCars] = useState<CarType[]>([
-        {id: 0, registerNumber: 'fdfdf', name: 'fgfg', vehicleTypeId: 3}
-    ]);
+    const[cars,setCars] = useState<CarType[]>([]);
 
     useEffect(()=>{
         Client.callProcServer<string>("RPC::CEF::SERVER:GET_VEHICLES_CHARACTER").then(data=>{

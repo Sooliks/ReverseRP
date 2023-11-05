@@ -6,6 +6,7 @@ using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Extensions.VehicleExtensions;
 using ServerSide.Services;
+using ServerSide.Services.VehicleServices;
 
 namespace ServerSide.EventsHandlers.VehicleEvents;
 
@@ -117,7 +118,8 @@ public class EventsManagementVehicle : Script
             return;
         }
         player.ChangeCefWindow(CefWindowsPaths.Default);
-        
+        var positionAndRotationVehicleSpawn = ParkingService.GetRandomPositionParking(idParking);
+        VehicleService.CreateVehicle(vehicleModel.VehicleRage, positionAndRotationVehicleSpawn.Position, positionAndRotationVehicleSpawn.Rotation.Z);
     }
 
     [ServerEvent(Event.PlayerExitVehicle)]
