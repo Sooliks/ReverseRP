@@ -27,7 +27,7 @@ const ParkingPanel: React.FC = () => {
     },[])
 
     return (
-        <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', backgroundColor: 'white', justifyContent: 'center'}}>
+        <Space style={{width: Config.screenResolution.width, height: Config.screenResolution.height, position: 'absolute', justifyContent: 'center'}}>
             <Card title={"Стоянка"} extra={<Button icon={<CloseOutlined/>} onClick={()=>Client.closeWindow()}/>}>
                 <div style={{width: '58vw', height: 560,overflowY: 'auto'}}>
                     {cars.length!==0 ?
