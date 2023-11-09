@@ -120,11 +120,9 @@ public class EventsManagementVehicle : Script
         player.ChangeCefWindow(CefWindowsPaths.Default);
         var positionAndRotationVehicleSpawn = ParkingService.GetRandomPositionParking(idParking);
         var veh = NAPI.Vehicle.CreateVehicle(NAPI.Util.GetHashKey(vehicleModel.VehicleType.ModelHash), positionAndRotationVehicleSpawn.Position, positionAndRotationVehicleSpawn.Rotation.Z, 0, 0, vehicleModel.RegisterNumber);
-        veh.Locked = vehicleModel.VehicleRage.Locked;
-        veh.EngineStatus = false;
+        veh.Locked = true;
+        veh.EngineStatus = true;
         veh.SetVehicleModel(vehicleModel);
-        veh.CustomPrimaryColor = vehicleModel.VehicleRage.CustomPrimaryColor;
-        veh.CustomSecondaryColor = vehicleModel.VehicleRage.CustomSecondaryColor;
     }
 
     [ServerEvent(Event.PlayerExitVehicle)]

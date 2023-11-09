@@ -128,7 +128,7 @@ public class InputMarker : Script
     }
     public static void CreateNpcWithOpenCefPath(string namePed, Vector3 position, float heading, string titlePed, string titleBlip, int iconBlip, byte colorBlip, string nameCefPath, uint dimension = 0)
     {
-        var ped = NAPI.Ped.CreatePed(NAPI.Util.GetHashKey(namePed), position, heading, dimension);
+        var ped = NAPI.Ped.CreatePed(NAPI.Util.GetHashKey(namePed), position, heading, false, false, true, true, dimension);
         var colShape = NAPI.ColShape.CreateCylinderColShape(position, 1.0f, 1.0f, dimension:dimension);
         Blip blip = NAPI.Blip.CreateBlip(iconBlip, position, 1.0f, colorBlip, dimension:dimension);
         NAPI.Blip.SetBlipName(blip, titleBlip);

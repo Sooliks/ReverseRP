@@ -108,7 +108,7 @@ public class EventsShopping : Script
             veh.CustomSecondaryColor = new Color(color.R, color.G,color.B);
             veh.NumberPlate = VehicleService.GetUniqNumberPlate();
             veh.Locked = true;
-            veh.EngineStatus = false;
+            veh.EngineStatus = true;
             VehicleHandler.AddNewVehicle(player.GetCharacter(), vehicleType, veh);
             
             if (business.OwnerCharacterId != 0)

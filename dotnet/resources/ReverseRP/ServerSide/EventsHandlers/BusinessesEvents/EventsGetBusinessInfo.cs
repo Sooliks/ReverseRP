@@ -42,6 +42,6 @@ public class EventsGetBusinessInfo : Script
     public string OnGetProductsBusiness(Player player, int businessId)
     {
         var business = BusinessHandler.GetBusinessById(businessId);
-        return NAPI.Util.ToJson(business.Items);
+        return NAPI.Util.ToJson(new {items = business.Items, businessType = business.BusinessType});
     }
 }
