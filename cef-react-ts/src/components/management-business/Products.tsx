@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Client} from "../../requests/Client";
+import {ServerData} from "../../data/ServerData";
 
 
 
@@ -30,6 +31,9 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
             const incomingData: IncomingData = JSON.parse(data);
             switch (incomingData.businessType) {
                 case "Автосалон высокого класса":
+                    Client.callProcServer<string>("RPC::CEF::SERVER:GetVehiclesTypes").then(data=>{
+                        ServerData.vehiclesTypes = JSON.parse(data);
+                    })
                     break
                 case "Заправка":
                     break

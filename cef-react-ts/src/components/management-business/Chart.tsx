@@ -6,14 +6,9 @@ import {StatisticType} from "./Statistics";
 import {Client} from "../../requests/Client";
 
 
-
-
-
-
 type ChartProps = {
     idBusiness: number
 }
-
 const Chart: React.FC<ChartProps> = ({idBusiness}) => {
     useEffect(()=>{
         try {
@@ -49,7 +44,6 @@ const Chart: React.FC<ChartProps> = ({idBusiness}) => {
 
         }
     },[])
-
     const [lineChartData, setLineChartData] = useState<ChartData<"line">>({
         labels: [''],
         datasets: [
@@ -59,8 +53,6 @@ const Chart: React.FC<ChartProps> = ({idBusiness}) => {
             },
         ]
     });
-
-
     return (
         <Line
             data={lineChartData}

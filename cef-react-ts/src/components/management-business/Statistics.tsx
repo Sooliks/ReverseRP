@@ -7,21 +7,17 @@ import Chart from "./Chart";
 type StatisticsProps = {
     idBusiness: number
 }
-
 export type StatisticType = {
     DateTime: string
     CountVisitors: number
     PurchasedGoods: number
 }
-
 type ExtendStatisticType = {
     CountVisitorsCurrentDay: number
     Bank: number
     CountVisitorsMonth: number
 }
-
 const Statistics: React.FC<StatisticsProps> = ({idBusiness}) => {
-
     useEffect(()=>{
         Client.callProcServer<string>("RPC::CEF::SERVER:GetExtendedStatistic", idBusiness).then(data => {
             setStatistic(JSON.parse(data));
@@ -36,7 +32,6 @@ const Statistics: React.FC<StatisticsProps> = ({idBusiness}) => {
         Client.triggerServer("CEF::SERVER:ON_GET_BANK", idBusiness)
         setStatistic({...statistic, Bank: 0});
     }
-
     return (
         <div style={{width: '100%', height: '100%'}}>
             <Space align={"start"} style={{marginTop: '4vh'}}>
