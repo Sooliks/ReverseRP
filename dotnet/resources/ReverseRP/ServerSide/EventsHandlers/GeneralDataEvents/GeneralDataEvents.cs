@@ -10,4 +10,10 @@ public class GeneralDataEvents : Script
     {
         return NAPI.Util.ToJson(VehicleTypeHandler.GetVehicleTypes());
     }
+
+    [RemoteProc("RPC::CEF::SERVER:GetItemTypes")]
+    public string OnGetItemTypes(Player player)
+    {
+        return NAPI.Util.ToJson(ItemTypeHandler.GetItemTypes());
+    }
 }

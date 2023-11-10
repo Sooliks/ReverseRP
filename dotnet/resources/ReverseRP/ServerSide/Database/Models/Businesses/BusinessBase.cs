@@ -29,7 +29,8 @@ public class BusinessBase
     }
     public string ItemsJson { get; private set; }
     public string BusinessType { get; set; }
-    
+    public List<OrderBusiness>? OrderBusinesses { get; set; }
+
     public BusinessBase(int gosPrice, Vector3 positionManagementBusiness, List<ItemBusiness> items, string businessType)
     {
         Bank = 1000;

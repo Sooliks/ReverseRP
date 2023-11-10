@@ -6,24 +6,18 @@ import {ColumnsType} from "antd/es/table";
 import {Table} from "antd/lib";
 import {IncomingItemBusiness} from "../../types/businessesTypes";
 
-
-
 type ProductsProps = {
     idBusiness: number
 }
-
 type IncomingData = {
     items: IncomingItemBusiness[]
     businessType: "Маркет 24/7" | "Заправка" | "Автосалон высокого класса"
 }
-
 type ProductType = {
     name?: string
     itemBusiness: IncomingItemBusiness
-
 }
 const {Text,Link} = Typography;
-
 const columns: ColumnsType<ProductType> = [
     {
         title: 'Название',
@@ -53,7 +47,6 @@ const columns: ColumnsType<ProductType> = [
         ),
     },
 ];
-
 const Products: React.FC<ProductsProps> = ({idBusiness}) => {
     useEffect(()=>{
         Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", idBusiness).then(data => {
@@ -96,7 +89,6 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
         })
     },[])
     const [products,setProducts] = useState<ProductType[]>([])
-
     return (
         <div style={{width: '100%', height: '100%'}}>
             <Table columns={columns} dataSource={products}/>

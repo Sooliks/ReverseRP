@@ -1,6 +1,4 @@
 ﻿using GTANetworkAPI;
-using ServerSide.Enums;
-using ServerSide.Extensions;
 using ServerSide.Services.MapService;
 
 namespace ServerSide;

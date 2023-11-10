@@ -1,6 +1,8 @@
 ﻿using System;
 using GTANetworkAPI;
+using Microsoft.EntityFrameworkCore.Query;
 using ServerSide.Database.Handlers;
+using ServerSide.Database.Handlers.BusinessesHandlers;
 using ServerSide.Database.Models;
 using ServerSide.Extensions;
 
@@ -23,5 +25,17 @@ public class EventsActionPlayerWithBusiness : Script
             player.PlusMoney(business.Bank);
             BusinessHandler.MinusMoneyBank(business, business.Bank);
         }
+    }
+
+    [RemoteEvent("CEF::SERVER:ChangePriceItem")]
+    public void ChangePriceItem(Player player, int businessId, int businessItemId)
+    {
+        
+    }
+
+    [RemoteEvent("CEF::SERVER:OrderItem")]
+    public void OnOrderItem(Player player, int businessId, int businessItemId, int count)
+    {
+        
     }
 }

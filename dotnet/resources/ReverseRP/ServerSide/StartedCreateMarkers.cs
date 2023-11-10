@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using GTANetworkAPI;
 using Newtonsoft.Json;
-using ServerSide.Database.Handlers;
+using ServerSide.Database.Handlers.BusinessesHandlers;
 using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Extensions.VehicleExtensions;

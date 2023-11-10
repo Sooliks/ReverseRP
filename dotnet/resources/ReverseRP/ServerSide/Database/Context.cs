@@ -22,6 +22,7 @@ public class Context : DbContext
     public DbSet<Vehicle> Vehicles { get; set; }
     public DbSet<VehicleType> VehicleTypes { get; set; }
     public DbSet<StatisticBusiness> StatisticBusinesses { get; set; }
+    public DbSet<OrderBusiness> OrdersBusinesses { get; set; }
     
 
     public Context()
@@ -66,11 +67,11 @@ public class Context : DbContext
         modelBuilder.ApplyConfiguration(new ItemTypeConfiguration());
         modelBuilder.ApplyConfiguration(new BusinessesConfiguration());
         modelBuilder.ApplyConfiguration(new StatisticBusinessConfiguration());
+        modelBuilder.ApplyConfiguration(new OrderBusinessConfiguration());
         
         modelBuilder.Entity<Ammo>().HasBaseType<ItemType>();
         modelBuilder.Entity<Food>().HasBaseType<ItemType>();
         modelBuilder.Entity<Gun>().HasBaseType<ItemType>();
         modelBuilder.Entity<Medkit>().HasBaseType<ItemType>();
-        
     }
 }

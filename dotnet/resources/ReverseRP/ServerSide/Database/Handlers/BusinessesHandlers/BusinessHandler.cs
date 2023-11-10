@@ -1,11 +1,9 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using NLog.Config;
 using ServerSide.Database.Models;
 
-namespace ServerSide.Database.Handlers;
+namespace ServerSide.Database.Handlers.BusinessesHandlers;
 
 public class BusinessHandler
 {
@@ -26,7 +24,6 @@ public class BusinessHandler
             return db.BusinessesBase.FirstOrDefault(b => b.Id == idBusiness);
         }
     }
-
     public static void SetOwnerCharacterBusiness(Character character, int businessId)
     {
         using (Context db = new Context())
@@ -37,7 +34,6 @@ public class BusinessHandler
             db.SaveChanges();
         }
     }
-
     public static bool IsCharacterOwnerBusiness(Character character, BusinessBase business)
     {
         if (character == null) return false;
@@ -48,7 +44,6 @@ public class BusinessHandler
         }
         return false;
     }
-
     public static List<BusinessBase> GetAllBusinesses()
     {
         using (Context db = new Context())
@@ -56,7 +51,6 @@ public class BusinessHandler
             return db.BusinessesBase.ToList();
         }
     }
-
     public static void MinusMoneyBank(BusinessBase businessBase, int countMoney)
     {
         using (Context db = new Context())
@@ -75,6 +69,37 @@ public class BusinessHandler
         newListItems[index] = itemBusiness;
         business.Items = newListItems;
         db.BusinessesBase.Update(business);
+        db.SaveChanges();
+    }
+    public static void AddItem(BusinessBase businessBase, int idItem, int count)
+    {
+        using Context db = new Context();
+        var newListItems = businessBase.Items;
+        int index = businessBase.Items.FindIndex(s => s.ItemId == idItem);
+        var itemBusiness = businessBase.Items.FirstOrDefault(i => i.ItemId == idItem);
+        itemBusiness.Count += count;
+        newListItems[index] = itemBusiness;
+        businessBase.Items = newListItems;
+        db.BusinessesBase.Update(businessBase);
+        db.SaveChanges();
+    }
+    public static void AddOrder(BusinessBase businessBase, int idItem, int count)
+    {
+        using Context db = new Context();
+        businessBase.OrderBusinesses.Add(new OrderBusiness(idItem, count, true));
+        db.BusinessesBase.Update(businessBase);
+        db.SaveChanges();
+    }
+    public static void ChangePriceItem(BusinessBase businessBase, int idItem, int newPrice)
+    {
+        using Context db = new Context();
+        var newListItems = businessBase.Items;
+        int index = businessBase.Items.FindIndex(s => s.ItemId == idItem);
+        var itemBusiness = businessBase.Items.FirstOrDefault(i => i.ItemId == idItem);
+        itemBusiness.Price = newPrice;
+        newListItems[index] = itemBusiness;
+        businessBase.Items = newListItems;
+        db.BusinessesBase.Update(businessBase);
         db.SaveChanges();
     }
 }

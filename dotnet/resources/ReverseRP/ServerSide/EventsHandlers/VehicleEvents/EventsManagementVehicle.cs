@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Linq;
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
@@ -57,7 +57,6 @@ public class EventsManagementVehicle : Script
         player.Vehicle.EngineStatus = true;
         player.Vehicle.SetSharedData("vehicleEngineStatusKey", true);
     }
-
     [RemoteEvent("CLIENT::SERVER:PRESS_L")]
     public void OnPressL(Player player)
     {
@@ -85,7 +84,6 @@ public class EventsManagementVehicle : Script
             }
         }
     }
-
     [RemoteEvent("CLIENT::SERVER:ONE_TICK_FUEL")]
     public void OnOneTickFuel(Player player)
     {
