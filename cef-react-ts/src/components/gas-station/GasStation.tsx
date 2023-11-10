@@ -34,7 +34,7 @@ const GasStation: React.FC = () => {
     useEffect(()=>{
         Client.triggerServer("CEF::SERVER:ON_OPEN_BUSINESS_WINDOW", params.id)
         Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", params.id).then(data=>{
-            const incomingItems: IncomingItemBusiness[] = JSON.parse(data);
+            const incomingItems: IncomingItemBusiness[] = JSON.parse(data).items;
             setGasProperties([
                 {typeGas: 'Eco', price: incomingItems[0].Price},
                 {typeGas: 'Premium', price: incomingItems[1].Price},

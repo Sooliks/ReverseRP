@@ -35,7 +35,7 @@ const CarDealership: React.FC = () => {
         })
         Client.triggerServer("CEF::SERVER:ON_OPEN_BUSINESS_WINDOW", params.id)
         Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", params.id).then(data=>{
-            const incomingItems: IncomingItemBusiness[] = JSON.parse(data);
+            const incomingItems: IncomingItemBusiness[] = JSON.parse(data).items;
             let _cars: CarType[] = [];
             incomingItems.map(incomingItem =>{
                 _cars = [..._cars,{price: incomingItem.Price, VehicleType: ServerData.vehiclesTypes.find(v=>v.Id === incomingItem.ItemId)}];

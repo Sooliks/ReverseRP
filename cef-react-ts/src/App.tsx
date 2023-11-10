@@ -17,6 +17,9 @@ const App = () => {
         /*Client.callProcServer<string>("RPC::CEF::SERVER:GetVehiclesTypes").then(data => {
             ServerData.vehiclesTypes = JSON.parse(data);
         })*/
+        Client.callProcServer<string>("RPC::CEF::SERVER:GetItemTypes").then(data => {
+            ServerData.itemsTypes = JSON.parse(data);
+        })
     },[])
 
 

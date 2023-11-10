@@ -51,7 +51,7 @@ const Market: React.FC = () => {
     useEffect(()=>{
         Client.triggerServer("CEF::SERVER:ON_OPEN_BUSINESS_WINDOW", params.id)
         Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", params.id).then(data=>{
-            const incomingItems: IncomingItemBusiness[] = JSON.parse(data);
+            const incomingItems: IncomingItemBusiness[] = JSON.parse(data).items;
             //TODO сделать получение айтемов с сервера
             setListMarketItems([
                 {id: 0, type: ItemTypeEnum.Products, price: incomingItems[0].Price, label: 'Бургер', description: 'Восполняет 50 еды'},

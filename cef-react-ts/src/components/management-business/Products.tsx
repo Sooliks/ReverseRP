@@ -4,6 +4,7 @@ import {ServerData} from "../../data/ServerData";
 import {Space, Tag, Typography} from "antd";
 import {ColumnsType} from "antd/es/table";
 import {Table} from "antd/lib";
+import {IncomingItemBusiness} from "../../types/businessesTypes";
 
 
 
@@ -12,18 +13,13 @@ type ProductsProps = {
 }
 
 type IncomingData = {
-    items: ItemBusinessType[]
+    items: IncomingItemBusiness[]
     businessType: "Маркет 24/7" | "Заправка" | "Автосалон высокого класса"
 }
 
-type ItemBusinessType = {
-    itemId: number
-    count: number
-    price: number
-}
 type ProductType = {
-    name: string
-    itemBusiness: ItemBusinessType
+    name?: string
+    itemBusiness: IncomingItemBusiness
 
 }
 const {Text,Link} = Typography;
@@ -40,7 +36,7 @@ const columns: ColumnsType<ProductType> = [
         key: 'count',
         render: (_, record) => (
             <Space size="middle">
-                <Text>{record.itemBusiness.count + ' шт.'}</Text>
+                <Text>{record.itemBusiness.Count + ' шт.'}</Text>
                 <Link>Заказать</Link>
             </Space>
         ),
@@ -51,7 +47,7 @@ const columns: ColumnsType<ProductType> = [
         key: 'price',
         render: (_, record) => (
             <Space size="middle">
-                <Text>{record.itemBusiness.price + '$'}</Text>
+                <Text>{record.itemBusiness.Price + '$'}</Text>
                 <Link>Изменить</Link>
             </Space>
         ),
@@ -61,24 +57,40 @@ const columns: ColumnsType<ProductType> = [
 const Products: React.FC<ProductsProps> = ({idBusiness}) => {
     useEffect(()=>{
         Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", idBusiness).then(data => {
-            console.log(data)
             const incomingData: IncomingData = JSON.parse(data);
+            let _products: ProductType[] = [];
             switch (incomingData.businessType) {
                 case "Автосалон высокого класса":
                     Client.callProcServer<string>("RPC::CEF::SERVER:GetVehiclesTypes").then(data=>{
                         ServerData.vehiclesTypes = JSON.parse(data);
                         incomingData.items.map(item=>{
-                            setProducts([...products,
-                                {
-                                    name: ServerData.vehiclesTypes.find(v=>v.Id == item.itemId)!.Mark,
-                                    itemBusiness: item
-                                }])
+                            const veh = ServerData.vehiclesTypes.find(v=>v.Id == item.ItemId)
+                            _products.push({
+                                name: veh?.Mark + ' ' + veh?.Model,
+                                itemBusiness: item
+                            })
                         })
+                        setProducts(_products);
                     })
                     break
                 case "Заправка":
+                    incomingData.items.map(item=>{
+                        _products.push({
+                            name: ServerData.getTypeGasById(item.ItemId),
+                            itemBusiness: item
+                        })
+                    })
+                    setProducts(_products);
                     break
                 case "Маркет 24/7":
+                    incomingData.items.map(item=>{
+                        const itemType = ServerData.itemsTypes.find(v=>v.IdItem == item.ItemId)
+                        _products.push({
+                            name: itemType?.Name,
+                            itemBusiness: item
+                        })
+                    })
+                    setProducts(_products);
                     break
             }
         })
