@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button, Form, Input, Modal} from "antd";
+import {Rule} from 'antd/lib/form';
 
 
 type ModalWithInputFormProps = {

@@ -73,7 +73,7 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
                     Client.callProcServer<string>("RPC::CEF::SERVER:GetVehiclesTypes").then(data=>{
                         ServerData.vehiclesTypes = JSON.parse(data);
                         incomingData.items.map(item=>{
-                            const veh = ServerData.vehiclesTypes.find(v=>v.Id == item.ItemId)
+                            const veh = ServerData.vehiclesTypes.find(v=>v.Id === item.ItemId)
                             _products.push({
                                 name: veh?.Mark + ' ' + veh?.Model,
                                 itemBusiness: item
@@ -93,7 +93,7 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
                     break
                 case "Маркет 24/7":
                     incomingData.items.map(item=>{
-                        const itemType = ServerData.itemsTypes.find(v=>v.IdItem == item.ItemId)
+                        const itemType = ServerData.itemsTypes.find(v=>v.IdItem === item.ItemId)
                         _products.push({
                             name: itemType?.Name,
                             itemBusiness: item
@@ -107,14 +107,20 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
     const [products,setProducts] = useState<ProductType[]>([
         {itemBusiness: {ItemId: 0, Count: 0, Price: 6}, name: 'Ffgfg'}
     ])
-    const[currentItem,setCurrentItem] = useState<IncomingItemBusiness>()
+    const [currentItem,setCurrentItem] = useState<IncomingItemBusiness>()
     const [isOpenModalOrder,setIsOpenModalOrder] = useState<boolean>(false)
     const [isOpenModalPrice,setIsOpenModalPrice] = useState<boolean>(false)
+    const handleSubmitOrder = (value: string) => {
+        Client.triggerServer("CEF::SERVER:OrderItem", idBusiness, currentItem?.ItemId, value)
+    }
+    const handleSubmitChangePrice = (value: string) => {
+        Client.triggerServer("CEF::SERVER:ChangePriceItem", idBusiness, currentItem?.ItemId, value)
+    }
     return (
         <div style={{width: '100%', height: '100%'}}>
             <Table columns={columns} dataSource={products}/>
-            {isOpenModalOrder && <ModalWithInputForm labelInput={"Количество от 150 до 2000"} isOpen labelButton={"Заказать"} onSubmit={()=>{}} onCancel={()=>setIsOpenModalOrder(false)}/>}
-            {isOpenModalPrice && <ModalWithInputForm labelInput={"Новая цена"} isOpen labelButton={"Изменить"} onSubmit={()=>{}} onCancel={()=>setIsOpenModalPrice(false)}/>}
+            {isOpenModalOrder && <ModalWithInputForm labelInput={"Количество от 150 до 2000"} isOpen labelButton={"Заказать"} onSubmit={handleSubmitOrder} onCancel={()=>setIsOpenModalOrder(false)}/>}
+            {isOpenModalPrice && <ModalWithInputForm labelInput={"Новая цена"} isOpen labelButton={"Изменить"} onSubmit={handleSubmitChangePrice} onCancel={()=>setIsOpenModalPrice(false)}/>}
         </div>
     );
 };
