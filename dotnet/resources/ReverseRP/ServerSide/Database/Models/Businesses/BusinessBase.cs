@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection;
 using GTANetworkAPI;
 using Newtonsoft.Json;
+using ServerSide.Database.Models.Businesses;
 
 namespace ServerSide.Database.Models;
 

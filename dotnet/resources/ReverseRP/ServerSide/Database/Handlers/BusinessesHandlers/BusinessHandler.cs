@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ServerSide.Database.Models;
+using ServerSide.Database.Models.Businesses;
 
 namespace ServerSide.Database.Handlers.BusinessesHandlers;
 

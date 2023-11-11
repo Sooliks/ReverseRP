@@ -1,4 +1,4 @@
-﻿namespace ServerSide.Database.Models;
+﻿namespace ServerSide.Database.Models.Businesses;
 
 public class OrderBusiness
 {

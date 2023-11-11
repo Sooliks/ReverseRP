@@ -5,6 +5,7 @@ import {Space, Tag, Typography} from "antd";
 import {ColumnsType} from "antd/es/table";
 import {Table} from "antd/lib";
 import {IncomingItemBusiness} from "../../types/businessesTypes";
+import ModalWithInputForm from "../../ui/ModalWithInputForm";
 
 type ProductsProps = {
     idBusiness: number
@@ -18,36 +19,51 @@ type ProductType = {
     itemBusiness: IncomingItemBusiness
 }
 const {Text,Link} = Typography;
-const columns: ColumnsType<ProductType> = [
-    {
-        title: 'Название',
-        dataIndex: 'name',
-        key: 'name',
-    },
-    {
-        title: 'Кол-во',
-        dataIndex: 'count',
-        key: 'count',
-        render: (_, record) => (
-            <Space size="middle">
-                <Text>{record.itemBusiness.Count + ' шт.'}</Text>
-                <Link>Заказать</Link>
-            </Space>
-        ),
-    },
-    {
-        title: 'Цена',
-        dataIndex: 'price',
-        key: 'price',
-        render: (_, record) => (
-            <Space size="middle">
-                <Text>{record.itemBusiness.Price + '$'}</Text>
-                <Link>Изменить</Link>
-            </Space>
-        ),
-    },
-];
+
 const Products: React.FC<ProductsProps> = ({idBusiness}) => {
+    const columns: ColumnsType<ProductType> = [
+        {
+            title: 'Название',
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: 'Кол-во',
+            dataIndex: 'count',
+            key: 'count',
+            render: (_, record) => (
+                <Space size="middle">
+                    <Text>{record.itemBusiness.Count + ' шт.'}</Text>
+                    <Link onClick={()=>{
+                        setIsOpenModalOrder(true);
+                        setCurrentItem(record.itemBusiness)
+                    }}
+                    >
+                        Заказать
+                    </Link>
+                </Space>
+            ),
+        },
+        {
+            title: 'Цена',
+            dataIndex: 'price',
+            key: 'price',
+            render: (_, record) => (
+                <Space size="middle">
+                    <Text>{record.itemBusiness.Price + '$'}</Text>
+                    <Link
+                        onClick={()=>{
+                            setIsOpenModalPrice(true);
+                            setCurrentItem(record.itemBusiness)
+                        }}
+                    >
+                        Изменить
+                    </Link>
+                </Space>
+            ),
+        },
+    ];
+
     useEffect(()=>{
         Client.callProcServer<string>("RPC::CEF::SERVER:GetProductsBusiness", idBusiness).then(data => {
             const incomingData: IncomingData = JSON.parse(data);
@@ -88,10 +104,17 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
             }
         })
     },[])
-    const [products,setProducts] = useState<ProductType[]>([])
+    const [products,setProducts] = useState<ProductType[]>([
+        {itemBusiness: {ItemId: 0, Count: 0, Price: 6}, name: 'Ffgfg'}
+    ])
+    const[currentItem,setCurrentItem] = useState<IncomingItemBusiness>()
+    const [isOpenModalOrder,setIsOpenModalOrder] = useState<boolean>(false)
+    const [isOpenModalPrice,setIsOpenModalPrice] = useState<boolean>(false)
     return (
         <div style={{width: '100%', height: '100%'}}>
             <Table columns={columns} dataSource={products}/>
+            {isOpenModalOrder && <ModalWithInputForm labelInput={"Количество от 150 до 2000"} isOpen labelButton={"Заказать"} onSubmit={()=>{}} onCancel={()=>setIsOpenModalOrder(false)}/>}
+            {isOpenModalPrice && <ModalWithInputForm labelInput={"Новая цена"} isOpen labelButton={"Изменить"} onSubmit={()=>{}} onCancel={()=>setIsOpenModalPrice(false)}/>}
         </div>
     );
 };

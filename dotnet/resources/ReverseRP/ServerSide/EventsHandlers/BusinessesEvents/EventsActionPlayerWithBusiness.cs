@@ -28,14 +28,16 @@ public class EventsActionPlayerWithBusiness : Script
     }
 
     [RemoteEvent("CEF::SERVER:ChangePriceItem")]
-    public void ChangePriceItem(Player player, int businessId, int businessItemId)
+    public void ChangePriceItem(Player player, int businessId, int businessItemId, int newPrice)
     {
-        
+        var business = BusinessHandler.GetBusinessById(businessId);
+        BusinessHandler.ChangePriceItem(business, businessItemId, newPrice);
     }
 
     [RemoteEvent("CEF::SERVER:OrderItem")]
     public void OnOrderItem(Player player, int businessId, int businessItemId, int count)
     {
-        
+        var business = BusinessHandler.GetBusinessById(businessId);
+        BusinessHandler.AddOrder(business, businessItemId, count);
     }
 }

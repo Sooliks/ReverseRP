@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using Newtonsoft.Json.Linq;
 using ServerSide.Data;
 using ServerSide.Database.Models;
+using ServerSide.Database.Models.Businesses;
 using ServerSide.Database.ModelsConfiguration;
 using ServerSide.Inventory.Items;
 
