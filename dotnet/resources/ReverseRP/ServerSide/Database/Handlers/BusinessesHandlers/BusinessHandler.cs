@@ -87,6 +87,7 @@ public class BusinessHandler
     public static void AddOrder(BusinessBase businessBase, int idItem, int count)
     {
         using Context db = new Context();
+        db.Entry(businessBase).Collection(c=>c.OrderBusinesses).Load();
         businessBase.OrderBusinesses.Add(new OrderBusiness(idItem, count, true));
         db.BusinessesBase.Update(businessBase);
         db.SaveChanges();

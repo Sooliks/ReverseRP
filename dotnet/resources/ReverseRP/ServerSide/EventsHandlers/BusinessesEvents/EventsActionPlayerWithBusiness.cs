@@ -30,14 +30,22 @@ public class EventsActionPlayerWithBusiness : Script
     [RemoteEvent("CEF::SERVER:ChangePriceItem")]
     public void ChangePriceItem(Player player, int businessId, int businessItemId, int newPrice)
     {
+        if(!player.IsAuthorized())return;
         var business = BusinessHandler.GetBusinessById(businessId);
-        BusinessHandler.ChangePriceItem(business, businessItemId, newPrice);
+        if (BusinessHandler.IsCharacterOwnerBusiness(player.GetCharacter(), business))
+        {
+            BusinessHandler.ChangePriceItem(business, businessItemId, newPrice);
+        }
     }
 
     [RemoteEvent("CEF::SERVER:OrderItem")]
     public void OnOrderItem(Player player, int businessId, int businessItemId, int count)
     {
+        if(!player.IsAuthorized())return;
         var business = BusinessHandler.GetBusinessById(businessId);
-        BusinessHandler.AddOrder(business, businessItemId, count);
+        if (BusinessHandler.IsCharacterOwnerBusiness(player.GetCharacter(), business))
+        {
+            BusinessHandler.AddOrder(business, businessItemId, count);
+        }
     }
 }

@@ -119,7 +119,7 @@ public class EventsManagementVehicle : Script
         var positionAndRotationVehicleSpawn = ParkingService.GetRandomPositionParking(idParking);
         var veh = NAPI.Vehicle.CreateVehicle(NAPI.Util.GetHashKey(vehicleModel.VehicleType.ModelHash), positionAndRotationVehicleSpawn.Position, positionAndRotationVehicleSpawn.Rotation.Z, 0, 0, vehicleModel.RegisterNumber);
         veh.Locked = true;
-        veh.EngineStatus = true;
+        veh.EngineStatus = false;
         veh.SetVehicleModel(vehicleModel);
     }
 
