@@ -6,6 +6,7 @@ using ServerSide.Database.Handlers;
 using ServerSide.Extensions;
 using ServerSide.Services;
 using ServerSide.Services.PlayerService;
+using ServerSide.Services.ServerServices;
 
 namespace ServerSide.EventsHandlers;
 
@@ -51,5 +52,6 @@ public class EventsCreateCharacter : Script
         player.FreezePlayer(false);
         player.DestroyMainCamera();
         player.SetAuthorized(true);
+        player.Dimension = DimensionService.MainDimension;
     }
 }

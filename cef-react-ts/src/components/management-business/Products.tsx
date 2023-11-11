@@ -112,9 +112,11 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
     const [isOpenModalPrice,setIsOpenModalPrice] = useState<boolean>(false)
     const handleSubmitOrder = (value: string) => {
         Client.triggerServer("CEF::SERVER:OrderItem", idBusiness, currentItem?.ItemId, value)
+        setIsOpenModalOrder(false)
     }
     const handleSubmitChangePrice = (value: string) => {
         Client.triggerServer("CEF::SERVER:ChangePriceItem", idBusiness, currentItem?.ItemId, value)
+        setIsOpenModalPrice(false);
     }
     return (
         <div style={{width: '100%', height: '100%'}}>

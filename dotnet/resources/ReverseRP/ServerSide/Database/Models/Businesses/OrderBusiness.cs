@@ -7,6 +7,13 @@ public class OrderBusiness
     public int ItemId { get; set; }
     public int Count { get; set; }
     public bool Active { get; set; }
+    public OrderBusiness(BusinessBase businessBase,int itemId, int count, bool active)
+    {
+        BusinessBase = businessBase;
+        ItemId = itemId;
+        Count = count;
+        Active = active;
+    }
     public OrderBusiness(int itemId, int count, bool active)
     {
         ItemId = itemId;

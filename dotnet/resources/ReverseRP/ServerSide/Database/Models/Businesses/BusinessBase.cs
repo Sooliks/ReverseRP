@@ -30,7 +30,7 @@ public class BusinessBase
     }
     public string ItemsJson { get; private set; }
     public string BusinessType { get; set; }
-    public List<OrderBusiness>? OrderBusinesses { get; set; }
+    public List<OrderBusiness> OrderBusinesses { get; set; } = new List<OrderBusiness>();
 
     public BusinessBase(int gosPrice, Vector3 positionManagementBusiness, List<ItemBusiness> items, string businessType)
     {

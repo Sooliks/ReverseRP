@@ -44,6 +44,7 @@ public class Main : Script
     {
         player.ChangeCefWindow(CefWindowsPaths.Authorization);
         player.FreezePlayer(true);
+        player.SetUniqueDimension();
         DiscordBot.UpdateUserCount();
     }
 

@@ -4,6 +4,7 @@ using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Services;
 using ServerSide.Services.PlayerService;
+using ServerSide.Services.ServerServices;
 
 namespace ServerSide.EventsHandlers;
 
@@ -34,6 +35,7 @@ public class EventsSelectCharacter : Script
             player.ChangeCefWindow(CefWindowsPaths.Default);
             player.FreezePlayer(false);
             player.SetAuthorized(true);
+            player.Dimension = DimensionService.MainDimension;
         }
     }
     

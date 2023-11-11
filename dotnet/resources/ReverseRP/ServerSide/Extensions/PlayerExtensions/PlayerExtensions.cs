@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using ServerSide.Enums;
 using ServerSide.Services;
 using ServerSide.Services.PlayerService;
+using ServerSide.Services.ServerServices;
 
 namespace ServerSide.Extensions;
 
@@ -16,4 +17,5 @@ public static class PlayerExtensions
     public static void SetCameraOnPlayer(this Player player,TypeCameraOnPlayer typeCameraOnPlayer, bool toggle) => PlayerCameraService.SetCameraOnPlayer(player,typeCameraOnPlayer, toggle);
     public static void DestroyMainCamera(this Player player) => PlayerCameraService.SetCameraOnPlayer(player, TypeCameraOnPlayer.Body,false);
     public static void SendProgressBar(this Player player, int seconds, string text = "") => player.TriggerEvent("SERVER::CLIENT:SHOW_PROGRESS_BAR", seconds,text);
+    public static void SetUniqueDimension(this Player player) => DimensionService.SetUniqueDimension(player);
 }

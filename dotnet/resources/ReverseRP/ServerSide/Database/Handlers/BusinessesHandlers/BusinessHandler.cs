@@ -1,6 +1,8 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
 using ServerSide.Database.Models.Businesses;
 
@@ -87,9 +89,9 @@ public class BusinessHandler
     public static void AddOrder(BusinessBase businessBase, int idItem, int count)
     {
         using Context db = new Context();
-        db.Entry(businessBase).Collection(c=>c.OrderBusinesses).Load();
-        businessBase.OrderBusinesses.Add(new OrderBusiness(idItem, count, true));
-        db.BusinessesBase.Update(businessBase);
+        var business = db.BusinessesBase.Include(b => b.OrderBusinesses).FirstOrDefault(b => b.Id == businessBase.Id);
+        business!.OrderBusinesses.Add(new OrderBusiness(idItem, count, true));
+        db.BusinessesBase.Update(business);
         db.SaveChanges();
     }
     public static void ChangePriceItem(BusinessBase businessBase, int idItem, int newPrice)

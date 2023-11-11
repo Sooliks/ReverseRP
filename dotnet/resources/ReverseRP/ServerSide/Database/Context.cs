@@ -31,7 +31,6 @@ public class Context : DbContext
         //Database.EnsureDeleted();
         if (Database.EnsureCreated())
         {
-            Console.WriteLine("DB CREATED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             using Context db = new Context();
             db.BusinessesBase.AddRange(BusinessesData.BusinessesDefault);
             db.ItemsTypes.AddRange(ItemsTypesData.ItemsTypes);
