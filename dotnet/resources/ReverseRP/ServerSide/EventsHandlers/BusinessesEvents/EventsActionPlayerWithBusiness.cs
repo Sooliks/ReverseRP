@@ -5,6 +5,7 @@ using ServerSide.Database.Handlers;
 using ServerSide.Database.Handlers.BusinessesHandlers;
 using ServerSide.Database.Models;
 using ServerSide.Extensions;
+using ServerSide.Services.BusinessesServices;
 
 namespace ServerSide.EventsHandlers.BusinessesEvents;
 
@@ -45,7 +46,7 @@ public class EventsActionPlayerWithBusiness : Script
         var business = BusinessHandler.GetBusinessById(businessId);
         if (BusinessHandler.IsCharacterOwnerBusiness(player.GetCharacter(), business))
         {
-            BusinessHandler.AddOrder(business, businessItemId, count);
+            BusinessHandler.AddOrder(business, businessItemId, count, BusinessService.GetNameBusinessItemByItemId(business, businessItemId));
         }
     }
 }

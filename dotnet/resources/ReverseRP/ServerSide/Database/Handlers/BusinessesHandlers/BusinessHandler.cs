@@ -86,11 +86,11 @@ public class BusinessHandler
         db.BusinessesBase.Update(businessBase);
         db.SaveChanges();
     }
-    public static void AddOrder(BusinessBase businessBase, int idItem, int count)
+    public static void AddOrder(BusinessBase businessBase, int idItem, int count, string nameItem)
     {
         using Context db = new Context();
         var business = db.BusinessesBase.Include(b => b.OrderBusinesses).FirstOrDefault(b => b.Id == businessBase.Id);
-        business!.OrderBusinesses.Add(new OrderBusiness(idItem, count, true));
+        business!.OrderBusinesses.Add(new OrderBusiness(idItem, count, true,nameItem));
         db.BusinessesBase.Update(business);
         db.SaveChanges();
     }
