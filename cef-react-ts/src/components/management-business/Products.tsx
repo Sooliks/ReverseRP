@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Client} from "../../requests/Client";
 import {ServerData} from "../../data/ServerData";
-import {Space, Tag, Typography} from "antd";
+import {notification, Space, Tag, Typography} from "antd";
 import {ColumnsType} from "antd/es/table";
 import {Table} from "antd/lib";
 import {IncomingItemBusiness} from "../../types/businessesTypes";
@@ -111,12 +111,31 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
     const [isOpenModalOrder,setIsOpenModalOrder] = useState<boolean>(false)
     const [isOpenModalPrice,setIsOpenModalPrice] = useState<boolean>(false)
     const handleSubmitOrder = (value: string) => {
+        if(!isStringNumber(value)){
+            notification.error({
+                placement: 'top',
+                description: 'Введите число!',
+                message: "Уведомление"
+            })
+            return
+        }
         Client.triggerServer("CEF::SERVER:OrderItem", idBusiness, currentItem?.ItemId, value)
         setIsOpenModalOrder(false)
     }
     const handleSubmitChangePrice = (value: string) => {
+        if(!isStringNumber(value)){
+            notification.error({
+                placement: 'top',
+                description: 'Введите число!',
+                message: "Уведомление"
+            })
+            return
+        }
         Client.triggerServer("CEF::SERVER:ChangePriceItem", idBusiness, currentItem?.ItemId, value)
         setIsOpenModalPrice(false);
+    }
+    const isStringNumber = (str: string): boolean => {
+        return Number(str)!==undefined;
     }
     return (
         <div style={{width: '100%', height: '100%'}}>
