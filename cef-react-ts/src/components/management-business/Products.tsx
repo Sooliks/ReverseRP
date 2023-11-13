@@ -134,9 +134,7 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
         Client.triggerServer("CEF::SERVER:ChangePriceItem", idBusiness, currentItem?.ItemId, value)
         setIsOpenModalPrice(false);
     }
-    const isStringNumber = (str: string): boolean => {
-        return Number(str)!==undefined;
-    }
+    const isStringNumber = (str: string): boolean => Number(str)!==undefined;
     return (
         <div style={{width: '100%', height: '100%'}}>
             <Table columns={columns} dataSource={products}/>
