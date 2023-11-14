@@ -20,7 +20,7 @@ const Truckers: React.FC = () => {
     return (
         <Space style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height, justifyContent: 'center'}}>
             <Card title={"Работа: Дальнобойщик"} extra={<Button icon={<CloseOutlined/>} onClick={()=>Client.closeWindow()}/>}>
-                <div style={{width: '58vw', height: 560,overflowY: 'auto'}}>
+                <div style={{width: '58vw', height: 560}}>
                     
                 </div>
             </Card>

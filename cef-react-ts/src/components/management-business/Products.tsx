@@ -111,7 +111,7 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
     const [isOpenModalOrder,setIsOpenModalOrder] = useState<boolean>(false)
     const [isOpenModalPrice,setIsOpenModalPrice] = useState<boolean>(false)
     const handleSubmitOrder = (value: string) => {
-        if(!isStringNumber(value)){
+        if(isNaN(parseInt(value))){
             notification.error({
                 placement: 'top',
                 description: 'Введите число!',
@@ -123,7 +123,7 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
         setIsOpenModalOrder(false)
     }
     const handleSubmitChangePrice = (value: string) => {
-        if(!isStringNumber(value)){
+        if(isNaN(parseInt(value))){
             notification.error({
                 placement: 'top',
                 description: 'Введите число!',
@@ -134,7 +134,6 @@ const Products: React.FC<ProductsProps> = ({idBusiness}) => {
         Client.triggerServer("CEF::SERVER:ChangePriceItem", idBusiness, currentItem?.ItemId, value)
         setIsOpenModalPrice(false);
     }
-    const isStringNumber = (str: string): boolean => Number(str)!==undefined;
     return (
         <div style={{width: '100%', height: '100%'}}>
             <Table columns={columns} dataSource={products}/>
