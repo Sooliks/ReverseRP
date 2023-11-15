@@ -16,6 +16,8 @@ public class Account
     public List<Character> Characters { get; set; }
     public byte AdminLvl { get; set; }
     public DateTime DateTimeCreated { get; set; }
+    public bool IsConfirmed { get; set; }
+    public List<ConfirmationCode> ConfirmationsCodes { get; set; } = new List<ConfirmationCode>();
     public Account()
     {
         
@@ -31,5 +33,6 @@ public class Account
         this.Characters = new List<Character>();
         this.AdminLvl = 0;
         DateTimeCreated = DateTime.Now;
+        IsConfirmed = false;
     }
 }

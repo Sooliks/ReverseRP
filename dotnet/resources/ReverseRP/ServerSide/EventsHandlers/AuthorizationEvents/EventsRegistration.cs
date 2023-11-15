@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
 using ServerSide.Discord;
+using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Services;
 
@@ -40,6 +41,7 @@ public class EventsRegistration : Script
             player.SetAccount(regAccount);
             player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
             player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",new List<string>());
+            AccountsHandler.AddConfirmationCodeAsync(regAccount, ConfirmationCodeType.ConfirmEmail);
             await Logs.SendGameLogAsync($"Игрок с логином: \"{player.GetAccount().Login}\" и socClubId: \"{player.SocialClubId}\" и IP: \"{player.Address}\" зарегистрировался на сервере!");
         }
         catch (Exception e)

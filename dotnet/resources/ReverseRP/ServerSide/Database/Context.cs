@@ -24,6 +24,7 @@ public class Context : DbContext
     public DbSet<VehicleType> VehicleTypes { get; set; }
     public DbSet<StatisticBusiness> StatisticBusinesses { get; set; }
     public DbSet<OrderBusiness> OrdersBusinesses { get; set; }
+    public DbSet<ConfirmationCode> ConfirmationsCodes { get; set; }
     
 
     public Context()
@@ -68,6 +69,7 @@ public class Context : DbContext
         modelBuilder.ApplyConfiguration(new BusinessesConfiguration());
         modelBuilder.ApplyConfiguration(new StatisticBusinessConfiguration());
         modelBuilder.ApplyConfiguration(new OrderBusinessConfiguration());
+        modelBuilder.ApplyConfiguration(new ConfirmationCodeConfiguration());
         
         modelBuilder.Entity<Ammo>().HasBaseType<ItemType>();
         modelBuilder.Entity<Food>().HasBaseType<ItemType>();

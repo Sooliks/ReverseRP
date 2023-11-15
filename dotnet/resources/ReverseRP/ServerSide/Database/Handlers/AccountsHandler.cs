@@ -1,6 +1,9 @@
 ﻿
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
+using ServerSide.Enums;
+using ServerSide.Services.OtherServices;
 using Utils;
 
 namespace ServerSide.Database.Handlers;
@@ -50,5 +53,25 @@ public static class AccountsHandler
         using Context db = new Context();
         var account = db.Account.SingleOrDefault(a => a.Login == login);
         return account;
+    }
+
+    public static async void AddConfirmationCodeAsync(Account account, ConfirmationCodeType confirmationCodeType)
+    {
+        using Context db = new Context();
+        var a = db.Account.Include(b => b.ConfirmationsCodes).FirstOrDefault(b => b.Id == account.Id);
+        a.ConfirmationsCodes.Add(new ConfirmationCode(confirmationCodeType, AuthService.GenerateVerificationCode()));
+        db.Account.Update(a);
+        await db.SaveChangesAsync();
+    }
+
+    public static bool IsConfirmationCodeValid(Account account, string verificationCode, ConfirmationCodeType confirmationCodeType)
+    {
+        using Context db = new Context();
+        var a = db.Account.Include(b => b.ConfirmationsCodes).FirstOrDefault(b => b.Id == account.Id);
+        var confirmationCode =
+            a.ConfirmationsCodes.FirstOrDefault(c => c.VerificationCode == verificationCode && c.Active == true && c.ConfirmationCodeType == confirmationCodeType);
+        if (confirmationCode == null) return false;
+        
+        return true;
     }
 }
