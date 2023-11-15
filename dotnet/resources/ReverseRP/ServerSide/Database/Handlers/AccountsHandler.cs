@@ -74,4 +74,13 @@ public static class AccountsHandler
         
         return true;
     }
+
+    public static void SetConfirmAccount(Account account)
+    {
+        using Context db = new Context();
+        var a = db.Account.FirstOrDefault(a => a.Id == account.Id);
+        a.IsConfirmed = true;
+        db.Account.Update(a);
+        db.SaveChanges();
+    }
 }
