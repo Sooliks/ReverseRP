@@ -59,7 +59,9 @@ public static class AccountsHandler
     {
         using Context db = new Context();
         var a = db.Account.Include(b => b.ConfirmationsCodes).FirstOrDefault(b => b.Id == account.Id);
-        a.ConfirmationsCodes.Add(new ConfirmationCode(confirmationCodeType, AuthService.GenerateVerificationCode()));
+        var verificationCode = AuthService.GenerateVerificationCode();
+        a.ConfirmationsCodes.Add(new ConfirmationCode(confirmationCodeType, verificationCode));
+        EmailService.SendEmailAsync(a.Email, "Код подтверждения", verificationCode);
         db.Account.Update(a);
         await db.SaveChangesAsync();
     }

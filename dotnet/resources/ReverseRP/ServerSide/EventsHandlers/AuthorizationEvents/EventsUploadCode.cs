@@ -8,12 +8,12 @@ namespace ServerSide.EventsHandlers.Authorization;
 
 public class EventsUploadCode : Script
 {
-    [RemoteProc("RPC::CEF::SERVER:UPLOAD_CONFIRMATION_CODE")]
-    public bool OnUploadConfirmationCode(Player player, ConfirmationCodeType confirmationCodeType, string verificationCode)
+    [RemoteProc("RPC::CEF::SERVER:CONFIRM_ACCOUNT_EMAIL")]
+    public bool OnUploadConfirmationCode(Player player, string verificationCode)
     {
         if (!player.IsAuthorized()) return false;
         var account = player.GetAccount();
-        if (AccountsHandler.IsConfirmationCodeValid(account, verificationCode, confirmationCodeType))
+        if (AccountsHandler.IsConfirmationCodeValid(account, verificationCode, ConfirmationCodeType.ConfirmEmail))
         {
             AccountsHandler.SetConfirmAccount(account);
             return true;
