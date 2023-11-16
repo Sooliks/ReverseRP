@@ -26,6 +26,11 @@ public class EventsLogin : Script
         if (AccountsHandler.IsLoginExist(login) && AccountsHandler.IsPasswordValid(login, password))
         {
             var _account = AccountsHandler.GetAccountByLogin(login);
+            if (_account.IsConfirmed is false)
+            {
+                player.ChangeCefWindow(CefWindowsPaths.ConfirmationCode);
+                return;
+            }
             player.SetAccount(_account);
             player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
             var list = CharacterHandler.GetCharactersByAccount(_account);

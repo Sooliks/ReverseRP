@@ -6,4 +6,5 @@ public class CefWindowsPaths
     public static readonly string Authorization = "/auth";
     public static readonly string CreateCharacter = "/createcharacter";
     public static readonly string SelectCharacters = "/selectcharacters";
+    public static readonly string ConfirmationCode = "/confirmationcode";
 }

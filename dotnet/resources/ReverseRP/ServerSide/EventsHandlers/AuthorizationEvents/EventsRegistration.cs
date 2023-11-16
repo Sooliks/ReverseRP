@@ -39,9 +39,8 @@ public class EventsRegistration : Script
             }
             var regAccount = AccountsHandler.Register(login, email, password, player.Address,player.SocialClubId);
             player.SetAccount(regAccount);
-            player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
-            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",new List<string>());
             AccountsHandler.AddConfirmationCodeAsync(regAccount, ConfirmationCodeType.ConfirmEmail);
+            player.ChangeCefWindow(CefWindowsPaths.ConfirmationCode);
             await Logs.SendGameLogAsync($"Игрок с логином: \"{player.GetAccount().Login}\" и socClubId: \"{player.SocialClubId}\" и IP: \"{player.Address}\" зарегистрировался на сервере!");
         }
         catch (Exception e)
