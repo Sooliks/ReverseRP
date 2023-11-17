@@ -16,8 +16,8 @@ const ConfirmEmail: React.FC = () => {
                     })
                     return
                 }
-                Client.callProcServer<boolean>("RPC::CEF::SERVER:CONFIRM_ACCOUNT_EMAIL", value).then(data=>{
-                    if(!data){
+                Client.callProcServer<string>("RPC::CEF::SERVER:CONFIRM_ACCOUNT_EMAIL", value).then(data=>{
+                    if(data !== "true"){
                         notification.error({
                             placement: 'top',
                             description: 'Неверный код!',
