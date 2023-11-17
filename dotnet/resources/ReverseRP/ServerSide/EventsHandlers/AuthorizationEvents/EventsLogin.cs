@@ -28,6 +28,7 @@ public class EventsLogin : Script
             var _account = AccountsHandler.GetAccountByLogin(login);
             if (_account.IsConfirmed is false)
             {
+                player.SetAccount(_account);
                 player.ChangeCefWindow(CefWindowsPaths.ConfirmationCode);
                 return;
             }

@@ -17,6 +17,7 @@ import GasStation from "./components/gas-station/GasStation";
 import Truckers from "./components/works/truckers/Truckers";
 import ParkingPanel from "./components/parkingPanel/ParkingPanel";
 import OrdersList from "./components/works/truckers/OrdersList";
+import ConfirmEmail from "./components/auth/ConfirmEmail";
 
 const AppRouter: React.FC = () => {
     const { message, notification, modal } = App.useApp();
@@ -26,6 +27,7 @@ const AppRouter: React.FC = () => {
         <App>
             <Routes>
                 <Route path={"/auth"} element={<Auth/>}/>
+                <Route path={"/confirmationcode"} element={<ConfirmEmail/>}/>
                 <Route path={"/createcharacter"} element={<CreateCharacter/>}/>
                 <Route path={"/selectcharacters"} element={<SelectCharacters/>}/>
                 <Route path={"/inventory"} element={<InventoryMain/>}/>

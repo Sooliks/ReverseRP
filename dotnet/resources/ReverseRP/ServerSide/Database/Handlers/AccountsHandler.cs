@@ -74,6 +74,9 @@ public static class AccountsHandler
             a.ConfirmationsCodes.FirstOrDefault(c => c.VerificationCode == verificationCode && c.Active == true && c.ConfirmationCodeType == confirmationCodeType);
         if (confirmationCode == null) return false;
         
+        confirmationCode.Active = false;
+        db.ConfirmationsCodes.Update(confirmationCode);
+        db.SaveChanges();
         return true;
     }
 
