@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
 using ServerSide.Enums;
@@ -11,23 +12,32 @@ namespace ServerSide.EventsHandlers.Authorization;
 
 public class EventsUploadCode : Script
 {
-    [RemoteProc("RPC::CEF::SERVER:CONFIRM_ACCOUNT_EMAIL")]
-    public string OnUploadConfirmationCodeAccount(Player player, string verificationCode)
+    [RemoteProc("RPC::CEF::SERVER:CONFIRM_ACCOUNT_EMAIL", async: true)]
+    public async Task<string> OnUploadConfirmationCodeAccount(Player player, string verificationCode)
     {
         var account = player.GetAccount();
-        if (AccountsHandler.IsConfirmationCodeValid(account, verificationCode, ConfirmationCodeType.ConfirmEmail))
+        var confirmationCode =
+            AccountsHandler.GetConfirmationCode(account, verificationCode, ConfirmationCodeType.ConfirmEmail);
+        if (confirmationCode != null)
         {
-            AccountsHandler.SetConfirmAccount(account);
-            player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
-            var list = CharacterHandler.GetCharactersByAccount(account);
-            var newList = list.Select(c => new
+            if (AccountsHandler.IsConfirmationCodeHasNotExpired(confirmationCode))
             {
-                Id = c.Id, FirstName = c.FirstName, LastName = c.LastName, Lvl = c.Lvl, Money = c.Money,
-                MoneyBank = c.MoneyBank
-            }).ToList();
-            player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",newList);
-            return "true";
+                AccountsHandler.SetConfirmAccount(account);
+                player.ChangeCefWindow(CefWindowsPaths.SelectCharacters);
+                var list = CharacterHandler.GetCharactersByAccount(account);
+                var newList = list.Select(c => new
+                {
+                    Id = c.Id, FirstName = c.FirstName, LastName = c.LastName, Lvl = c.Lvl, Money = c.Money,
+                    MoneyBank = c.MoneyBank
+                }).ToList();
+                player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",newList);
+                await GeneralHandler.RemoveAsync(confirmationCode);
+                return "success";
+            }
+            AccountsHandler.AddConfirmationCodeAsync(account, ConfirmationCodeType.ConfirmEmail);
+            await GeneralHandler.RemoveAsync(confirmationCode);
+            return "expired";
         }
-        return "false";
+        return "notfound";
     }
 }

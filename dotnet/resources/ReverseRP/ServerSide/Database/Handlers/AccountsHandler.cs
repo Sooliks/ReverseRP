@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using ServerSide.Database.Models;
@@ -65,21 +66,26 @@ public static class AccountsHandler
         db.Account.Update(a);
         await db.SaveChangesAsync();
     }
-
-    public static bool IsConfirmationCodeValid(Account account, string verificationCode, ConfirmationCodeType confirmationCodeType)
+    public static ConfirmationCode GetConfirmationCode(Account account, string verificationCode, ConfirmationCodeType confirmationCodeType)
     {
         using Context db = new Context();
         var a = db.Account.Include(b => b.ConfirmationsCodes).FirstOrDefault(b => b.Id == account.Id);
         var confirmationCode =
-            a.ConfirmationsCodes.FirstOrDefault(c => c.VerificationCode == verificationCode && c.Active == true && c.ConfirmationCodeType == confirmationCodeType);
-        if (confirmationCode == null) return false;
-        
-        confirmationCode.Active = false;
-        db.ConfirmationsCodes.Update(confirmationCode);
-        db.SaveChanges();
-        return true;
+            a.ConfirmationsCodes.FirstOrDefault(c => c.VerificationCode == verificationCode && c.ConfirmationCodeType == confirmationCodeType);
+        return confirmationCode;
     }
+    public static bool IsConfirmationCodeHasNotExpired(ConfirmationCode confirmationCode)
+    {
+        if (confirmationCode.ExpirationTime >= DateTime.Now)
+        {
+            using Context db = new Context();
+            db.ConfirmationsCodes.Remove(confirmationCode);
+            db.SaveChanges();
+            return true;
+        }
 
+        return false;
+    }
     public static void SetConfirmAccount(Account account)
     {
         using Context db = new Context();

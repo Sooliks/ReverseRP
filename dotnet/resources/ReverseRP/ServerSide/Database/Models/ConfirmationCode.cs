@@ -1,4 +1,5 @@
-﻿using ServerSide.Enums;
+﻿using System;
+using ServerSide.Enums;
 
 namespace ServerSide.Database.Models;
 
@@ -8,7 +9,7 @@ public class ConfirmationCode
     public ConfirmationCodeType ConfirmationCodeType { get; set; }
     public Account? Account { get; set; }
     public string VerificationCode { get; set; }
-    public bool Active { get; set; }
+    public DateTime ExpirationTime { get; set; }
 
     public ConfirmationCode()
     {
@@ -19,6 +20,6 @@ public class ConfirmationCode
     {
         ConfirmationCodeType = confirmationCodeType;
         VerificationCode = verificationCode;
-        Active = true;
+        ExpirationTime = DateTime.Now.AddMinutes(1);
     }
 }

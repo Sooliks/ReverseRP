@@ -16,13 +16,24 @@ const ConfirmEmail: React.FC = () => {
                     })
                     return
                 }
-                Client.callProcServer<string>("RPC::CEF::SERVER:CONFIRM_ACCOUNT_EMAIL", value).then(data=>{
-                    if(data !== "true"){
-                        notification.error({
-                            placement: 'top',
-                            description: 'Неверный код!',
-                            message: "Уведомление"
-                        })
+                Client.callProcServer<"success" | "expired" | "notfound">("RPC::CEF::SERVER:CONFIRM_ACCOUNT_EMAIL", value).then(data=>{
+                    switch (data){
+                        case "expired":
+                            notification.error({
+                                placement: 'top',
+                                description: 'Данный код истек, новый отправлен на почту!',
+                                message: "Уведомление"
+                            })
+                            break
+                        case "notfound":
+                            notification.error({
+                                placement: 'top',
+                                description: 'Неверный код!',
+                                message: "Уведомление"
+                            })
+                            break
+                        case "success":
+                            break
                     }
                 })
             }}/>
