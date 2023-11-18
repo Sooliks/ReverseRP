@@ -65,15 +65,12 @@ public static class AccountsHandler
         try
         {
             EmailService.SendEmailAsync(a.Email, "Код подтверждения", verificationCode);
+            db.Account.Update(a);
+            await db.SaveChangesAsync();
         }
         catch (Exception e)
         {
             
-        }
-        finally
-        {
-            db.Account.Update(a);
-            await db.SaveChangesAsync();
         }
     }
     public static ConfirmationCode GetConfirmationCode(Account account, string verificationCode, ConfirmationCodeType confirmationCodeType)
