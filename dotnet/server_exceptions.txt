@@ -45190,3 +45190,428 @@ MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'loca
    at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
    at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
    at asyn
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at async Task<TResult> MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:33]==================
+System.ObjectDisposedException: Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'Context'.
+   at void Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.11.2023 0:58:47]==================
+System.InvalidOperationException: The connection is not open.
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at async ValueTask<MySqlTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginTransactionAsync(bool execAsync, IsolationLevel isolationLevel, CancellationToken cancellationToken, string scope)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<DbTransaction> MySql.Data.MySqlClient.MySqlConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at async Task<IDbContextTransaction> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancel
+==================[19.11.2023 1:04:52]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+=========================================================
+
+==================[19.11.2023 1:04:52]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+=========================================================
+
+==================[19.11.2023 1:04:52]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+=========================================================
+
+==================[19.11.2023 1:04:52]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList<IUpdateEntry> entries)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList<IUpdateEntry> entriesToSave)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, bool acceptAllChangesOnSuccess)
+=========================================================
+
+==================[19.11.2023 1:04:52]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList<IUpdateEntry> entries)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList<IUpdateEntry> entriesToSave)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, bool acceptAllChangesOnSuccess)
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(bool acceptAllChangesOnSuccess)
+   at int Microsoft.EntityFrameworkCore.DbContext.SaveChanges(bool acceptAllChangesOnSuccess)
+=========================================================
+
+==================[19.11.2023 1:04:52]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList<IUpdateEntry> entries)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList<IUpdateEntry> entriesToSave)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _,
+==================[19.11.2023 1:07:34]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+=========================================================
+
+==================[19.11.2023 1:07:34]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+=========================================================
+
+==================[19.11.2023 1:07:34]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+=========================================================
+
+==================[19.11.2023 1:07:34]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList<IUpdateEntry> entries)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList<IUpdateEntry> entriesToSave)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, bool acceptAllChangesOnSuccess)
+=========================================================
+
+==================[19.11.2023 1:07:34]==================
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList<IUpdateEntry> entries)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList<IUpdateEntry> entriesToSave)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, bool acceptAllChangesOnSuccess)
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(bool acceptAllChangesOnSuccess)
+   at int Microsoft.EntityFrameworkCore.DbContext.SaveChanges(bool acceptAllChangesOnSuccess)
+=========================================================
+
+==================[19.11.2023 1:07:34]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(int commandIndex, int expectedRowsAffected, int rowsAffected)
+   at int Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(int commandIndex, RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at void Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection)
+   at int Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList<IUpdateEntry> entries)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList<IUpdateEntry> entriesToSave)
+   at int Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _,

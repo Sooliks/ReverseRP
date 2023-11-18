@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import ModalWithInputForm from "../../ui/ModalWithInputForm";
-import {notification} from "antd";
+import {notification, Space} from "antd";
 import {Client} from "../../requests/Client";
+import {Config} from "../../conf";
+import background from "../../assets/images/background_auth.png";
 
 const ConfirmEmail: React.FC = () => {
     const [isOpen,setIsOpen] = useState<boolean>(true)
     return (
-        <div>
+        <Space style={{position:'absolute',width:Config.screenResolution.width, height:Config.screenResolution.height, backgroundImage:`url('${background}')`, justifyContent: 'center'}}>
             <ModalWithInputForm labelInput={"Код подтверждения отправлен на почту"} labelButton={"Проверить"} isOpen={isOpen} onCancel={()=>{}} onSubmit={(value)=>{
                 if(isNaN(parseInt(value))){
                     notification.error({
@@ -37,7 +39,7 @@ const ConfirmEmail: React.FC = () => {
                     }
                 })
             }}/>
-        </div>
+        </Space>
     );
 };
 

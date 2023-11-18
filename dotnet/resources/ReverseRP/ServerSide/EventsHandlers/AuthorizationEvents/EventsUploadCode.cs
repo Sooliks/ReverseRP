@@ -12,8 +12,8 @@ namespace ServerSide.EventsHandlers.Authorization;
 
 public class EventsUploadCode : Script
 {
-    [RemoteProc("RPC::CEF::SERVER:CONFIRM_ACCOUNT_EMAIL", async: true)]
-    public async Task<string> OnUploadConfirmationCodeAccount(Player player, string verificationCode)
+    [RemoteProc("RPC::CEF::SERVER:CONFIRM_ACCOUNT_EMAIL")]
+    public string OnUploadConfirmationCodeAccount(Player player, string verificationCode)
     {
         var account = player.GetAccount();
         var confirmationCode =
@@ -31,11 +31,12 @@ public class EventsUploadCode : Script
                     MoneyBank = c.MoneyBank
                 }).ToList();
                 player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",newList);
-                await GeneralHandler.RemoveAsync(confirmationCode);
+                //TODO пофиксить ремув кода
+                GeneralHandler.Remove(confirmationCode);
                 return "success";
             }
             AccountsHandler.AddConfirmationCodeAsync(account, ConfirmationCodeType.ConfirmEmail);
-            await GeneralHandler.RemoveAsync(confirmationCode);
+            GeneralHandler.Remove(confirmationCode);
             return "expired";
         }
         return "notfound";
