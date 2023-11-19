@@ -9,11 +9,6 @@ namespace ServerSide.Database.Models;
 
 public abstract class ModelWithInventory<T>: BaseModel where T: ModelWithInventory<T>
 {
-    //public int Id { get; set; }
-    /*private T GetEntity 
-    {
-        get { return (T)this; }
-    }*/
     [NotMapped]
     public List<ItemBase> Inventory
     {

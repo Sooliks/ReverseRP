@@ -24,7 +24,7 @@ public class EventsUseItem : Script
             player.UpdateInventoryCef();
         }
     }
-    [RemoteEvent("CEF::SERVER:DROP_ITEM")]
+    [RemoteEvent("CEF::SERVER:DROP_ITEM_PLAYER")]
     public void OnDropItem(Player player, int idItem, int count)
     {
         if (player.IsInVehicle)
