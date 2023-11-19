@@ -1,14 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Newtonsoft.Json;
 
 namespace ServerSide.Database.Models;
 
-public abstract class ModelWithInventory<T>
+public abstract class ModelWithInventory<T> where T: ModelWithInventory<T>
 {
-    [NotMapped]
-    private T Entity { get; set; }
+    public int Id { get; set; }
+    private T GetEntity 
+    {
+        get { return (T)this; }
+    }
     [NotMapped]
     public List<ItemBase> Inventory
     {
@@ -24,34 +28,46 @@ public abstract class ModelWithInventory<T>
     public string InventoryJson { get; set; }
     public void AddItem(ItemType itemType, int count)
     {
-        using Context db = new Context();
+        var newInventory = Inventory;
         var searchedItem = this.Inventory.FirstOrDefault(i => i.ItemType.IdItem == itemType.IdItem);
+        var index = this.Inventory.FindIndex(i=>i.ItemType.IdItem == itemType.IdItem);
         if (searchedItem!=null)
         {
             searchedItem.Count += count;
-            db.Update(Entity);
-            db.SaveChanges();
+            newInventory[index] = searchedItem;
+            Inventory = newInventory;
+            Update();
             return;
         }
-        this.Inventory.Add(new ItemBase(count, itemType));
-        db.Update(Entity);
-        db.SaveChanges();
+        newInventory.Add(new ItemBase(count, itemType));
+        Inventory = newInventory;
+        Update();
     }
     public void RemoveItem(ItemBase item, int count)
     {
-        using Context db = new Context();
+        var newInventory = Inventory;
         var searchedItem = this.Inventory.FirstOrDefault(i => i.ItemType.IdItem == item.ItemType.IdItem);
+        var index = this.Inventory.FindIndex(i=>i.ItemType.IdItem == item.ItemType.IdItem);
         if(searchedItem==null)return;
         if ((searchedItem.Count - count) < 1)
         {
-            this.Inventory.Remove(searchedItem);
-            db.Update(Entity);
-            db.SaveChanges();
+            newInventory.Remove(searchedItem);
+            Inventory = newInventory;
+            Update();
             return;
         }
         searchedItem.Count -= count;
-        db.Update(Entity);
+        newInventory[index] = searchedItem;
+        Inventory = newInventory;
+        Update();
+    }
+
+    private void Update()
+    {
+        using Context db = new Context();
+        var entity = db.Find<T>(Id);
+        entity.Inventory = Inventory;
+        db.Update(entity);
         db.SaveChanges();
     }
-    
 }

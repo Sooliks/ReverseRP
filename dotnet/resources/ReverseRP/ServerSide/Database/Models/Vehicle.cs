@@ -6,7 +6,6 @@ namespace ServerSide.Database.Models;
 
 public class Vehicle : ModelWithInventory<Vehicle>
 {
-    public int Id { get; set; }
     public VehicleType VehicleType { get; set; }
     public float FuelTank { get; set; }
     public float Mileage { get; set; }

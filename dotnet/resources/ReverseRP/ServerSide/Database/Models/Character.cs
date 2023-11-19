@@ -10,7 +10,6 @@ namespace ServerSide.Database.Models;
 
 public class Character : ModelWithInventory<Character>
 {
-    public int Id { get; set; }
     public Account? Account { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }

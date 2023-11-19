@@ -19,7 +19,8 @@ public class EventsUseItem : Script
         if (item.ItemType is Food food)
         {
             food.Use(player);
-            player.GetCharacter().RemoveItem(item, 1);
+            var character = player.GetCharacter();
+            character.RemoveItem(item, 1);
             player.UpdateInventoryCef();
         }
     }
