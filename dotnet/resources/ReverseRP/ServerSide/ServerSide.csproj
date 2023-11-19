@@ -27,4 +27,8 @@
       <PackageReference Include="NLog" Version="5.2.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Database\Models\Interfaces\" />
+    </ItemGroup>
+
 </Project>

@@ -5979,3 +5979,490 @@ Server started!
 [Discord Bot]-> 16:26:58 Gateway     Connecting
 [Discord Bot]-> 16:27:00 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
 [Discord Bot]-> 16:27:00 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 19.11.2023 16:32:24
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsUploadCode..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 24 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 13 remote procedure(s)
+Server started!
+[Discord Bot]-> 16:32:24 Gateway     Connecting
+Database success connected!
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 16:32:25 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:32:25 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:32:25 Gateway     Connected
+[Discord Bot]-> 16:32:26 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: The instance of entity type 'ItemType' cannot be tracked because another instance with the key value '{Id: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.ThrowIdentityConflict(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(TKey key, InternalEntityEntry entry, bool updateDuplicate)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(TKey key, InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(InternalEntityEntry entry)
+   at InternalEntityEntry Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, bool acceptChanges, bool modifyProperties)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, bool acceptChanges, bool modifyProperties, EntityState? forceStateWhenUnknownKey)
+   at bool Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode<(EntityState TargetState, EntityState StoreGenTargetState, bool Force)> node)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph<TState>(EntityEntryGraphNode<TState> node, Func<EntityEntryGraphNode<TState>, bool> handleNode)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph<TState>(EntityEntryGraphNode<TState> node, Func<EntityEntryGraphNode<TState>, bool> handleNode)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, bool forceStateWhenUnknownKey)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable<object> added, IEnumerable<object> removed)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable<object> added, IEnumerable<object> removed)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectNavigationChange(InternalEntityEntry entry, INavigationBase navigationBase)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.LocalDetectChanges(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(IStateManager stateManager)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges()
+   at void Microsoft.EntityFrameworkCore.DbContext.TryDetectChanges()
+   at int Microsoft.EntityFrameworkCore.DbContext.SaveChanges(bool acceptAllChangesOnSuccess)
+   at int Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at bool ServerSide.Database.Handlers.CharacterHandler.MinusMoney(Character character, int countMoney) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/CharacterHandler.cs:line 78
+   at bool ServerSide.Services.PlayerService.PlayerMoneyService.MinusMoney(Player player, int countMoney) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Services/PlayerService/PlayerMoneyService.cs:line 14
+   at bool ServerSide.Extensions.PlayerCharacterExtensions.MinusMoney(Player player, int countMoney) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Extensions/PlayerExtensions/PlayerCharacterExtensions.cs:line 8
+   at void ServerSide.EventsHandlers.EventsBuy.EventsShopping.OnBuyItem(Player player, int businessId, int idItem) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/EventsBuy/EventsShopping.cs:line 33
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: The instance of entity type 'ItemType' cannot be tracked because another instance with the key value '{Id: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.ThrowIdentityConflict(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(TKey key, InternalEntityEntry entry, bool updateDuplicate)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(TKey key, InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap<TKey>.Add(InternalEntityEntry entry)
+   at InternalEntityEntry Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, bool acceptChanges, bool modifyProperties)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, bool acceptChanges, bool modifyProperties, EntityState? forceStateWhenUnknownKey)
+   at bool Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode<(EntityState TargetState, EntityState StoreGenTargetState, bool Force)> node)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph<TState>(EntityEntryGraphNode<TState> node, Func<EntityEntryGraphNode<TState>, bool> handleNode)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph<TState>(EntityEntryGraphNode<TState> node, Func<EntityEntryGraphNode<TState>, bool> handleNode)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, bool forceStateWhenUnknownKey)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable<object> added, IEnumerable<object> removed)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable<object> added, IEnumerable<object> removed)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectNavigationChange(InternalEntityEntry entry, INavigationBase navigationBase)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.LocalDetectChanges(InternalEntityEntry entry)
+   at void Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 19.11.2023 16:44:35
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsUploadCode..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 24 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 13 remote procedure(s)
+Server started!
+[Discord Bot]-> 16:44:36 Gateway     Connecting
+Database is unavailable!
+[Discord Bot]-> 16:44:37 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:44:37 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:44:37 Gateway     Connected
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 16:44:38 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void MySql.Data.MySqlClient.MySqlConnection.Open()
+   at void Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(bool errorsExpected)
+   at void Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(bool errorsExpected)
+   at bool Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(bool errorsExpected)
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.InitializeReader(DbContext _, bool result)
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.MoveNext()
+   at TSource System.Linq.Enumerable.SingleOrDefault<TSource>(IEnumerable<TSource> source)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute<TResult>(Expression query)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute<TResult>(Expression expression)
+   at TSource System.Linq.Queryable.FirstOrDefault<TSource>(IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
+   at BusinessBase ServerSide.Database.Handlers.BusinessesHandlers.BusinessHandler.GetBusinessById(int idBusiness) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/BusinessesHandlers/BusinessHandler.cs:line 27
+   at void ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness.OnOpenBusinessWindow(Player player, int businessId) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/BusinessesEvents/EventsActionPlayerWithBusiness.cs:line 17
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void MySql.Data.MySqlClient.MySqlConnection.Open()
+   at void Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(bool errorsExpected)
+   at void Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(bool errorsExpected)
+   at bool Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(bool errorsExpected)
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.InitializeReader(DbContext _, bool result)
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.MoveNext()
+   at TSource System.Linq.Enumerable.SingleOrDefault<TSource>(IEnumerable<TSource> source)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute<TResult>(Expression query)
+   at TResult Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute<TResult>(Expression expression)
+   at TSource System.Linq.Queryable.FirstOrDefault<TSource>(IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate)
+   at BusinessBase ServerSide.Database.Handlers.BusinessesHandlers.BusinessHandler.GetBusinessById(int idBusiness) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/Database/Handlers/BusinessesHandlers/BusinessHandler.cs:line 27
+   at string ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo.OnGetProductsBusiness(Player player, int businessId) in X:/ReverseRP/dotnet/resources/ReverseRP/ServerSide/EventsHandlers/BusinessesEvents/EventsGetBusinessInfo.cs:line 45
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.RemoteProcParser.Parse(Player sender, ulong eventNameHash, out object ret, params object[] args)
+   at void GTANetworkInternals.RemoteProcHandler.Parse(Player player, ulong eventNameHash, uint callIdx, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(strinInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 19.11.2023 16:44:50
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsUploadCode..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 24 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 13 remote procedure(s)
+Server started!
+[Discord Bot]-> 16:44:50 Gateway     Connecting
+Database is unavailable!
+[Discord Bot]-> 16:44:52 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:44:52 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:44:52 Gateway     Connected
+-> Resource ReverseRP started!
+Started! Waiting for connections..
+[Discord Bot]-> 16:44:52 Gateway     Ready
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'root' using method 'mysql_native_password' failed with message: Unknown database 'reverserp'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown database 'reverserp'
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.NativeDriver.ReadPacketAsync(bool execAsync)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(MySqlException ex)
+   at async Task<MySqlPacket> MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacketAsync(bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ContinueAuthenticationAsync(bool execAsync, byte[] data)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.HandleAuthChangeAsync(MySqlPacket packet, bool execAsync)
+   at async Task MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticateAsync(bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.AuthenticateAsync(string authMethod, bool reset, bool execAsync)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.NativeDriver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.Driver.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.Driver.CreateAsync(MySqlConnectionStringBuilder settings, bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetPooledConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.TryToGetDriverAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task<Driver> MySql.Data.MySqlClient.MySqlPool.GetConnectionAsync(bool execAsync, CancellationToken cancellationToken)
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(bool execAsync, CancellationToken cancellationToken)
+   at void MySql.Data.MySqlClient.MySqlConnection.Open()
+   at void Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(bool errorsExpected)
+   at void Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(bool errorsExpected)
+   at bool Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(bool errorsExpected)
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.InitializeReader(DbContext _, bool result)
+   at TResult MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.MoveNext()
+   at new System.Collections.Generic.List<T>(IEnumerable<T> collection)
+   at List<TSource> System.Linq.EInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 19.11.2023 16:45:09
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsUploadCode..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 24 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 13 remote procedure(s)
+Server started!
+[Discord Bot]-> 16:45:09 Gateway     Connecting
+[Discord Bot]-> 16:45:11 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 16:45:11 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 19.11.2023 18:02:01
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting ReverseRP resource..
+ReverseRP: loading scripts.. found 1 script(s)
+ReverseRP: instantiating ServerSide.Main..
+ReverseRP: instantiating ServerSide.Services.CefService..
+ReverseRP: instantiating ServerSide.Services.MapService.InputMarker..
+ReverseRP: instantiating ServerSide.Services.InventoryService.ItemService..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsCreateCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsGetInfoCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsSelectCharacter..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsInfoVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.VehicleEvents.EventsManagementVehicle..
+ReverseRP: instantiating ServerSide.EventsHandlers.PlayerEvents.AdminEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsInventory..
+ReverseRP: instantiating ServerSide.EventsHandlers.Inventory.EventsUseItem..
+ReverseRP: instantiating ServerSide.EventsHandlers.GeneralDataEvents.GeneralDataEvents..
+ReverseRP: instantiating ServerSide.EventsHandlers.EventsBuy.EventsShopping..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsActionPlayerWithBusiness..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsBuyBusinesses..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsCarDealerShip..
+ReverseRP: instantiating ServerSide.EventsHandlers.BusinessesEvents.EventsGetBusinessInfo..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsLogin..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsRegistration..
+ReverseRP: instantiating ServerSide.EventsHandlers.Authorization.EventsUploadCode..
+ReverseRP: instantiating ServerSide.EventsHandlers.AdminEvents.EventsDefault..
+ReverseRP: instantiating ServerSide.Commands.AdminCommands..
+ReverseRP: loading server events.. found 4 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loading server events.. found 2 server event(s)
+ReverseRP: loaded 8 server events(s)
+ReverseRP: loading commands.. found 3 command(s)
+ReverseRP: loaded 3 commands(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 2 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 4 remote event(s)
+ReverseRP: loading remote events.. found 3 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loading remote events.. found 1 remote event(s)
+ReverseRP: loaded 24 remote event(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 2 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loading remote procedures.. found 4 remote procedure(s)
+ReverseRP: loading remote procedures.. found 1 remote procedure(s)
+ReverseRP: loaded 13 remote procedure(s)
+Server started!
+[Discord Bot]-> 18:02:01 Gateway     Connecting
+[Discord Bot]-> 18:02:03 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+[Discord Bot]-> 18:02:03 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.

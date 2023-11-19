@@ -9,7 +9,6 @@ public class CharacterConfiguration : IEntityTypeConfiguration<Character>
     public void Configure(EntityTypeBuilder<Character> builder)
     {
         builder.HasKey(a => a.Id);
-        builder.HasMany(a => a.Inventory);
         builder.HasOne<Account>(a => a.Account);
     }
 }

@@ -32,6 +32,8 @@ public class EventsUseItem : Script
             player.SendNotify(NotifyType.Warning, "Вы не можете это сделать находясь в машине!");
             return;
         }
+        if(count == 0)return;
+        
         var inventory = player.GetInventory();
         var item = inventory.FirstOrDefault(i => i.ItemType.IdItem == idItem);
         if (item != null)

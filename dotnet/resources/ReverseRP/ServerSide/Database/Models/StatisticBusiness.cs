@@ -1,11 +1,11 @@
 ﻿using System;
 using ServerSide.Data;
+using ServerSide.Database.Models.Interfaces;
 
 namespace ServerSide.Database.Models;
 
-public class StatisticBusiness
+public class StatisticBusiness : BaseModel
 {
-    public int Id { get; set; }
     public BusinessBase? BusinessBase { get; set; }
     public DateTime DateTime { get; set; }
     public int CountVisitors { get; set; }

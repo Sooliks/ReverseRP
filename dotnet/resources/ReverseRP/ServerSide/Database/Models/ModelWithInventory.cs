@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Newtonsoft.Json;
+using ServerSide.Database.Models.Interfaces;
 
 namespace ServerSide.Database.Models;
 
-public abstract class ModelWithInventory<T> where T: ModelWithInventory<T>
+public abstract class ModelWithInventory<T>: BaseModel where T: ModelWithInventory<T>
 {
-    public int Id { get; set; }
-    private T GetEntity 
+    //public int Id { get; set; }
+    /*private T GetEntity 
     {
         get { return (T)this; }
-    }
+    }*/
     [NotMapped]
     public List<ItemBase> Inventory
     {
@@ -49,9 +50,9 @@ public abstract class ModelWithInventory<T> where T: ModelWithInventory<T>
         var searchedItem = this.Inventory.FirstOrDefault(i => i.ItemType.IdItem == item.ItemType.IdItem);
         var index = this.Inventory.FindIndex(i=>i.ItemType.IdItem == item.ItemType.IdItem);
         if(searchedItem==null)return;
-        if ((searchedItem.Count - count) < 1)
+        if ((searchedItem.Count - count) <= 0)
         {
-            newInventory.Remove(searchedItem);
+            newInventory.RemoveAt(index);
             Inventory = newInventory;
             Update();
             return;
@@ -61,7 +62,6 @@ public abstract class ModelWithInventory<T> where T: ModelWithInventory<T>
         Inventory = newInventory;
         Update();
     }
-
     private void Update()
     {
         using Context db = new Context();
