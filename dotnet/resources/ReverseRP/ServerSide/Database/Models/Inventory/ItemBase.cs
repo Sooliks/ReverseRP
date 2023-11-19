@@ -11,7 +11,6 @@ public class ItemBase
     public int Id { get; set; }
     public int Count { get; set; }
     public ItemType ItemType { get; set; }
-    public Character? Character { get; set; } = new Character();
     public ItemBase(int count, ItemType item)
     {
         Count = count;
@@ -29,7 +28,9 @@ public class ItemBase
         {
             return;
         }
-        InventoryHandler.RemoveItem(player.GetCharacter(), this, count);
+
+        var character = player.GetCharacter();
+        character.RemoveItem(this, count);
         var newItemBase = this;
         newItemBase.Count = count;
         ItemService.SpawnItem(newItemBase, player.Position, player.Dimension, count);

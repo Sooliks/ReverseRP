@@ -17,7 +17,6 @@ public class Context : DbContext
 {
     public DbSet<Account> Account { get; set; }
     public DbSet<Character> Character { get; set; }
-    public DbSet<ItemBase> ItemBase { get; set; }
     public DbSet<ItemType> ItemsTypes { get; set; }
     public DbSet<BusinessBase> BusinessesBase { get; set; }
     public DbSet<Vehicle> Vehicles { get; set; }
@@ -64,7 +63,6 @@ public class Context : DbContext
     {
         modelBuilder.ApplyConfiguration(new AccountConfiguration());
         modelBuilder.ApplyConfiguration(new CharacterConfiguration());
-        modelBuilder.ApplyConfiguration(new ItemBaseConfiguration());
         modelBuilder.ApplyConfiguration(new ItemTypeConfiguration());
         modelBuilder.ApplyConfiguration(new BusinessesConfiguration());
         modelBuilder.ApplyConfiguration(new StatisticBusinessConfiguration());
