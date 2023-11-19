@@ -32,7 +32,7 @@ public class EventsShopping : Script
             }
             if (player.MinusMoney(item.Price))
             {
-                player.AddItem(ItemTypeHandler.GetItemByIdItem(idItem));
+                player.GetCharacter().AddItem(ItemTypeHandler.GetItemByIdItem(idItem));
                 if (business.OwnerCharacterId != 0)
                 {
                     BusinessHandler.RemoveItem(item, business);

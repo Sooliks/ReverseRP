@@ -22,7 +22,7 @@ public abstract class ModelWithInventory<T>: BaseModel where T: ModelWithInvento
         }
     }
     public string InventoryJson { get; set; }
-    public void AddItem(ItemType itemType, int count)
+    public void AddItem(ItemType itemType, int count = 1)
     {
         var newInventory = Inventory;
         var searchedItem = this.Inventory.FirstOrDefault(i => i.ItemType.IdItem == itemType.IdItem);

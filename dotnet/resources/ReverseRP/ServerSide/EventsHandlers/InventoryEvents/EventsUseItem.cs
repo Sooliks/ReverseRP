@@ -52,7 +52,7 @@ public class EventsUseItem : Script
         if (itemBase != null)
         {
             ItemService.DestroyItem(itemBase);
-            player.AddItem(itemBase.ItemType, itemBase.Count);
+            player.GetCharacter().AddItem(itemBase.ItemType, itemBase.Count);
             player.PlayAnimation("pickup_object", "pickup_low", 15);
             NAPI.Task.Run(() =>
             {

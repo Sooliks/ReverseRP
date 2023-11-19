@@ -33,11 +33,6 @@ public static class PlayerExtensionsData
     }
     public static List<ItemBase> GetInventory(this Player player) => player.GetCharacter().Inventory;
     public static bool IsHaveAdminRank(this Player player, AdminLevels adminLevels) => AdminManager.IsPlayerHaveAdminRank(player, adminLevels);
-
-    public static void AddItem(this Player player, ItemType itemType, int count = 1)
-    {
-        player.GetCharacter().AddItem(itemType, count);
-    } 
     public static void UpdateInventoryCef(this Player player)
     {
         var inventory = player.GetInventory().Select(i => new
@@ -58,12 +53,10 @@ public static class PlayerExtensionsData
 
         return false;
     }
-
     public static void SetAuthorized(this Player player, bool isAuthorized)
     {
         player.SetData("authorized", isAuthorized);
     }
-
     public static void SetPlayerIsExitInterior(this Player player, bool toggle)
     {
         player.SetData("exitinterior", toggle);

@@ -31,7 +31,6 @@ public class EventsUploadCode : Script
                     MoneyBank = c.MoneyBank
                 }).ToList();
                 player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",newList);
-                //TODO пофиксить ремув кода
                 GeneralHandler.Remove(confirmationCode);
                 return "success";
             }

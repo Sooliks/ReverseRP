@@ -24,7 +24,7 @@ const ItemManager: React.FC<ItemManagerProps> = ({item}) => {
         Client.triggerServer("CEF::SERVER:USE_ITEM", item.id)
     }
     const handleClickDrop = () =>{
-        Client.triggerServer("CEF::SERVER:DROP_ITEM", item.id, inputValue)
+        Client.triggerServer("CEF::SERVER:DROP_ITEM_PLAYER", item.id, inputValue)
     }
 
     return (
