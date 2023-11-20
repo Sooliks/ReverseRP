@@ -5,8 +5,9 @@ using ServerSide.Database.Models.Interfaces;
 
 namespace ServerSide.Database.Models;
 
-public class Account : BaseModel
+public class Account : IBaseModel
 {
+    public int Id { get; set; }
     public string Login { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }

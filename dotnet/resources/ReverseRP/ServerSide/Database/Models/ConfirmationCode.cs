@@ -4,8 +4,9 @@ using ServerSide.Enums;
 
 namespace ServerSide.Database.Models;
 
-public class ConfirmationCode : BaseModel
+public class ConfirmationCode : IBaseModel
 {
+    public int Id { get; set; }
     public ConfirmationCodeType ConfirmationCodeType { get; set; }
     public Account? Account { get; set; }
     public string VerificationCode { get; set; }

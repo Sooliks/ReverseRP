@@ -9,10 +9,10 @@ namespace ServerSide.Database.Handlers;
 
 public static class GeneralHandler
 {
-    public static void Remove(BaseModel baseModel)
+    public static void Remove<T>(IBaseModel baseModel) where T : class
     {
         using Context db = new Context();
-        var entity = db.Set<BaseModel>().FirstOrDefault(v=>v.Id == baseModel.Id);
+        var entity = db.Find<T>(baseModel.Id);
         if(entity==null)return;
         db.Remove(entity);
         db.SaveChanges();
@@ -21,6 +21,7 @@ public static class GeneralHandler
     {
         await using Context db = new Context();
         var entity = db.Find<T>(model);
+        if(entity==null)return;
         db.Remove(entity);
         await db.SaveChangesAsync();
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GTANetworkAPI;
 using ServerSide.Database.Handlers;
+using ServerSide.Database.Models;
 using ServerSide.Enums;
 using ServerSide.Extensions;
 using ServerSide.Services;
@@ -31,11 +32,11 @@ public class EventsUploadCode : Script
                     MoneyBank = c.MoneyBank
                 }).ToList();
                 player.TriggerCefEvent("SERVER::CEF::ADD_CHARACTERS_LIST",newList);
-                GeneralHandler.Remove(confirmationCode);
+                GeneralHandler.Remove<ConfirmationCode>(confirmationCode);
                 return "success";
             }
             AccountsHandler.AddConfirmationCodeAsync(account, ConfirmationCodeType.ConfirmEmail);
-            GeneralHandler.Remove(confirmationCode);
+            GeneralHandler.Remove<ConfirmationCode>(confirmationCode);
             return "expired";
         }
         return "notfound";

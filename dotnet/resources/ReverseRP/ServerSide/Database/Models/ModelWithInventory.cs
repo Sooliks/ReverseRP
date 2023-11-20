@@ -7,8 +7,9 @@ using ServerSide.Database.Models.Interfaces;
 
 namespace ServerSide.Database.Models;
 
-public abstract class ModelWithInventory<T>: BaseModel where T: ModelWithInventory<T>
+public abstract class ModelWithInventory<T>: IBaseModel where T: ModelWithInventory<T>
 {
+    public int Id { get; set; }
     [NotMapped]
     public List<ItemBase> Inventory
     {

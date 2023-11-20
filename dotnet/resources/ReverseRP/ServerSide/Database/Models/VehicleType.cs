@@ -3,8 +3,9 @@ using ServerSide.Enums;
 
 namespace ServerSide.Database.Models;
 
-public class VehicleType : BaseModel
+public class VehicleType : IBaseModel
 {
+    public int Id { get; set; }
     public string ModelHash { get; set; }
     public string Mark { get; set; }
     public string Model { get; set; }

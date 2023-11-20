@@ -1,6 +1,6 @@
 ﻿namespace ServerSide.Database.Models.Interfaces;
 
-public abstract class BaseModel
+public interface IBaseModel
 {
     public int Id { get; set; }
 }
