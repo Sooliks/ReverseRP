@@ -8,7 +8,7 @@ using ServerSide.Database.Handlers;
 namespace ServerSide.Database.Models;
 
 
-public class Character : ModelWithInventory<Character>
+public class Character : InventoryModel<Character>
 {
     public Account? Account { get; set; }
     public string FirstName { get; set; }

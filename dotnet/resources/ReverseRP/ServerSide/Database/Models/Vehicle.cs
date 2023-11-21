@@ -4,7 +4,7 @@ using NLog.Config;
 
 namespace ServerSide.Database.Models;
 
-public class Vehicle : ModelWithInventory<Vehicle>
+public class Vehicle : InventoryModel<Vehicle>
 {
     public VehicleType VehicleType { get; set; }
     public float FuelTank { get; set; }
