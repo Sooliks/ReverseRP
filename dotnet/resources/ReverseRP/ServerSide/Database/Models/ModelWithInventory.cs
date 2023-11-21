@@ -23,6 +23,7 @@ public abstract class ModelWithInventory<T>: IBaseModel where T: ModelWithInvent
         }
     }
     public string InventoryJson { get; set; }
+    public abstract int MaxCountItems { get; set; }
     public void AddItem(ItemType itemType, int count = 1)
     {
         var newInventory = Inventory;

@@ -20,7 +20,7 @@ public static class GeneralHandler
     public static async void RemoveAsync<T>(T model) where T : class
     {
         await using Context db = new Context();
-        var entity = db.Find<T>(model);
+        var entity = await db.FindAsync<T>(model);
         if(entity==null)return;
         db.Remove(entity);
         await db.SaveChangesAsync();

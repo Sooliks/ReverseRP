@@ -18,6 +18,7 @@ public class Vehicle : ModelWithInventory<Vehicle>
     }
     public string VehicleRageJson { get; private set; } 
     public string RegisterNumber { get; set; }
+    public override int MaxCountItems { get; set; } = 20;
 
     public Vehicle()
     {

@@ -29,6 +29,8 @@ public class Character : ModelWithInventory<Character>
     public byte CountSatiety { get; set; }
     public List<Vehicle>? Vehicles { get; set; }
     public DateTime DateTimeCreated { get; set; }
+    public override int MaxCountItems { get; set; } = 20;
+
     public Character()
     {
         
